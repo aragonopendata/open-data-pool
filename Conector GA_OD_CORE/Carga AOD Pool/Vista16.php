@@ -1,6 +1,6 @@
 <?php
-	$vista = "16"; 								//La vista que estamos usando
-	$idEsquema = "16 Datos de diputación"; 		    //El nombre el archivo de mapeo
-	$ipServidor = "http://172.27.38.82/api/publicacion.json";   //Es la ip del servidor donde quieres subir los datos.
+	$vista = "16"; 						    //La vista que estamos usando
+	$idEsquema = "16 Datos de diputación"; //El nombre el archivo de mapeo
+	$ipServidor = $argv[1];                //Es la ip del servidor donde quieres subir los datos.
 	include 'comun.php';	
 ?>
