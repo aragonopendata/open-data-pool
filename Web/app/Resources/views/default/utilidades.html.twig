@@ -1,0 +1,338 @@
+{# utilidades.html.twig #}
+{% macro camposeclect2(id, name, clasejs, earray, change) %}
+    <div class="input-group select2-bootstrap-append">   
+       {% if change|length > 0 %}           
+         <select onchange="{{ change }}" tabindex="0" id="{{ id }}" name="{{ name }}" class="form-control ng-pristine ng-valid ng-touched {{ clasejs }}" style="width:90%;">
+       {% else %} 
+         <select  tabindex="0" id="{{ id }}" name="{{ name }}" class="form-control ng-pristine ng-valid ng-touched {{ clasejs }}" style="width:90%;">
+       {% endif %}
+        <option></option>
+            {% for key, value in earray %}
+                    <option value="{{ key }}">{{ value }} </option>
+            {% endfor %}
+        </select>
+        <span class="input-group-addon"><i class="fa fa-fw fa-search"></i></span> 
+    </div> 
+{% endmacro %}
+
+
+{% macro campooculto(id, name, earray) %}
+   {% if earray|length > 0 %} 
+     <input type="hidden" name="{{ name }}" id="{{ id }}" value={{ earray|keys[0] }}>
+   {% else %} 
+     <input type="hidden" name="{{ name }}" id="{{ id }}" value="">
+   {% endif %}
+{% endmacro %}
+
+
+{% macro campoocultovalor(id, name, valor) %}
+    <input type="hidden" name="{{ name }}" id="{{ id }}" value={{ valor }}>
+{% endmacro %}
+
+{% macro navegaoculto(id, name, path) %} 
+     <input type="hidden" name="{{ name }}" id="{{ name }}" value={{ path }}>
+{% endmacro %}
+
+
+{% macro pintatema(id, clase, titulo, subtemas) %}
+  <div class="col bloque bloque-texto {{ clase }}">
+    <div class="wrap">
+      <div class="header-bloque" title='{{titulo}}'>
+        <div class="imagen"></div>
+      </div>
+      <div class="body-bloque" title='{{titulo}}'>
+        <a id="{{ id }}" href="javascript:{}" onclick="enviaTema(this)"><h3 >{{ titulo }}</h3></a>
+        <p> {{ subtemas }} </p>
+      </div>
+    </div>
+  </div>
+{% endmacro %}
+
+
+{% macro pintaentidad(id, clase, titulo, subentidades) %}
+  <div class="col bloque bloque-texto {{ clase }}">
+    <div class="wrap">
+      <div class="header-bloque"  title='{{titulo}}'>
+        <div class="imagen"></div>
+      </div>
+      <div class="body-bloque"  title='{{titulo}}'>
+        <a id="{{ id }}" href="javascript:{}" onclick="enviaEntidad(this)"><h3 >{{ titulo }}</h3></a>
+        <p> {{ subentidades }} </p>
+      </div>
+    </div>
+  </div>
+{% endmacro %}
+
+
+{% macro pintabloque(bloque, subarray, titulo, funcion) %}
+      <div class="col bloque bloque-buscar {{ bloque }}">
+          <div class="wrap">
+              <div class="header-bloque" title='{{titulo}}'>
+                  <div class="imagen"></div>
+              </div>
+              <div class="body-bloque" title='{{titulo}}'>
+                  <div class="wrap-titulo">
+                      <h3>{{ titulo }}</h3>
+                      <span class="material-icons buscar">search</span>
+                  </div>
+                  <div class="contenido-buscar" style="overflow-y: auto; max-height: 250px; margin-bottom: 0;" >
+                      <ul>
+                        {% for key, value in subarray %}
+                            {% if (funcion =="enviaLocalidadSubtema") %}
+                              <li> <a title="{{ value }}" class="subbloquelink" href="javascript:{}" onclick="enviaLocalidadSubtema({{key}})">{{ value }}</a> </li>
+                            {% elseif (funcion =="enviaLocalidadEntidad") %} 
+                              <li> <a title="{{ value }}" class="subbloquelink" href="javascript:{}" onclick="enviaLocalidadEntidad({{key}})">{{ value }}</a> </li>
+                            {% elseif (funcion =="enviaEntidadTema") %} 
+                              <li> <a title="{{ value }}" class="subbloquelink" href="javascript:{}" onclick="enviaEntidadTema({{key}})">{{ value }}</a> </li>
+                            {% elseif (funcion =="enviaEntidadEntidad") %} 
+                              <li> <a title="{{ value }}" class="subbloquelink" href="javascript:{}" onclick="enviaEntidadEntidad({{key}})">{{ value }}</a> </li>
+                            {% endif %}
+                        {% endfor %}
+                      </ul>
+                 </div>
+              </div>
+          </div>
+      </div>
+{% endmacro %}
+
+{% macro pintafiltroSpain( filtroSpain ) %}
+    <ul class="facetedSearch tags" id="panListadoFiltros" style="">
+        {% for key, value in filtroSpain %}
+          <li class="Spain"> {{ value.Nombre }}
+              <a title="eliminar" rel="nofollow" class="remove faceta" id="search_Spain_{{key}}" name="search=Spain" href="{{value.Url}}">eliminar</a>
+          </li>
+        {% endfor %}
+    </ul>
+{% endmacro %}
+
+
+{% macro pintaFaceta(id, boxid ,title, facetaPrincipal) %}
+  <div id="{{ id }}">
+    <div class="box" id="{{ boxid }}" title='{{ title }}'>
+        <span class="faceta-title">{{ title }}</span>
+        <div class="section">
+            <ul class="listadoFacetas">
+                {% for faceta in facetaPrincipal.facetaArray %}
+                    {% if faceta.subFacetas is defined %} 
+                         <li style="display: block;" id="{{ facetaPrincipal.id }}">
+                         <span id="desplegar_{{ facetaPrincipal.id }}" class="material-icons desplegar-faceta">keyboard_arrow_down</span>
+                            {% if title == 'Tipos' or  title == 'Temas' %}                    
+                                    <a rel="nofollow" href="#" class="faceta" name="{{ faceta.name }}" title="{{faceta.title}}">{{faceta.title}} <span>({{ faceta.count }})</span></a>
+                            {% else %}
+                                    <a rel="nofollow" href="{{faceta.href}}" class="faceta" name="{{ faceta.name }}" title="{{faceta.title}}">{{faceta.title}} <span>({{ faceta.count }})</span></a>
+                            {% endif %}
+                        </li>  
+                        <ul style="display: none" id="{{facetaPrincipal.id}}">  
+                            {% for subFaceta in faceta.subFacetas  %}  
+                                    {% for subfaceta in subFaceta.facetaArray %}
+                                        <li>
+                                            <a rel="nofollow" href="{{subfaceta.href}}" class="faceta" name="{{ subfaceta.name }}" title="{{subfaceta.title}}">{{subfaceta.title}} <span>({{ subfaceta.count }})</span></a>
+                                        </li>
+                                    {% endfor %}
+                            
+                            {% endfor %}
+                        </ul>  
+                    {% else %}
+                        <li>
+                            <a rel="nofollow" href="{{faceta.href}}" class="faceta" name="{{ faceta.name }}" title="{{faceta.title}}">{{faceta.title}} <span>({{ faceta.count }})</span></a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+  </div>
+{% endmacro %}
+
+
+{% macro pintaRessource(tipo,fecha,descripcion, url) %}
+  <div class="resource">
+      <div class="wrap">
+          <div class="imagen" title='{{ descripcion }}'>
+              <span></span>
+          </div>
+          <div class="descripcion">
+              <div class="row01">
+                  <span class="tipo">{{ tipo }}</span>
+                  <span class="fecha">{{ fecha }}</span>
+              </div>
+              <div class="row02">
+                  <h2><a href="{{ url }}">{{ descripcion }}</a></h2>
+              </div>
+              <div class="row03" title='Ver más'>
+                  <a href="{{ url }}" class="ver-mas">Ver más</a>
+              </div>
+          </div>
+      </div>
+  </div>
+{% endmacro %}
+
+{% macro pintaVotos(votos) %}
+    <div class="votos" title="valoracion">
+        <span class="value"> valoracion </span>
+        <span class="label">
+            {% if votos == "0" %}
+                <span class="star"></span>  <span class="star"></span>  <span class="star"></span>  <span class="star"></span>  <span class="star"></span>
+            {% endif %}
+            {% if votos == "1" %}
+                <span class="star active"></span>  <span class="star"></span>  <span class="star"></span>  <span class="star"></span>  <span class="star"></span>
+            {% endif %}
+            {% if votos == "2" %}
+                <span class="star active"></span>  <span class="star active"></span>  <span class="star"></span>  <span class="star"></span>  <span class="star"></span>
+            {% endif %}
+            {% if votos == "3" %}
+                <span class="star active"></span>  <span class="star active"></span>  <span class="star active"></span> <span class="star"> </span>  <span class="star"></span>
+            {% endif %}
+            {% if votos == "4" %}
+                <span class="star active"></span>  <span class="stara ctive"></span>  <span class="star active"></span>  <span class="star active"></span>  <span class="star"></span>
+            {% endif %}
+            {% if votos == "5" %}
+                <span class="star active"></span>  <span class="star active"></span>  <span class="star active"></span>  <span class="star active"></span>  <span class="star active"></span>
+            {% endif %}
+        </span>
+    </div>
+{% endmacro %}
+
+
+{% macro pintaListaEnlaces(listaArray) %}
+   {% for lista in listaArray %}
+    <div class="gadget {{ lista.Tipo }}" >
+        <p class="titulo"> {{lista.Titulo}}</p>
+        <ul>
+            {% for enlace in lista.Enlaces %}
+                <li><a  title='{{enlace.Texto}}' href="{{enlace.Url}}"> {{enlace.Texto}} </a></li>
+            {% endfor %}
+        </ul>
+    </div>
+   {% endfor %}
+{% endmacro %}
+
+{% macro pintaListaContextos(listaArray) %}
+   {% for lista in listaArray %}
+        <div class="gadget {{ lista.Tipo }}" title='{{lista.Titulo}}'>
+            <p class="titulo"> {{lista.Titulo}}</p>
+            <ul>
+                {% for enlace in lista.Enlaces %}
+                    <li>
+                    <span class="ico"></span>
+                    <a  title='{{enlace.Texto}}' href="{{enlace.Url}}"> {{enlace.Texto}} </a></li>
+                {% endfor %}
+            </ul>
+            <div class="boton" title='Ver más'>
+                <a  href="{{lista.EnlaceVerMas.Url}}" class="ver-mas">{{lista.EnlaceVerMas.Texto}}</a>
+            </div>
+        </div>      
+   {% endfor %}
+{% endmacro %}
+
+
+
+{% macro pintaListaTablas(tablasArray) %}
+    {% for tablaArray in tablasArray %}
+        <div class="col col-datos">
+            {% for tabla in tablaArray %}
+                <p class="dato dato-titulo">
+                    <strong>{{ tabla.Titulo }}</strong>
+                </p>
+                {% if tabla.Descripcion is defined %}
+                    <p class="dato dato-texto">
+                        {{ tabla.Descripcion }}
+                    </p>
+                {% endif %}
+                <table>      
+                    <thead>
+                        <tr>
+                            {% for columna in tabla.Columnas %}
+                                <th class="{{ columna.ClaseTitulo }}">{{ columna.Titulo }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>   
+                    <tbody>
+                        {% for fila in tabla.Filas %}                       
+                         <tr> 
+                           {% for valor in fila %}  
+                                <td class="{{ valor.ClaseValor }}">{{ valor.Valor }} </td>
+                            {% endfor %}
+                          </tr>
+                         {% endfor %}
+                    </tbody>
+                </table>
+            {% endfor %}
+        </div>
+    {% endfor %}
+{% endmacro %}
+
+{% macro pintaListasTituloValor(CampoValores) %}
+    {% for ListaArray in CampoValores %}
+        <div class="col col-datos">
+            {% if ListaArray.CampoValor.Campos is defined %}
+                {% if ListaArray.CampoValor.Oculto %}
+                    <div class="resto-datos">
+                {% endif %} 
+                {% for campos in ListaArray.CampoValor.Campos %}
+                    <p class="dato">      
+                        <strong class="{{ campos.Campos.Class }}">{{ campos.Campos.Nombre }}</strong>
+                        <span class="{{ campos.Campos.Class }}">{{ campos.Campos.Valor }} </span>
+                    </p>
+                {% endfor %}
+                {% if ListaArray.CampoValor.Oculto %}
+                   </div>
+                   <a title="{{ ListaArray.CampoValor.OcultoTexto}}" href="#" class="enlace mostrar-resto-datos"> {{ ListaArray.CampoValor.OcultoTexto}} </a> 
+                {% endif %} 
+            {% endif %}
+            {% if ListaArray.CampoValor.Pie is defined %}
+                <a href="javascript:{}" onclick="{{ ListaArray.CampoValor.Pie.JavaScript }}" class="enlace">{{ ListaArray.CampoValor.Pie.Texto }}</a> 
+            {% endif %}
+            {% if ListaArray.CampoValor.Texto is defined %}
+                 <p class="dato dato-texto info">{{ ListaArray.CampoValor.Texto.Literal }}</p>
+            {% endif %}
+        </div>
+    {% endfor %}
+{% endmacro %}
+
+{% macro pintaLiteral(texto,donde) %}
+    {% if donde == 'PanelCentral' %}   
+        <div class="col col-descripcion">
+        {% if texto.Tipo == 'HTML' %}  
+        {{ texto.Valor|raw }}
+        {% endif %}
+        {% if texto.Tipo == 'Virtuoso' %}    
+            <p>{{texto.Valor}}</p>
+        {% endif %}
+        </div>
+    {% endif %}
+    {% if donde == 'PanelLateral' %} 
+         <div class="gadget gadget-masinfo" title='TextoLibre'>
+            <p class="titulo"></p>
+            {% if texto.Tipo == 'HTML' %}  
+            {{ texto.Valor|raw }}
+            {% endif %}
+            {% if texto.Tipo == 'Virtuoso' %}    
+                <p>{{texto.Valor}}</p>
+            {% endif %}   
+        </div>    
+    {% endif %} 
+{% endmacro %}
+
+{% macro rutaOrden(url) %}
+   {{ url|replace({ "filtros":"resultados" }) }}
+   {% if 'ord=' not in url %}
+     {{ url ~ "&ord=ASC" }}
+   {% endif %}
+{% endmacro %}
+
+
+
+ 
+
+
+  
+    
+
+
+
+
+
+
+
+

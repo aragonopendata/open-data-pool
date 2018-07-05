@@ -1,0 +1,17 @@
+BodyClass: fichaComunidad fichaLugar
+PanelCentral:
+  #titulo del panel
+  Titulo: http://purl.org/dc/elements/1.1/title
+  Mapa:
+      Tipo: open
+      Marker: markerParda.png
+      Zoom: 7
+      Marcadores:
+          Query: select distinct ?lat ?long ?title  ?secuence where { ?stop <http://www.w3.org/2003/01/geo/wgs84_pos#lat> ?lat. ?stop <http://www.w3.org/2003/01/geo/wgs84_pos#long> ?long. { ?stopTime <http://vocab.gtfs.org/terms#stop> ?stop. ?stopTime <http://vocab.gtfs.org/terms#trip> ?trip. ?trip <http://vocab.gtfs.org/terms#route> ?route. } union { ?route <http://vocab.gtfs.org/terms#destinationStop> ?stop. } union { ?route <http://vocab.gtfs.org/terms#originStop> ?stop. } optional {?stop <http://purl.org/dc/elements/1.1/title> ?title.} filter(?route = <%s>) .}
+          Campo: uri       
+PanelLateral:
+    Texto:
+        Tipo: HTML
+        Query: none
+        Campo: none
+        Html: <h3>Texto Libre</h2><br/><p class='dato'><strong>Dirección</strong><span>Camino de la estación, 27</span></p><p class='dato'><strong>CIF</strong><span>P-2200100-B</span></p>

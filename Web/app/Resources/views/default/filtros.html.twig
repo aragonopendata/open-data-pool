@@ -1,0 +1,179 @@
+{% extends 'base.web.html.twig' %}
+{% import 'default/utilidades.html.twig' as utilidades %}
+
+{% block extra_css %}
+{% endblock extra_css %}
+
+{% block main %}
+
+    {{ utilidades.navegaoculto("path", "path", path('detalles')) }}
+
+    <div class="container" role="main">
+        <div class="breadcrumb">
+            <div class="wrap">
+                <ul>
+                    <li class="seccion">{{ fromType }}</li>
+                    <li class="flecha"><span class="material-icons">keyboard_arrow_right</span></li>
+                    <li class="titulo"> {{ fromTitle }} </li>
+                </ul>
+                {% if numeroResultados>0 %}
+                 <p>Selecciona algún filtro/criterio de la columna de la izquierda para mostrar resultados más relevantes</p>
+                 {% endif %}
+            </div>
+        </div>
+
+        <div class="row-afinar">
+            <div class="row row01">
+                <div class="col col-12 col-lg-4">
+                     <div id="numResultados" >
+                         <span id="numResultadosspan"> <strong> {{numeroResultados}} </strong></span>  resulados
+                    </div>
+                </div>
+                <div class="col col-12 col-lg-8">
+                
+                    <form method="get" id="formCajaBusqueda" action="filtros">
+                        <fieldset style="display: block">
+                            <legend class="nota">facetas</legend>
+                            <div class="finderUtils" id="divCajaBusqueda"  title="Buscar">
+                                <div class="group finderSection">
+                                    <label for="finderSection">Encontrar</label>
+                                    <input type="text" name="busq" id="busq" class="finderSectionText autocompletar ac_input" value ="{{navegacion.CampoBuquedaLibre|keys[0]}}" autocomplete="off" placeholder="Busqueda abierta">
+                                    <span class="material-icons findAction">search</span>
+                                    <input type="hidden" value="https://preadveo.gnoss.com/products" >
+                                    <input type="hidden" value="sioc_t:Tag|foaf:firstName" class="inpt_facetasBusqPag">
+                                    <input type="hidden" class="inpt_parametros">
+                                    {{ utilidades.campooculto("pro", "pro", navegacion.Provincia) }}
+                                    {{ utilidades.campooculto("com", "com", navegacion.Comarca) }}
+                                    {{ utilidades.campooculto("mun", "mun", navegacion.Municipio) }}
+                                    {{ utilidades.campooculto("tem", "tem", navegacion.Tema) }}
+                                    {{ utilidades.campooculto("stem", "stem", navegacion.SubTema) }}
+                                    {{ utilidades.campooculto("ent", "ent", navegacion.Entidad) }}
+                                    {{ utilidades.campooculto("sent", "sent", navegacion.SubEntidad) }}
+                                    {{ utilidades.campooculto("pag", "pag", navegacion.Paginacion) }}
+                                    {{ utilidades.campooculto("ord", "ord", "") }}
+                                    {{ utilidades.campooculto("ordc", "ordc", "") }}
+                                    {{ utilidades.campooculto("from", "from", navegacion.From) }}
+                                    {{ utilidades.campooculto("filt", "filt", navegacion.Filters) }}
+                                </div>  
+                                <div class="group filterSpace">
+                                    <input type="submit" style="display: none;" id="enviarFormCajaBusqueda" value="enviar" title="enviar">
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+            
+                </div>
+            </div>
+            <div class="row02">
+                <div class="etiquetas" id="panFiltros">
+                    {{ utilidades.pintafiltroSpain( filtrosSpain ) }} 
+                    {% if filtrosSpain|length > 0 %}
+                        <a class="borrarFiltros" href="{{ navegacion.UrlBorraFiltros }}">Borrar filtros</a>
+                    {% endif %}
+                </div>	
+            </div>
+        </div>
+        <div class="row row-listado">
+			<div class="col col-lg-4 col01">
+				<div class="row header-facetas">
+                    <div class="col col-toggle-facetas">
+                        <span class="material-icons">close</span>
+                    </div>
+                    <div class="col logo">
+                        <img src="/img/logo-gobierno.png" alt="">
+                    </div>
+                </div>
+                <form method="post" id="formPanFacetas" action="http://prered.gnoss.com/comunidad/nextweb/busqueda">
+                    <fieldset style="display: block">
+                        <legend class="nota">facetas</legend>
+                        <div id="panFacetas">
+                            <div class="facetedSearch" id="facetedSearch">
+                                {% for facetas in facetasArray %}
+                                    {% if facetas|length > 0 %}
+                                        {{ utilidades.pintaFaceta(facetas.id,facetas.boxid,facetas.title, facetas)  }}  
+                                    {% endif %}
+                                {% endfor %} 
+                            </div>
+                        </div>
+                        <input type="submit" style="display: none;" id="enviarFormPanFacetas" value="enviar" title="enviar">
+                    </fieldset>
+                </form>				
+            </div>
+
+			<div class="col col-lg-8 col02">
+              {% if ( resourcesArray |length > 0 ) %}
+				<div class="wrapCol02">
+					<div class="acciones-listado">
+                        {% if navegacion.CampoBuquedaLibre|keys[0]|length >  0 %}
+                            <div class="ordenacion dropdown">
+                                <a class="dropdown-toggle" id="dropdownOrdenacion" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ordenar por nombre</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownOrdenacion" x-placement="bottom-start">
+                                    <a class="dropdown-item" id="ordenacionNombre" title="Ordenar por nombre" href={{utilidades.rutaOrden(app.request.uri)}}>Ordenar por nombre</a>
+                                    <a class="dropdown-item" id="ordenacionRelevancia" title="Ordenar por Relevancia" href={{utilidades.rutaOrden(app.request.uri)}}>Ordenar por relevancia</a> 
+                                    <a class="dropdown-item" id="ordenacionFecha" title="Ordenar por fecha" href={{utilidades.rutaOrden(app.request.uri)}}>Ordenar por fecha</a> 
+                                </div>
+                            </div>
+                        {% endif %}
+	                    <div id="divVista">
+		                    <div class="activado" id="view">
+                                <ul>
+                                    <li class="liFacetas">
+                                        <a href="#vistaListado" class="mostrar-ocultar-facetas" title="Mostrar/ocultar Facetas">
+                                            <span class="material-icons">view_headline</span>
+                                        </a>
+                                    </li>
+                                    <li class="listView activeView" name="listView">
+                                        <a href={{utilidades.rutaOrden(app.request.uri)}} id="ordenaListaMenu"  name="ordenaListaMenu" title="Ordenar Resultados">
+                                            <span class="material-icons">filter_list</span> 
+                                        </a>
+                                    </li>
+                                    <li class="lisGraphic" name="lisGraphic">
+                                        <a href="#" id="verGraficosMenu"  name="verGraficosMenu" title="Mostrar/ocultar estadística resultados ">
+                                            <span class="material-icons">show_chart</span>
+                                        </a>
+                                    </li>
+                                </ul>
+		                    </div>
+	                    </div>
+                    </div>
+                    {{ utilidades.campoocultovalor("lasturl", "lasturl", utilidades.rutaOrden(app.request.uri))}}
+                    {{ utilidades.campooculto("ordajax", "ordajax", "") }}
+                    {{ utilidades.campooculto("ordcajax", "ordcajax", "") }}
+			        <div id="panResultados" name="panResultados" style="display: block">
+	                    <div class="listadoResultados">
+                               <div class="resource-list" id="resource-list" name="resource-list">
+                               {% for resource in resourcesArray %}
+                                    {{ utilidades.pintaRessource(resource.tipo,resource.fecha,resource.descripcion, resource.url) }} 
+                               {% endfor %} 
+		                    </div>
+	                    </div>
+                    </div>	
+                    <div id="panGraficos" name="panGraficos" style="display: none">
+                        {% if ( graficasArray |length > 0 ) %}
+                            {% for grafica in graficasArray %}
+                                <div class="acciones-listado">
+                                    <span class="titulo">{{grafica.titulo}}</span>
+                                </div>
+                                <div class="wrap-grafico" id="{{grafica.id}}"></div>
+                            {% endfor %} 
+                        {% endif %}
+                    </div>
+                </div>						
+                {% endif %}
+			</div>     
+		</div>
+	</div>
+{% endblock main %}
+
+{% block extra_javascript %}
+    <script type="text/javascript" src="{{ asset('js/highcharts.js') }}" ></script>
+    <script type="text/javascript" src="{{ asset('js/treemap.js') }}" ></script>
+    <script type="text/javascript" src="{{ asset('js/aodpool.filtros.js') }}" ></script>
+     <script type="text/javascript">
+        {% if ( resourcesArray |length > 0 ) %}
+            {% for grafica in graficasArray %}
+                Highcharts.chart("{{ grafica.id }}", {{ grafica.script|json_encode|raw }});
+            {% endfor %} 
+       {% endif %}
+    </script>
+{% endblock extra_javascript %}

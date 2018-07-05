@@ -1,0 +1,73 @@
+{% extends 'base.web.html.twig' %}
+{% import 'default/utilidades.html.twig' as utilidades %}
+
+{% block extra_css %}
+{% endblock extra_css %}
+
+{% block main %} 
+        <div class="container" role="main">			
+            <div class="row row-bloques">
+                <div class="col bloque bloque-temas">
+                    <div class="wrap">
+                        <div class="header-bloque" title="Temas">
+                            <div class="imagen">
+                            </div>
+                        </div>
+                        <div class="body-bloque" title="Temas">
+                            <a href="{{path('temas')}}?from=Temas">Temas</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col bloque bloque-lugares">
+                    <div class="wrap">
+                        <div class="header-bloque" title="Lugares">
+                            <div class="imagen"></div>
+                        </div>
+                        <div class="body-bloque" title="Lugares">
+                            <a href="{{path('lugares')}}?from=Lugares">Lugares</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col bloque bloque-entidades">
+                    <div class="wrap">
+                        <div class="header-bloque" title="Entidades">
+                            <div class="imagen"></div>
+                        </div>
+                        <div class="body-bloque" title="Entidades">
+                            <a href="{{path('entidades')}}?from=Entidades">Entidades</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row row-bloques bloques-dobles">
+                <div class="col bloque bloque-simple bloque-doble">
+                    <div class="wrap">
+                        <div class="bloque-interno bloque-izq">
+                            <div class="wrap">
+                                <div class="header-bloque">
+                                    <div class="imagen"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bloque-interno bloque-dch" title="Bloque configurable">
+                            <div class="wrap">
+                                <div class="body-bloque" title="Bloque configurable">
+                                    <p>Bloque configurable</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col bloque bloque-simple">
+                    <div class="wrap">
+                        <div class="body-bloque" title="Desarrolladores">
+                            <a href="https://opendata.aragon.es/herramientas/desarrolladores">Desarrolladores</a>
+                        </div>	
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock main %}

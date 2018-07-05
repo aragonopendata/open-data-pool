@@ -1,0 +1,89 @@
+{% extends 'base.web.html.twig' %}
+{% import 'default/utilidades.html.twig' as utilidades %}
+
+{% block extra_css %}
+    {% if detalle.PanelCentral.Mapa is defined  %}
+        {% if (detalle.PanelCentral.Mapa.Tipo == "open")  %}   
+            <link href="{{ asset('css/ol.css') }}" rel="stylesheet" type="text/css" />
+            <link href="{{ asset('css/mapa-marker.css') }}" rel="stylesheet" type="text/css" />
+        {% endif %}
+   {% endif %}
+{% endblock extra_css %}
+
+{% block main %}
+    <div class="container" role="main">
+        <div class="row row-ficha">
+            <div class="col col-12 col-lg-8 col01">
+                <div class="row row-cabecera-ficha">
+                    <div class="col col-titulo">
+                        <div class="imagen" title='{{tipo}}'></div>
+                        <div class="titulo">
+                            <span class="tipo">{{ tipo }} </span>
+                            <span class="literal">{{ detalle.PanelCentral.Titulo }}</span>  
+                            {% if detalle.PanelCentral.Votos is defined  %}
+                                {{ utilidades.pintaVotos(detalle.PanelCentral.Votos) }}   
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% if detalle.PanelCentral.Mapa is defined %}
+                    <div class="row row-mapa">   
+                        <div class="col">
+                         {% if (detalle.PanelCentral.Mapa.Tipo == "open")  %}     
+                                <div id="map" style="position: relative; overflow: hidden; width='560px' height='625px'; touch-action: none;" class="over" title="Mapa">
+                                    <div id="popup" class="ol-popup">
+                                        <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+                                    <div id="popup-content"></div>
+                                </div>
+                            </div>
+                         {% elseif (detalle.PanelCentral.Mapa.Tipo == "idearagon")  %}
+                              <div class="mascara-iframe" title="Mapa">
+                                <iframe src="{{ detalle.PanelCentral.Mapa.url }}" scrolling="no" width="560" height="625"></iframe>
+                              </div>
+                         {% endif %}
+                         </div>
+                    </div>
+                {% endif %}
+            
+                <div class="row row-contenido">
+                    <h2 class="sr-only">Información</h2>
+                    {% if detalle.PanelCentral.Texto is defined %}
+                        {{ utilidades.pintaLiteral(detalle.PanelCentral.Texto,"PanelCentral") }} 
+                    {% endif %}
+                    {% if detalle.PanelCentral.CampoValores is defined %}
+                        {{ utilidades.pintaListasTituloValor(detalle.PanelCentral.CampoValores) }} 
+                    {% endif %}  
+                    {% if detalle.PanelCentral.Tablas is defined %}
+                        {{ utilidades.pintaListaTablas(detalle.PanelCentral.Tablas)}} 
+                    {% endif %} 
+                </div>			
+            </div>
+        
+            <div class="col col-12 col-lg-4 col02">
+              {% if detalle.PanelLateral.ListaEnlaces is defined %}
+                 {{ utilidades.pintaListaEnlaces(detalle.PanelLateral.ListaEnlaces) }} 
+              {% endif %}	
+              {% if detalle.PanelLateral.ListaContextos is defined %}
+                 {{ utilidades.pintaListaContextos(detalle.PanelLateral.ListaContextos) }} 
+              {% endif %} 
+              {% if detalle.PanelLateral.Texto is defined %}
+                 {{ utilidades.pintaLiteral(detalle.PanelLateral.Texto,"PanelLateral") }} 
+              {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock main%}
+
+{% block extra_javascript %}
+     {% if detalle.PanelCentral.Mapa is defined %}
+        {% if detalle.PanelCentral.Mapa.Tipo == "open" %} 
+            <script type="text/javascript" src="{{ asset('js/polyfill.min.js') }}" ></script>
+            <script type="text/javascript" src="{{ asset('js/ol.js') }}" ></script>
+            <script type="text/javascript" src="{{ asset('js/mapa.marker.js') }}" ></script>
+            <script>   
+                $(document).ready(DameMapa("{{detalle.PanelCentral.Mapa.Marcadores | url_encode }}","{{detalle.PanelCentral.Mapa.Longitud}}","{{detalle.PanelCentral.Mapa.Latitud}}","{{detalle.PanelCentral.Mapa.Marker}}","{{detalle.PanelCentral.Mapa.Zoom}}"));
+            </script>
+        {% endif %}
+    {% endif %}
+{% endblock extra_javascript %}
+

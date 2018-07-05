@@ -1,0 +1,72 @@
+[2018-06-11 15:01:32.918601] [debug] [AodPoolController:getRdfConfiguracionActiones] llamada a Función
+[2018-06-11 15:01:54.487550] [info] [AodPoolController:getRdfConfiguracionAction] llamada a Función
+[2018-06-11 15:03:12.521301] [info] [AodPoolController:postRdfConfiguracionAction] llamada a Función
+[2018-06-11 15:03:12.521356] [debug] [AodPoolController:postRdfConfiguracionAction] Creo un objeto rdf
+[2018-06-11 15:03:12.521419] [debug] [AodPoolController:postRdfConfiguracionAction] Creo el formulario de validación
+[2018-06-11 15:03:12.573986] [debug] [AodPoolController:postRdfConfiguracionAction] Recojo el archivo YML
+[2018-06-11 15:03:12.599159] [info] [AodPoolController:postRdfConfiguracionAction] Archivo yml de configuracion rdfType guardado con éxito en Base de datos
+[2018-06-11 15:03:12.599227] [info] [AodPoolController:postRdfConfiguracionAction] Fin proceso rest
+[2018-06-11 16:23:58.958950] [debug] [AodPoolController:getRdfConfiguracionActiones] llamada a Función
+[2018-06-11 16:24:16.243443] [info] [AodPoolController:getRdfConfiguracionAction] llamada a Función
+[2018-06-11 16:24:34.662558] [info] [AodPoolController:postRdfConfiguracionAction] llamada a Función
+[2018-06-11 16:24:34.662616] [debug] [AodPoolController:postRdfConfiguracionAction] Creo un objeto rdf
+[2018-06-11 16:24:34.662684] [debug] [AodPoolController:postRdfConfiguracionAction] Creo el formulario de validación
+[2018-06-11 16:24:34.707694] [debug] [AodPoolController:postRdfConfiguracionAction] Recojo el archivo YML
+[2018-06-11 16:24:34.726958] [info] [AodPoolController:postRdfConfiguracionAction] Archivo yml de configuracion rdfType guardado con éxito en Base de datos
+[2018-06-11 16:24:34.727026] [info] [AodPoolController:postRdfConfiguracionAction] Fin proceso rest
+[2018-06-11 16:24:40.859575] [debug] [AodPoolController:getRdfConfiguracionActiones] llamada a Función
+[2018-06-11 16:25:40.076442] [info] [AodPoolController:getRdfConfiguracionAction] llamada a Función
+[2018-06-11 16:26:00.930344] [info] [AodPoolController:postRdfConfiguracionAction] llamada a Función
+[2018-06-11 16:26:00.930433] [debug] [AodPoolController:postRdfConfiguracionAction] Creo un objeto rdf
+[2018-06-11 16:26:00.930547] [debug] [AodPoolController:postRdfConfiguracionAction] Creo el formulario de validación
+[2018-06-11 16:26:00.969669] [debug] [AodPoolController:postRdfConfiguracionAction] Recojo el archivo YML
+[2018-06-11 16:27:52.299230] [debug] [AodPoolController:getRdfConfiguracionActiones] llamada a Función
+[2018-06-11 16:27:59.009525] [info] [AodPoolController:postRdfConfiguracionAction] llamada a Función
+[2018-06-11 16:27:59.009591] [debug] [AodPoolController:postRdfConfiguracionAction] Creo un objeto rdf
+[2018-06-11 16:27:59.009859] [debug] [AodPoolController:postRdfConfiguracionAction] Creo el formulario de validación
+[2018-06-11 16:27:59.056039] [debug] [AodPoolController:postRdfConfiguracionAction] Recojo el archivo YML
+[2018-06-11 16:27:59.081551] [info] [AodPoolController:postRdfConfiguracionAction] Archivo yml de configuracion rdfType guardado con éxito en Base de datos
+[2018-06-11 16:27:59.081664] [info] [AodPoolController:postRdfConfiguracionAction] Fin proceso rest
+[2018-06-11 16:28:00.972867] [debug] [AodPoolController:getRdfConfiguracionActiones] llamada a Función
+[2018-06-11 16:52:14.065984] [debug] [AodPoolController:getRdfConfiguracionActiones] llamada a Función
+[2018-06-11 16:52:29.321686] [info] [AodPoolController:getRdfConfiguracionAction] llamada a Función
+[2018-06-11 16:52:56.605786] [info] [AodPoolController:postRdfConfiguracionAction] llamada a Función
+[2018-06-11 16:52:56.605839] [debug] [AodPoolController:postRdfConfiguracionAction] Creo un objeto rdf
+[2018-06-11 16:52:56.605904] [debug] [AodPoolController:postRdfConfiguracionAction] Creo el formulario de validación
+[2018-06-11 16:52:56.659545] [debug] [AodPoolController:postRdfConfiguracionAction] Recojo el archivo YML
+[2018-06-11 16:52:56.684199] [info] [AodPoolController:postRdfConfiguracionAction] Archivo yml de configuracion rdfType guardado con éxito en Base de datos
+[2018-06-11 16:52:56.684250] [info] [AodPoolController:postRdfConfiguracionAction] Fin proceso rest
+[2018-06-11 17:02:10.972556] [info] [AodPoolController:postRdfConfiguracionAction] llamada a Función
+[2018-06-11 17:02:10.972620] [debug] [AodPoolController:postRdfConfiguracionAction] Creo un objeto rdf
+[2018-06-11 17:02:10.972690] [debug] [AodPoolController:postRdfConfiguracionAction] Creo el formulario de validación
+[2018-06-11 17:02:10.976696] [info] [AodPoolController:postRdfConfiguracionAction] Fin proceso rest
+[2018-06-11 17:02:26.514260] [debug] [AodPoolController:getRdfConfiguracionActiones] llamada a Función
+[2018-06-11 17:08:54.819282] [debug] [AodPoolController:getRdfConfiguracionActiones] llamada a Función
+[2018-06-11 17:15:37.061120] [debug] [AodPoolController:getRdfConfiguracionActiones] llamada a Función
+[2018-06-11 17:19:19.275382] [info] [AodPoolController:getRdfConfiguracionAction] llamada a Función
+[2018-06-11 17:20:06.631938] [debug] [AodPoolController:getRdfConfiguracionActiones] llamada a Función
+[2018-06-11 17:23:28.949286] [debug] [AodPoolController:getRdfConfiguracionActiones] llamada a Función
+[2018-06-11 17:24:37.800543] [info] [AodPoolController:getRdfConfiguracionAction] llamada a Función
+[2018-06-11 17:24:51.623177] [info] [AodPoolController:getRdfConfiguracionAction] llamada a Función
+[2018-06-11 17:27:56.179673] [debug] [AodPoolController:getRdfConfiguracionActiones] llamada a Función
+[2018-06-11 17:50:44.444010] [info] [AodPoolController:postRdfConfiguracionAction] llamada a Función
+[2018-06-11 17:50:44.444062] [debug] [AodPoolController:postRdfConfiguracionAction] Creo un objeto rdf
+[2018-06-11 17:50:44.444118] [debug] [AodPoolController:postRdfConfiguracionAction] Creo el formulario de validación
+[2018-06-11 17:50:44.485071] [debug] [AodPoolController:postRdfConfiguracionAction] Recojo el archivo YML
+[2018-06-11 17:50:44.508703] [info] [AodPoolController:postRdfConfiguracionAction] Archivo yml de configuracion rdfType guardado con éxito en Base de datos
+[2018-06-11 17:50:44.508773] [info] [AodPoolController:postRdfConfiguracionAction] Fin proceso rest
+[2018-06-11 17:51:51.755402] [info] [AodPoolController:postRdfConfiguracionAction] llamada a Función
+[2018-06-11 17:51:51.755475] [debug] [AodPoolController:postRdfConfiguracionAction] Creo un objeto rdf
+[2018-06-11 17:51:51.755538] [debug] [AodPoolController:postRdfConfiguracionAction] Creo el formulario de validación
+[2018-06-11 17:51:51.776967] [debug] [AodPoolController:postRdfConfiguracionAction] Recojo el archivo YML
+[2018-06-11 17:51:51.798554] [info] [AodPoolController:postRdfConfiguracionAction] Archivo yml de configuracion rdfType guardado con éxito en Base de datos
+[2018-06-11 17:51:51.798609] [info] [AodPoolController:postRdfConfiguracionAction] Fin proceso rest
+[2018-06-11 17:52:14.828248] [info] [AodPoolController:getRdfConfiguracionAction] llamada a Función
+[2018-06-11 17:52:29.271528] [debug] [AodPoolController:getRdfConfiguracionActiones] llamada a Función
+[2018-06-11 17:52:43.598464] [info] [AodPoolController:getRdfConfiguracionAction] llamada a Función
+[2018-06-11 17:52:46.213365] [info] [AodPoolController:getRdfConfiguracionAction] llamada a Función
+[2018-06-11 17:54:42.556791] [info] [AodPoolController:getRdfConfiguracionAction] llamada a Función
+[2018-06-11 17:55:15.483118] [info] [AodPoolController:getRdfConfiguracionAction] llamada a Función
+[2018-06-11 17:55:19.844592] [info] [AodPoolController:getRdfConfiguracionAction] llamada a Función
+[2018-06-11 17:56:19.689426] [info] [AodPoolController:getRdfConfiguracionAction] llamada a Función
+[2018-06-11 17:56:49.348433] [debug] [AodPoolController:getRdfConfiguracionActiones] llamada a Función

@@ -1,0 +1,144 @@
+BodyClass: fichaComunidad fichaLugar
+PanelCentral:
+  #titulo del panel
+  Titulo: http://opendata.aragon.es/def/ei2a#organizationName
+  Mapa:
+    Tipo: idearagon
+    Valor: http://idearagon.aragon.es/visor/index.html?ACTIVELAYER=Localidad&amp;QUERY=c_muni_ine=%s&amp;HERRAMIENTAS=NO
+    Campo: http://purl.org/dc/elements/1.1/identifier
+    Marcadores: [Campo donde estan los marcadores]
+    Latitud:
+    Logitud:
+  Texto: 
+    Tipo: Virtuoso
+    Query: 
+    Campo:  
+    Html: campo
+  CampoValores:
+    CampoValor1:
+      Tipo: Virtuoso
+      Oculto: False
+      Query: PREFIX ei2a:<http://opendata.aragon.es/def/ei2a#> PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>  PREFIX org:<http://www.w3.org/ns/org#> PREFIX foaf:<http://xmlns.com/foaf/0.1/> PREFIX vcard:<http://www.w3.org/2006/vcard/ns#> select ?cif ?telefono ?email ?fax ?direccion ?nombreComarca ?nombreAlcalde ?nombreDiputacion ?nombreProvincia where { <%s> ei2a:CIF ?cif . optional {<%s> ei2a:phone ?telefono .} optional {<%s> foaf:mbox ?email .} optional {<%s> org:hasSite ?site . ?site org:siteAddress ?siteAddress . ?siteAddress vcard:Fax ?fax . ?siteAddress vcard:hasAddress ?address . ?address vcard:street-address ?direccion . } optional {<%s> org:subOrganizationOf ?comarca . ?comarca ei2a:publicEntityType ei2a:Comarca . ?comarca ei2a:organizationName ?nombreComarca .} optional {?membership org:organization <%s> . ?membership org:member ?member. ?membership org:role ?role . ?member foaf:name ?nombreAlcalde . ?role <http://opendata.aragon.es/def/ei2ia#roleName> 'A' .} optional {<%s> org:subOrganizationOf ?diputacion . ?diputacion ei2a:publicEntityType ei2a:DiputaciónProvincialForal . ?diputacion foaf:organizationName ?nombreDiputacion .} optional {<%s> org:subOrganizationOf ?provincia . ?provincia rdf:type <http://dbpedia.org/ontology/Province> . ?provincia <http://www.w3.org/2000/01/rdf-schema#label> ?nombreProvincia .}}
+      Campo: uri
+      Campos:
+        Campo1:
+          Nombre: Dirección
+          Valor: direccion
+        Campo2:
+          Nombre: CIF
+          Valor: cif
+        Campo3:
+          Nombre: Comarca
+          Valor: nombreComarca
+        Campo4:
+          Nombre: Telefono
+          Valor: telefono
+        Campo6:
+          Nombre: Fax
+          Valor: fax
+        Campo7:
+          Nombre: Email
+          Valor: email
+        Campo8:
+          Nombre: Alcalde
+          Valor: nombreAlcalde
+        Campo10:
+          Nombre: Provincia        
+          Valor: nombreProvincia
+        Campo11:
+          Nombre: Diputacion        
+          Valor: nombreDiputacion
+    CampoValor2:
+      Tipo: Api
+      Oculto: False
+      Query: select ?source where  {<%s> <http://purl.org/dc/elements/1.1/source> ?source}
+      Campo: uri
+      Campos:
+        Campo1:
+          Nombre: Habitantes        
+          Valor: HABITANTES
+        Campo2:
+          Nombre: Superficie        
+          Valor: SUPERFICIE
+  Tablas:     
+    Tabla1:
+      Tipo: Virtuoso
+      Titulo: Padrón 
+      Descripcion: Habitantes según el padrón municipal, datos anuales           
+      Query: select SUBSTR(?year,0,4) as ?year ?population where{ ?obs <http://purl.org/linked-data/cube#dataSet> <http://opendata.aragon.es/recurso/DataSet/PadronMunicipal> . ?obs ?x ?y  . {?obs <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?uriAragopedia . <%s> owl:sameAs ?uriAragopedia} UNION {<%s> owl:sameAs ?uriAragopedia. ?uriAragopedia <http://opendata.aragon.es/def/Aragopedia#hasObservation> ?obs} ?obs <http://opendata.aragon.es/def/Aragopedia#year> ?year. ?obs <http://opendata.aragon.es/def/Aragopedia#population> ?population.  } ORDER BY ?year
+      Campo: uri
+      Columnas:
+        Columna1:
+          Nombre: Año
+          Valor: year
+          ClassTitulo: w25     
+          ClassValor:  mays
+        Columna2:
+          Nombre: Habitantes
+          Valor: population
+    Tabla2:
+      Titulo: Pleno del municipio 
+      Tipo: Virtuoso
+      Query: select ?nombrePersona ?cargo where  {?membership <http://www.w3.org/ns/org#organization> <%s> . ?membership <http://www.w3.org/ns/org#member> ?member. ?membership  <http://www.w3.org/ns/org#role> ?role . ?member <http://opendata.aragon.es/def/ei2a#fullName> ?nombrePersona . ?role <http://opendata.aragon.es/def/ei2a#roleName> ?roleName .?member <http://www.w3.org/ns/person#memberOf> ?partido .	?partido <http://opendata.aragon.es/def/ei2a#organizationName> ?nombrePartido. bind(concat(?roleName, ' ' , ?nombrePartido) as ?cargo)}
+      Campo: uri
+      Columnas:
+        Columna1:
+          Nombre: Persona
+          Valor: nombrePersona
+        Columna2:
+          Nombre: Cargo
+          Valor: cargo  
+          ClassTitulo: w25    
+          ClassValor:  mays
+PanelLateral:
+  ListaEnlaces:
+    ListaEnlace1:
+      Titulo: Más información
+      Tipo: gadget-masinfo
+      Enlaces:
+        Enlace1:
+          Texto: Aragopedia
+          url: http://opendata.aragon.es/aragopedia/municipio/%s
+          CampoUrl: http://purl.org/dc/elements/1.1/identifier
+        Enlace2:
+          Texto: ELDA
+          url: http://opendata.aragon.es/elda/municipio/%s
+          CampoUrl: http://purl.org/dc/elements/1.1/identifier
+        Enlace3:
+          Texto: Presupuesto
+          url: http://opendata.aragon.es/presupuesto/municipio/%s
+          CampoUrl: http://purl.org/dc/elements/1.1/identifier
+        Enlace4:
+          Texto: Datos en Aragón Open data
+          url: http://opendata.aragon.es/opendata/municipio/%s
+          CampoUrl: http://purl.org/dc/elements/1.1/identifier
+    ListaEnlace2:
+      Titulo: Enlaces de interes 
+      #gadget-iconos gadget-enlaces gadget-masinfo
+      Tipo: gadget-enlaces
+      Enlaces:
+        Enlace1:
+          Texto: Ver ordenanzas municipales de %s
+          CampoTexto: http://opendata.aragon.es/def/ei2a#organizationName
+          url: http://opendata.aragon.es/ordenanzas/municipio/%s
+          CampoUrl: http://purl.org/dc/elements/1.1/identifier
+        Enlace2:
+          Texto: Ver información turística de %s
+          CampoTexto: http://opendata.aragon.es/def/ei2a#organizationName
+          url: http://opendata.aragon.es/turismo/municipio/%s
+          CampoUrl: http://purl.org/dc/elements/1.1/identifier
+        Enlace3:
+          Texto: Ver información de agricultura de %s
+          CampoTexto: http://opendata.aragon.es/def/ei2a#organizationName
+          url: http://opendata.aragon.es/agricultura/municipio/%s
+          CampoUrl: http://purl.org/dc/elements/1.1/identifier
+        Enlace4:
+          Texto: Ver datos del instituto aragoñés del agua de %s
+          CampoTexto: http://opendata.aragon.es/def/ei2a#organizationName
+          url: http://opendata.aragon.es/instituto-agua/municipio/%s
+          CampoUrl: http://purl.org/dc/elements/1.1/identifier
+        Enlace5:
+          Texto: Ver rutas de autobús de %s
+          CampoTexto: http://opendata.aragon.es/def/ei2a#organizationName   
+          url: http://opendata.aragon.es/rutas-autobus/municipio/%s
+          CampoUrl: http://purl.org/dc/elements/1.1/identifier

@@ -1,0 +1,247 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <!-- PERSONALIACION COMUNIDAD -->
+    <!-- CARRUSEL -->
+    <link href="{{ asset('css/owl.carousel.css') }}"  rel="stylesheet" type="text/css">
+    <!-- FUENTES -->
+    <link href="{{ asset('css/fonts.googleapis.com.css') }}"  rel="stylesheet">
+    <link href="{{ asset('css/fonts.googleapis.ico.com.css') }}"  type="text/css" rel="stylesheet"  media="all">
+
+    <!-- TETHER -->
+    <link href="{{ asset('css/tether.min.css') }}"  rel="stylesheet" type="text/css">
+    <!-- BOOTSTRAP 4 -->
+    <link href="{{ asset('css/bootstrap.min.css') }}"  rel="stylesheet"  integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <!-- DATATABLES -->
+    <link href="{{ asset('css/datatables.min.css') }}"  rel="stylesheet" type="text/css">
+    <!-- PERSONALIZACION TEMA -->
+    <link href="{{ asset('css/theme.css') }}"  rel="stylesheet" type="text/css">
+    {% block extra_css %} {% endblock extra_css%}
+{% endblock stylesheets %}
+{% block javascripts %}
+    <!-- JQUERY -->
+    <script type="text/javascript" src="{{ asset('js/jquery-3.2.1.min.js') }}" ></script> 
+    <!-- DOTDOTDOT -->
+    <script type="text/javascript" src="{{ asset('js/jquery.dotdotdot.min.js') }}" ></script> 
+    <!-- CARRUSEL  -->
+     <script type="text/javascript" src="{{ asset('js/owl.carousel.min.js') }}" ></script>
+    <!-- TETHER -->
+    <script type="text/javascript" src="{{ asset('js/tether.min.js') }}" ></script>
+    <!-- BOOTSTRAP 4 -->
+    <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous" ></script>
+    <!-- DATATABLES -->
+    <script type="text/javascript" src="{{ asset('js/datatables.min.js') }}" ></script>
+    <!-- GOOGLE CHARTS -->
+    <script type="text/javascript" src="https:/www.gstatic.com/charts/loader.js"></script> 
+    <!-- PERSONALIZACION TEMA -->
+    <script type="text/javascript" src="{{ asset('js/theme.js') }}" ></script>
+    {% block extra_javascript %}{% endblock extra_javascript %}
+{% endblock %}
+{% block content %}
+    <body class="{{ classBody }}" cz-shortcut-listen="true"> 
+{% block header %}
+  <header>
+	<div class="container-fluid">
+		<div class="row row-principal">
+			<div class="col col-4 col-sm-6">
+				<img src="/img/logo-gobierno.png" alt="Logo gobierno de Aragón" title="Logo gobierno de Aragón">
+				<img src="/img/logo-europa.png" alt="Logo Fondo Europeo de Desarrollo Regional" title="Logo Fondo Europeo de Desarrollo Regional">
+			</div>
+			<div class="col col-8 col-sm-6">
+				<ul>
+					<li><a href="http://transparencia.aragon.es/" target="_blank" class="col-3">Transparencia</a></li>
+					<li><a href="http://aragonparticipa.aragon.es" target="_blank" class="col-6">Participación ciudadana</a></li>
+					<li><a href="/" class="col-3 active">Open data</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="row row-secundaria">
+			<a href="/" class="logo">
+				<img src="/img/aragon-open-data.png" alt="Aragón Open Data" title="Aragón Open Data" class="azul">
+				<img src="/img/aragon-open-data-blanco.png" alt="Aragón Open Data" class="blanco">
+			</a>
+			<div class="menuLogin">
+				<a class="aLogin" href="https://opendata.aragon.es/login" title="Acceso plataforma"></a>
+			</div>
+			<div class="menu">
+				<a class="aMenu" title="Menu principal"></a>
+			</div>
+		</div>
+		<div class="row-menu-secundario">
+			<nav>
+				<li>
+					<a href="#" title="Datos">Datos</a>
+					<ul>
+                        <li><a href="/datos/catalogo" onclick="openNav()">Banco de datos</a></li>
+                        <li><a href="/datos/tema" onclick="openNav()">Temas</a></li>
+                        <li><a href="/datos/organizacion" onclick="openNav()">Publicadores</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#" title="Servicios">Servicios</a>
+					<ul>
+                        <li><a href="/servicios/aragopedia">Aragopedia</a></li>
+                        <li><a href="http://presupuesto.aragon.es/">Presupuestos</a></li>
+                        <li><a href="/servicios/analytics">Open Analytics Data</a></li>
+                        <li><a href="/servicios/open-social-data">Open Social Data</a></li>
+                        <!--<li><a href="/servicios/visualdata">Open Visual Data</a></li>-->
+                        <li><a href="/servicios/cras">CRAs Aragón</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#" title="Información">Información</a>
+					<ul>
+                        <li><a href="/informacion/open-data" onclick="openNav()">Información</a></li>
+                        <li><a href="/informacion/aplicaciones" onclick="openNav()">Aplicaciones</a></li>
+                        <li><a href="/informacion/eventos" onclick="openNav()">Eventos</a></li>
+                        <li><a href="/informacion/colabora" onclick="openNav()">Colabora</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#" title="">Herramientas</a>
+					<ul>
+                        <li><a href="/herramientas/campus" onclick="openNav()">AOD Campus</a></li>
+                        <li><a href="/herramientas/desarrolladores" onclick="openNav()">Desarrolladores</a></li>
+                        <li><a href="/herramientas/apis" onclick="openNav()">APIs</a></li>
+                        <li><a href="/herramientas/sparql" onclick="openNav()">SPARQL</a></li>
+                        <li><a href="https://github.com/aragonopendata/Aragon-Open-Data-3" target="_blank" onclick="openNav()">GITHUB</a></li>
+					</ul>
+				</li>
+			</nav>
+			<div class="buscador">
+				<div class="wrap">
+                    <form class="search" method="post" onsubmit="return buscaCkan()">
+                            <input autocomplete="off" id="buscador_header" class="textBox" placeholder="BUSCA DATOS ABIERTOS" onkeyup="autocompleteRequest()" type="search">
+                            <a href="#" class="lupa"><span class="material-icons">search</span></a>
+                            <!--<button type="submit" class="submit"><i aria-hidden="true" class="fa fa-search"></i></button>-->
+                            <button type="submit" class="btnSearch">
+                                    <i aria-hidden="true" class="fa fa-search" style="display: table; vertical-align: middle;"></i>
+                            </button>
+                            <!--<input autocomplete="off" #searchBox id="searchBox" placeholder="BUSCA DATOS ABIERTOS" type="search" class="textBox" (keyup)="search(searchBox.value)"
+                                (keyup.enter)="searchDatasetsByText(searchBox.value); openNav();" />-->
+                            <div id="resultsList">
+                                <div class="search-result">
+                                    <a id="searchResult1"></a>
+                                </div>
+                                <div class="search-result">
+                                    <a id="searchResult2"></a>
+                                </div>
+                                <div class="search-result">
+                                    <a id="searchResult3"></a>
+                                </div>
+                                <div class="search-result">
+                                    <a id="searchResult4"></a>
+                                </div>
+                            </div>
+                    </form>				
+                </div>
+			</div>
+		</div>
+	</div>
+ </header>
+    <div class="panel-menu">
+            <div class="row header-panel">
+                <div class="col col-toggle-menu">
+                    <span class="material-icons">close</span>
+                </div>
+                <div class="col logo">
+                    <img src="/img/logo-gobierno.png" alt="">
+                </div>
+            </div>
+            <div class="body-panel">
+                <nav>
+                    <li><a href="https://opendata.aragon.es/">Open data</a></li>
+                    <li><a href="http://aragonparticipa.aragon.es/">Participación ciudadana</a></li>
+                    <li><a href="http://transparencia.aragon.es/">Transparencia</a></li>
+                </nav>
+            </div>
+    </div>
+    {% endblock header%}  
+    {% block main%} 
+    {% endblock main%}   
+    {% block footer %}
+        <footer>
+            <div class="container-fluid">
+                <div class="row row01">
+                    <div class="col col-aviso">
+                        <p class="titulo">Aviso legal</p>
+                        <nav>
+                            <li><a href="#">Terminos de uso</a></li>
+                        </nav>
+                        <div class="union-europea">
+                            <div class="imagen">
+                                <img src="/img/flag-europe.png" alt="Union Europea">
+                            </div>
+                            <div class="texto">
+                                <p>Union Europea</p>
+                                <p>Fondo europeo de desarrollo regional</p>
+                                <p>(feder)</p>
+                                <p class="minus">"Construyendo Europa desde Aragón"</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-menu">
+                        <p class="titulo">Contenido destacado</p>
+                        <nav>
+                            <li><a href="https://opendata.aragon.es/datos/catalogo">Banco de datos</a></li>
+                            <li><a href="https://opendata.aragon.es/servicios/aragopedia/">Aragonpedia</a></li>
+                            <li><a href="https://opendata.aragon.es/servicios/open-social-data/#/main">Open social data</a></li>
+                            <li><a href="https://opendata.aragon.es/informacion/colabora">colabora</a></li>
+                            <li><a href="https://opendata.aragon.es/informacion/aplicaciones">Aplicaciones</a></li>
+                            <li><a href="https://opendata.aragon.es/informacion/open-data">Info open data</a></li>
+                        </nav>
+                    </div>
+                    <div class="col col-powered">
+                       <p class="titulo">Desarrollado por</p>
+                        <div class="logos">
+                            <div class="logo">
+                                 	<a alt="ckan" href="http://ckan.org/" target="_blank"><img src="/img/cajaLogoCKAN.jpg"></a>
+                            </div>
+                            <div class="logo">
+                                  <a alt="mediawiki" href="http://www.mediawiki.org/" target="_blank"><img src="/img/cajaLogoMediaWiki.jpg"></a>
+                            </div>
+                            <div class="logo">
+                                <a alt="virtuoso" href="http://virtuoso.openlinksw.com/" target="_blank"><img src="/img/cajaLogoVirtuoso.jpg"></a>
+                            </div>
+                            <div class="logo">
+                                 <a alt="elda" href="http://epimorphics.github.io/elda/" target="_blank"><img src="/img/cajaLogoElda.jpg"></a>
+                            </div>
+                            <div class="logo">
+                               <a alt="swagger" href="http://swagger.io/" target="_blank"><img src="/img/cajaLogoSwagger.jpg"></a>
+                            </div>
+                            <div class="logo">
+                                <a alt="node" href="https://nodejs.org/es/" target="_blank"><img src="/img/cajaLogoNodeJS.jpg"></a>
+                            </div>
+                            <div class="logo">
+                                <a alt="angular" href="https://angular.io/" target="_blank"><img src="/img/cajaLogoAngular.jpg"></a>
+                            </div>
+                            <div class="logo">
+                                <a alt="kibana" href="https://www.elastic.co/products/kibana/" target="_blank"><img src="/img/cajaLogoKibana.jpg"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row02">
+                    <div class="col col-aragon">
+                        <div class="wrap-imagen">
+                            <img src="/img/logo-aragon.png" alt="Gobierno de aragón" title="Gobierno de aragón">
+                        </div>
+                    </div>
+                </div>
+                <div class="row row03">
+                    <div class="col col-direccion">
+                        <nav>
+                            <li>Gobierno de aragón</a></li>
+                            <li>Edificio Pignatelli</li>
+                            <li>Paseo María Agustín, 36, 50071</li>
+                            <li><a href="tel:/+34976714000">Tel 976714000</a></li>
+                        </nav>
+                        <p title=""class="poweredby">Con tecnología de <a href="http:/www.gnoss.com">GNOSS</a></p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    {% endblock footer%}
+     <div class="mascaritaGenerica"></div>     
+    </body>   
+{% endblock content%}
+

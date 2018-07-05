@@ -1,0 +1,138 @@
+{% extends 'base.web.html.twig' %}
+{% import 'default/utilidades.html.twig' as utilidades %}
+
+{% block extra_css %}
+  <link href="{{ asset('css/jqvmap.css') }}"  rel="stylesheet" type="text/css">
+  <link href="{{ asset('css/select2.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ asset('css/select2-bootstrap.css') }}" rel="stylesheet" type="text/css" />
+     <style>
+      #vmap {
+        width: auto;
+        height: 600px;
+        background-color: '#ffffff';
+      }
+    </style>
+{% endblock extra_css %}
+{% block main %}
+    <div class="container" role="main">
+        {% if navegacion.SubTema|length == 0 and navegacion.Tema|length == 0 and navegacion.SubEntidad|length == 0 and navegacion.Entidad|length == 0 %} 
+            {{ utilidades.navegaoculto("path", "path", path('temasentidades')) }}
+        {% else %}
+            {{ utilidades.navegaoculto("path", "path", path('filtros')) }}
+        {% endif %}
+
+        {{ utilidades.campooculto("ent", "ent", navegacion.Entidad) }}
+        {{ utilidades.campooculto("sent", "sent", navegacion.SubEntidad) }}
+        {{ utilidades.campooculto("tem", "tem", navegacion.Tema) }}
+        {{ utilidades.campooculto("stem", "stem", navegacion.SubTema) }}
+        {{ utilidades.campooculto("from", "from", navegacion.From) }}
+        
+        <div class="breadcrumb">
+            <div class="wrap">
+                <ul>
+                    {% if navegacion.Tema|length > 0  %}  
+                        <li class="seccion">Temas</li>
+                        <li class="flecha"><span class="material-icons">keyboard_arrow_right</span></li>
+                        {% for key,value in navegacion.Tema %}
+                            <li class="titulo">{{ value }}</li>
+                        {% endfor %}
+                    {% elseif navegacion.Entidad|length > 0  %} 
+                        <li class="seccion">Entidad</li>
+                        <li class="flecha"><span class="material-icons">keyboard_arrow_right</span></li>
+                        {% for key,value in navegacion.Entidad %}
+                            <li class="titulo">{{ value }}</li>
+                        {% endfor %}
+                    {% else %}
+                        <li class="seccion">Lugares</li>
+                        <li class="flecha"><span class="material-icons">keyboard_arrow_right</span></li>
+                        <li class="titulo">Seleccione un lugar:</li>
+                    {% endif %}
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="row row-bloques bloques-wrap">
+            <div class="col bloque bloque-buscar bloque-provincias">
+                <div class="wrap">
+                    <div class="header-bloque"  title='Provincias'>
+                        <div class="imagen"></div>
+                    </div>
+                    <div class="body-bloque"  title='Provincias'>
+                        <div class="wrap-titulo">
+                            <h3>Provincias</h3>
+                            <span class="material-icons buscar">search</span>
+                        </div>
+                        {{ utilidades.camposeclect2("pro", "pro", "js-lugares js-provincia",lugaresArray['Provincias']) }}
+                    </div>
+                </div>
+            </div>
+            <div class="col bloque bloque-buscar bloque-municipios">
+                <div class="wrap">
+                    <div class="header-bloque" title='Municipios'>
+                        <div class="imagen"></div>
+                    </div>
+                    <div class="body-bloque" title='Municipios'>
+                        <div class="wrap-titulo">
+                            <h3>Municipios</h3>
+                            <span class="material-icons buscar">search</span>
+                        </div>
+                        {{ utilidades.camposeclect2("mun", "mun", "js-lugares js-municipio",lugaresArray['Municipios']) }}
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col bloque bloque-buscar bloque-comarcas">
+                <div class="wrap">
+                    <div class="header-bloque" title='Comarcas'>
+                        <div class="imagen"></div>
+                    </div>
+                    <div class="body-bloque" title='Comarcas'>
+                        <div class="wrap-titulo">
+                            <h3>Comarcas</h3>
+                            <span class="enlace-mapa">Mapa</span>
+                            <span class="material-icons buscar">search</span>
+                        </div>
+                        {{ utilidades.camposeclect2("com", "com", "js-lugares js-comarca",lugaresArray['Comarcas']) }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col bloque bloque-buscar bloque-comarcas-min ocultar-bloque">
+                <div class="wrap">
+                    <div class="header-bloque" title='Comarcas'>
+                        <div class="imagen"></div>
+                        <h3>Comarcas</h3>
+                        <span class="material-icons buscar">search</span>
+                    </div>
+                    <div class="body-bloque" title='Comarcas'>
+                            {{ utilidades.camposeclect2("com", "com", "js-lugares js-comarca",lugaresArray['Comarcas']) }}
+                    </div>
+                </div>
+            </div>
+            <div class="col bloque bloque-mapa ocultar-bloque">
+                <div class="wrap">
+                    <div class="header-bloque" title='Mapa Comarcas'>
+                        <span class="material-icons cerrar">close</span>
+                        <div style="max-width: 600px; max-height: 580px;" id="vmap"></div>
+                    </div>
+                </div>
+            </div> 
+            {% if subTemas|length > 0 and not navegacion.From == "Lugares" %}  
+                {{ utilidades.pintabloque("bloque-temas",subTemas,"Temas", "enviaLocalidadSubtema") }}
+            {% endif %}
+            {% if subEntidades|length > 0 and not navegacion.From == "Lugares" %}  
+                {{ utilidades.pintabloque("bloque-entidades",subEntidades,"Entidades", "enviaLocalidadEntidad") }}
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+{% endblock main %}
+
+{% block extra_javascript %}
+   <script type="text/javascript" src="{{ asset('js/jquery.vmap.js') }}" ></script>
+   <script type="text/javascript" src="{{ asset('js/jquery.aragon.map.js') }}" ></script>
+   <script type="text/javascript" src="{{ asset('js/select2.js') }}" ></script>
+   <script type="text/javascript" src="{{ asset('js/aodpool.navegacion.js') }}" ></script>
+{% endblock extra_javascript %}

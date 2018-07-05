@@ -1,0 +1,13 @@
+BodyClass: fichaComunidad fichaHotel
+PanelCentral:
+  #titulo del panel
+  Titulo: http://purl.org/dc/elements/1.1/title
+  Votos:
+        Query: select ?body where {?s <http://protege.stanford.edu/rdf/HTOv4002#award> ?award. ?award <http://protege.stanford.edu/rdf/HTOv4002#awardingBody> ?body. filter(?s = <%s>)}
+        Campo: uri
+  Texto:
+        Tipo: HTML
+        Query: none
+        Campo: none
+        Html: <h3>Texto Libre</h2><br/><p class='dato'><strong>Dirección</strong><span>Camino de la estación, 27</span></p><p class='dato'><strong>CIF</strong><span>P-2200100-B</span></p>
+PanelLateral:

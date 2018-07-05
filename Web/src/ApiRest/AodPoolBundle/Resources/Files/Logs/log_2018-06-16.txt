@@ -1,0 +1,102 @@
+[2018-06-16 7:49:00.609925] [info] [AodPoolController:getRdfAction] Inicio
+[2018-06-16 7:49:00.609987] [info] [AodPoolController:getRdfAction] Creo un objeto entidad Rdf
+[2018-06-16 7:49:00.610110] [debug] [Acceso:Configura] Llamada a Función
+[2018-06-16 7:49:00.610155] [debug] [Acceso:Configura] Inicializo la clase: http://82.223.53.83:8890/sparql, http://opendata.aragon.es/graph/pool, 1
+[2018-06-16 7:49:00.610191] [debug] [Acceso:DameRdf] http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200
+[2018-06-16 7:49:00.610239] [debug] [Acceso:DameRdf] Url validada con exito: http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200
+[2018-06-16 7:49:00.610270] [debug] [Acceso:DameRdf] lanzo sparql: prefix dc: <http://purl.org/dc/elements/1.1/> select ?s ?p ?o from <http://opendata.aragon.es/graph/pool> where {<http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200> dc:source ?source. ?s ?p ?o. ?s dc:source  ?source}
+[2018-06-16 7:49:00.610302] [debug] [Acceso:LanzaConsulta] Inicio: url:http://82.223.53.83:8890/sparql , query:prefix dc: <http://purl.org/dc/elements/1.1/> select ?s ?p ?o from <http://opendata.aragon.es/graph/pool> where {<http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200> dc:source ?source. ?s ?p ?o. ?s dc:source  ?source}
+[2018-06-16 7:49:00.610343] [debug] [Acceso:LanzaConsulta] SPARQL>>>: prefix dc: <http://purl.org/dc/elements/1.1/> select ?s ?p ?o from <http://opendata.aragon.es/graph/pool> where {<http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200> dc:source ?source. ?s ?p ?o. ?s dc:source  ?source}
+[2018-06-16 7:49:00.690586] [debug] [Acceso:LanzaConsulta] Se ha realizado la consulta correctamente
+[2018-06-16 7:49:00.691123] [info] [Triples:__construct] Llamada a Función
+[2018-06-16 7:49:00.691270] [debug] [Triples:DameTriples] Entro en función
+[2018-06-16 7:49:00.691438] [debug] [Triples:DameTriples] Parámetro entrada correcto
+[2018-06-16 7:49:00.691560] [debug] [Triples:DameTriples] Recojo header: S:s, V:p, P:o 
+[2018-06-16 7:49:00.691664] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200","http://www.w3.org/1999/02/22-rdf-syntax-ns#type","http://www.w3.org/ns/org#Organization"
+[2018-06-16 7:49:00.691780] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200
+[2018-06-16 7:49:00.691886] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+[2018-06-16 7:49:00.691987] [debug] [Triples:DameTripe] Proceso Predicado: http://www.w3.org/ns/org#Organization
+[2018-06-16 7:49:00.692092] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200","http://purl.org/dc/elements/1.1/type","http://opendata.aragon.es/def/ei2a#entidad_singular"
+[2018-06-16 7:49:00.692202] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200
+[2018-06-16 7:49:00.692298] [debug] [Triples:DameTripe] Proceso Verbo: http://purl.org/dc/elements/1.1/type
+[2018-06-16 7:49:00.692394] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/def/ei2a#entidad_singular
+[2018-06-16 7:49:00.692495] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200","http://opendata.aragon.es/def/ei2a#publicEntityType","http://opendata.aragon.es/def/ei2a#Ayuntamiento"
+[2018-06-16 7:49:00.692600] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200
+[2018-06-16 7:49:00.692694] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#publicEntityType
+[2018-06-16 7:49:00.692789] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/def/ei2a#Ayuntamiento
+[2018-06-16 7:49:00.692888] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200","http://opendata.aragon.es/def/ei2a#organizationType","http://opendata.aragon.es/def/ei2a#órganoAdministrativo"
+[2018-06-16 7:49:00.692994] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200
+[2018-06-16 7:49:00.693108] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#organizationType
+[2018-06-16 7:49:00.693205] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/def/ei2a#órganoAdministrativo
+[2018-06-16 7:49:00.693305] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200","http://purl.org/dc/elements/1.1/identifier","22001000200"
+[2018-06-16 7:49:00.693408] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200
+[2018-06-16 7:49:00.693506] [debug] [Triples:DameTripe] Proceso Verbo: http://purl.org/dc/elements/1.1/identifier
+[2018-06-16 7:49:00.693602] [debug] [Triples:DameTripe] Proceso Predicado: 22001000200
+[2018-06-16 7:49:00.693702] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200","http://opendata.aragon.es/def/ei2a#administrativeLevel","http://opendata.aragon.es/def/ei2a#AdministraciónLocal"
+[2018-06-16 7:49:00.693806] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200
+[2018-06-16 7:49:00.693902] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#administrativeLevel
+[2018-06-16 7:49:00.693996] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/def/ei2a#AdministraciónLocal
+[2018-06-16 7:49:00.694094] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200","http://www.w3.org/2003/01/geo/wgs84_pos#location","http://opendata.aragon.es/def/ei2a#municipio-22001"
+[2018-06-16 7:49:00.694197] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200
+[2018-06-16 7:49:00.694295] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/2003/01/geo/wgs84_pos#location
+[2018-06-16 7:49:00.694390] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/def/ei2a#municipio-22001
+[2018-06-16 7:49:00.694489] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200","http://purl.org/dc/elements/1.1/source","https://opendata.aragon.es/GA_OD_Core/preview?view_id=20&filter_sql=CODIGO='22001000200'&_pageSize=1&_page=1"
+[2018-06-16 7:49:00.694593] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200
+[2018-06-16 7:49:00.694689] [debug] [Triples:DameTripe] Proceso Verbo: http://purl.org/dc/elements/1.1/source
+[2018-06-16 7:49:00.694783] [debug] [Triples:DameTripe] Proceso Predicado: https://opendata.aragon.es/GA_OD_Core/preview?view_id=20&filter_sql=CODIGO='22001000200'&_pageSize=1&_page=1
+[2018-06-16 7:49:00.694895] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200","http://opendata.aragon.es/def/ei2a#organizationName","ALBERUELA DE LA LIENA"
+[2018-06-16 7:49:00.694987] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200
+[2018-06-16 7:49:00.695072] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#organizationName
+[2018-06-16 7:49:00.695158] [debug] [Triples:DameTripe] Proceso Predicado: ALBERUELA DE LA LIENA
+[2018-06-16 7:49:00.695295] [info] [AodPoolController:getRdfAction] Fin proceso rest
+[2018-06-16 7:52:19.315344] [info] [AodPoolController:getRdfAction] Inicio
+[2018-06-16 7:52:19.315408] [info] [AodPoolController:getRdfAction] Creo un objeto entidad Rdf
+[2018-06-16 7:52:19.315524] [debug] [Acceso:Configura] Llamada a Función
+[2018-06-16 7:52:19.315566] [debug] [Acceso:Configura] Inicializo la clase: http://82.223.53.83:8890/sparql, http://opendata.aragon.es/graph/pool, 1
+[2018-06-16 7:52:19.315594] [debug] [Acceso:DameRdf] http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200
+[2018-06-16 7:52:19.315625] [debug] [Acceso:DameRdf] Url validada con exito: http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200
+[2018-06-16 7:52:19.315658] [debug] [Acceso:DameRdf] lanzo sparql: prefix dc: <http://purl.org/dc/elements/1.1/> select ?s ?p ?o from <http://opendata.aragon.es/graph/pool> where {<http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200> dc:source ?source. ?s ?p ?o. ?s dc:source  ?source}
+[2018-06-16 7:52:19.315685] [debug] [Acceso:LanzaConsulta] Inicio: url:http://82.223.53.83:8890/sparql , query:prefix dc: <http://purl.org/dc/elements/1.1/> select ?s ?p ?o from <http://opendata.aragon.es/graph/pool> where {<http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200> dc:source ?source. ?s ?p ?o. ?s dc:source  ?source}
+[2018-06-16 7:52:19.315732] [debug] [Acceso:LanzaConsulta] SPARQL>>>: prefix dc: <http://purl.org/dc/elements/1.1/> select ?s ?p ?o from <http://opendata.aragon.es/graph/pool> where {<http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200> dc:source ?source. ?s ?p ?o. ?s dc:source  ?source}
+[2018-06-16 7:52:19.460470] [debug] [Acceso:LanzaConsulta] Se ha realizado la consulta correctamente
+[2018-06-16 7:52:19.461026] [info] [Triples:__construct] Llamada a Función
+[2018-06-16 7:52:19.461154] [debug] [Triples:DameTriples] Entro en función
+[2018-06-16 7:52:19.461258] [debug] [Triples:DameTriples] Parámetro entrada correcto
+[2018-06-16 7:52:19.461359] [debug] [Triples:DameTriples] Recojo header: S:s, V:p, P:o 
+[2018-06-16 7:52:19.461443] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200","http://www.w3.org/1999/02/22-rdf-syntax-ns#type","http://www.w3.org/ns/org#Organization"
+[2018-06-16 7:52:19.461539] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200
+[2018-06-16 7:52:19.461622] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+[2018-06-16 7:52:19.461704] [debug] [Triples:DameTripe] Proceso Predicado: http://www.w3.org/ns/org#Organization
+[2018-06-16 7:52:19.461793] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200","http://purl.org/dc/elements/1.1/type","http://opendata.aragon.es/def/ei2a#entidad_singular"
+[2018-06-16 7:52:19.461884] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200
+[2018-06-16 7:52:19.461966] [debug] [Triples:DameTripe] Proceso Verbo: http://purl.org/dc/elements/1.1/type
+[2018-06-16 7:52:19.462044] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/def/ei2a#entidad_singular
+[2018-06-16 7:52:19.462132] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200","http://opendata.aragon.es/def/ei2a#publicEntityType","http://opendata.aragon.es/def/ei2a#Ayuntamiento"
+[2018-06-16 7:52:19.462220] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200
+[2018-06-16 7:52:19.462301] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#publicEntityType
+[2018-06-16 7:52:19.462378] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/def/ei2a#Ayuntamiento
+[2018-06-16 7:52:19.462465] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200","http://opendata.aragon.es/def/ei2a#organizationType","http://opendata.aragon.es/def/ei2a#órganoAdministrativo"
+[2018-06-16 7:52:19.462552] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200
+[2018-06-16 7:52:19.462630] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#organizationType
+[2018-06-16 7:52:19.462708] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/def/ei2a#órganoAdministrativo
+[2018-06-16 7:52:19.462795] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200","http://purl.org/dc/elements/1.1/identifier","22001000200"
+[2018-06-16 7:52:19.462904] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200
+[2018-06-16 7:52:19.462986] [debug] [Triples:DameTripe] Proceso Verbo: http://purl.org/dc/elements/1.1/identifier
+[2018-06-16 7:52:19.463066] [debug] [Triples:DameTripe] Proceso Predicado: 22001000200
+[2018-06-16 7:52:19.463150] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200","http://opendata.aragon.es/def/ei2a#administrativeLevel","http://opendata.aragon.es/def/ei2a#AdministraciónLocal"
+[2018-06-16 7:52:19.463248] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200
+[2018-06-16 7:52:19.463377] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#administrativeLevel
+[2018-06-16 7:52:19.463469] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/def/ei2a#AdministraciónLocal
+[2018-06-16 7:52:19.463557] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200","http://www.w3.org/2003/01/geo/wgs84_pos#location","http://opendata.aragon.es/def/ei2a#municipio-22001"
+[2018-06-16 7:52:19.463644] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200
+[2018-06-16 7:52:19.463726] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/2003/01/geo/wgs84_pos#location
+[2018-06-16 7:52:19.463803] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/def/ei2a#municipio-22001
+[2018-06-16 7:52:19.463886] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200","http://purl.org/dc/elements/1.1/source","https://opendata.aragon.es/GA_OD_Core/preview?view_id=20&filter_sql=CODIGO='22001000200'&_pageSize=1&_page=1"
+[2018-06-16 7:52:19.463982] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200
+[2018-06-16 7:52:19.464062] [debug] [Triples:DameTripe] Proceso Verbo: http://purl.org/dc/elements/1.1/source
+[2018-06-16 7:52:19.464140] [debug] [Triples:DameTripe] Proceso Predicado: https://opendata.aragon.es/GA_OD_Core/preview?view_id=20&filter_sql=CODIGO='22001000200'&_pageSize=1&_page=1
+[2018-06-16 7:52:19.464224] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200","http://opendata.aragon.es/def/ei2a#organizationName","ALBERUELA DE LA LIENA"
+[2018-06-16 7:52:19.464312] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#entidad-singular-22001000200
+[2018-06-16 7:52:19.464390] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#organizationName
+[2018-06-16 7:52:19.464469] [debug] [Triples:DameTripe] Proceso Predicado: ALBERUELA DE LA LIENA
+[2018-06-16 7:52:19.464607] [info] [AodPoolController:getRdfAction] Fin proceso rest
