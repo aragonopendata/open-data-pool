@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:time="http://www.w3.org/2006/time#" xmlns:event="http://purl.org/NET/c4dm/event.owl#"   id="15">
+  <Entity rdf:type="ei2a:EventAgenda" URI="http://opendata.aragon.es/def/ei2a#curso-{CURSO_ID}">
+    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+    <Property field="{CURSO_ID}" attribute="dc:identifier" type="string"/>
+	<Property link="ei2a:curso" attribute="dc:type" />
+	<Property field="{ANO}" attribute="dc:date" type="gYear"/>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#time-curso-{CURSO_ID}" attribute="ei2a:time">
+      <Entity rdf:type="time:TemporalEntity" URI="http://opendata.aragon.es/def/ei2a#time-curso-{CURSO_ID}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property field="{ANO}" attribute="time:inXSDgYear" type="gYear"/>
+      </Entity>
+    </Property>
+    <Property field="{DENOMINACION_COMP}" attribute="event:literal_factor" type="string"/>
+    <Property field="{TIPO_CURSO}" attribute="dc:format" type="string"/>
+  </Entity>
+</Mapping>

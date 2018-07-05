@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#" id="33">
+  <Entity rdf:type="ei2a:Document" URI="http://opendata.aragon.es/def/ei2a#presupesto-{PRESU_ID}">
+    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+    <Property field="{PRESU_ID}" attribute="dc:identifier" type="string"/>
+	<Property link="ei2a:presupuesto" attribute="dc:type" />
+    <Property fieldLink="{UrlEntidad}" attribute="wgs84_pos:location" />     
+    <Property field="{ANO}" attribute="ei2a:registrationDate" type="dateTime"/>
+    <Property value="Presupuesto" attribute="ei2a:documentType" type="string"/>
+  </Entity>
+</Mapping>

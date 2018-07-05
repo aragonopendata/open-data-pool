@@ -1,0 +1,14 @@
+[2018-06-29 11:04:26.967995] [error] [AodPoolController:getListadoAction] Fin proceso rest
+[2018-06-29 11:06:53.664009] [error] [AodPoolController:getListadoAction] Fin proceso rest
+[2018-06-29 11:12:04.911561] [error] [AodPoolController:getListadoAction] Fin proceso rest
+[2018-06-29 11:19:06.591628] [error] [AodPoolController:getListadoDcTypeAction] Fin proceso rest
+[2018-06-29 11:21:47.159682] [error] [AodPoolController:LanzaConsultaRespuesta] Se a producido un error en la carga:
+[2018-06-29 11:21:47.159848] [info] [AodPoolController:getListadoDcTypeAction] No existe ninguna configuración
+[2018-06-29 11:21:47.161614] [error] [AodPoolController:getListadoDcTypeAction] Fin proceso rest
+[2018-06-29 11:22:18.977538] [error] [AodPoolController:LanzaConsultaRespuesta] Se a producido un error en la carga:
+[2018-06-29 11:23:46.970365] [error] [AodPoolController:getListadoDcTypeAction] Fin proceso rest
+[2018-06-29 11:25:33.073028] [error] [AodPoolController:getListadoDcTypeAction] Fin proceso rest
+[2018-06-29 11:25:34.665380] [error] [AodPoolController:getListadoDcTypeAction] Fin proceso rest
+[2018-06-29 11:25:58.941348] [error] [AodPoolController:getListadoDcTypeAction] Fin proceso rest
+[2018-06-29 11:45:46.748210] [error] [AodPoolController:getListadoDcTypeAction] Fin proceso rest
+[2018-06-29 11:49:20.906152] [error] [AodPoolController:getListadoDcTypeAction] Fin proceso rest

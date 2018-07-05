@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping id="72" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:org="http://www.w3.org/ns/org#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:vcard="http://www.w3.org/2006/vcard/ns#" xmlns:harmonise="http://protege.stanford.edu/rdf/HTOv4002#" xmlns:aodpool="http://opendata.aragon.es/pool/season/#" xmlns:dc="http://purl.org/dc/elements/1.1/" >
+	<Entity rdf:type="harmonise:Attraction" URI="http://opendata.aragon.es/def/ei2a#empresa-turismo-activo-{SIGNATURA}" >
+		<Property link="org:Organization" attribute="rdf:type"/>
+		<Property field="{FUENTE}" attribute="dc:source" type="string" />
+		<Property field="{SIGNATURA}" attribute="dc:identifier" type="string"/>
+		<Property link="ei2a:empresa_turismo_activo" attribute="dc:type" />
+		<Property field="{NOMBRE_COMERCIAL}" attribute="ei2a:organizationName" type="string" />
+		<Property fieldLink="http://opendata.aragon.es/def/ei2a#name-empresa-turismo-activo-{SIGNATURA}" attribute="harmonise:name">
+			<Entity rdf:type="harmonise:MultiLanguageText" URI="http://opendata.aragon.es/def/ei2a#name-empresa-turismo-activo-{SIGNATURA}">
+				<Property field="{FUENTE}" attribute="dc:source" type="string" />
+				<Property fieldLink="http://opendata.aragon.es/def/ei2a#multi-language-empresa-turismo-activo{SIGNATURA}" attribute="harmonise:languageText" type="harmonise:LanguageText">
+					<Entity rdf:type="harmonise:LanguageText" URI="http://opendata.aragon.es/def/ei2a#multi-language-empresa-turismo-activo{SIGNATURA}">
+						<Property field="{FUENTE}" attribute="dc:source" type="string" />
+						<Property field="{NOMBRE_COMERCIAL}" attribute="harmonise:text" type="string" />
+					</Entity>
+				</Property>
+			</Entity>
+		</Property>
+		<Property fieldLink="http://opendata.aragon.es/def/ei2a#type-empresa-turismo-activo-{SIGNATURA}" attribute="harmonise:type">
+			<Entity rdf:type="harmonise:ListValue" URI="http://opendata.aragon.es/def/ei2a#type-empresa-turismo-activo-{SIGNATURA}">
+				<Property fieldLink="http://opendata.aragon.es/def/ei2a#refenced-value-empresa-turismo-activo-{SIGNATURA}" attribute="harmonise:refencedValue">
+					<Entity rdf:type="harmonise:ReferencedValue" URI="http://opendata.aragon.es/def/ei2a#refenced-value-empresa-turismo-activo-{SIGNATURA}">
+						<Property field="{FUENTE}" attribute="dc:source" type="string" />
+						<Property field="{TIPO_EMPRESA}" attribute="harmonise:domainValue" type="string" />						
+					</Entity>
+				</Property>
+			</Entity>
+		</Property>
+		<Property fieldLink="http://opendata.aragon.es/def/ei2a#legal-identifier-empresa-turismo-activo-{SIGNATURA}" attribute="harmonise:legalIdentifier">
+			<Entity rdf:type="harmonise:LegalIdentifier" URI="http://opendata.aragon.es/def/ei2a#legal-identifier-empresa-turismo-activo-{SIGNATURA}">
+				<Property field="{FUENTE}" attribute="dc:source" type="string" />
+				<Property field="{CIF_EMPRESA}" attribute="harmonise:identifierValue" type="string" />
+			</Entity>
+		</Property>	
+		<Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-alta-empresa-turismo-activo-{SIGNATURA}" attribute="harmonise:schedule">
+			<Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-alta-empresa-turismo-activo-{SIGNATURA}">
+				<Property field="{FUENTE}" attribute="dc:source" type="string" />
+				<Property link="aodpool:temporada_alta" attribute="harmonise:ListValue"/>
+				<Property fieldLink="http://opendata.aragon.es/def/ei2a#date-range-alta-empresa-turismo-activo-{SIGNATURA}" attribute="harmonise:dateRange">
+					<Entity rdf:type="harmonise:DateRange" URI="http://opendata.aragon.es/def/ei2a#date-range-alta-empresa-turismo-activo-{SIGNATURA}">
+						<Property field="{FUENTE}" attribute="dc:source" type="string" />
+						<Property field="{FECHA_DESDE_TEMP_ALTA}" attribute="harmonise:startDate" type="string" />
+						<Property field="{FECHA_HASTA_TEMP_ALTA}" attribute="harmonise:endDate" type="string" />									
+					</Entity>
+				</Property>
+			</Entity>
+		</Property>
+		<Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-media-empresa-turismo-activo-{SIGNATURA}" attribute="harmonise:schedule">
+			<Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-media-empresa-turismo-activo-{SIGNATURA}">
+				<Property field="{FUENTE}" attribute="dc:source" type="string" />
+				<Property link="aodpool:temporada_media" attribute="harmonise:ListValue"/>
+				<Property fieldLink="http://opendata.aragon.es/def/ei2a#date-range-media-empresa-turismo-activo-{SIGNATURA}" attribute="harmonise:dateRange">
+					<Entity rdf:type="harmonise:DateRange" URI="http://opendata.aragon.es/def/ei2a#date-range-media-empresa-turismo-activo-{SIGNATURA}">
+						<Property field="{FUENTE}" attribute="dc:source" type="string" />
+						<Property field="{FECHA_DESDE_TEMP_MEDIA}" attribute="harmonise:startDate" type="string" />
+						<Property field="{FECHA_HASTA_TEMP_MEDIA}" attribute="harmonise:endDate" type="string" />									
+					</Entity>
+				</Property>
+			</Entity>
+		</Property>
+		<Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-baja-empresa-turismo-activo-{SIGNATURA}" attribute="harmonise:schedule">
+			<Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-baja-empresa-turismo-activo-{SIGNATURA}">
+				<Property field="{FUENTE}" attribute="dc:source" type="string" />
+				<Property link="aodpool:temporada_baja" attribute="harmonise:ListValue"/>
+				<Property fieldLink="http://opendata.aragon.es/def/ei2a#date-range-baja-empresa-turismo-activo-{SIGNATURA}" attribute="harmonise:dateRange">
+					<Entity rdf:type="harmonise:DateRange" URI="http://opendata.aragon.es/def/ei2a#date-range-baja-empresa-turismo-activo-{SIGNATURA}">
+						<Property field="{FUENTE}" attribute="dc:source" type="string" />
+						<Property field="{FECHA_DESDE_TEMP_BAJA}" attribute="harmonise:startDate" type="string" />
+						<Property field="{FECHA_HASTA_TEMP_BAJA}" attribute="harmonise:endDate" type="string" />									
+					</Entity>
+				</Property>
+			</Entity>
+		</Property>		
+		<Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-todo-ano-empresa-turismo-activo-{SIGNATURA}" attribute="harmonise:schedule" condition="{ABIERTO_TODO_ANO}" >
+			<Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-todo-ano-empresa-turismo-activo-{SIGNATURA}">
+				<Property field="{FUENTE}" attribute="dc:source" type="string" />
+				<Property link="aodpool:todo_ano" attribute="harmonise:ListValue" />
+			</Entity>
+		</Property>
+		<Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-navidad-empresa-turismo-activo-{SIGNATURA}" attribute="harmonise:schedule" condition="{ABIERTO_NAVIDAD}" >
+			<Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-navidad-empresa-turismo-activo-{SIGNATURA}">
+				<Property field="{FUENTE}" attribute="dc:source" type="string" />
+				<Property link="aodpool:navidad" attribute="harmonise:ListValue" />
+			</Entity>
+		</Property>
+		<Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-semana-santa-empresa-turismo-activo-{SIGNATURA}" attribute="harmonise:schedule" condition="{ABIERTO_SEMANA_SANTA}" >
+			<Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-semana-santa-empresa-turismo-activo-{SIGNATURA}">
+				<Property field="{FUENTE}" attribute="dc:source" type="string" />
+				<Property link="aodpool:semana_santa" attribute="harmonise:ListValue" />
+			</Entity>
+		</Property>
+		<Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-fiestas-locales-empresa-turismo-activo-{SIGNATURA}" attribute="harmonise:schedule" condition="{ABIERTO_FIESTAS_LOCALES}" >
+			<Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-fiestas-locales-empresa-turismo-activo-{SIGNATURA}">
+				<Property field="{FUENTE}" attribute="dc:source" type="string" />
+				<Property link="aodpool:fiestas_locales" attribute="harmonise:ListValue" />
+			</Entity>
+		</Property>		
+		<Property fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" attribute="org:Organization" />
+		<Property fieldLink="http://opendata.aragon.es/def/ei2a#location-empresa-turismo-activo-{SIGNATURA}" attribute="harmonise:location">
+			<Entity rdf:type="harmonise:Location" URI="http://opendata.aragon.es/def/ei2a#location-empresa-turismo-activo-{SIGNATURA}">
+				<Property field="{FUENTE}" attribute="dc:source" type="string" />
+				<Property fieldLink="http://opendata.aragon.es/def/ei2a#telecoms-empresa-turismo-activo-{SIGNATURA}" attribute="harmonise:telecoms" >
+					<Entity rdf:type="harmonise:Telecoms" URI="http://opendata.aragon.es/def/ei2a#telecoms-empresa-turismo-activo-{SIGNATURA}">
+						<Property field="{FUENTE}" attribute="dc:source" type="string" />
+						<Property fieldLink="http://opendata.aragon.es/def/ei2a#telephone-empresa-turismo-activo-{SIGNATURA}" attribute="harmonise:telephone">
+							<Entity rdf:type="harmonise:TelecomNumber" URI="http://opendata.aragon.es/def/ei2a#telephone-empresa-turismo-activo-{SIGNATURA}">
+								<Property field="{FUENTE}" attribute="dc:source" type="string" />
+								<Property field="{TELEFONO_ESTABLECIMIENTO}" attribute="harmonise:number" type="string"/>
+							</Entity>
+						</Property>
+						<Property field="{E_MAIL}" attribute="harmonise:email" type="string" />
+						<Property fieldLink="http://opendata.aragon.es/def/ei2a#url-empresa-turismo-activo-{SIGNATURA}" attribute="harmonise:url" >
+							<Entity rdf:type="harmonise:MultiLanguageText" URI="http://opendata.aragon.es/def/ei2a#url-empresa-turismo-activo-{SIGNATURA}">
+								<Property field="{FUENTE}" attribute="dc:source" type="string" />
+								<Property fieldLink="http://opendata.aragon.es/def/ei2a#telecoms-empresa-turismo-activo-languageText-{SIGNATURA}" attribute="harmonise:languageText">
+									<Entity rdf:type="harmonise:LanguageText" URI="http://opendata.aragon.es/def/ei2a#telecoms-empresa-turismo-activo-languageText-{SIGNATURA}">
+										<Property field="{FUENTE}" attribute="dc:source" type="string" />
+										<Property field="{DIRECCION_WEB}" attribute="harmonise:text" type="string" />
+									</Entity>
+								</Property>
+							</Entity>
+						</Property>
+						<Property fieldLink="http://opendata.aragon.es/def/ei2a#fax-empresa-turismo-activo-{SIGNATURA}" attribute="harmonise:fax" >
+							<Entity rdf:type="harmonise:TelecomNumber" URI="http://opendata.aragon.es/def/ei2a#fax-empresa-turismo-activo-{SIGNATURA}">
+								<Property field="{FUENTE}" attribute="dc:source" type="string" />
+								<Property field="{FAX_ESTABLECIMIENTO}" attribute="harmonise:number" type="string" />								
+							</Entity>
+						</Property>
+					</Entity>
+				</Property>
+				<Property fieldLink="http://opendata.aragon.es/def/ei2a#address-empresa-turismo-activo-{SIGNATURA}" attribute="harmonise:address" >
+					<Entity rdf:type="harmonise:Address" URI="http://opendata.aragon.es/def/ei2a#address-empresa-turismo-activo-{SIGNATURA}">
+						<Property field="{FUENTE}" attribute="dc:source" type="string" />
+						<Property fieldLink="http://opendata.aragon.es/def/ei2a#streetAddress-empresa-turismo-activo-{SIGNATURA}" attribute="harmonise:streetAddress" >
+							<Entity rdf:type="harmonise:StreetAddress" URI="http://opendata.aragon.es/def/ei2a#streetAddress-empresa-turismo-activo-{SIGNATURA}">
+								<Property field="{FUENTE}" attribute="dc:source" type="string" />
+								<Property field="{DIRECCION_ESTABLECIMIENTO}" attribute="harmonise:streetName" type="string" />					
+							</Entity>
+						</Property>
+						<Property fieldLink="http://opendata.aragon.es/def/ei2a#city-empresa-turismo-activo-{SIGNATURA}" attribute="harmonise:city" >
+							<Entity rdf:type="harmonise:MultiLanguageText" URI="http://opendata.aragon.es/def/ei2a#city-empresa-turismo-activo-{SIGNATURA}">
+								<Property field="{FUENTE}" attribute="dc:source" type="string" />
+								<Property fieldLink="http://opendata.aragon.es/def/ei2a#city-empresa-turismo-activo-multi-language-text-{SIGNATURA}" attribute="harmonise:languageText" >
+									<Entity rdf:type="harmonise:LanguageText" URI="http://opendata.aragon.es/def/ei2a#city-empresa-turismo-activo-multi-language-text-{SIGNATURA}">
+										<Property field="{FUENTE}" attribute="dc:source" type="string" />
+										<Property field="{LOCALIDAD_ESTABLECIMIENTO}" attribute="harmonise:text" type="string"/>
+									</Entity>
+								</Property>
+							</Entity>
+						</Property>
+						<Property fieldLink="http://opendata.aragon.es/def/ei2a#region-empresa-turismo-activo-{SIGNATURA}" attribute="harmonise:region" >
+							<Entity rdf:type="harmonise:MultiLanguageText" URI="http://opendata.aragon.es/def/ei2a#region-empresa-turismo-activo-{SIGNATURA}">
+								<Property field="{FUENTE}" attribute="dc:source" type="string" />
+								<Property fieldLink="http://opendata.aragon.es/def/ei2a#region-empresa-turismo-activo-language-{SIGNATURA}" attribute="harmonise:languageText" type="harmonise:LanguageText">
+									<Entity rdf:type="harmonise:LanguageText" URI="http://opendata.aragon.es/def/ei2a#region-empresa-turismo-activo-language-{SIGNATURA}">
+										<Property field="{FUENTE}" attribute="dc:source" type="string" />
+										<Property field="{NOMBRE_COMARCA}" attribute="harmonise:text" type="string" />								
+									</Entity>
+								</Property>
+							</Entity>
+						</Property>
+						<Property fieldLink="http://opendata.aragon.es/def/ei2a#province-empresa-turismo-activo-{SIGNATURA}" attribute="harmonise:province">
+							<Entity rdf:type="harmonise:MultiLanguageText" URI="http://opendata.aragon.es/def/ei2a#province-empresa-turismo-activo-{SIGNATURA}">
+								<Property field="{FUENTE}" attribute="dc:source" type="string" />
+								<Property fieldLink="http://opendata.aragon.es/def/ei2a#province-empresa-turismo-activo-language-text-{SIGNATURA}" attribute="harmonise:languageText">
+									<Entity rdf:type="harmonise:LanguageText" URI="http://opendata.aragon.es/def/ei2a#province-empresa-turismo-activo-language-text-{SIGNATURA}">
+										<Property field="{FUENTE}" attribute="dc:source" type="string" />
+										<Property field="{PROVINCIA_ESTABLECIMIENTO}" attribute="harmonise:text" type="string" />
+									</Entity>
+								</Property>
+							</Entity>
+						</Property>
+						<Property field="{CODIGO_POSTAL_ESTABLECIMIENTO}" attribute="harmonise:postCode" type="string" />
+						<Property field="{NACIONALIDAD}" attribute="harmonise:country" type="string" />
+					</Entity>
+				</Property>
+			</Entity>
+		</Property>			
+		<Property fieldLink="http://opendata.aragon.es/def/ei2a#profile-empresa-turismo-activo-{SIGNATURA}" attribute="harmonise:profile" type="harmonise:Profile">
+			<Entity rdf:type="harmonise:Profile" URI="http://opendata.aragon.es/def/ei2a#profile-empresa-turismo-activo-{SIGNATURA}">
+				<Property field="{FUENTE}" attribute="dc:source" type="string" />
+				<Property fieldLink="http://opendata.aragon.es/def/ei2a#monitores-empresa-turismo-activo-{SIGNATURA}" attribute="harmonise:profileField">
+					<Entity rdf:type="harmonise:ProfileField" URI="http://opendata.aragon.es/def/ei2a#monitores-empresa-turismo-activo-{SIGNATURA}">
+						<Property field="{FUENTE}" attribute="dc:source" type="string" />
+						<Property value="Número de monitores" attribute="harmonise:fieldName" type="string" />
+						<Property field="{NUMERO_MONITORES}" attribute="harmonise:fieldValue" type="string" />						
+					</Entity>
+				</Property>
+				<Property fieldLink="http://opendata.aragon.es/def/ei2a#guias-empresa-turismo-activo-{SIGNATURA}" attribute="harmonise:profileField">
+					<Entity rdf:type="harmonise:ProfileField" URI="http://opendata.aragon.es/def/ei2a#guias-empresa-turismo-activo-{SIGNATURA}">
+						<Property field="{FUENTE}" attribute="dc:source" type="string" />
+						<Property value="Número de guias" attribute="harmonise:fieldName" type="string" />
+						<Property field="{NUMERO_GUIAS}" attribute="harmonise:fieldValue" type="string" />						
+					</Entity>
+				</Property>
+			</Entity>
+		</Property>
+	</Entity>
+</Mapping>		

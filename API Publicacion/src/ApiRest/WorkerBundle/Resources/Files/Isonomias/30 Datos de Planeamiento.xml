@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:dc="http://purl.org/dc/elements/1.1/" id="30">
+  <Entity rdf:type="ei2a:Document" URI="http://opendata.aragon.es/pool/datos-planetario/{ENTIDAD}-{TIPOPLAN}-{A_F_ACUERDO_INI}">
+    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+    <Property field="{ENTIDAD}-{TIPOPLAN}-{A_F_ACUERDO_INI}" attribute="dc:identifier" type="string"/>
+    <Property field="{TIPOPLAN}" attribute="ei2a:nameDocument" type="string"/>
+    <Property fieldLink="http://opendata.aragon.es/pool/entidad-datos-planetario/{ENTIDAD}-{TIPOPLAN}-{A_F_ACUERDO_INI}" attribute="ei2a:documentLocation">
+      <Entity rdf:type="dc:Location" URI="http://opendata.aragon.es/pool/entidad-datos-planetario/{ENTIDAD}-{TIPOPLAN}-{A_F_ACUERDO_INI}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property field="{ENTIDAD}" attribute="ei2a:geographicName" type="string"/>
+      </Entity>
+    </Property>
+    <Property field="{A_F_ACUERDO_PROV}" attribute="ei2a:registrationDate" type="dateTime"/>
+    <Property field="{A_F_ACUERDO_INI}" attribute="ei2a:startDate" type="dateTime"/>
+    <Property field="{OBJETODELPLAN}" attribute="ei2a:observations" type="string"/>
+    <Property value="Planeamiento" attribute="ei2a:documentType" type="string"/>
+  </Entity>
+</Mapping>

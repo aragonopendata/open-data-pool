@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#" id="31">
+  <Entity rdf:type="ei2a:Document" URI="http://opendata.aragon.es/def/ei2a#pantillas-{OG_ID}">
+    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+    <Property field="{OG_ID}" attribute="dc:identifier" type="string"/>
+	<Property link="ei2a:plantilla" attribute="dc:type" />
+    <Property field="{TITULO}" attribute="ei2a:nameDocument" type="string"/>
+    <Property fieldLink="{UrlEntidad}" attribute="wgs84_pos:location" />
+    <Property field="{ANO}" attribute="ei2a:registrationDate" type="dateTime"/>
+    <Property field="{F_APROBACION_INI}" attribute="ei2a:startDate" type="dateTime"/>
+    <Property value="Plantilla" attribute="ei2a:documentType" type="string"/>
+  </Entity>
+</Mapping>

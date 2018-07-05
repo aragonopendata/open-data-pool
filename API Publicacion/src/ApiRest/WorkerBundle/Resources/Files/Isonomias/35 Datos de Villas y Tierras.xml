@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:org="http://www.w3.org/ns/org#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:vcard="http://www.w3.org/2006/vcard/ns#" id="35">
+  <Entity rdf:type="org:Organization" URI="http://opendata.aragon.es/pool/datos-villas-tierras/{CVT_ID}">
+    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+    <Property field="{CVT_ID}" attribute="dc:identifier" type="string"/>
+    <Property field="{DENOMINACION}" attribute="ei2a:organizationName" type="string"/>
+    <Property field="{TELEFONO}" attribute="ei2a:phone" type="string"/>
+    <Property field="{EMAIL}" attribute="foaf:mbox" type="string"/>
+    <Property field="{CIF}" attribute="ei2a:CIF" type="string"/>
+    <Property field="{F_CREACION}" attribute="ei2a:officialCreationDate" type="dateTime"/>
+    <Property link="ei2a:SinClasificar" attribute="ei2a:publicEntityType"/>
+    <Property link="ei2a:órganoAdministrativo" attribute="ei2a:organizationType"/>
+    <Property link="ei2a:AdministraciónLocal" attribute="ei2a:administrativeLevel"/>
+    <Property fieldLink="http://opendata.aragon.es/pool/sitesVillasTierras/{CVT_ID}" attribute="org:hasSite">
+      <Entity rdf:type="org:Site" URI="http://opendata.aragon.es/pool/sitesVillasTierras/{CVT_ID}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property fieldLink="http://opendata.aragon.es/pool/vCardVillasTierras/{CVT_ID}" attribute="org:siteAddress">
+          <Entity rdf:type="vcard:VCard" URI="http://opendata.aragon.es/pool/vCardVillasTierras/{CVT_ID}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property field="{FAX}" attribute="vcard:Fax" type="string"/>
+            <Property fieldLink="http://opendata.aragon.es/pool/adrVillasTierras/{CVT_ID}" attribute="vcard:hasAddress">
+              <Entity rdf:type="vcard:ADR" URI="http://opendata.aragon.es/pool/adrVillasTierras/{CVT_ID}">
+                <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                <Property field="{DIRECCION}" attribute="vcard:street-address" type="string"/>
+                <Property field="{CP}" attribute="vcard:postal-code" type="string"/>
+              </Entity>
+            </Property>
+          </Entity>
+        </Property>
+      </Entity>
+    </Property>
+  </Entity>
+</Mapping>

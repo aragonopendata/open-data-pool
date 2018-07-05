@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:org="http://www.w3.org/ns/org#" xmlns:vcard="http://www.w3.org/2006/vcard/ns#" xmlns:person="http://www.w3.org/ns/person#" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" id="17">
+  <Entity rdf:type="org:Organization" URI="http://opendata.aragon.es/def/ei2a#direcion-interes-{DIRECCION_ID}">
+    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+    <Property field="{DIRECCION_ID}" attribute="dc:identifier" type="string"/>
+	<Property link="ei2a:direccion_de_interes" attribute="dc:type" />
+    <Property field="{DENOMINACION}" attribute="ei2a:organizationName" type="string"/>
+    <Property field="{TELEFONO}" attribute="ei2a:phone" type="string"/>
+    <Property field="{EMAIL}" attribute="foaf:mbox" type="string"/>
+	<Property fieldLink="http://opendata.aragon.es/def/ei2a#sede-{DIRECCION_ID}" attribute="org:hasSite">
+      <Entity rdf:type="org:Site" URI="http://opendata.aragon.es/def/ei2a#sede-{DIRECCION_ID}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#vCardInteres-{DIRECCION_ID}" attribute="org:siteAddress">
+          <Entity rdf:type="vcard:VCard" URI="http://opendata.aragon.es/def/ei2a#vCardMayor-{DIRECCION_ID}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property field="{FAX}" attribute="vcard:Fax" type="string"/>
+            <Property fieldLink="http://opendata.aragon.es/def/ei2a#adrInteres-{DIRECCION_ID}" attribute="vcard:hasAddress">
+              <Entity rdf:type="vcard:ADR" URI="http://opendata.aragon.es/def/ei2a#adrInteres-{DIRECCION_ID}">
+                <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                <Property field="{DIRECCION}" attribute="vcard:street-address" type="string"/>
+              </Entity>
+            </Property>
+          </Entity>
+        </Property>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#membership-{DIRECCION_ID}-{PRESIDENTE}" attribute="org:hasMembership">
+      <Entity rdf:type="org:Membership" URI="http://opendata.aragon.es/def/ei2a#membership-{DIRECCION_ID}-{PRESIDENTE}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#pesona-{PRESIDENTE}" attribute="org:member">
+          <Entity rdf:type="person:Person" URI="http://opendata.aragon.es/def/ei2a#persona-{PRESIDENTE}">
+            <Property field="{PRESIDENTE}" attribute="ei2a:fullName" type="string"/>
+          </Entity>
+        </Property>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#direcion-interes-{DIRECCION_ID}" attribute="org:organization"/>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#role-{DIRECCION_ID}-{PRESIDENTE}" attribute="org:role">
+          <Entity rdf:type="org:Role" URI="http://opendata.aragon.es/def/ei2a#role-{DIRECCION_ID}-{PRESIDENTE}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property value="Presidente" attribute="ei2a:roleName" type="string"/>
+          </Entity>
+        </Property>
+      </Entity>
+    </Property>
+  </Entity>
+</Mapping>

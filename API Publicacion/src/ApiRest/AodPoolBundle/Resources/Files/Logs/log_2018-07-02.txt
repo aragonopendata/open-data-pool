@@ -1,0 +1,1219 @@
+[2018-07-02 8:17:18.361231] [info] [AodPoolController:postEsquemaAction] llamada a Función
+[2018-07-02 8:17:18.361417] [info] [AodPoolController:postEsquemaAction] Inicio proceso API publicacion
+[2018-07-02 8:17:18.361490] [info] [AodPoolController:postEsquemaAction] Creo un objeto entidad
+[2018-07-02 8:17:18.361757] [info] [AodPoolController:postEsquemaAction] Creo el formulario de validación
+[2018-07-02 8:17:18.529469] [info] [AodPoolController:postEsquemaAction] Recojo el archivo XML
+[2018-07-02 8:17:18.529601] [error] [AodPoolController:postEsquemaAction] El Archivo no es xml.
+[2018-07-02 8:17:18.530209] [info] [AodPoolController:postEsquemaAction] Fin proceso rest
+[2018-07-02 8:18:07.480257] [info] [AodPoolController:postEsquemaAction] llamada a Función
+[2018-07-02 8:18:07.480432] [info] [AodPoolController:postEsquemaAction] Inicio proceso API publicacion
+[2018-07-02 8:18:07.480504] [info] [AodPoolController:postEsquemaAction] Creo un objeto entidad
+[2018-07-02 8:18:07.480751] [info] [AodPoolController:postEsquemaAction] Creo el formulario de validación
+[2018-07-02 8:18:07.588567] [info] [AodPoolController:postEsquemaAction] Recojo el archivo XML
+[2018-07-02 8:18:07.590349] [info] [Isonomia:__construct] Inicia el constructor
+[2018-07-02 8:18:07.590678] [error] [Isonomia:CompruebaEsquema] No existe isonomia con nombre:
+[2018-07-02 8:18:07.590764] [info] [AodPoolController:postEsquemaAction] Muevo el archivo xml a la carpeta:/var/www/html/src/ApiRest/WorkerBundle/Resources/Files/Isonomias/
+[2018-07-02 8:18:07.591370] [info] [AodPoolController:postEsquemaAction] Archivo XML isonómico guardado con éxito
+[2018-07-02 8:18:07.591450] [info] [AodPoolController:postEsquemaAction] Fin proceso rest
+[2018-07-02 8:19:06.245816] [info] [AodPoolController:postInsertAction] Inicio proceso API publicacion
+[2018-07-02 8:19:06.245996] [info] [AodPoolController:postViewAction] Inicio proceso API publicacion
+[2018-07-02 8:19:06.246087] [info] [AodPoolController:postViewAction] Creo un objeto entidad
+[2018-07-02 8:19:06.246296] [info] [AodPoolController:postViewAction] Creo el formulario de validación
+[2018-07-02 8:19:06.346244] [info] [AodPoolController:postViewAction] Compruebo la carpeta publicacion
+[2018-07-02 8:19:06.346380] [info] [AodPoolController:postViewAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-07-02 8:19:06.346460] [info] [AodPoolController:postViewAction] Compruebo la carpeta publicacion/Error
+[2018-07-02 8:19:06.346544] [info] [AodPoolController:postViewAction] Compruebo la carpeta publicacion/Procesados
+[2018-07-02 8:19:06.346625] [info] [AodPoolController:postViewAction] Compruebo la carpeta publicacion/NoProcesados/20180702_081906
+[2018-07-02 8:19:06.346705] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/html/web/publicacion/NoProcesados/20180702_081906/
+[2018-07-02 8:19:06.348911] [info] [Isonomia:__construct] Inicia el constructor
+[2018-07-02 8:19:06.349047] [info] [AodPoolController:postViewAction] Si existe la isonomia: 15 Datos de cursos
+[2018-07-02 8:19:06.349148] [info] [AodPoolController:postViewAction] Recojo el archivo Csv
+[2018-07-02 8:19:06.349317] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-07-02 8:19:06.349468] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 15 Datos de cursos
+[2018-07-02 8:19:06.349647] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-07-02 8:19:06.349719] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-07-02 8:19:06.349792] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Mapping
+[2018-07-02 8:19:06.349864] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Mapping => Entity
+[2018-07-02 8:19:06.350224] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Entity
+[2018-07-02 8:19:06.350311] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 8:19:06.350392] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FUENTE}" 
+[2018-07-02 8:19:06.350502] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 8:19:06.350579] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 8:19:06.350656] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{CURSO_ID}" 
+[2018-07-02 8:19:06.350745] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 8:19:06.350819] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 8:19:06.350887] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 8:19:06.350955] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 8:19:06.351047] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{ANO}" 
+[2018-07-02 8:19:06.351147] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 8:19:06.351222] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 8:19:06.351299] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo fieldLink:  fieldLink="http://opendata.aragon.es/def/ei2a#time-curso-{CURSO_ID}" 
+[2018-07-02 8:19:06.351392] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 8:19:06.351463] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Property => Entity
+[2018-07-02 8:19:06.351655] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Entity
+[2018-07-02 8:19:06.351731] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 8:19:06.351804] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FUENTE}" 
+[2018-07-02 8:19:06.351896] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 8:19:06.351970] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 8:19:06.352106] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{ANO}" 
+[2018-07-02 8:19:06.352207] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 8:19:06.352284] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 8:19:06.352361] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{DENOMINACION_COMP}" 
+[2018-07-02 8:19:06.352462] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 8:19:06.352535] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 8:19:06.352610] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{TIPO_CURSO}" 
+[2018-07-02 8:19:06.352699] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 8:19:06.352775] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Csv e Isonomia se corresponden
+[2018-07-02 8:19:06.352845] [info] [AodPoolController:postViewAction] Muevo el archivo csv a la carpeta:/var/www/html/web/publicacion/NoProcesados/20180702_081906/
+[2018-07-02 8:19:06.353286] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 15 Datos de cursos
+[2018-07-02 8:19:06.353423] [info] [Isonomia:ComprobarDcType] DcType validado
+[2018-07-02 8:19:06.353494] [info] [AodPoolController:postViewAction] Compurebo si el dcType es correcto con la isonomia
+[2018-07-02 8:19:06.353558] [info] [AodPoolController:postViewAction] El dcType, ei2a:curso, coincide con la isonomia
+[2018-07-02 8:19:06.353626] [info] [AodPoolController:postViewAction] La entidad mandada es validada por el formulario
+[2018-07-02 8:19:06.353718] [info] [AodPoolController:execute] Lanzo comando: curl http://localhost/worker/MTUgRGF0b3MgZGUgY3Vyc29z_201807020819061530512346_aHR0cDovL29wZW5kYXRhLmFyYWdvbi5lcy9kZWYvZWkyYSNjdXJzbw==_false
+[2018-07-02 8:19:06.359827] [info] [AodPoolController:postViewAction] Fin proceso rest
+[2018-07-02 8:23:16.251873] [info] [AodPoolController:postInsertAction] Inicio proceso API publicacion
+[2018-07-02 8:23:16.252101] [info] [AodPoolController:postViewAction] Inicio proceso API publicacion
+[2018-07-02 8:23:16.252177] [info] [AodPoolController:postViewAction] Creo un objeto entidad
+[2018-07-02 8:23:16.252430] [info] [AodPoolController:postViewAction] Creo el formulario de validación
+[2018-07-02 8:23:16.363600] [info] [AodPoolController:postViewAction] Compruebo la carpeta publicacion
+[2018-07-02 8:23:16.363733] [info] [AodPoolController:postViewAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-07-02 8:23:16.363814] [info] [AodPoolController:postViewAction] Compruebo la carpeta publicacion/Error
+[2018-07-02 8:23:16.363889] [info] [AodPoolController:postViewAction] Compruebo la carpeta publicacion/Procesados
+[2018-07-02 8:23:16.363991] [info] [AodPoolController:postViewAction] Compruebo la carpeta publicacion/NoProcesados/20180702_082316
+[2018-07-02 8:23:16.364130] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/html/web/publicacion/NoProcesados/20180702_082316/
+[2018-07-02 8:23:16.366559] [info] [Isonomia:__construct] Inicia el constructor
+[2018-07-02 8:23:16.366679] [info] [AodPoolController:postViewAction] Si existe la isonomia: 15 Datos de cursos
+[2018-07-02 8:23:16.366774] [info] [AodPoolController:postViewAction] Recojo el archivo Csv
+[2018-07-02 8:23:16.366944] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-07-02 8:23:16.367141] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 15 Datos de cursos
+[2018-07-02 8:23:16.367320] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-07-02 8:23:16.367394] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-07-02 8:23:16.367475] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Mapping
+[2018-07-02 8:23:16.367547] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Mapping => Entity
+[2018-07-02 8:23:16.367885] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Entity
+[2018-07-02 8:23:16.367965] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 8:23:16.368062] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FUENTE}" 
+[2018-07-02 8:23:16.368169] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 8:23:16.368244] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 8:23:16.368326] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{CURSO_ID}" 
+[2018-07-02 8:23:16.368442] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 8:23:16.368539] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 8:23:16.368609] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 8:23:16.368680] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 8:23:16.368755] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{ANO}" 
+[2018-07-02 8:23:16.368846] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 8:23:16.368920] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 8:23:16.368994] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo fieldLink:  fieldLink="http://opendata.aragon.es/def/ei2a#time-curso-{CURSO_ID}" 
+[2018-07-02 8:23:16.369116] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 8:23:16.369189] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Property => Entity
+[2018-07-02 8:23:16.369375] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Entity
+[2018-07-02 8:23:16.369451] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 8:23:16.369527] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FUENTE}" 
+[2018-07-02 8:23:16.369616] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 8:23:16.369689] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 8:23:16.369764] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{ANO}" 
+[2018-07-02 8:23:16.369868] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 8:23:16.369946] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 8:23:16.370037] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{DENOMINACION_COMP}" 
+[2018-07-02 8:23:16.370137] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 8:23:16.370212] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 8:23:16.370286] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{TIPO_CURSO}" 
+[2018-07-02 8:23:16.370378] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 8:23:16.370462] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Csv e Isonomia se corresponden
+[2018-07-02 8:23:16.370527] [info] [AodPoolController:postViewAction] Muevo el archivo csv a la carpeta:/var/www/html/web/publicacion/NoProcesados/20180702_082316/
+[2018-07-02 8:23:16.370953] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 15 Datos de cursos
+[2018-07-02 8:23:16.371103] [info] [Isonomia:ComprobarDcType] DcType validado
+[2018-07-02 8:23:16.371181] [info] [AodPoolController:postViewAction] Compurebo si el dcType es correcto con la isonomia
+[2018-07-02 8:23:16.371246] [info] [AodPoolController:postViewAction] El dcType, ei2a:curso, coincide con la isonomia
+[2018-07-02 8:23:16.371315] [info] [AodPoolController:postViewAction] La entidad mandada es validada por el formulario
+[2018-07-02 8:23:16.371412] [info] [AodPoolController:execute] Lanzo comando: curl http://localhost/worker/MTUgRGF0b3MgZGUgY3Vyc29z_201807020823161530512596_aHR0cDovL29wZW5kYXRhLmFyYWdvbi5lcy9kZWYvZWkyYSNjdXJzbw==_false
+[2018-07-02 8:23:16.378042] [info] [AodPoolController:postViewAction] Fin proceso rest
+[2018-07-02 8:32:01.379188] [info] [AodPoolController:postInsertAction] Inicio proceso API publicacion
+[2018-07-02 8:32:01.379339] [info] [AodPoolController:postViewAction] Inicio proceso API publicacion
+[2018-07-02 8:32:01.379410] [info] [AodPoolController:postViewAction] Creo un objeto entidad
+[2018-07-02 8:32:01.379641] [info] [AodPoolController:postViewAction] Creo el formulario de validación
+[2018-07-02 8:32:01.548219] [info] [AodPoolController:postViewAction] Compruebo la carpeta publicacion
+[2018-07-02 8:32:01.548346] [info] [AodPoolController:postViewAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-07-02 8:32:01.548428] [info] [AodPoolController:postViewAction] Compruebo la carpeta publicacion/Error
+[2018-07-02 8:32:01.548502] [info] [AodPoolController:postViewAction] Compruebo la carpeta publicacion/Procesados
+[2018-07-02 8:32:01.548584] [info] [AodPoolController:postViewAction] Compruebo la carpeta publicacion/NoProcesados/20180702_083201
+[2018-07-02 8:32:01.548672] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/html/web/publicacion/NoProcesados/20180702_083201/
+[2018-07-02 8:32:01.550894] [info] [Isonomia:__construct] Inicia el constructor
+[2018-07-02 8:32:01.551039] [info] [AodPoolController:postViewAction] Si existe la isonomia: 15 Datos de cursos
+[2018-07-02 8:32:01.551145] [info] [AodPoolController:postViewAction] Recojo el archivo Csv
+[2018-07-02 8:32:01.551314] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-07-02 8:32:01.551472] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 15 Datos de cursos
+[2018-07-02 8:32:01.551654] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-07-02 8:32:01.551737] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-07-02 8:32:01.551810] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Mapping
+[2018-07-02 8:32:01.551912] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Mapping => Entity
+[2018-07-02 8:32:01.552325] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Entity
+[2018-07-02 8:32:01.552414] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 8:32:01.552516] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FUENTE}" 
+[2018-07-02 8:32:01.552617] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 8:32:01.552695] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 8:32:01.552774] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{CURSO_ID}" 
+[2018-07-02 8:32:01.552867] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 8:32:01.552943] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 8:32:01.553014] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 8:32:01.553117] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 8:32:01.553199] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{ANO}" 
+[2018-07-02 8:32:01.553292] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 8:32:01.553366] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 8:32:01.553442] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo fieldLink:  fieldLink="http://opendata.aragon.es/def/ei2a#time-curso-{CURSO_ID}" 
+[2018-07-02 8:32:01.553539] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 8:32:01.553611] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Property => Entity
+[2018-07-02 8:32:01.553806] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Entity
+[2018-07-02 8:32:01.553884] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 8:32:01.553961] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FUENTE}" 
+[2018-07-02 8:32:01.554074] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 8:32:01.554158] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 8:32:01.554236] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{ANO}" 
+[2018-07-02 8:32:01.554330] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 8:32:01.554409] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 8:32:01.554502] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{DENOMINACION_COMP}" 
+[2018-07-02 8:32:01.554598] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 8:32:01.554672] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 8:32:01.554748] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{TIPO_CURSO}" 
+[2018-07-02 8:32:01.554838] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 8:32:01.554918] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Csv e Isonomia se corresponden
+[2018-07-02 8:32:01.554986] [info] [AodPoolController:postViewAction] Muevo el archivo csv a la carpeta:/var/www/html/web/publicacion/NoProcesados/20180702_083201/
+[2018-07-02 8:32:01.555402] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 15 Datos de cursos
+[2018-07-02 8:32:01.555529] [info] [Isonomia:ComprobarDcType] DcType validado
+[2018-07-02 8:32:01.555609] [info] [AodPoolController:postViewAction] Compurebo si el dcType es correcto con la isonomia
+[2018-07-02 8:32:01.555675] [info] [AodPoolController:postViewAction] El dcType, ei2a:curso, coincide con la isonomia
+[2018-07-02 8:32:01.555746] [info] [AodPoolController:postViewAction] La entidad mandada es validada por el formulario
+[2018-07-02 8:32:01.555841] [info] [AodPoolController:execute] Lanzo comando: curl http://localhost/worker/MTUgRGF0b3MgZGUgY3Vyc29z_201807020832011530513121_aHR0cDovL29wZW5kYXRhLmFyYWdvbi5lcy9kZWYvZWkyYSNjdXJzbw==_false
+[2018-07-02 8:32:01.562356] [info] [AodPoolController:postViewAction] Fin proceso rest
+[2018-07-02 10:20:09.319662] [info] [AodPoolController:postEsquemaAction] llamada a Función
+[2018-07-02 10:20:09.319856] [info] [AodPoolController:postEsquemaAction] Inicio proceso API publicacion
+[2018-07-02 10:20:09.319926] [info] [AodPoolController:postEsquemaAction] Creo un objeto entidad
+[2018-07-02 10:20:09.320158] [info] [AodPoolController:postEsquemaAction] Creo el formulario de validación
+[2018-07-02 10:20:09.423979] [info] [AodPoolController:postEsquemaAction] Recojo el archivo XML
+[2018-07-02 10:20:09.425589] [info] [Isonomia:__construct] Inicia el constructor
+[2018-07-02 10:20:09.425839] [error] [Isonomia:CompruebaEsquema] No existe isonomia con nombre:
+[2018-07-02 10:20:09.425921] [info] [AodPoolController:postEsquemaAction] Muevo el archivo xml a la carpeta:/var/www/html/src/ApiRest/WorkerBundle/Resources/Files/Isonomias/
+[2018-07-02 10:20:09.426382] [info] [AodPoolController:postEsquemaAction] Archivo XML isonómico guardado con éxito
+[2018-07-02 10:20:09.426461] [info] [AodPoolController:postEsquemaAction] Fin proceso rest
+[2018-07-02 10:21:23.666198] [info] [AodPoolController:postInsertAction] Inicio proceso API publicacion
+[2018-07-02 10:21:23.666326] [info] [AodPoolController:postInsertAction] Creo un objeto entidad
+[2018-07-02 10:21:23.666533] [info] [AodPoolController:postInsertAction] Creo el formulario de validación
+[2018-07-02 10:21:23.765378] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion
+[2018-07-02 10:21:23.765536] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-07-02 10:21:23.765630] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/Error
+[2018-07-02 10:21:23.765706] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/Procesados
+[2018-07-02 10:21:23.765775] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/NoProcesados/20180702_102123
+[2018-07-02 10:21:23.765878] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/html/web/publicacion/NoProcesados/20180702_102123/
+[2018-07-02 10:21:23.766633] [info] [AodPoolController:postInsertAction] Compruebo que existe la isonomia
+[2018-07-02 10:21:23.768480] [info] [Isonomia:__construct] Inicia el constructor
+[2018-07-02 10:21:23.768596] [info] [AodPoolController:postInsertAction] Si existe la isonomia: 110 Instituto Aragones del Agua_ Hidrante
+[2018-07-02 10:21:23.768686] [info] [AodPoolController:postInsertAction] Recojo el archivo Csv
+[2018-07-02 10:21:23.768894] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-07-02 10:21:23.769058] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 110 Instituto Aragones del Agua_ Hidrante
+[2018-07-02 10:21:23.769222] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-07-02 10:21:23.769292] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-07-02 10:21:23.769362] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Mapping
+[2018-07-02 10:21:23.769433] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Mapping => Entity
+[2018-07-02 10:21:23.769721] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Entity
+[2018-07-02 10:21:23.769802] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:21:23.769879] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FUENTE}" 
+[2018-07-02 10:21:23.769972] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 10:21:23.770067] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:21:23.770150] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{OBJECTID}" 
+[2018-07-02 10:21:23.770243] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 10:21:23.770317] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:21:23.770384] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 10:21:23.770452] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:21:23.770539] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{CODINE}" 
+[2018-07-02 10:21:23.770631] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 10:21:23.770704] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:21:23.770776] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FECHA}" 
+[2018-07-02 10:21:23.770863] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 10:21:23.770935] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:21:23.771008] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo fieldLink:  fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" 
+[2018-07-02 10:21:23.771130] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 10:21:23.771203] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:21:23.771276] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{SECPUN}" 
+[2018-07-02 10:21:23.771364] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 10:21:23.771439] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Csv e Isonomia se corresponden
+[2018-07-02 10:21:23.771502] [info] [AodPoolController:postInsertAction] Muevo el archivo csv a la carpeta:/var/www/html/web/publicacion/NoProcesados/20180702_102123/
+[2018-07-02 10:21:23.772123] [info] [AodPoolController:postInsertAction] La entidad mandada es validada por el formulario
+[2018-07-02 10:21:23.772222] [info] [AodPoolController:execute] Lanzo comando: curl http://localhost/worker/MTEwIEluc3RpdHV0byBBcmFnb25lcyBkZWwgQWd1YV8gSGlkcmFudGU=_201807021021231530519683_ZmFsc2U=_false
+[2018-07-02 10:21:23.778528] [info] [AodPoolController:postInsertAction] Fin proceso rest
+[2018-07-02 10:32:16.390397] [info] [AodPoolController:postEsquemaAction] llamada a Función
+[2018-07-02 10:32:16.390518] [info] [AodPoolController:postEsquemaAction] Inicio proceso API publicacion
+[2018-07-02 10:32:16.390588] [info] [AodPoolController:postEsquemaAction] Creo un objeto entidad
+[2018-07-02 10:32:16.390809] [info] [AodPoolController:postEsquemaAction] Creo el formulario de validación
+[2018-07-02 10:32:16.496058] [info] [AodPoolController:postEsquemaAction] Recojo el archivo XML
+[2018-07-02 10:32:16.497600] [info] [Isonomia:__construct] Inicia el constructor
+[2018-07-02 10:32:16.497869] [error] [Isonomia:CompruebaEsquema] No existe isonomia con nombre:
+[2018-07-02 10:32:16.497953] [info] [AodPoolController:postEsquemaAction] Muevo el archivo xml a la carpeta:/var/www/html/src/ApiRest/WorkerBundle/Resources/Files/Isonomias/
+[2018-07-02 10:32:16.498450] [info] [AodPoolController:postEsquemaAction] Archivo XML isonómico guardado con éxito
+[2018-07-02 10:32:16.498573] [info] [AodPoolController:postEsquemaAction] Fin proceso rest
+[2018-07-02 10:37:49.889303] [info] [AodPoolController:postInsertAction] Inicio proceso API publicacion
+[2018-07-02 10:37:49.889466] [info] [AodPoolController:postInsertAction] Creo un objeto entidad
+[2018-07-02 10:37:49.889678] [info] [AodPoolController:postInsertAction] Creo el formulario de validación
+[2018-07-02 10:37:49.991144] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion
+[2018-07-02 10:37:49.991277] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-07-02 10:37:49.991358] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/Error
+[2018-07-02 10:37:49.991430] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/Procesados
+[2018-07-02 10:37:49.991503] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/NoProcesados/20180702_103749
+[2018-07-02 10:37:49.991625] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/html/web/publicacion/NoProcesados/20180702_103749/
+[2018-07-02 10:37:49.992388] [info] [AodPoolController:postInsertAction] Compruebo que existe la isonomia
+[2018-07-02 10:37:49.993977] [info] [Isonomia:__construct] Inicia el constructor
+[2018-07-02 10:37:49.994117] [info] [AodPoolController:postInsertAction] Si existe la isonomia: 106 Instituto Aragones del Agua_ Ramales
+[2018-07-02 10:37:49.994211] [info] [AodPoolController:postInsertAction] Recojo el archivo Csv
+[2018-07-02 10:37:49.994401] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-07-02 10:37:49.994551] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 106 Instituto Aragones del Agua_ Ramales
+[2018-07-02 10:37:49.994728] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-07-02 10:37:49.994798] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-07-02 10:37:49.994920] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Mapping
+[2018-07-02 10:37:49.994998] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Mapping => Entity
+[2018-07-02 10:37:49.995399] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Entity
+[2018-07-02 10:37:49.995479] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:37:49.995557] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FUENTE}" 
+[2018-07-02 10:37:49.995651] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 10:37:49.995727] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:37:49.995800] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{OBJECTID}" 
+[2018-07-02 10:37:49.995889] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 10:37:49.995965] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:37:49.996047] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 10:37:49.996125] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:37:49.996201] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{CODINE}" 
+[2018-07-02 10:37:49.996289] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 10:37:49.996362] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:37:49.996434] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FECHA}" 
+[2018-07-02 10:37:49.996525] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 10:37:49.996597] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:37:49.996669] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo fieldLink:  fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" 
+[2018-07-02 10:37:49.996762] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 10:37:49.996834] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:37:49.996906] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{LONSAN}" 
+[2018-07-02 10:37:49.996997] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 10:37:49.997091] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:37:49.997167] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo fieldLink:  fieldLink="http://opendata.aragon.es/def/ei2a#meterial-{MATEMI}" 
+[2018-07-02 10:37:49.997257] [error] [Isonomia:ProcesaEntity] Nodo tipo Property no tiene atributo fieldLink con campo asociado al CSV: MATEMI 
+[2018-07-02 10:37:49.997324] [debug] [Isonomia:ProcesaEntity] Campo encontrado: MATEMI 
+[2018-07-02 10:37:49.997390] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:37:49.997461] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{TAMSAN}" 
+[2018-07-02 10:37:49.997545] [debug] [Isonomia:ProcesaEntity] Campo encontrado: {TAMSAN} 
+[2018-07-02 10:37:49.997617] [error] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] La isonomia seleccionada, no coincide con el Csv cargado
+[2018-07-02 10:37:49.998378] [info] [AodPoolController:postInsertAction] Fin proceso rest
+[2018-07-02 10:38:50.142424] [info] [AodPoolController:postInsertAction] Inicio proceso API publicacion
+[2018-07-02 10:38:50.142565] [info] [AodPoolController:postInsertAction] Creo un objeto entidad
+[2018-07-02 10:38:50.142766] [info] [AodPoolController:postInsertAction] Creo el formulario de validación
+[2018-07-02 10:38:50.243457] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion
+[2018-07-02 10:38:50.243611] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-07-02 10:38:50.243705] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/Error
+[2018-07-02 10:38:50.243781] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/Procesados
+[2018-07-02 10:38:50.243851] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/NoProcesados/20180702_103850
+[2018-07-02 10:38:50.243938] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/html/web/publicacion/NoProcesados/20180702_103850/
+[2018-07-02 10:38:50.244724] [info] [AodPoolController:postInsertAction] Compruebo que existe la isonomia
+[2018-07-02 10:38:50.246412] [info] [Isonomia:__construct] Inicia el constructor
+[2018-07-02 10:38:50.246531] [info] [AodPoolController:postInsertAction] Si existe la isonomia: 106 Instituto Aragones del Agua_ Ramales
+[2018-07-02 10:38:50.246622] [info] [AodPoolController:postInsertAction] Recojo el archivo Csv
+[2018-07-02 10:38:50.246798] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-07-02 10:38:50.246936] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 106 Instituto Aragones del Agua_ Ramales
+[2018-07-02 10:38:50.247132] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-07-02 10:38:50.247212] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-07-02 10:38:50.247289] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Mapping
+[2018-07-02 10:38:50.247364] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Mapping => Entity
+[2018-07-02 10:38:50.247740] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Entity
+[2018-07-02 10:38:50.247829] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:38:50.247910] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FUENTE}" 
+[2018-07-02 10:38:50.248007] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 10:38:50.248116] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:38:50.248193] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{OBJECTID}" 
+[2018-07-02 10:38:50.248286] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 10:38:50.248361] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:38:50.248429] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 10:38:50.248500] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:38:50.248573] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{CODINE}" 
+[2018-07-02 10:38:50.248661] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 10:38:50.248735] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:38:50.248807] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FECHA}" 
+[2018-07-02 10:38:50.248897] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 10:38:50.248970] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:38:50.249090] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo fieldLink:  fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" 
+[2018-07-02 10:38:50.249212] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 10:38:50.249289] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:38:50.249363] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{LONSAN}" 
+[2018-07-02 10:38:50.249454] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 10:38:50.249526] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:38:50.249599] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo fieldLink:  fieldLink="http://opendata.aragon.es/def/ei2a#meterial-{MATEMI}" 
+[2018-07-02 10:38:50.249691] [error] [Isonomia:ProcesaEntity] Nodo tipo Property no tiene atributo fieldLink con campo asociado al CSV: MATEMI 
+[2018-07-02 10:38:50.249761] [debug] [Isonomia:ProcesaEntity] Campo encontrado: MATEMI 
+[2018-07-02 10:38:50.249829] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:38:50.249901] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{TAMSAN}" 
+[2018-07-02 10:38:50.249985] [debug] [Isonomia:ProcesaEntity] Campo encontrado: {TAMSAN} 
+[2018-07-02 10:38:50.250086] [error] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] La isonomia seleccionada, no coincide con el Csv cargado
+[2018-07-02 10:38:50.250741] [info] [AodPoolController:postInsertAction] Fin proceso rest
+[2018-07-02 10:41:58.431647] [info] [AodPoolController:getEsquemasAction] llamada a Función
+[2018-07-02 10:41:58.431966] [info] [AodPoolController:getEsquemasAction] Fin proceso rest
+[2018-07-02 10:42:33.748042] [info] [AodPoolController:postInsertAction] Inicio proceso API publicacion
+[2018-07-02 10:42:33.748241] [info] [AodPoolController:postInsertAction] Creo un objeto entidad
+[2018-07-02 10:42:33.748452] [info] [AodPoolController:postInsertAction] Creo el formulario de validación
+[2018-07-02 10:42:33.851892] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion
+[2018-07-02 10:42:33.852092] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-07-02 10:42:33.852180] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/Error
+[2018-07-02 10:42:33.852258] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/Procesados
+[2018-07-02 10:42:33.852333] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/NoProcesados/20180702_104233
+[2018-07-02 10:42:33.852449] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/html/web/publicacion/NoProcesados/20180702_104233/
+[2018-07-02 10:42:33.853415] [info] [AodPoolController:postInsertAction] Compruebo que existe la isonomia
+[2018-07-02 10:42:33.855236] [info] [Isonomia:__construct] Inicia el constructor
+[2018-07-02 10:42:33.855441] [info] [AodPoolController:postInsertAction] Si existe la isonomia: 106 Instituto Aragones del Agua_ Ramales
+[2018-07-02 10:42:33.855549] [info] [AodPoolController:postInsertAction] Recojo el archivo Csv
+[2018-07-02 10:42:33.855768] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-07-02 10:42:33.855933] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 106 Instituto Aragones del Agua_ Ramales
+[2018-07-02 10:42:33.856162] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-07-02 10:42:33.856244] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-07-02 10:42:33.856323] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Mapping
+[2018-07-02 10:42:33.856400] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Mapping => Entity
+[2018-07-02 10:42:33.856817] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Entity
+[2018-07-02 10:42:33.856911] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:42:33.857000] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FUENTE}" 
+[2018-07-02 10:42:33.857156] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 10:42:33.857239] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:42:33.857316] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{OBJECTID}" 
+[2018-07-02 10:42:33.857407] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 10:42:33.857480] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:42:33.857547] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 10:42:33.857616] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:42:33.857691] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{CODINE}" 
+[2018-07-02 10:42:33.857779] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 10:42:33.857861] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:42:33.857950] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FECHA}" 
+[2018-07-02 10:42:33.858068] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 10:42:33.858200] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:42:33.858290] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo fieldLink:  fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" 
+[2018-07-02 10:42:33.858392] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 10:42:33.858465] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:42:33.858540] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{LONSAN}" 
+[2018-07-02 10:42:33.858629] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 10:42:33.858701] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:42:33.858777] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo fieldLink:  fieldLink="http://opendata.aragon.es/def/ei2a#meterial-{MATEMI}" 
+[2018-07-02 10:42:33.858877] [error] [Isonomia:ProcesaEntity] Nodo tipo Property no tiene atributo fieldLink con campo asociado al CSV: MATEMI 
+[2018-07-02 10:42:33.858961] [debug] [Isonomia:ProcesaEntity] Campo encontrado: MATEMI 
+[2018-07-02 10:42:33.859047] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:42:33.859134] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{TAMSAN}" 
+[2018-07-02 10:42:33.859226] [debug] [Isonomia:ProcesaEntity] Campo encontrado: {TAMSAN} 
+[2018-07-02 10:42:33.859322] [error] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] La isonomia seleccionada, no coincide con el Csv cargado
+[2018-07-02 10:42:33.860307] [info] [AodPoolController:postInsertAction] Fin proceso rest
+[2018-07-02 10:48:10.460542] [info] [AodPoolController:postEsquemaAction] llamada a Función
+[2018-07-02 10:48:10.460679] [info] [AodPoolController:postEsquemaAction] Inicio proceso API publicacion
+[2018-07-02 10:48:10.460750] [info] [AodPoolController:postEsquemaAction] Creo un objeto entidad
+[2018-07-02 10:48:10.460952] [info] [AodPoolController:postEsquemaAction] Creo el formulario de validación
+[2018-07-02 10:48:10.561090] [info] [AodPoolController:postEsquemaAction] Recojo el archivo XML
+[2018-07-02 10:48:10.562861] [info] [Isonomia:__construct] Inicia el constructor
+[2018-07-02 10:48:10.563137] [error] [Isonomia:CompruebaEsquema] No existe isonomia con nombre:
+[2018-07-02 10:48:10.563237] [info] [AodPoolController:postEsquemaAction] Muevo el archivo xml a la carpeta:/var/www/html/src/ApiRest/WorkerBundle/Resources/Files/Isonomias/
+[2018-07-02 10:48:10.563882] [info] [AodPoolController:postEsquemaAction] Archivo XML isonómico guardado con éxito
+[2018-07-02 10:48:10.563960] [info] [AodPoolController:postEsquemaAction] Fin proceso rest
+[2018-07-02 10:48:22.312679] [info] [AodPoolController:postInsertAction] Inicio proceso API publicacion
+[2018-07-02 10:48:22.312864] [info] [AodPoolController:postInsertAction] Creo un objeto entidad
+[2018-07-02 10:48:22.313105] [info] [AodPoolController:postInsertAction] Creo el formulario de validación
+[2018-07-02 10:48:22.414500] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion
+[2018-07-02 10:48:22.414657] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-07-02 10:48:22.414750] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/Error
+[2018-07-02 10:48:22.414844] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/Procesados
+[2018-07-02 10:48:22.414931] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/NoProcesados/20180702_104822
+[2018-07-02 10:48:22.415067] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/html/web/publicacion/NoProcesados/20180702_104822/
+[2018-07-02 10:48:22.415890] [info] [AodPoolController:postInsertAction] Compruebo que existe la isonomia
+[2018-07-02 10:48:22.417531] [info] [Isonomia:__construct] Inicia el constructor
+[2018-07-02 10:48:22.417653] [info] [AodPoolController:postInsertAction] Si existe la isonomia: 106 Instituto Aragones del Agua_ Ramales
+[2018-07-02 10:48:22.417745] [info] [AodPoolController:postInsertAction] Recojo el archivo Csv
+[2018-07-02 10:48:22.417939] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-07-02 10:48:22.418092] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 106 Instituto Aragones del Agua_ Ramales
+[2018-07-02 10:48:22.418281] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-07-02 10:48:22.418375] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-07-02 10:48:22.418486] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Mapping
+[2018-07-02 10:48:22.418570] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Mapping => Entity
+[2018-07-02 10:48:22.418967] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Entity
+[2018-07-02 10:48:22.419064] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:48:22.419153] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FUENTE}" 
+[2018-07-02 10:48:22.419253] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 10:48:22.419329] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:48:22.419428] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{OBJECTID}" 
+[2018-07-02 10:48:22.419545] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 10:48:22.419635] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:48:22.419706] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 10:48:22.419776] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:48:22.419858] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{CODINE}" 
+[2018-07-02 10:48:22.419960] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 10:48:22.420054] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:48:22.420139] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FECHA}" 
+[2018-07-02 10:48:22.420231] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 10:48:22.420304] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:48:22.420388] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo fieldLink:  fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" 
+[2018-07-02 10:48:22.420520] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 10:48:22.420605] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:48:22.420706] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{LONSAN}" 
+[2018-07-02 10:48:22.420802] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 10:48:22.420896] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:48:22.420972] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo fieldLink:  fieldLink="http://opendata.aragon.es/def/ei2a#meterial-{MATSAN}" 
+[2018-07-02 10:48:22.421082] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 10:48:22.421163] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Property => Entity
+[2018-07-02 10:48:22.421361] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Entity
+[2018-07-02 10:48:22.421474] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:48:22.421557] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FUENTE}" 
+[2018-07-02 10:48:22.421652] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 10:48:22.421725] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:48:22.421799] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{MATSAN}" 
+[2018-07-02 10:48:22.421910] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 10:48:22.421998] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 10:48:22.422153] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{TAMSAN}" 
+[2018-07-02 10:48:22.422250] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 10:48:22.422326] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Csv e Isonomia se corresponden
+[2018-07-02 10:48:22.422398] [info] [AodPoolController:postInsertAction] Muevo el archivo csv a la carpeta:/var/www/html/web/publicacion/NoProcesados/20180702_104822/
+[2018-07-02 10:48:22.436786] [info] [AodPoolController:postInsertAction] La entidad mandada es validada por el formulario
+[2018-07-02 10:48:22.436947] [info] [AodPoolController:execute] Lanzo comando: curl http://localhost/worker/MTA2IEluc3RpdHV0byBBcmFnb25lcyBkZWwgQWd1YV8gUmFtYWxlcw==_201807021048221530521302_ZmFsc2U=_false
+[2018-07-02 10:48:22.443543] [info] [AodPoolController:postInsertAction] Fin proceso rest
+[2018-07-02 11:17:56.448625] [debug] [AodPoolController:getListadoDcTypeAction] llamada a Función
+[2018-07-02 11:17:56.448816] [debug] [AodPoolController:LanzaConsultaRespuesta] Inicio: url:http://localhost:8890/sparql , query:select distinct ?dctype from <http://opendata.aragon.es/graph/pool>  where {?s dc:type ?dctype .} order by ?dctype 
+[2018-07-02 11:17:56.448924] [debug] [AodPoolController:LanzaConsultaRespuesta] SPARQL>>>: select distinct ?dctype from <http://opendata.aragon.es/graph/pool>  where {?s dc:type ?dctype .} order by ?dctype 
+[2018-07-02 11:17:56.478334] [debug] [AodPoolController:LanzaConsultaRespuesta] Se ha realizado la consulta correctamente
+[2018-07-02 11:17:56.480221] [error] [AodPoolController:getListadoDcTypeAction] Fin proceso rest
+[2018-07-02 11:21:23.548996] [info] [AodPoolController:postEsquemaAction] llamada a Función
+[2018-07-02 11:21:23.549176] [info] [AodPoolController:postEsquemaAction] Inicio proceso API publicacion
+[2018-07-02 11:21:23.549245] [info] [AodPoolController:postEsquemaAction] Creo un objeto entidad
+[2018-07-02 11:21:23.549455] [info] [AodPoolController:postEsquemaAction] Creo el formulario de validación
+[2018-07-02 11:21:23.739353] [info] [AodPoolController:postEsquemaAction] Recojo el archivo XML
+[2018-07-02 11:21:23.740914] [info] [Isonomia:__construct] Inicia el constructor
+[2018-07-02 11:21:23.741180] [error] [Isonomia:CompruebaEsquema] No existe isonomia con nombre:
+[2018-07-02 11:21:23.741270] [info] [AodPoolController:postEsquemaAction] Muevo el archivo xml a la carpeta:/var/www/html/src/ApiRest/WorkerBundle/Resources/Files/Isonomias/
+[2018-07-02 11:21:23.741672] [info] [AodPoolController:postEsquemaAction] Archivo XML isonómico guardado con éxito
+[2018-07-02 11:21:23.741761] [info] [AodPoolController:postEsquemaAction] Fin proceso rest
+[2018-07-02 11:23:41.381221] [info] [AodPoolController:postInsertAction] Inicio proceso API publicacion
+[2018-07-02 11:23:41.381356] [info] [AodPoolController:postInsertAction] Creo un objeto entidad
+[2018-07-02 11:23:41.381572] [info] [AodPoolController:postInsertAction] Creo el formulario de validación
+[2018-07-02 11:23:41.483658] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion
+[2018-07-02 11:23:41.483814] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-07-02 11:23:41.483902] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/Error
+[2018-07-02 11:23:41.484009] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/Procesados
+[2018-07-02 11:23:41.484133] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/NoProcesados/20180702_112341
+[2018-07-02 11:23:41.484263] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/html/web/publicacion/NoProcesados/20180702_112341/
+[2018-07-02 11:23:41.485122] [info] [AodPoolController:postInsertAction] Compruebo que existe la isonomia
+[2018-07-02 11:23:41.487159] [info] [Isonomia:__construct] Inicia el constructor
+[2018-07-02 11:23:41.487281] [info] [AodPoolController:postInsertAction] Si existe la isonomia: 112 Instituto Aragones del Agua_ Edar
+[2018-07-02 11:23:41.487375] [info] [AodPoolController:postInsertAction] Recojo el archivo Csv
+[2018-07-02 11:23:41.487557] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-07-02 11:23:41.487720] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 112 Instituto Aragones del Agua_ Edar
+[2018-07-02 11:23:41.487875] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-07-02 11:23:41.487951] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-07-02 11:23:41.488048] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Mapping
+[2018-07-02 11:23:41.488132] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Mapping => Entity
+[2018-07-02 11:23:41.488424] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Entity
+[2018-07-02 11:23:41.488508] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 11:23:41.488589] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FUENTE}" 
+[2018-07-02 11:23:41.488686] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 11:23:41.488763] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 11:23:41.488840] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{ID_EDAR}" 
+[2018-07-02 11:23:41.488935] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 11:23:41.489011] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 11:23:41.489152] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 11:23:41.489228] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 11:23:41.489305] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{ESTADO}" 
+[2018-07-02 11:23:41.489399] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 11:23:41.489478] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Csv e Isonomia se corresponden
+[2018-07-02 11:23:41.489545] [info] [AodPoolController:postInsertAction] Muevo el archivo csv a la carpeta:/var/www/html/web/publicacion/NoProcesados/20180702_112341/
+[2018-07-02 11:23:41.489919] [info] [AodPoolController:postInsertAction] La entidad mandada es validada por el formulario
+[2018-07-02 11:23:41.490036] [info] [AodPoolController:execute] Lanzo comando: curl http://localhost/worker/MTEyIEluc3RpdHV0byBBcmFnb25lcyBkZWwgQWd1YV8gRWRhcg==_201807021123411530523421_ZmFsc2U=_false
+[2018-07-02 11:23:41.496763] [info] [AodPoolController:postInsertAction] Fin proceso rest
+[2018-07-02 11:49:52.251519] [info] [AodPoolController:postEsquemaAction] llamada a Función
+[2018-07-02 11:49:52.251743] [info] [AodPoolController:postEsquemaAction] Inicio proceso API publicacion
+[2018-07-02 11:49:52.251867] [info] [AodPoolController:postEsquemaAction] Creo un objeto entidad
+[2018-07-02 11:49:52.252233] [info] [AodPoolController:postEsquemaAction] Creo el formulario de validación
+[2018-07-02 11:49:52.393423] [info] [AodPoolController:postEsquemaAction] Recojo el archivo XML
+[2018-07-02 11:49:52.395129] [info] [Isonomia:__construct] Inicia el constructor
+[2018-07-02 11:49:52.395436] [error] [Isonomia:CompruebaEsquema] No existe isonomia con nombre:
+[2018-07-02 11:49:52.395519] [info] [AodPoolController:postEsquemaAction] Muevo el archivo xml a la carpeta:/var/www/html/src/ApiRest/WorkerBundle/Resources/Files/Isonomias/
+[2018-07-02 11:49:52.396148] [info] [AodPoolController:postEsquemaAction] Archivo XML isonómico guardado con éxito
+[2018-07-02 11:49:52.396231] [info] [AodPoolController:postEsquemaAction] Fin proceso rest
+[2018-07-02 11:50:15.408086] [info] [AodPoolController:postInsertAction] Inicio proceso API publicacion
+[2018-07-02 11:50:15.408222] [info] [AodPoolController:postInsertAction] Creo un objeto entidad
+[2018-07-02 11:50:15.408436] [info] [AodPoolController:postInsertAction] Creo el formulario de validación
+[2018-07-02 11:50:15.503582] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion
+[2018-07-02 11:50:15.503710] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-07-02 11:50:15.503789] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/Error
+[2018-07-02 11:50:15.503863] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/Procesados
+[2018-07-02 11:50:15.503948] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/NoProcesados/20180702_115015
+[2018-07-02 11:50:15.504089] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/html/web/publicacion/NoProcesados/20180702_115015/
+[2018-07-02 11:50:15.504867] [info] [AodPoolController:postInsertAction] Compruebo que existe la isonomia
+[2018-07-02 11:50:15.506334] [info] [Isonomia:__construct] Inicia el constructor
+[2018-07-02 11:50:15.506453] [info] [AodPoolController:postInsertAction] Si existe la isonomia: 3 Pleno municipio
+[2018-07-02 11:50:15.506545] [info] [AodPoolController:postInsertAction] Recojo el archivo Csv
+[2018-07-02 11:50:15.506711] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-07-02 11:50:15.506843] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 3 Pleno municipio
+[2018-07-02 11:50:15.507055] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-07-02 11:50:15.507133] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-07-02 11:50:15.507205] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Mapping
+[2018-07-02 11:50:15.507277] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Mapping => Entity
+[2018-07-02 11:50:15.507550] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Entity
+[2018-07-02 11:50:15.507627] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 11:50:15.507704] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FUENTE}" 
+[2018-07-02 11:50:15.507797] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 11:50:15.507870] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 11:50:15.507953] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{NOMBRE}" 
+[2018-07-02 11:50:15.508070] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 11:50:15.508152] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 11:50:15.508238] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 11:50:15.508308] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 11:50:15.508383] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo fieldLink:  fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" 
+[2018-07-02 11:50:15.508480] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 11:50:15.508552] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 11:50:15.508625] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{NOMBRE}" 
+[2018-07-02 11:50:15.508713] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 11:50:15.508784] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 11:50:15.508856] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo fieldLink:  fieldLink="http://opendata.aragon.es/def/ei2a#organizacion-{PARTIDO}" 
+[2018-07-02 11:50:15.508950] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 11:50:15.509052] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Property => Entity
+[2018-07-02 11:50:15.509207] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Entity
+[2018-07-02 11:50:15.509282] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 11:50:15.509355] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{PARTIDO}" 
+[2018-07-02 11:50:15.509445] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 11:50:15.509521] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 11:50:15.509594] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo fieldLink:  fieldLink="http://opendata.aragon.es/def/ei2a#membership-{CODIGO_MUN}-{NOMBRE}" 
+[2018-07-02 11:50:15.509687] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 11:50:15.509757] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Property => Entity
+[2018-07-02 11:50:15.509928] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Entity
+[2018-07-02 11:50:15.510014] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 11:50:15.510114] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FUENTE}" 
+[2018-07-02 11:50:15.510206] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 11:50:15.510279] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 11:50:15.510351] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo fieldLink:  fieldLink="http://opendata.aragon.es/def/ei2a#persona-{NOMBRE}" 
+[2018-07-02 11:50:15.510443] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 11:50:15.510515] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 11:50:15.510588] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo fieldLink:  fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" 
+[2018-07-02 11:50:15.510679] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 11:50:15.510750] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 11:50:15.510822] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo fieldLink:  fieldLink="http://opendata.aragon.es/def/ei2a#role-{CODIGO_MUN}-{NOMBRE}" 
+[2018-07-02 11:50:15.510915] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 11:50:15.510993] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Property => Entity
+[2018-07-02 11:50:15.511173] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Entity
+[2018-07-02 11:50:15.511245] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 11:50:15.511318] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FUENTE}" 
+[2018-07-02 11:50:15.511406] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 11:50:15.511504] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 11:50:15.511581] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{CARGO}" 
+[2018-07-02 11:50:15.511671] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 11:50:15.511751] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Csv e Isonomia se corresponden
+[2018-07-02 11:50:15.511816] [info] [AodPoolController:postInsertAction] Muevo el archivo csv a la carpeta:/var/www/html/web/publicacion/NoProcesados/20180702_115015/
+[2018-07-02 11:50:15.513392] [info] [AodPoolController:postInsertAction] La entidad mandada es validada por el formulario
+[2018-07-02 11:50:15.513497] [info] [AodPoolController:execute] Lanzo comando: curl http://localhost/worker/MyBQbGVubyBtdW5pY2lwaW8=_201807021150151530525015_ZmFsc2U=_false
+[2018-07-02 11:50:15.520417] [info] [AodPoolController:postInsertAction] Fin proceso rest
+[2018-07-02 11:56:32.798335] [info] [AodPoolController:postEsquemaAction] llamada a Función
+[2018-07-02 11:56:32.798508] [info] [AodPoolController:postEsquemaAction] Inicio proceso API publicacion
+[2018-07-02 11:56:32.798582] [info] [AodPoolController:postEsquemaAction] Creo un objeto entidad
+[2018-07-02 11:56:32.798801] [info] [AodPoolController:postEsquemaAction] Creo el formulario de validación
+[2018-07-02 11:56:32.898622] [info] [AodPoolController:postEsquemaAction] Recojo el archivo XML
+[2018-07-02 11:56:32.900135] [info] [Isonomia:__construct] Inicia el constructor
+[2018-07-02 11:56:32.900392] [error] [Isonomia:CompruebaEsquema] No existe isonomia con nombre:
+[2018-07-02 11:56:32.900475] [info] [AodPoolController:postEsquemaAction] Muevo el archivo xml a la carpeta:/var/www/html/src/ApiRest/WorkerBundle/Resources/Files/Isonomias/
+[2018-07-02 11:56:32.901038] [info] [AodPoolController:postEsquemaAction] Archivo XML isonómico guardado con éxito
+[2018-07-02 11:56:32.901123] [info] [AodPoolController:postEsquemaAction] Fin proceso rest
+[2018-07-02 11:56:38.830724] [info] [AodPoolController:postInsertAction] Inicio proceso API publicacion
+[2018-07-02 11:56:38.830864] [info] [AodPoolController:postInsertAction] Creo un objeto entidad
+[2018-07-02 11:56:38.831089] [info] [AodPoolController:postInsertAction] Creo el formulario de validación
+[2018-07-02 11:56:38.924629] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion
+[2018-07-02 11:56:38.924763] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-07-02 11:56:38.924843] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/Error
+[2018-07-02 11:56:38.924916] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/Procesados
+[2018-07-02 11:56:38.924998] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/NoProcesados/20180702_115638
+[2018-07-02 11:56:38.925152] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/html/web/publicacion/NoProcesados/20180702_115638/
+[2018-07-02 11:56:38.925924] [info] [AodPoolController:postInsertAction] Compruebo que existe la isonomia
+[2018-07-02 11:56:38.927393] [info] [Isonomia:__construct] Inicia el constructor
+[2018-07-02 11:56:38.927511] [info] [AodPoolController:postInsertAction] Si existe la isonomia: 4 Pleno Comarca
+[2018-07-02 11:56:38.927603] [info] [AodPoolController:postInsertAction] Recojo el archivo Csv
+[2018-07-02 11:56:38.927763] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-07-02 11:56:38.927898] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 4 Pleno Comarca
+[2018-07-02 11:56:38.928117] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-07-02 11:56:38.928198] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-07-02 11:56:38.928273] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Mapping
+[2018-07-02 11:56:38.928364] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Mapping => Entity
+[2018-07-02 11:56:38.928622] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Entity
+[2018-07-02 11:56:38.928700] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 11:56:38.928780] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FUENTE}" 
+[2018-07-02 11:56:38.928874] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 11:56:38.928949] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 11:56:38.929035] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 11:56:38.929117] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 11:56:38.929198] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{NOMBRE}" 
+[2018-07-02 11:56:38.929290] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 11:56:38.929363] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 11:56:38.929439] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{NOMBRE}" 
+[2018-07-02 11:56:38.929529] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 11:56:38.929603] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 11:56:38.929678] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo fieldLink:  fieldLink="http://opendata.aragon.es/def/ei2a#comarca-{CODIGO_COMARC}" 
+[2018-07-02 11:56:38.929773] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 11:56:38.929846] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 11:56:38.929919] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo fieldLink:  fieldLink="http://opendata.aragon.es/def/ei2a#organizacion-{PARTIDO}" 
+[2018-07-02 11:56:38.930011] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 11:56:38.930105] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Property => Entity
+[2018-07-02 11:56:38.930253] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Entity
+[2018-07-02 11:56:38.930327] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 11:56:38.930403] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{PARTIDO}" 
+[2018-07-02 11:56:38.930493] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 11:56:38.930569] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 11:56:38.930648] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo fieldLink:  fieldLink="http://opendata.aragon.es/def/ei2a#membership-{CODIGO_COMARC}-{NOMBRE}" 
+[2018-07-02 11:56:38.930742] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 11:56:38.930814] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Property => Entity
+[2018-07-02 11:56:38.930989] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Entity
+[2018-07-02 11:56:38.931088] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 11:56:38.931169] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FUENTE}" 
+[2018-07-02 11:56:38.931262] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 11:56:38.931334] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 11:56:38.931411] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo fieldLink:  fieldLink="http://opendata.aragon.es/def/ei2a#persona-{NOMBRE}" 
+[2018-07-02 11:56:38.931502] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 11:56:38.931575] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 11:56:38.931648] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo fieldLink:  fieldLink="http://opendata.aragon.es/def/ei2a#comarca-{CODIGO_COMARC}" 
+[2018-07-02 11:56:38.931749] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 11:56:38.931822] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 11:56:38.931895] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo fieldLink:  fieldLink="http://opendata.aragon.es/def/ei2a#role-{CODIGO_COMARC}-{NOMBRE}" 
+[2018-07-02 11:56:38.931988] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 11:56:38.932084] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Property => Entity
+[2018-07-02 11:56:38.932238] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Entity
+[2018-07-02 11:56:38.932312] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 11:56:38.932387] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FUENTE}" 
+[2018-07-02 11:56:38.932476] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 11:56:38.932550] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 11:56:38.932626] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{CARGO}" 
+[2018-07-02 11:56:38.932713] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 11:56:38.932795] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Csv e Isonomia se corresponden
+[2018-07-02 11:56:38.932859] [info] [AodPoolController:postInsertAction] Muevo el archivo csv a la carpeta:/var/www/html/web/publicacion/NoProcesados/20180702_115638/
+[2018-07-02 11:56:38.933502] [info] [AodPoolController:postInsertAction] La entidad mandada es validada por el formulario
+[2018-07-02 11:56:38.933603] [info] [AodPoolController:execute] Lanzo comando: curl http://localhost/worker/NCBQbGVubyBDb21hcmNh_201807021156381530525398_ZmFsc2U=_false
+[2018-07-02 11:56:38.940556] [info] [AodPoolController:postInsertAction] Fin proceso rest
+[2018-07-02 12:17:56.745692] [info] [AodPoolController:postEsquemaAction] llamada a Función
+[2018-07-02 12:17:56.745861] [info] [AodPoolController:postEsquemaAction] Inicio proceso API publicacion
+[2018-07-02 12:17:56.745930] [info] [AodPoolController:postEsquemaAction] Creo un objeto entidad
+[2018-07-02 12:17:56.746157] [info] [AodPoolController:postEsquemaAction] Creo el formulario de validación
+[2018-07-02 12:17:56.850868] [info] [AodPoolController:postEsquemaAction] Recojo el archivo XML
+[2018-07-02 12:17:56.852750] [info] [Isonomia:__construct] Inicia el constructor
+[2018-07-02 12:17:56.852987] [error] [Isonomia:CompruebaEsquema] No existe isonomia con nombre:
+[2018-07-02 12:17:56.853094] [info] [AodPoolController:postEsquemaAction] Muevo el archivo xml a la carpeta:/var/www/html/src/ApiRest/WorkerBundle/Resources/Files/Isonomias/
+[2018-07-02 12:17:56.853645] [info] [AodPoolController:postEsquemaAction] Archivo XML isonómico guardado con éxito
+[2018-07-02 12:17:56.853724] [info] [AodPoolController:postEsquemaAction] Fin proceso rest
+[2018-07-02 12:21:10.055871] [info] [AodPoolController:postInsertAction] Inicio proceso API publicacion
+[2018-07-02 12:21:10.056170] [info] [AodPoolController:postInsertAction] Creo un objeto entidad
+[2018-07-02 12:21:10.056401] [info] [AodPoolController:postInsertAction] Creo el formulario de validación
+[2018-07-02 12:21:10.187530] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion
+[2018-07-02 12:21:10.187796] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-07-02 12:21:10.187958] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/Error
+[2018-07-02 12:21:10.188153] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/Procesados
+[2018-07-02 12:21:10.188302] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/NoProcesados/20180702_122110
+[2018-07-02 12:21:10.188507] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/html/web/publicacion/NoProcesados/20180702_122110/
+[2018-07-02 12:21:10.189944] [info] [AodPoolController:postInsertAction] Compruebo que existe la isonomia
+[2018-07-02 12:21:10.192651] [info] [Isonomia:__construct] Inicia el constructor
+[2018-07-02 12:21:10.192789] [info] [AodPoolController:postInsertAction] Si existe la isonomia: 112 Instituto Aragones del Agua_ Edar
+[2018-07-02 12:21:10.192900] [info] [AodPoolController:postInsertAction] Recojo el archivo Csv
+[2018-07-02 12:21:10.193125] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-07-02 12:21:10.193295] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 112 Instituto Aragones del Agua_ Edar
+[2018-07-02 12:21:10.193512] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-07-02 12:21:10.193588] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-07-02 12:21:10.193670] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Mapping
+[2018-07-02 12:21:10.193759] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Mapping => Entity
+[2018-07-02 12:21:10.194255] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Entity
+[2018-07-02 12:21:10.194406] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 12:21:10.194567] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FUENTE}" 
+[2018-07-02 12:21:10.194741] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 12:21:10.194885] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 12:21:10.195044] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{ID_EDAR}" 
+[2018-07-02 12:21:10.195369] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 12:21:10.195492] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 12:21:10.195571] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 12:21:10.195671] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 12:21:10.195792] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{ESTADO}" 
+[2018-07-02 12:21:10.195895] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 12:21:10.195979] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Csv e Isonomia se corresponden
+[2018-07-02 12:21:10.196064] [info] [AodPoolController:postInsertAction] Muevo el archivo csv a la carpeta:/var/www/html/web/publicacion/NoProcesados/20180702_122110/
+[2018-07-02 12:21:10.196588] [info] [AodPoolController:postInsertAction] La entidad mandada es validada por el formulario
+[2018-07-02 12:21:10.196698] [info] [AodPoolController:execute] Lanzo comando: curl http://localhost/worker/MTEyIEluc3RpdHV0byBBcmFnb25lcyBkZWwgQWd1YV8gRWRhcg==_201807021221101530526870_ZmFsc2U=_false
+[2018-07-02 12:21:10.207180] [info] [AodPoolController:postInsertAction] Fin proceso rest
+[2018-07-02 12:22:48.693840] [info] [AodPoolController:postEsquemaAction] llamada a Función
+[2018-07-02 12:22:48.693954] [info] [AodPoolController:postEsquemaAction] Inicio proceso API publicacion
+[2018-07-02 12:22:48.694039] [info] [AodPoolController:postEsquemaAction] Creo un objeto entidad
+[2018-07-02 12:22:48.694267] [info] [AodPoolController:postEsquemaAction] Creo el formulario de validación
+[2018-07-02 12:22:48.793315] [info] [AodPoolController:postEsquemaAction] Recojo el archivo XML
+[2018-07-02 12:22:48.794878] [info] [Isonomia:__construct] Inicia el constructor
+[2018-07-02 12:22:48.795152] [error] [Isonomia:CompruebaEsquema] No existe isonomia con nombre:
+[2018-07-02 12:22:48.795250] [info] [AodPoolController:postEsquemaAction] Muevo el archivo xml a la carpeta:/var/www/html/src/ApiRest/WorkerBundle/Resources/Files/Isonomias/
+[2018-07-02 12:22:48.795695] [info] [AodPoolController:postEsquemaAction] Archivo XML isonómico guardado con éxito
+[2018-07-02 12:22:48.795772] [info] [AodPoolController:postEsquemaAction] Fin proceso rest
+[2018-07-02 12:23:29.089870] [info] [AodPoolController:postInsertAction] Inicio proceso API publicacion
+[2018-07-02 12:23:29.090014] [info] [AodPoolController:postInsertAction] Creo un objeto entidad
+[2018-07-02 12:23:29.090240] [info] [AodPoolController:postInsertAction] Creo el formulario de validación
+[2018-07-02 12:23:29.185226] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion
+[2018-07-02 12:23:29.185359] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-07-02 12:23:29.185440] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/Error
+[2018-07-02 12:23:29.185513] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/Procesados
+[2018-07-02 12:23:29.185585] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/NoProcesados/20180702_122329
+[2018-07-02 12:23:29.185686] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/html/web/publicacion/NoProcesados/20180702_122329/
+[2018-07-02 12:23:29.186439] [info] [AodPoolController:postInsertAction] Compruebo que existe la isonomia
+[2018-07-02 12:23:29.187928] [info] [Isonomia:__construct] Inicia el constructor
+[2018-07-02 12:23:29.188095] [info] [AodPoolController:postInsertAction] Si existe la isonomia: 113 Instituto Aragones del Agua_ Edar
+[2018-07-02 12:23:29.188218] [info] [AodPoolController:postInsertAction] Recojo el archivo Csv
+[2018-07-02 12:23:29.188410] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-07-02 12:23:29.188548] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 113 Instituto Aragones del Agua_ Edar
+[2018-07-02 12:23:29.188699] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-07-02 12:23:29.188771] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-07-02 12:23:29.188843] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Mapping
+[2018-07-02 12:23:29.188915] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Mapping => Entity
+[2018-07-02 12:23:29.189209] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Entity
+[2018-07-02 12:23:29.189354] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 12:23:29.189446] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FUENTE}" 
+[2018-07-02 12:23:29.189547] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 12:23:29.189625] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 12:23:29.189702] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{CODEDAR}" 
+[2018-07-02 12:23:29.189795] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 12:23:29.189870] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 12:23:29.189943] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 12:23:29.190015] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 12:23:29.190115] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{NOMBRE_EDA}" 
+[2018-07-02 12:23:29.190213] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 12:23:29.190323] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 12:23:29.190402] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FECHA_SER}" 
+[2018-07-02 12:23:29.190495] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 12:23:29.190573] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Csv e Isonomia se corresponden
+[2018-07-02 12:23:29.190639] [info] [AodPoolController:postInsertAction] Muevo el archivo csv a la carpeta:/var/www/html/web/publicacion/NoProcesados/20180702_122329/
+[2018-07-02 12:23:29.191050] [info] [AodPoolController:postInsertAction] La entidad mandada es validada por el formulario
+[2018-07-02 12:23:29.191154] [info] [AodPoolController:execute] Lanzo comando: curl http://localhost/worker/MTEzIEluc3RpdHV0byBBcmFnb25lcyBkZWwgQWd1YV8gRWRhcg==_201807021223291530527009_ZmFsc2U=_false
+[2018-07-02 12:23:29.197335] [info] [AodPoolController:postInsertAction] Fin proceso rest
+[2018-07-02 12:46:37.607639] [info] [AodPoolController:postEsquemaAction] llamada a Función
+[2018-07-02 12:46:37.607781] [info] [AodPoolController:postEsquemaAction] Inicio proceso API publicacion
+[2018-07-02 12:46:37.607851] [info] [AodPoolController:postEsquemaAction] Creo un objeto entidad
+[2018-07-02 12:46:37.608081] [info] [AodPoolController:postEsquemaAction] Creo el formulario de validación
+[2018-07-02 12:46:37.708359] [info] [AodPoolController:postEsquemaAction] Recojo el archivo XML
+[2018-07-02 12:46:37.709961] [info] [Isonomia:__construct] Inicia el constructor
+[2018-07-02 12:46:37.710223] [error] [Isonomia:CompruebaEsquema] No existe isonomia con nombre:
+[2018-07-02 12:46:37.710310] [info] [AodPoolController:postEsquemaAction] Muevo el archivo xml a la carpeta:/var/www/html/src/ApiRest/WorkerBundle/Resources/Files/Isonomias/
+[2018-07-02 12:46:37.710771] [info] [AodPoolController:postEsquemaAction] Archivo XML isonómico guardado con éxito
+[2018-07-02 12:46:37.710849] [info] [AodPoolController:postEsquemaAction] Fin proceso rest
+[2018-07-02 12:46:54.170866] [info] [AodPoolController:postInsertAction] Inicio proceso API publicacion
+[2018-07-02 12:46:54.170994] [info] [AodPoolController:postInsertAction] Creo un objeto entidad
+[2018-07-02 12:46:54.171266] [info] [AodPoolController:postInsertAction] Creo el formulario de validación
+[2018-07-02 12:46:54.267465] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion
+[2018-07-02 12:46:54.267601] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-07-02 12:46:54.267689] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/Error
+[2018-07-02 12:46:54.267770] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/Procesados
+[2018-07-02 12:46:54.267858] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/NoProcesados/20180702_124654
+[2018-07-02 12:46:54.267965] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/html/web/publicacion/NoProcesados/20180702_124654/
+[2018-07-02 12:46:54.268748] [info] [AodPoolController:postInsertAction] Compruebo que existe la isonomia
+[2018-07-02 12:46:54.270293] [info] [Isonomia:__construct] Inicia el constructor
+[2018-07-02 12:46:54.270416] [info] [AodPoolController:postInsertAction] Si existe la isonomia: 114 Instituto Aragones del Agua_ Distribución
+[2018-07-02 12:46:54.270508] [info] [AodPoolController:postInsertAction] Recojo el archivo Csv
+[2018-07-02 12:46:54.270693] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-07-02 12:46:54.270833] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 114 Instituto Aragones del Agua_ Distribución
+[2018-07-02 12:46:54.271007] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-07-02 12:46:54.271105] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-07-02 12:46:54.271183] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Mapping
+[2018-07-02 12:46:54.271255] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Mapping => Entity
+[2018-07-02 12:46:54.271625] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Entity
+[2018-07-02 12:46:54.271703] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 12:46:54.271783] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FUENTE}" 
+[2018-07-02 12:46:54.271878] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 12:46:54.271959] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 12:46:54.272054] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{OBJECTID}" 
+[2018-07-02 12:46:54.272186] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 12:46:54.272264] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 12:46:54.272334] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 12:46:54.272403] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 12:46:54.272490] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{CODINE}" 
+[2018-07-02 12:46:54.272582] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 12:46:54.272655] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 12:46:54.272728] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FECHA}" 
+[2018-07-02 12:46:54.272820] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 12:46:54.272893] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 12:46:54.272969] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo fieldLink:  fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" 
+[2018-07-02 12:46:54.273082] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 12:46:54.273163] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 12:46:54.273238] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{LONDIS}" 
+[2018-07-02 12:46:54.273329] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 12:46:54.273401] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 12:46:54.273474] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo fieldLink:  fieldLink="http://opendata.aragon.es/def/ei2a#meterial-{MATDIS}" 
+[2018-07-02 12:46:54.273566] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 12:46:54.273637] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Property => Entity
+[2018-07-02 12:46:54.273829] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Entity
+[2018-07-02 12:46:54.273904] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 12:46:54.273978] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FUENTE}" 
+[2018-07-02 12:46:54.274085] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 12:46:54.274167] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 12:46:54.274243] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{MATDIS}" 
+[2018-07-02 12:46:54.274333] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 12:46:54.274409] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 12:46:54.274483] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{MATDIS}" 
+[2018-07-02 12:46:54.274574] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 12:46:54.274651] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Csv e Isonomia se corresponden
+[2018-07-02 12:46:54.274715] [info] [AodPoolController:postInsertAction] Muevo el archivo csv a la carpeta:/var/www/html/web/publicacion/NoProcesados/20180702_124654/
+[2018-07-02 12:46:54.286132] [info] [AodPoolController:postInsertAction] La entidad mandada es validada por el formulario
+[2018-07-02 12:46:54.286266] [info] [AodPoolController:execute] Lanzo comando: curl http://localhost/worker/MTE0IEluc3RpdHV0byBBcmFnb25lcyBkZWwgQWd1YV8gRGlzdHJpYnVjacOzbg==_201807021246541530528414_ZmFsc2U=_false
+[2018-07-02 12:46:54.292927] [info] [AodPoolController:postInsertAction] Fin proceso rest
+[2018-07-02 12:57:06.736211] [info] [AodPoolController:postEsquemaAction] llamada a Función
+[2018-07-02 12:57:06.736396] [info] [AodPoolController:postEsquemaAction] Inicio proceso API publicacion
+[2018-07-02 12:57:06.736471] [info] [AodPoolController:postEsquemaAction] Creo un objeto entidad
+[2018-07-02 12:57:06.736726] [info] [AodPoolController:postEsquemaAction] Creo el formulario de validación
+[2018-07-02 12:57:07.082168] [info] [AodPoolController:postEsquemaAction] Recojo el archivo XML
+[2018-07-02 12:57:07.083619] [info] [Isonomia:__construct] Inicia el constructor
+[2018-07-02 12:57:07.083863] [error] [Isonomia:CompruebaEsquema] No existe isonomia con nombre:
+[2018-07-02 12:57:07.083945] [info] [AodPoolController:postEsquemaAction] Muevo el archivo xml a la carpeta:/var/www/html/src/ApiRest/WorkerBundle/Resources/Files/Isonomias/
+[2018-07-02 12:57:07.084553] [info] [AodPoolController:postEsquemaAction] Archivo XML isonómico guardado con éxito
+[2018-07-02 12:57:07.084635] [info] [AodPoolController:postEsquemaAction] Fin proceso rest
+[2018-07-02 12:57:21.373131] [info] [AodPoolController:postInsertAction] Inicio proceso API publicacion
+[2018-07-02 12:57:21.373275] [info] [AodPoolController:postInsertAction] Creo un objeto entidad
+[2018-07-02 12:57:21.373476] [info] [AodPoolController:postInsertAction] Creo el formulario de validación
+[2018-07-02 12:57:21.474404] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion
+[2018-07-02 12:57:21.474560] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-07-02 12:57:21.474658] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/Error
+[2018-07-02 12:57:21.474735] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/Procesados
+[2018-07-02 12:57:21.474833] [info] [AodPoolController:postInsertAction] Compruebo la carpeta publicacion/NoProcesados/20180702_125721
+[2018-07-02 12:57:21.474958] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/html/web/publicacion/NoProcesados/20180702_125721/
+[2018-07-02 12:57:21.475780] [info] [AodPoolController:postInsertAction] Compruebo que existe la isonomia
+[2018-07-02 12:57:21.477428] [info] [Isonomia:__construct] Inicia el constructor
+[2018-07-02 12:57:21.477575] [info] [AodPoolController:postInsertAction] Si existe la isonomia: 114 Instituto Aragones del Agua_ Distribución
+[2018-07-02 12:57:21.477674] [info] [AodPoolController:postInsertAction] Recojo el archivo Csv
+[2018-07-02 12:57:21.477854] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-07-02 12:57:21.477997] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 114 Instituto Aragones del Agua_ Distribución
+[2018-07-02 12:57:21.478204] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-07-02 12:57:21.478286] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-07-02 12:57:21.478360] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Mapping
+[2018-07-02 12:57:21.478436] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Mapping => Entity
+[2018-07-02 12:57:21.478863] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Entity
+[2018-07-02 12:57:21.478949] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 12:57:21.479124] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FUENTE}" 
+[2018-07-02 12:57:21.479240] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 12:57:21.479321] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 12:57:21.479398] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{OBJECTID}" 
+[2018-07-02 12:57:21.479491] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 12:57:21.479588] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 12:57:21.479662] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 12:57:21.479736] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 12:57:21.479810] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{CODINE}" 
+[2018-07-02 12:57:21.479904] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 12:57:21.479991] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 12:57:21.480093] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FECHA}" 
+[2018-07-02 12:57:21.480189] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 12:57:21.480297] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 12:57:21.480389] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo fieldLink:  fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" 
+[2018-07-02 12:57:21.480489] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 12:57:21.480601] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 12:57:21.480684] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{LONDIS}" 
+[2018-07-02 12:57:21.480777] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 12:57:21.480853] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 12:57:21.480926] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo fieldLink:  fieldLink="http://opendata.aragon.es/def/ei2a#meterial-{MATDIS}" 
+[2018-07-02 12:57:21.481039] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 12:57:21.481121] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Property => Entity
+[2018-07-02 12:57:21.481338] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Entity
+[2018-07-02 12:57:21.481439] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 12:57:21.481566] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FUENTE}" 
+[2018-07-02 12:57:21.481671] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 12:57:21.481780] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 12:57:21.481863] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{MATDIS}" 
+[2018-07-02 12:57:21.481957] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 12:57:21.482058] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 12:57:21.482202] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{TAMDIS}" 
+[2018-07-02 12:57:21.482326] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 12:57:21.482408] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Csv e Isonomia se corresponden
+[2018-07-02 12:57:21.482475] [info] [AodPoolController:postInsertAction] Muevo el archivo csv a la carpeta:/var/www/html/web/publicacion/NoProcesados/20180702_125721/
+[2018-07-02 12:57:21.492206] [info] [AodPoolController:postInsertAction] La entidad mandada es validada por el formulario
+[2018-07-02 12:57:21.492355] [info] [AodPoolController:execute] Lanzo comando: curl http://localhost/worker/MTE0IEluc3RpdHV0byBBcmFnb25lcyBkZWwgQWd1YV8gRGlzdHJpYnVjacOzbg==_201807021257211530529041_ZmFsc2U=_false
+[2018-07-02 12:57:21.513386] [info] [AodPoolController:postInsertAction] Fin proceso rest
+[2018-07-02 14:26:06.892148] [info] [AodPoolController:postEsquemaAction] llamada a Función
+[2018-07-02 14:26:06.895704] [info] [AodPoolController:postEsquemaAction] Inicio proceso API publicacion
+[2018-07-02 14:26:06.895836] [info] [AodPoolController:postEsquemaAction] Creo un objeto entidad
+[2018-07-02 14:26:06.896723] [info] [AodPoolController:postEsquemaAction] Creo el formulario de validación
+[2018-07-02 14:26:07.475980] [info] [AodPoolController:postEsquemaAction] Recojo el archivo XML
+[2018-07-02 14:26:07.478609] [info] [Isonomia:__construct] Inicia el constructor
+[2018-07-02 14:26:07.478883] [error] [Isonomia:CompruebaEsquema] No existe isonomia con nombre:
+[2018-07-02 14:26:07.478966] [info] [AodPoolController:postEsquemaAction] Muevo el archivo xml a la carpeta:/var/www/html/src/ApiRest/WorkerBundle/Resources/Files/Isonomias/
+[2018-07-02 14:26:07.481879] [info] [AodPoolController:postEsquemaAction] Archivo XML isonómico guardado con éxito
+[2018-07-02 14:26:07.481965] [info] [AodPoolController:postEsquemaAction] Fin proceso rest
+[2018-07-02 14:27:10.560415] [info] [AodPoolController:postInsertAction] Inicio proceso API publicacion
+[2018-07-02 14:27:10.560563] [info] [AodPoolController:postViewAction] Inicio proceso API publicacion
+[2018-07-02 14:27:10.560628] [info] [AodPoolController:postViewAction] Creo un objeto entidad
+[2018-07-02 14:27:10.561522] [info] [AodPoolController:postViewAction] Creo el formulario de validación
+[2018-07-02 14:27:10.670034] [info] [AodPoolController:postViewAction] Compruebo la carpeta publicacion
+[2018-07-02 14:27:10.670166] [info] [AodPoolController:postViewAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-07-02 14:27:10.670248] [info] [AodPoolController:postViewAction] Compruebo la carpeta publicacion/Error
+[2018-07-02 14:27:10.670321] [info] [AodPoolController:postViewAction] Compruebo la carpeta publicacion/Procesados
+[2018-07-02 14:27:10.670393] [info] [AodPoolController:postViewAction] Compruebo la carpeta publicacion/NoProcesados/20180702_142710
+[2018-07-02 14:27:10.670496] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/html/web/publicacion/NoProcesados/20180702_142710/
+[2018-07-02 14:27:10.672651] [info] [Isonomia:__construct] Inicia el constructor
+[2018-07-02 14:27:10.672785] [info] [AodPoolController:postViewAction] Si existe la isonomia: 105 Instituto Aragones del Agua_ Sumidero
+[2018-07-02 14:27:10.672880] [info] [AodPoolController:postViewAction] Recojo el archivo Csv
+[2018-07-02 14:27:10.673070] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-07-02 14:27:10.673211] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 105 Instituto Aragones del Agua_ Sumidero
+[2018-07-02 14:27:10.673369] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-07-02 14:27:10.673439] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-07-02 14:27:10.673512] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Mapping
+[2018-07-02 14:27:10.673587] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Mapping => Entity
+[2018-07-02 14:27:10.673854] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Entity
+[2018-07-02 14:27:10.673932] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 14:27:10.674009] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FUENTE}" 
+[2018-07-02 14:27:10.674134] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 14:27:10.674212] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 14:27:10.674288] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{OBJECTID}" 
+[2018-07-02 14:27:10.674381] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 14:27:10.674453] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 14:27:10.674523] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 14:27:10.674592] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 14:27:10.674664] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FECHA}" 
+[2018-07-02 14:27:10.674755] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 14:27:10.674828] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 14:27:10.674901] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo fieldLink:  fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" 
+[2018-07-02 14:27:10.674997] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 14:27:10.675097] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 14:27:10.675175] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{SECPUN}" 
+[2018-07-02 14:27:10.675276] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 14:27:10.675354] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Csv e Isonomia se corresponden
+[2018-07-02 14:27:10.675420] [info] [AodPoolController:postViewAction] Muevo el archivo csv a la carpeta:/var/www/html/web/publicacion/NoProcesados/20180702_142710/
+[2018-07-02 14:27:10.682962] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 105 Instituto Aragones del Agua_ Sumidero
+[2018-07-02 14:27:10.683155] [info] [Isonomia:ComprobarDcType] DcType validado
+[2018-07-02 14:27:10.683232] [info] [AodPoolController:postViewAction] Compurebo si el dcType es correcto con la isonomia
+[2018-07-02 14:27:10.683295] [info] [AodPoolController:postViewAction] El dcType, ei2a:sumidero, coincide con la isonomia
+[2018-07-02 14:27:10.683366] [info] [AodPoolController:postViewAction] La entidad mandada es validada por el formulario
+[2018-07-02 14:27:10.683460] [info] [AodPoolController:execute] Lanzo comando: curl http://localhost/worker/MTA1IEluc3RpdHV0byBBcmFnb25lcyBkZWwgQWd1YV8gU3VtaWRlcm8=_201807021427101530534430_aHR0cDovL29wZW5kYXRhLmFyYWdvbi5lcy9kZWYvZWkyYSNzdW1pZGVybw==_false
+[2018-07-02 14:27:10.694888] [info] [AodPoolController:postViewAction] Fin proceso rest
+[2018-07-02 14:37:31.403762] [info] [AodPoolController:postEsquemaAction] llamada a Función
+[2018-07-02 14:37:31.403911] [info] [AodPoolController:postEsquemaAction] Inicio proceso API publicacion
+[2018-07-02 14:37:31.403980] [info] [AodPoolController:postEsquemaAction] Creo un objeto entidad
+[2018-07-02 14:37:31.404216] [info] [AodPoolController:postEsquemaAction] Creo el formulario de validación
+[2018-07-02 14:37:31.567008] [info] [AodPoolController:postEsquemaAction] Recojo el archivo XML
+[2018-07-02 14:37:31.568623] [info] [Isonomia:__construct] Inicia el constructor
+[2018-07-02 14:37:31.568878] [error] [Isonomia:CompruebaEsquema] No existe isonomia con nombre:
+[2018-07-02 14:37:31.568969] [info] [AodPoolController:postEsquemaAction] Muevo el archivo xml a la carpeta:/var/www/html/src/ApiRest/WorkerBundle/Resources/Files/Isonomias/
+[2018-07-02 14:37:31.569459] [info] [AodPoolController:postEsquemaAction] Archivo XML isonómico guardado con éxito
+[2018-07-02 14:37:31.569544] [info] [AodPoolController:postEsquemaAction] Fin proceso rest
+[2018-07-02 14:37:38.825093] [info] [AodPoolController:postInsertAction] Inicio proceso API publicacion
+[2018-07-02 14:37:38.825270] [info] [AodPoolController:postViewAction] Inicio proceso API publicacion
+[2018-07-02 14:37:38.825377] [info] [AodPoolController:postViewAction] Creo un objeto entidad
+[2018-07-02 14:37:38.825717] [info] [AodPoolController:postViewAction] Creo el formulario de validación
+[2018-07-02 14:37:38.945725] [info] [AodPoolController:postViewAction] Compruebo la carpeta publicacion
+[2018-07-02 14:37:38.945879] [info] [AodPoolController:postViewAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-07-02 14:37:38.945961] [info] [AodPoolController:postViewAction] Compruebo la carpeta publicacion/Error
+[2018-07-02 14:37:38.946054] [info] [AodPoolController:postViewAction] Compruebo la carpeta publicacion/Procesados
+[2018-07-02 14:37:38.946136] [info] [AodPoolController:postViewAction] Compruebo la carpeta publicacion/NoProcesados/20180702_143738
+[2018-07-02 14:37:38.946232] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/html/web/publicacion/NoProcesados/20180702_143738/
+[2018-07-02 14:37:38.948482] [info] [Isonomia:__construct] Inicia el constructor
+[2018-07-02 14:37:38.948611] [info] [AodPoolController:postViewAction] Si existe la isonomia: 105 Instituto Aragones del Agua_ Sumidero
+[2018-07-02 14:37:38.948705] [info] [AodPoolController:postViewAction] Recojo el archivo Csv
+[2018-07-02 14:37:38.948869] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-07-02 14:37:38.949012] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 105 Instituto Aragones del Agua_ Sumidero
+[2018-07-02 14:37:38.949235] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-07-02 14:37:38.949309] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-07-02 14:37:38.949382] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Mapping
+[2018-07-02 14:37:38.949455] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Mapping => Entity
+[2018-07-02 14:37:38.949732] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Entity
+[2018-07-02 14:37:38.949815] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 14:37:38.949892] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FUENTE}" 
+[2018-07-02 14:37:38.949986] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 14:37:38.950084] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 14:37:38.950162] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{OBJECTID}" 
+[2018-07-02 14:37:38.950253] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 14:37:38.950325] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 14:37:38.950395] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 14:37:38.950464] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 14:37:38.950542] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FECHA}" 
+[2018-07-02 14:37:38.950638] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 14:37:38.950710] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 14:37:38.950783] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo fieldLink:  fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" 
+[2018-07-02 14:37:38.950876] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 14:37:38.950948] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 14:37:38.951037] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{SECPUN}" 
+[2018-07-02 14:37:38.951136] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 14:37:38.951212] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Csv e Isonomia se corresponden
+[2018-07-02 14:37:38.951277] [info] [AodPoolController:postViewAction] Muevo el archivo csv a la carpeta:/var/www/html/web/publicacion/NoProcesados/20180702_143738/
+[2018-07-02 14:37:38.958482] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 105 Instituto Aragones del Agua_ Sumidero
+[2018-07-02 14:37:38.958671] [info] [Isonomia:ComprobarDcType] DcType validado
+[2018-07-02 14:37:38.958748] [info] [AodPoolController:postViewAction] Compurebo si el dcType es correcto con la isonomia
+[2018-07-02 14:37:38.958818] [info] [AodPoolController:postViewAction] El dcType, ei2a:sumidero, coincide con la isonomia
+[2018-07-02 14:37:38.958888] [info] [AodPoolController:postViewAction] La entidad mandada es validada por el formulario
+[2018-07-02 14:37:38.958985] [info] [AodPoolController:execute] Lanzo comando: curl http://localhost/worker/MTA1IEluc3RpdHV0byBBcmFnb25lcyBkZWwgQWd1YV8gU3VtaWRlcm8=_201807021437381530535058_aHR0cDovL29wZW5kYXRhLmFyYWdvbi5lcy9kZWYvZWkyYSNzdW1pZGVybw==_false
+[2018-07-02 14:37:38.965256] [info] [AodPoolController:postViewAction] Fin proceso rest
+[2018-07-02 14:45:08.385579] [info] [AodPoolController:postInsertAction] Inicio proceso API publicacion
+[2018-07-02 14:45:08.385757] [info] [AodPoolController:postViewAction] Inicio proceso API publicacion
+[2018-07-02 14:45:08.385828] [info] [AodPoolController:postViewAction] Creo un objeto entidad
+[2018-07-02 14:45:08.386080] [info] [AodPoolController:postViewAction] Creo el formulario de validación
+[2018-07-02 14:45:08.498703] [info] [AodPoolController:postViewAction] Compruebo la carpeta publicacion
+[2018-07-02 14:45:08.498888] [info] [AodPoolController:postViewAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-07-02 14:45:08.499006] [info] [AodPoolController:postViewAction] Compruebo la carpeta publicacion/Error
+[2018-07-02 14:45:08.499106] [info] [AodPoolController:postViewAction] Compruebo la carpeta publicacion/Procesados
+[2018-07-02 14:45:08.499181] [info] [AodPoolController:postViewAction] Compruebo la carpeta publicacion/NoProcesados/20180702_144508
+[2018-07-02 14:45:08.499299] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/html/web/publicacion/NoProcesados/20180702_144508/
+[2018-07-02 14:45:08.501689] [info] [Isonomia:__construct] Inicia el constructor
+[2018-07-02 14:45:08.501830] [info] [AodPoolController:postViewAction] Si existe la isonomia: 105 Instituto Aragones del Agua_ Sumidero
+[2018-07-02 14:45:08.501935] [info] [AodPoolController:postViewAction] Recojo el archivo Csv
+[2018-07-02 14:45:08.502198] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-07-02 14:45:08.502345] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 105 Instituto Aragones del Agua_ Sumidero
+[2018-07-02 14:45:08.502525] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-07-02 14:45:08.502595] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-07-02 14:45:08.502669] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Mapping
+[2018-07-02 14:45:08.502752] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Mapping => Entity
+[2018-07-02 14:45:08.503112] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Entity
+[2018-07-02 14:45:08.503202] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 14:45:08.503290] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FUENTE}" 
+[2018-07-02 14:45:08.503395] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 14:45:08.503470] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 14:45:08.503545] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{OBJECTID}" 
+[2018-07-02 14:45:08.503635] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 14:45:08.503709] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 14:45:08.503778] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 14:45:08.503849] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 14:45:08.503923] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FECHA}" 
+[2018-07-02 14:45:08.504049] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 14:45:08.504133] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 14:45:08.504211] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo fieldLink:  fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" 
+[2018-07-02 14:45:08.504306] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 14:45:08.504379] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 14:45:08.504451] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{SECPUN}" 
+[2018-07-02 14:45:08.504540] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 14:45:08.504616] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Csv e Isonomia se corresponden
+[2018-07-02 14:45:08.504682] [info] [AodPoolController:postViewAction] Muevo el archivo csv a la carpeta:/var/www/html/web/publicacion/NoProcesados/20180702_144508/
+[2018-07-02 14:45:08.512967] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 105 Instituto Aragones del Agua_ Sumidero
+[2018-07-02 14:45:08.513179] [info] [Isonomia:ComprobarDcType] DcType validado
+[2018-07-02 14:45:08.513274] [info] [AodPoolController:postViewAction] Compurebo si el dcType es correcto con la isonomia
+[2018-07-02 14:45:08.513358] [info] [AodPoolController:postViewAction] El dcType, ei2a:sumidero, coincide con la isonomia
+[2018-07-02 14:45:08.513430] [info] [AodPoolController:postViewAction] La entidad mandada es validada por el formulario
+[2018-07-02 14:45:08.513537] [info] [AodPoolController:execute] Lanzo comando: curl http://localhost/worker/MTA1IEluc3RpdHV0byBBcmFnb25lcyBkZWwgQWd1YV8gU3VtaWRlcm8=_201807021445081530535508_aHR0cDovL29wZW5kYXRhLmFyYWdvbi5lcy9kZWYvZWkyYSNzdW1pZGVybw==_false
+[2018-07-02 14:45:08.571367] [info] [AodPoolController:postViewAction] Fin proceso rest
+[2018-07-02 14:54:51.349772] [info] [AodPoolController:postEsquemaAction] llamada a Función
+[2018-07-02 14:54:51.349908] [info] [AodPoolController:postEsquemaAction] Inicio proceso API publicacion
+[2018-07-02 14:54:51.349977] [info] [AodPoolController:postEsquemaAction] Creo un objeto entidad
+[2018-07-02 14:54:51.350217] [info] [AodPoolController:postEsquemaAction] Creo el formulario de validación
+[2018-07-02 14:54:51.459836] [info] [AodPoolController:postEsquemaAction] Recojo el archivo XML
+[2018-07-02 14:54:51.461452] [info] [Isonomia:__construct] Inicia el constructor
+[2018-07-02 14:54:51.461714] [error] [Isonomia:CompruebaEsquema] No existe isonomia con nombre:
+[2018-07-02 14:54:51.461796] [info] [AodPoolController:postEsquemaAction] Muevo el archivo xml a la carpeta:/var/www/html/src/ApiRest/WorkerBundle/Resources/Files/Isonomias/
+[2018-07-02 14:54:51.462415] [info] [AodPoolController:postEsquemaAction] Archivo XML isonómico guardado con éxito
+[2018-07-02 14:54:51.462528] [info] [AodPoolController:postEsquemaAction] Fin proceso rest
+[2018-07-02 14:55:31.438235] [info] [AodPoolController:postInsertAction] Inicio proceso API publicacion
+[2018-07-02 14:55:31.438380] [info] [AodPoolController:postViewAction] Inicio proceso API publicacion
+[2018-07-02 14:55:31.438467] [info] [AodPoolController:postViewAction] Creo un objeto entidad
+[2018-07-02 14:55:31.438729] [info] [AodPoolController:postViewAction] Creo el formulario de validación
+[2018-07-02 14:55:31.540133] [info] [AodPoolController:postViewAction] Compruebo la carpeta publicacion
+[2018-07-02 14:55:31.540266] [info] [AodPoolController:postViewAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-07-02 14:55:31.540344] [info] [AodPoolController:postViewAction] Compruebo la carpeta publicacion/Error
+[2018-07-02 14:55:31.540427] [info] [AodPoolController:postViewAction] Compruebo la carpeta publicacion/Procesados
+[2018-07-02 14:55:31.540508] [info] [AodPoolController:postViewAction] Compruebo la carpeta publicacion/NoProcesados/20180702_145531
+[2018-07-02 14:55:31.540617] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/html/web/publicacion/NoProcesados/20180702_145531/
+[2018-07-02 14:55:31.542860] [info] [Isonomia:__construct] Inicia el constructor
+[2018-07-02 14:55:31.542979] [info] [AodPoolController:postViewAction] Si existe la isonomia: 114 Instituto Aragones del Agua_ Distribución
+[2018-07-02 14:55:31.543100] [info] [AodPoolController:postViewAction] Recojo el archivo Csv
+[2018-07-02 14:55:31.543276] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-07-02 14:55:31.543431] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 114 Instituto Aragones del Agua_ Distribución
+[2018-07-02 14:55:31.543613] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-07-02 14:55:31.543689] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-07-02 14:55:31.543766] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Mapping
+[2018-07-02 14:55:31.543862] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Mapping => Entity
+[2018-07-02 14:55:31.544256] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Entity
+[2018-07-02 14:55:31.544347] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 14:55:31.544431] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FUENTE}" 
+[2018-07-02 14:55:31.544547] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 14:55:31.544624] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 14:55:31.544699] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{OBJECTID}" 
+[2018-07-02 14:55:31.544790] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 14:55:31.544878] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 14:55:31.544953] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 14:55:31.545039] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 14:55:31.545128] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{CODINE}" 
+[2018-07-02 14:55:31.545221] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 14:55:31.545295] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 14:55:31.545368] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FECHA}" 
+[2018-07-02 14:55:31.545458] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 14:55:31.545530] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 14:55:31.545629] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo fieldLink:  fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" 
+[2018-07-02 14:55:31.545732] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 14:55:31.545805] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 14:55:31.545892] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{LONDIS}" 
+[2018-07-02 14:55:31.545986] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 14:55:31.546124] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 14:55:31.546205] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo fieldLink:  fieldLink="http://opendata.aragon.es/def/ei2a#meterial-{MATDIS}" 
+[2018-07-02 14:55:31.546298] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 14:55:31.546369] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Property => Entity
+[2018-07-02 14:55:31.546533] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Entity
+[2018-07-02 14:55:31.546606] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 14:55:31.546679] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{MATDIS}" 
+[2018-07-02 14:55:31.546768] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 14:55:31.546844] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 14:55:31.546936] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{TAMDIS}" 
+[2018-07-02 14:55:31.547043] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 14:55:31.547131] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Csv e Isonomia se corresponden
+[2018-07-02 14:55:31.547199] [info] [AodPoolController:postViewAction] Muevo el archivo csv a la carpeta:/var/www/html/web/publicacion/NoProcesados/20180702_145531/
+[2018-07-02 14:55:31.558594] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 114 Instituto Aragones del Agua_ Distribución
+[2018-07-02 14:55:31.558770] [info] [Isonomia:ComprobarDcType] DcType validado
+[2018-07-02 14:55:31.558849] [info] [AodPoolController:postViewAction] Compurebo si el dcType es correcto con la isonomia
+[2018-07-02 14:55:31.558912] [info] [AodPoolController:postViewAction] El dcType, ei2a:distribucion, coincide con la isonomia
+[2018-07-02 14:55:31.558989] [info] [AodPoolController:postViewAction] La entidad mandada es validada por el formulario
+[2018-07-02 14:55:31.559139] [info] [AodPoolController:execute] Lanzo comando: curl http://localhost/worker/MTE0IEluc3RpdHV0byBBcmFnb25lcyBkZWwgQWd1YV8gRGlzdHJpYnVjacOzbg==_201807021455311530536131_aHR0cDovL29wZW5kYXRhLmFyYWdvbi5lcy9kZWYvZWkyYSNkaXN0cmlidWNpb24=_false
+[2018-07-02 14:55:31.565785] [info] [AodPoolController:postViewAction] Fin proceso rest
+[2018-07-02 14:58:37.333147] [info] [AodPoolController:postEsquemaAction] llamada a Función
+[2018-07-02 14:58:37.333275] [info] [AodPoolController:postEsquemaAction] Inicio proceso API publicacion
+[2018-07-02 14:58:37.333345] [info] [AodPoolController:postEsquemaAction] Creo un objeto entidad
+[2018-07-02 14:58:37.333570] [info] [AodPoolController:postEsquemaAction] Creo el formulario de validación
+[2018-07-02 14:58:37.441267] [info] [AodPoolController:postEsquemaAction] Recojo el archivo XML
+[2018-07-02 14:58:37.443037] [info] [Isonomia:__construct] Inicia el constructor
+[2018-07-02 14:58:37.443295] [error] [Isonomia:CompruebaEsquema] No existe isonomia con nombre:
+[2018-07-02 14:58:37.443378] [info] [AodPoolController:postEsquemaAction] Muevo el archivo xml a la carpeta:/var/www/html/src/ApiRest/WorkerBundle/Resources/Files/Isonomias/
+[2018-07-02 14:58:37.443947] [info] [AodPoolController:postEsquemaAction] Archivo XML isonómico guardado con éxito
+[2018-07-02 14:58:37.444055] [info] [AodPoolController:postEsquemaAction] Fin proceso rest
+[2018-07-02 14:58:46.484309] [info] [AodPoolController:postInsertAction] Inicio proceso API publicacion
+[2018-07-02 14:58:46.484464] [info] [AodPoolController:postViewAction] Inicio proceso API publicacion
+[2018-07-02 14:58:46.484543] [info] [AodPoolController:postViewAction] Creo un objeto entidad
+[2018-07-02 14:58:46.484781] [info] [AodPoolController:postViewAction] Creo el formulario de validación
+[2018-07-02 14:58:46.593246] [info] [AodPoolController:postViewAction] Compruebo la carpeta publicacion
+[2018-07-02 14:58:46.593380] [info] [AodPoolController:postViewAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-07-02 14:58:46.593463] [info] [AodPoolController:postViewAction] Compruebo la carpeta publicacion/Error
+[2018-07-02 14:58:46.593563] [info] [AodPoolController:postViewAction] Compruebo la carpeta publicacion/Procesados
+[2018-07-02 14:58:46.593653] [info] [AodPoolController:postViewAction] Compruebo la carpeta publicacion/NoProcesados/20180702_145846
+[2018-07-02 14:58:46.593767] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/html/web/publicacion/NoProcesados/20180702_145846/
+[2018-07-02 14:58:46.596275] [info] [Isonomia:__construct] Inicia el constructor
+[2018-07-02 14:58:46.596404] [info] [AodPoolController:postViewAction] Si existe la isonomia: 114 Instituto Aragones del Agua_ Distribución
+[2018-07-02 14:58:46.596499] [info] [AodPoolController:postViewAction] Recojo el archivo Csv
+[2018-07-02 14:58:46.596702] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-07-02 14:58:46.596868] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 114 Instituto Aragones del Agua_ Distribución
+[2018-07-02 14:58:46.597126] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-07-02 14:58:46.597208] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-07-02 14:58:46.597291] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Mapping
+[2018-07-02 14:58:46.597378] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Mapping => Entity
+[2018-07-02 14:58:46.597767] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Entity
+[2018-07-02 14:58:46.597851] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 14:58:46.597929] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FUENTE}" 
+[2018-07-02 14:58:46.598072] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 14:58:46.598159] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 14:58:46.598237] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{OBJECTID}" 
+[2018-07-02 14:58:46.598361] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 14:58:46.598439] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 14:58:46.598510] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 14:58:46.598581] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 14:58:46.598669] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{CODINE}" 
+[2018-07-02 14:58:46.598776] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 14:58:46.598855] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 14:58:46.598929] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{FECHA}" 
+[2018-07-02 14:58:46.599044] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 14:58:46.599128] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 14:58:46.599206] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo fieldLink:  fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" 
+[2018-07-02 14:58:46.599302] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 14:58:46.599375] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 14:58:46.599448] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{LONDIS}" 
+[2018-07-02 14:58:46.599550] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 14:58:46.599637] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 14:58:46.599735] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{TAMDIS}" 
+[2018-07-02 14:58:46.599828] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 14:58:46.599951] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 14:58:46.600131] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo fieldLink:  fieldLink="http://opendata.aragon.es/def/ei2a#meterial-{MATDIS}" 
+[2018-07-02 14:58:46.600261] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 14:58:46.600337] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Property => Entity
+[2018-07-02 14:58:46.600512] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Entity
+[2018-07-02 14:58:46.600588] [debug] [Isonomia:ProcesaEntity] Entra en sunbnodo Entity => Property
+[2018-07-02 14:58:46.600684] [debug] [Isonomia:ProcesaEntity] Nodo tipo Property atributo field:  field="{MATDIS}" 
+[2018-07-02 14:58:46.600783] [debug] [Isonomia:ProcesaEntity] Entra en Entity del nodo Property
+[2018-07-02 14:58:46.600866] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Csv e Isonomia se corresponden
+[2018-07-02 14:58:46.600933] [info] [AodPoolController:postViewAction] Muevo el archivo csv a la carpeta:/var/www/html/web/publicacion/NoProcesados/20180702_145846/
+[2018-07-02 14:58:46.614053] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 114 Instituto Aragones del Agua_ Distribución
+[2018-07-02 14:58:46.614268] [info] [Isonomia:ComprobarDcType] DcType validado
+[2018-07-02 14:58:46.614347] [info] [AodPoolController:postViewAction] Compurebo si el dcType es correcto con la isonomia
+[2018-07-02 14:58:46.614413] [info] [AodPoolController:postViewAction] El dcType, ei2a:distribucion, coincide con la isonomia
+[2018-07-02 14:58:46.614495] [info] [AodPoolController:postViewAction] La entidad mandada es validada por el formulario
+[2018-07-02 14:58:46.614610] [info] [AodPoolController:execute] Lanzo comando: curl http://localhost/worker/MTE0IEluc3RpdHV0byBBcmFnb25lcyBkZWwgQWd1YV8gRGlzdHJpYnVjacOzbg==_201807021458461530536326_aHR0cDovL29wZW5kYXRhLmFyYWdvbi5lcy9kZWYvZWkyYSNkaXN0cmlidWNpb24=_false
+[2018-07-02 14:58:46.623097] [info] [AodPoolController:postViewAction] Fin proceso rest
+[2018-07-02 15:39:56.190274] [info] [AodPoolController:getEsquemasAction] llamada a Función
+[2018-07-02 15:39:56.191817] [info] [AodPoolController:getEsquemasAction] Fin proceso rest

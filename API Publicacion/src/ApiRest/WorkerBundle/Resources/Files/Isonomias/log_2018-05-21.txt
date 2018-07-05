@@ -1,0 +1,122 @@
+[2018-05-21 15:00:52.038819] [info] [AodPoolController:postEsquemaAction] Inicio proceso API publicacion
+[2018-05-21 15:00:52.038877] [info] [AodPoolController:postEsquemaAction] Creo un objeto entidad
+[2018-05-21 15:00:52.038938] [info] [AodPoolController:postEsquemaAction] Creo el formulario de validación
+[2018-05-21 15:00:52.065567] [info] [AodPoolController:postEsquemaAction] Recojo el archivo XML
+[2018-05-21 15:00:52.067068] [info] [Isonomia:__construct] Inicia el constructor
+[2018-05-21 15:00:52.067224] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-05-21 15:00:52.067473] [info] [AodPoolController:postEsquemaAction] Muevo el archivo xml a la carpeta:/var/www/AodPool/src/ApiRest/WorkerBundle/Resources/Files/Isonomias/
+[2018-05-21 15:00:52.067646] [info] [AodPoolController:postEsquemaAction] Archivo XML isonómico guardado con éxito
+[2018-05-21 15:00:52.067672] [info] [AodPoolController:postEsquemaAction] Fin proceso rest
+[2018-05-21 15:02:37.131776] [info] [AodPoolController:postEsquemaAction] Inicio proceso API publicacion
+[2018-05-21 15:02:37.131835] [info] [AodPoolController:postEsquemaAction] Creo un objeto entidad
+[2018-05-21 15:02:37.131895] [info] [AodPoolController:postEsquemaAction] Creo el formulario de validación
+[2018-05-21 15:02:37.143157] [info] [AodPoolController:postEsquemaAction] Recojo el archivo XML
+[2018-05-21 15:02:37.143250] [info] [Isonomia:__construct] Inicia el constructor
+[2018-05-21 15:02:37.143413] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-05-21 15:02:37.143923] [info] [AodPoolController:postEsquemaAction] Muevo el archivo xml a la carpeta:/var/www/AodPool/src/ApiRest/WorkerBundle/Resources/Files/Isonomias/
+[2018-05-21 15:02:37.144115] [info] [AodPoolController:postEsquemaAction] Archivo XML isonómico guardado con éxito
+[2018-05-21 15:02:37.144146] [info] [AodPoolController:postEsquemaAction] Fin proceso rest
+[2018-05-21 15:03:05.557094] [info] [AodPoolController:postEsquemaAction] Inicio proceso API publicacion
+[2018-05-21 15:03:05.557142] [info] [AodPoolController:postEsquemaAction] Creo un objeto entidad
+[2018-05-21 15:03:05.557197] [info] [AodPoolController:postEsquemaAction] Creo el formulario de validación
+[2018-05-21 15:03:05.567732] [info] [AodPoolController:postEsquemaAction] Recojo el archivo XML
+[2018-05-21 15:03:05.567814] [info] [Isonomia:__construct] Inicia el constructor
+[2018-05-21 15:03:05.567959] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-05-21 15:03:05.568423] [info] [AodPoolController:postEsquemaAction] Muevo el archivo xml a la carpeta:/var/www/AodPool/src/ApiRest/WorkerBundle/Resources/Files/Isonomias/
+[2018-05-21 15:03:05.568608] [info] [AodPoolController:postEsquemaAction] Archivo XML isonómico guardado con éxito
+[2018-05-21 15:03:05.568636] [info] [AodPoolController:postEsquemaAction] Fin proceso rest
+[2018-05-21 15:03:36.810842] [info] [AodPoolController:postEsquemaAction] Inicio proceso API publicacion
+[2018-05-21 15:03:36.810892] [info] [AodPoolController:postEsquemaAction] Creo un objeto entidad
+[2018-05-21 15:03:36.810946] [info] [AodPoolController:postEsquemaAction] Creo el formulario de validación
+[2018-05-21 15:03:36.821316] [info] [AodPoolController:postEsquemaAction] Recojo el archivo XML
+[2018-05-21 15:03:36.821403] [info] [Isonomia:__construct] Inicia el constructor
+[2018-05-21 15:03:36.821527] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-05-21 15:03:36.821806] [info] [AodPoolController:postEsquemaAction] Muevo el archivo xml a la carpeta:/var/www/AodPool/src/ApiRest/WorkerBundle/Resources/Files/Isonomias/
+[2018-05-21 15:03:36.821984] [info] [AodPoolController:postEsquemaAction] Archivo XML isonómico guardado con éxito
+[2018-05-21 15:03:36.822012] [info] [AodPoolController:postEsquemaAction] Fin proceso rest
+[2018-05-21 15:03:59.381069] [info] [AodPoolController:postEsquemaAction] Inicio proceso API publicacion
+[2018-05-21 15:03:59.381122] [info] [AodPoolController:postEsquemaAction] Creo un objeto entidad
+[2018-05-21 15:03:59.381175] [info] [AodPoolController:postEsquemaAction] Creo el formulario de validación
+[2018-05-21 15:03:59.392184] [info] [AodPoolController:postEsquemaAction] Recojo el archivo XML
+[2018-05-21 15:03:59.392286] [info] [Isonomia:__construct] Inicia el constructor
+[2018-05-21 15:03:59.392431] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-05-21 15:03:59.392637] [error] [Isonomia:CompruebaAtributo] El la Propiedad con FieldLink con attribute: 'wgs84_pos:location' no está en el namespaces. 
+[2018-05-21 15:03:59.394610] [info] [AodPoolController:postEsquemaAction] Fin proceso rest
+[2018-05-21 15:04:24.915752] [info] [AodPoolController:postEsquemaAction] Inicio proceso API publicacion
+[2018-05-21 15:04:24.915807] [info] [AodPoolController:postEsquemaAction] Creo un objeto entidad
+[2018-05-21 15:04:24.915864] [info] [AodPoolController:postEsquemaAction] Creo el formulario de validación
+[2018-05-21 15:04:24.927180] [info] [AodPoolController:postEsquemaAction] Recojo el archivo XML
+[2018-05-21 15:04:24.927275] [info] [Isonomia:__construct] Inicia el constructor
+[2018-05-21 15:04:24.927408] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-05-21 15:04:24.927709] [error] [Isonomia:CompruebaAtributo] El la Propiedad con FieldLink con attribute: 'wgs84_pos:location' no está en el namespaces. 
+[2018-05-21 15:04:24.927947] [info] [AodPoolController:postEsquemaAction] Fin proceso rest
+[2018-05-21 15:04:46.009507] [info] [AodPoolController:postEsquemaAction] Inicio proceso API publicacion
+[2018-05-21 15:04:46.009560] [info] [AodPoolController:postEsquemaAction] Creo un objeto entidad
+[2018-05-21 15:04:46.009618] [info] [AodPoolController:postEsquemaAction] Creo el formulario de validación
+[2018-05-21 15:04:46.021462] [info] [AodPoolController:postEsquemaAction] Recojo el archivo XML
+[2018-05-21 15:04:46.021563] [info] [Isonomia:__construct] Inicia el constructor
+[2018-05-21 15:04:46.021696] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-05-21 15:04:46.021939] [error] [Isonomia:CompruebaAtributo] El la Propiedad con FieldLink con attribute: 'wgs84_pos:location' no está en el namespaces. 
+[2018-05-21 15:04:46.022193] [info] [AodPoolController:postEsquemaAction] Fin proceso rest
+[2018-05-21 15:05:40.394469] [info] [AodPoolController:postEsquemaAction] Inicio proceso API publicacion
+[2018-05-21 15:05:40.394520] [info] [AodPoolController:postEsquemaAction] Creo un objeto entidad
+[2018-05-21 15:05:40.394575] [info] [AodPoolController:postEsquemaAction] Creo el formulario de validación
+[2018-05-21 15:05:40.405384] [info] [AodPoolController:postEsquemaAction] Recojo el archivo XML
+[2018-05-21 15:05:40.405478] [info] [Isonomia:__construct] Inicia el constructor
+[2018-05-21 15:05:40.405652] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-05-21 15:05:40.405848] [error] [Isonomia:CompruebaAtributo] El la Propiedad con FieldLink con attribute: 'wgs84_pos:location' no está en el namespaces. 
+[2018-05-21 15:05:40.406105] [info] [AodPoolController:postEsquemaAction] Fin proceso rest
+[2018-05-21 15:07:32.326720] [info] [AodPoolController:postEsquemaAction] Inicio proceso API publicacion
+[2018-05-21 15:07:32.326778] [info] [AodPoolController:postEsquemaAction] Creo un objeto entidad
+[2018-05-21 15:07:32.326834] [info] [AodPoolController:postEsquemaAction] Creo el formulario de validación
+[2018-05-21 15:07:32.338385] [info] [AodPoolController:postEsquemaAction] Recojo el archivo XML
+[2018-05-21 15:07:32.338495] [info] [Isonomia:__construct] Inicia el constructor
+[2018-05-21 15:07:32.338627] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-05-21 15:07:32.338941] [info] [AodPoolController:postEsquemaAction] Muevo el archivo xml a la carpeta:/var/www/AodPool/src/ApiRest/WorkerBundle/Resources/Files/Isonomias/
+[2018-05-21 15:07:32.339143] [info] [AodPoolController:postEsquemaAction] Archivo XML isonómico guardado con éxito
+[2018-05-21 15:07:32.339174] [info] [AodPoolController:postEsquemaAction] Fin proceso rest
+[2018-05-21 15:07:58.050097] [info] [AodPoolController:postEsquemaAction] Inicio proceso API publicacion
+[2018-05-21 15:07:58.050151] [info] [AodPoolController:postEsquemaAction] Creo un objeto entidad
+[2018-05-21 15:07:58.050200] [info] [AodPoolController:postEsquemaAction] Creo el formulario de validación
+[2018-05-21 15:07:58.060038] [info] [AodPoolController:postEsquemaAction] Recojo el archivo XML
+[2018-05-21 15:07:58.060123] [info] [Isonomia:__construct] Inicia el constructor
+[2018-05-21 15:07:58.060269] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-05-21 15:07:58.061407] [info] [AodPoolController:postEsquemaAction] Muevo el archivo xml a la carpeta:/var/www/AodPool/src/ApiRest/WorkerBundle/Resources/Files/Isonomias/
+[2018-05-21 15:07:58.061578] [info] [AodPoolController:postEsquemaAction] Archivo XML isonómico guardado con éxito
+[2018-05-21 15:07:58.061606] [info] [AodPoolController:postEsquemaAction] Fin proceso rest
+[2018-05-21 15:08:20.956736] [info] [AodPoolController:postEsquemaAction] Inicio proceso API publicacion
+[2018-05-21 15:08:20.956787] [info] [AodPoolController:postEsquemaAction] Creo un objeto entidad
+[2018-05-21 15:08:20.956840] [info] [AodPoolController:postEsquemaAction] Creo el formulario de validación
+[2018-05-21 15:08:20.967216] [info] [AodPoolController:postEsquemaAction] Recojo el archivo XML
+[2018-05-21 15:08:20.967297] [info] [Isonomia:__construct] Inicia el constructor
+[2018-05-21 15:08:20.967453] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-05-21 15:08:20.968214] [info] [AodPoolController:postEsquemaAction] Muevo el archivo xml a la carpeta:/var/www/AodPool/src/ApiRest/WorkerBundle/Resources/Files/Isonomias/
+[2018-05-21 15:08:20.968396] [info] [AodPoolController:postEsquemaAction] Archivo XML isonómico guardado con éxito
+[2018-05-21 15:08:20.968426] [info] [AodPoolController:postEsquemaAction] Fin proceso rest
+[2018-05-21 15:14:33.767715] [info] [AodPoolController:postEsquemaAction] Inicio proceso API publicacion
+[2018-05-21 15:14:33.767791] [info] [AodPoolController:postEsquemaAction] Creo un objeto entidad
+[2018-05-21 15:14:33.767847] [info] [AodPoolController:postEsquemaAction] Creo el formulario de validación
+[2018-05-21 15:14:33.778501] [info] [AodPoolController:postEsquemaAction] Recojo el archivo XML
+[2018-05-21 15:14:33.780513] [info] [Isonomia:__construct] Inicia el constructor
+[2018-05-21 15:14:33.780663] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-05-21 15:14:33.780951] [info] [AodPoolController:postEsquemaAction] Muevo el archivo xml a la carpeta:/var/www/AodPool/src/ApiRest/WorkerBundle/Resources/Files/Isonomias/
+[2018-05-21 15:14:33.781147] [info] [AodPoolController:postEsquemaAction] Archivo XML isonómico guardado con éxito
+[2018-05-21 15:14:33.781179] [info] [AodPoolController:postEsquemaAction] Fin proceso rest
+[2018-05-21 15:14:51.892674] [info] [AodPoolController:postEsquemaAction] Inicio proceso API publicacion
+[2018-05-21 15:14:51.892721] [info] [AodPoolController:postEsquemaAction] Creo un objeto entidad
+[2018-05-21 15:14:51.892770] [info] [AodPoolController:postEsquemaAction] Creo el formulario de validación
+[2018-05-21 15:14:51.902401] [info] [AodPoolController:postEsquemaAction] Recojo el archivo XML
+[2018-05-21 15:14:51.902513] [info] [Isonomia:__construct] Inicia el constructor
+[2018-05-21 15:14:51.902630] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-05-21 15:14:51.902870] [info] [AodPoolController:postEsquemaAction] Muevo el archivo xml a la carpeta:/var/www/AodPool/src/ApiRest/WorkerBundle/Resources/Files/Isonomias/
+[2018-05-21 15:14:51.903044] [info] [AodPoolController:postEsquemaAction] Archivo XML isonómico guardado con éxito
+[2018-05-21 15:14:51.903072] [info] [AodPoolController:postEsquemaAction] Fin proceso rest
+[2018-05-21 15:15:54.891125] [info] [AodPoolController:postEsquemaAction] Inicio proceso API publicacion
+[2018-05-21 15:15:54.891180] [info] [AodPoolController:postEsquemaAction] Creo un objeto entidad
+[2018-05-21 15:15:54.891249] [info] [AodPoolController:postEsquemaAction] Creo el formulario de validación
+[2018-05-21 15:15:54.901724] [info] [AodPoolController:postEsquemaAction] Recojo el archivo XML
+[2018-05-21 15:15:54.901846] [info] [Isonomia:__construct] Inicia el constructor
+[2018-05-21 15:15:54.901974] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-05-21 15:15:54.902286] [info] [AodPoolController:postEsquemaAction] Muevo el archivo xml a la carpeta:/var/www/AodPool/src/ApiRest/WorkerBundle/Resources/Files/Isonomias/
+[2018-05-21 15:15:54.902491] [info] [AodPoolController:postEsquemaAction] Archivo XML isonómico guardado con éxito
+[2018-05-21 15:15:54.902523] [info] [AodPoolController:postEsquemaAction] Fin proceso rest

@@ -1,0 +1,598 @@
+[2018-06-28 9:49:16.333713] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 9:49:16.333857] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 9:49:16.333936] [info] [AodPoolController:postEntitiesAction] Creo un objeto entidad
+[2018-06-28 9:49:16.334064] [info] [AodPoolController:postEntitiesAction] Creo el formulario de validación
+[2018-06-28 9:49:16.417521] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion
+[2018-06-28 9:49:16.417599] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-06-28 9:49:16.417654] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Error
+[2018-06-28 9:49:16.417706] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Procesados
+[2018-06-28 9:49:16.417756] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados/20180628_094916
+[2018-06-28 9:49:16.417809] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/AodPool/web/publicacion/NoProcesados/20180628_094916/
+[2018-06-28 9:49:16.418174] [info] [Isonomia:__construct] Inicia el constructor
+[2018-06-28 9:49:16.418232] [info] [AodPoolController:postEntitiesAction] Compruebo que existe la isonomia
+[2018-06-28 9:49:16.418296] [info] [AodPoolController:postEntitiesAction] Si existe la isonomia: 11 Datos Municipio
+[2018-06-28 9:49:16.418359] [info] [AodPoolController:postEntitiesAction] Recojo el archivo Csv
+[2018-06-28 9:49:16.418468] [info] [AodPoolController:postEntitiesAction] Compurebo si el campo URI esta en la primera posición
+[2018-06-28 9:49:16.418515] [info] [AodPoolController:postEntitiesAction] El campo URI se encuentra en la primera posición
+[2018-06-28 9:49:16.418584] [info] [AodPoolController:postEntitiesAction] Se encontro el campo URI
+[2018-06-28 9:49:16.418683] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-06-28 9:49:16.418842] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 11 Datos Municipio
+[2018-06-28 9:49:16.419009] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-06-28 9:49:16.419061] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-06-28 9:49:16.421053] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Csv e Isonomia se corresponden
+[2018-06-28 9:49:16.421139] [info] [AodPoolController:postEntitiesAction] Muevo el archivo csv a la carpeta:/var/www/AodPool/web/publicacion/NoProcesados/20180628_094916/
+[2018-06-28 9:49:16.421520] [info] [AodPoolController:postEntitiesAction] La entidad mandada es validada por el formulario
+[2018-06-28 9:49:16.421601] [info] [AodPoolController:execute] Lanzo comando: curl http://localhost:8087/worker/MTEgRGF0b3MgTXVuaWNpcGlv_201806280949161530172156_ZmFsc2U=_true
+[2018-06-28 9:49:16.424912] [info] [AodPoolController:postEntitiesAction] Fin proceso rest
+[2018-06-28 9:49:18.318892] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 9:49:18.319005] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 9:49:18.319081] [info] [AodPoolController:postEntitiesAction] Creo un objeto entidad
+[2018-06-28 9:49:18.319286] [info] [AodPoolController:postEntitiesAction] Creo el formulario de validación
+[2018-06-28 9:49:18.425107] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion
+[2018-06-28 9:49:18.425210] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-06-28 9:49:18.425283] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Error
+[2018-06-28 9:49:18.425364] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Procesados
+[2018-06-28 9:49:18.425415] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados/20180628_094918
+[2018-06-28 9:49:18.425501] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/AodPool/web/publicacion/NoProcesados/20180628_094918/
+[2018-06-28 9:49:18.427834] [info] [Isonomia:__construct] Inicia el constructor
+[2018-06-28 9:49:18.427908] [info] [AodPoolController:postEntitiesAction] Compruebo que existe la isonomia
+[2018-06-28 9:49:18.428016] [info] [AodPoolController:postEntitiesAction] Si existe la isonomia: 11 Datos Municipio
+[2018-06-28 9:49:18.428096] [info] [AodPoolController:postEntitiesAction] Recojo el archivo Csv
+[2018-06-28 9:49:18.428203] [info] [AodPoolController:postEntitiesAction] Compurebo si el campo URI esta en la primera posición
+[2018-06-28 9:49:18.428252] [info] [AodPoolController:postEntitiesAction] El campo URI se encuentra en la primera posición
+[2018-06-28 9:49:18.428301] [info] [AodPoolController:postEntitiesAction] Se encontro el campo URI
+[2018-06-28 9:49:18.428352] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-06-28 9:49:18.428443] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 11 Datos Municipio
+[2018-06-28 9:49:18.428591] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-06-28 9:49:18.428644] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-06-28 9:49:18.430730] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Csv e Isonomia se corresponden
+[2018-06-28 9:49:18.430803] [info] [AodPoolController:postEntitiesAction] Muevo el archivo csv a la carpeta:/var/www/AodPool/web/publicacion/NoProcesados/20180628_094918/
+[2018-06-28 9:49:18.431093] [info] [AodPoolController:postEntitiesAction] La entidad mandada es validada por el formulario
+[2018-06-28 9:49:18.431159] [info] [AodPoolController:execute] Lanzo comando: curl http://localhost:8087/worker/MTEgRGF0b3MgTXVuaWNpcGlv_201806280949181530172158_ZmFsc2U=_true
+[2018-06-28 9:49:18.433804] [info] [AodPoolController:postEntitiesAction] Fin proceso rest
+[2018-06-28 9:50:31.000731] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 9:50:31.000830] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 9:50:31.000883] [info] [AodPoolController:postEntitiesAction] Creo un objeto entidad
+[2018-06-28 9:50:31.000981] [info] [AodPoolController:postEntitiesAction] Creo el formulario de validación
+[2018-06-28 9:50:31.087028] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion
+[2018-06-28 9:50:31.087107] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-06-28 9:50:31.087162] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Error
+[2018-06-28 9:50:31.087213] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Procesados
+[2018-06-28 9:50:31.087290] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados/20180628_095030
+[2018-06-28 9:50:31.087412] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/AodPool/web/publicacion/NoProcesados/20180628_095030/
+[2018-06-28 9:50:31.087806] [info] [Isonomia:__construct] Inicia el constructor
+[2018-06-28 9:50:31.087877] [info] [AodPoolController:postEntitiesAction] Compruebo que existe la isonomia
+[2018-06-28 9:50:31.087954] [info] [AodPoolController:postEntitiesAction] Si existe la isonomia: 11 Datos Municipio
+[2018-06-28 9:50:31.088017] [info] [AodPoolController:postEntitiesAction] Recojo el archivo Csv
+[2018-06-28 9:50:31.088155] [info] [AodPoolController:postEntitiesAction] Compurebo si el campo URI esta en la primera posición
+[2018-06-28 9:50:31.088205] [info] [AodPoolController:postEntitiesAction] El campo URI se encuentra en la primera posición
+[2018-06-28 9:50:31.088249] [info] [AodPoolController:postEntitiesAction] Se encontro el campo URI
+[2018-06-28 9:50:31.088299] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-06-28 9:50:31.088387] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 11 Datos Municipio
+[2018-06-28 9:50:31.088572] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-06-28 9:50:31.088624] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-06-28 9:50:31.090549] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Csv e Isonomia se corresponden
+[2018-06-28 9:50:31.090605] [info] [AodPoolController:postEntitiesAction] Muevo el archivo csv a la carpeta:/var/www/AodPool/web/publicacion/NoProcesados/20180628_095030/
+[2018-06-28 9:50:31.090847] [info] [AodPoolController:postEntitiesAction] La entidad mandada es validada por el formulario
+[2018-06-28 9:50:31.090910] [info] [AodPoolController:execute] Lanzo comando: curl http://localhost:8087/worker/MTEgRGF0b3MgTXVuaWNpcGlv_201806280950301530172231_ZmFsc2U=_true
+[2018-06-28 9:50:31.092971] [info] [AodPoolController:postEntitiesAction] Fin proceso rest
+[2018-06-28 9:50:34.912841] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 9:50:34.912919] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 9:50:34.912970] [info] [AodPoolController:postEntitiesAction] Creo un objeto entidad
+[2018-06-28 9:50:34.913145] [info] [AodPoolController:postEntitiesAction] Creo el formulario de validación
+[2018-06-28 9:50:34.948714] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion
+[2018-06-28 9:50:34.948801] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-06-28 9:50:34.948863] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Error
+[2018-06-28 9:50:34.948921] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Procesados
+[2018-06-28 9:50:34.948976] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados/20180628_095034
+[2018-06-28 9:50:34.949037] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/AodPool/web/publicacion/NoProcesados/20180628_095034/
+[2018-06-28 9:50:34.949630] [info] [Isonomia:__construct] Inicia el constructor
+[2018-06-28 9:50:34.949727] [info] [AodPoolController:postEntitiesAction] Compruebo que existe la isonomia
+[2018-06-28 9:50:34.949824] [info] [AodPoolController:postEntitiesAction] Si existe la isonomia: 11 Datos Municipio
+[2018-06-28 9:50:34.949933] [info] [AodPoolController:postEntitiesAction] Recojo el archivo Csv
+[2018-06-28 9:50:34.950108] [info] [AodPoolController:postEntitiesAction] Compurebo si el campo URI esta en la primera posición
+[2018-06-28 9:50:34.950185] [info] [AodPoolController:postEntitiesAction] El campo URI se encuentra en la primera posición
+[2018-06-28 9:50:34.950232] [info] [AodPoolController:postEntitiesAction] Se encontro el campo URI
+[2018-06-28 9:50:34.950284] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-06-28 9:50:34.950361] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 11 Datos Municipio
+[2018-06-28 9:50:34.950537] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-06-28 9:50:34.950591] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-06-28 9:50:34.952770] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Csv e Isonomia se corresponden
+[2018-06-28 9:50:34.952831] [info] [AodPoolController:postEntitiesAction] Muevo el archivo csv a la carpeta:/var/www/AodPool/web/publicacion/NoProcesados/20180628_095034/
+[2018-06-28 9:50:34.953118] [info] [AodPoolController:postEntitiesAction] La entidad mandada es validada por el formulario
+[2018-06-28 9:50:34.953185] [info] [AodPoolController:execute] Lanzo comando: curl http://localhost:8087/worker/MTEgRGF0b3MgTXVuaWNpcGlv_201806280950341530172234_ZmFsc2U=_true
+[2018-06-28 9:50:34.955370] [info] [AodPoolController:postEntitiesAction] Fin proceso rest
+[2018-06-28 10:08:24.683612] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 10:08:24.683713] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 10:08:24.683767] [info] [AodPoolController:postEntitiesAction] Creo un objeto entidad
+[2018-06-28 10:08:24.683862] [info] [AodPoolController:postEntitiesAction] Creo el formulario de validación
+[2018-06-28 10:08:24.717694] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion
+[2018-06-28 10:08:24.717813] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-06-28 10:08:24.717902] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Error
+[2018-06-28 10:08:24.717973] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Procesados
+[2018-06-28 10:08:24.718074] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados/20180628_100824
+[2018-06-28 10:08:24.718162] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/AodPool/web/publicacion/NoProcesados/20180628_100824/
+[2018-06-28 10:08:24.718655] [info] [Isonomia:__construct] Inicia el constructor
+[2018-06-28 10:08:24.718713] [info] [AodPoolController:postEntitiesAction] Compruebo que existe la isonomia
+[2018-06-28 10:08:24.718780] [info] [AodPoolController:postEntitiesAction] Si existe la isonomia: 11 Datos Municipio
+[2018-06-28 10:08:24.718844] [info] [AodPoolController:postEntitiesAction] Recojo el archivo Csv
+[2018-06-28 10:08:24.718946] [info] [AodPoolController:postEntitiesAction] Compurebo si el campo URI esta en la primera posición
+[2018-06-28 10:08:24.718997] [info] [AodPoolController:postEntitiesAction] El campo URI se encuentra en la primera posición
+[2018-06-28 10:08:24.719058] [info] [AodPoolController:postEntitiesAction] Se encontro el campo URI
+[2018-06-28 10:08:24.719122] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-06-28 10:08:24.719211] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 11 Datos Municipio
+[2018-06-28 10:08:24.719486] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-06-28 10:08:24.719542] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-06-28 10:08:24.721574] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Csv e Isonomia se corresponden
+[2018-06-28 10:08:24.721632] [info] [AodPoolController:postEntitiesAction] Muevo el archivo csv a la carpeta:/var/www/AodPool/web/publicacion/NoProcesados/20180628_100824/
+[2018-06-28 10:08:24.721883] [info] [AodPoolController:postEntitiesAction] La entidad mandada es validada por el formulario
+[2018-06-28 10:08:24.721961] [info] [AodPoolController:execute] Lanzo comando: curl http://localhost:8087/worker/MTEgRGF0b3MgTXVuaWNpcGlv_201806281008241530173304_ZmFsc2U=_true
+[2018-06-28 10:08:24.724004] [info] [AodPoolController:postEntitiesAction] Fin proceso rest
+[2018-06-28 10:08:53.950826] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 10:08:53.950917] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 10:08:53.950967] [info] [AodPoolController:postEntitiesAction] Creo un objeto entidad
+[2018-06-28 10:08:53.951059] [info] [AodPoolController:postEntitiesAction] Creo el formulario de validación
+[2018-06-28 10:08:54.034832] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion
+[2018-06-28 10:08:54.034909] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-06-28 10:08:54.034964] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Error
+[2018-06-28 10:08:54.035013] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Procesados
+[2018-06-28 10:08:54.035090] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados/20180628_100853
+[2018-06-28 10:08:54.035156] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/AodPool/web/publicacion/NoProcesados/20180628_100853/
+[2018-06-28 10:08:54.035640] [info] [Isonomia:__construct] Inicia el constructor
+[2018-06-28 10:08:54.035696] [info] [AodPoolController:postEntitiesAction] Compruebo que existe la isonomia
+[2018-06-28 10:08:54.035759] [info] [AodPoolController:postEntitiesAction] Si existe la isonomia: 11 Datos Municipio
+[2018-06-28 10:08:54.035821] [info] [AodPoolController:postEntitiesAction] Recojo el archivo Csv
+[2018-06-28 10:08:54.035923] [info] [AodPoolController:postEntitiesAction] Compurebo si el campo URI esta en la primera posición
+[2018-06-28 10:08:54.035969] [info] [AodPoolController:postEntitiesAction] El campo URI se encuentra en la primera posición
+[2018-06-28 10:08:54.036012] [info] [AodPoolController:postEntitiesAction] Se encontro el campo URI
+[2018-06-28 10:08:54.036066] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-06-28 10:08:54.036149] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 11 Datos Municipio
+[2018-06-28 10:08:54.036314] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-06-28 10:08:54.036365] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-06-28 10:08:54.038295] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Csv e Isonomia se corresponden
+[2018-06-28 10:08:54.038366] [info] [AodPoolController:postEntitiesAction] Muevo el archivo csv a la carpeta:/var/www/AodPool/web/publicacion/NoProcesados/20180628_100853/
+[2018-06-28 10:08:54.038624] [info] [AodPoolController:postEntitiesAction] La entidad mandada es validada por el formulario
+[2018-06-28 10:08:54.038686] [info] [AodPoolController:execute] Lanzo comando: curl http://localhost:8087/worker/MTEgRGF0b3MgTXVuaWNpcGlv_201806281008531530173334_ZmFsc2U=_true
+[2018-06-28 10:08:54.040755] [info] [AodPoolController:postEntitiesAction] Fin proceso rest
+[2018-06-28 10:11:53.534920] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 10:11:53.535012] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 10:11:53.535064] [info] [AodPoolController:postEntitiesAction] Creo un objeto entidad
+[2018-06-28 10:11:53.535161] [info] [AodPoolController:postEntitiesAction] Creo el formulario de validación
+[2018-06-28 10:11:53.620567] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion
+[2018-06-28 10:11:53.620672] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-06-28 10:11:53.620752] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Error
+[2018-06-28 10:11:53.620804] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Procesados
+[2018-06-28 10:11:53.620867] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados/20180628_101153
+[2018-06-28 10:11:53.620922] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/AodPool/web/publicacion/NoProcesados/20180628_101153/
+[2018-06-28 10:11:53.621288] [info] [Isonomia:__construct] Inicia el constructor
+[2018-06-28 10:11:53.621345] [info] [AodPoolController:postEntitiesAction] Compruebo que existe la isonomia
+[2018-06-28 10:11:53.621407] [info] [AodPoolController:postEntitiesAction] Si existe la isonomia: 11 Datos Municipio
+[2018-06-28 10:11:53.621470] [info] [AodPoolController:postEntitiesAction] Recojo el archivo Csv
+[2018-06-28 10:11:53.621572] [info] [AodPoolController:postEntitiesAction] Compurebo si el campo URI esta en la primera posición
+[2018-06-28 10:11:53.621622] [info] [AodPoolController:postEntitiesAction] El campo URI se encuentra en la primera posición
+[2018-06-28 10:11:53.621680] [info] [AodPoolController:postEntitiesAction] Se encontro el campo URI
+[2018-06-28 10:11:53.621743] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-06-28 10:11:53.621844] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 11 Datos Municipio
+[2018-06-28 10:11:53.622009] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-06-28 10:11:53.622061] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-06-28 10:11:53.624006] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Csv e Isonomia se corresponden
+[2018-06-28 10:11:53.624078] [info] [AodPoolController:postEntitiesAction] Muevo el archivo csv a la carpeta:/var/www/AodPool/web/publicacion/NoProcesados/20180628_101153/
+[2018-06-28 10:11:53.624439] [info] [AodPoolController:postEntitiesAction] La entidad mandada es validada por el formulario
+[2018-06-28 10:11:53.624520] [info] [AodPoolController:execute] Lanzo comando: curl http://localhost:8087/worker/MTEgRGF0b3MgTXVuaWNpcGlv_201806281011531530173513_ZmFsc2U=_true
+[2018-06-28 10:11:53.626979] [info] [AodPoolController:postEntitiesAction] Fin proceso rest
+[2018-06-28 10:12:27.555984] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 10:12:27.556094] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 10:12:27.556148] [info] [AodPoolController:postEntitiesAction] Creo un objeto entidad
+[2018-06-28 10:12:27.556250] [info] [AodPoolController:postEntitiesAction] Creo el formulario de validación
+[2018-06-28 10:12:27.590353] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion
+[2018-06-28 10:12:27.590436] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-06-28 10:12:27.590493] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Error
+[2018-06-28 10:12:27.590548] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Procesados
+[2018-06-28 10:12:27.590616] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados/20180628_101227
+[2018-06-28 10:12:27.590672] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/AodPool/web/publicacion/NoProcesados/20180628_101227/
+[2018-06-28 10:12:27.591046] [info] [Isonomia:__construct] Inicia el constructor
+[2018-06-28 10:12:27.591103] [info] [AodPoolController:postEntitiesAction] Compruebo que existe la isonomia
+[2018-06-28 10:12:27.591166] [info] [AodPoolController:postEntitiesAction] Si existe la isonomia: 11 Datos Municipio
+[2018-06-28 10:12:27.591228] [info] [AodPoolController:postEntitiesAction] Recojo el archivo Csv
+[2018-06-28 10:12:27.591371] [info] [AodPoolController:postEntitiesAction] Compurebo si el campo URI esta en la primera posición
+[2018-06-28 10:12:27.591420] [info] [AodPoolController:postEntitiesAction] El campo URI se encuentra en la primera posición
+[2018-06-28 10:12:27.591466] [info] [AodPoolController:postEntitiesAction] Se encontro el campo URI
+[2018-06-28 10:12:27.591516] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-06-28 10:12:27.591597] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 11 Datos Municipio
+[2018-06-28 10:12:27.591758] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-06-28 10:12:27.591809] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-06-28 10:12:27.593754] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Csv e Isonomia se corresponden
+[2018-06-28 10:12:27.593811] [info] [AodPoolController:postEntitiesAction] Muevo el archivo csv a la carpeta:/var/www/AodPool/web/publicacion/NoProcesados/20180628_101227/
+[2018-06-28 10:12:27.594054] [info] [AodPoolController:postEntitiesAction] La entidad mandada es validada por el formulario
+[2018-06-28 10:12:27.594119] [info] [AodPoolController:execute] Lanzo comando: curl http://localhost:8087/worker/MTEgRGF0b3MgTXVuaWNpcGlv_201806281012271530173547_ZmFsc2U=_true
+[2018-06-28 10:12:27.596185] [info] [AodPoolController:postEntitiesAction] Fin proceso rest
+[2018-06-28 10:13:13.466881] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 10:13:13.466984] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 10:13:13.467036] [info] [AodPoolController:postEntitiesAction] Creo un objeto entidad
+[2018-06-28 10:13:13.467133] [info] [AodPoolController:postEntitiesAction] Creo el formulario de validación
+[2018-06-28 10:13:13.499614] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion
+[2018-06-28 10:13:13.499696] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-06-28 10:13:13.499749] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Error
+[2018-06-28 10:13:13.499799] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Procesados
+[2018-06-28 10:13:13.499849] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados/20180628_101313
+[2018-06-28 10:13:13.499903] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/AodPool/web/publicacion/NoProcesados/20180628_101313/
+[2018-06-28 10:13:13.500277] [info] [Isonomia:__construct] Inicia el constructor
+[2018-06-28 10:13:13.500333] [info] [AodPoolController:postEntitiesAction] Compruebo que existe la isonomia
+[2018-06-28 10:13:13.500396] [info] [AodPoolController:postEntitiesAction] Si existe la isonomia: 11 Datos Municipio
+[2018-06-28 10:13:13.500458] [info] [AodPoolController:postEntitiesAction] Recojo el archivo Csv
+[2018-06-28 10:13:13.500555] [info] [AodPoolController:postEntitiesAction] Compurebo si el campo URI esta en la primera posición
+[2018-06-28 10:13:13.500602] [info] [AodPoolController:postEntitiesAction] El campo URI se encuentra en la primera posición
+[2018-06-28 10:13:13.500646] [info] [AodPoolController:postEntitiesAction] Se encontro el campo URI
+[2018-06-28 10:13:13.500694] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-06-28 10:13:13.500772] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 11 Datos Municipio
+[2018-06-28 10:13:13.500926] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-06-28 10:13:13.500977] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-06-28 10:13:13.502801] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Csv e Isonomia se corresponden
+[2018-06-28 10:13:13.502857] [info] [AodPoolController:postEntitiesAction] Muevo el archivo csv a la carpeta:/var/www/AodPool/web/publicacion/NoProcesados/20180628_101313/
+[2018-06-28 10:13:13.503102] [info] [AodPoolController:postEntitiesAction] La entidad mandada es validada por el formulario
+[2018-06-28 10:13:13.503163] [info] [AodPoolController:execute] Lanzo comando: curl http://localhost:8087/worker/MTEgRGF0b3MgTXVuaWNpcGlv_201806281013131530173593_ZmFsc2U=_true
+[2018-06-28 10:13:13.505187] [info] [AodPoolController:postEntitiesAction] Fin proceso rest
+[2018-06-28 10:14:53.996522] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 10:14:53.996651] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 10:14:53.996750] [info] [AodPoolController:postEntitiesAction] Creo un objeto entidad
+[2018-06-28 10:14:53.996934] [info] [AodPoolController:postEntitiesAction] Creo el formulario de validación
+[2018-06-28 10:14:54.083952] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion
+[2018-06-28 10:14:54.084033] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-06-28 10:14:54.084089] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Error
+[2018-06-28 10:14:54.084144] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Procesados
+[2018-06-28 10:14:54.084194] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados/20180628_101453
+[2018-06-28 10:14:54.084255] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/AodPool/web/publicacion/NoProcesados/20180628_101453/
+[2018-06-28 10:14:54.084640] [info] [Isonomia:__construct] Inicia el constructor
+[2018-06-28 10:14:54.084697] [info] [AodPoolController:postEntitiesAction] Compruebo que existe la isonomia
+[2018-06-28 10:14:54.084763] [info] [AodPoolController:postEntitiesAction] Si existe la isonomia: 11 Datos Municipio
+[2018-06-28 10:14:54.084826] [info] [AodPoolController:postEntitiesAction] Recojo el archivo Csv
+[2018-06-28 10:14:54.084930] [info] [AodPoolController:postEntitiesAction] Compurebo si el campo URI esta en la primera posición
+[2018-06-28 10:14:54.084979] [info] [AodPoolController:postEntitiesAction] El campo URI se encuentra en la primera posición
+[2018-06-28 10:14:54.085025] [info] [AodPoolController:postEntitiesAction] Se encontro el campo URI
+[2018-06-28 10:14:54.085076] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-06-28 10:14:54.085160] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 11 Datos Municipio
+[2018-06-28 10:14:54.085346] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-06-28 10:14:54.085401] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-06-28 10:14:54.087405] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Csv e Isonomia se corresponden
+[2018-06-28 10:14:54.087464] [info] [AodPoolController:postEntitiesAction] Muevo el archivo csv a la carpeta:/var/www/AodPool/web/publicacion/NoProcesados/20180628_101453/
+[2018-06-28 10:14:54.087696] [info] [AodPoolController:postEntitiesAction] La entidad mandada es validada por el formulario
+[2018-06-28 10:14:54.087760] [info] [AodPoolController:execute] Lanzo comando: curl http://localhost:8087/worker/MTEgRGF0b3MgTXVuaWNpcGlv_201806281014531530173694_ZmFsc2U=_true
+[2018-06-28 10:14:54.089857] [info] [AodPoolController:postEntitiesAction] Fin proceso rest
+[2018-06-28 10:16:29.921251] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 10:16:29.921348] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 10:16:29.921401] [info] [AodPoolController:postEntitiesAction] Creo un objeto entidad
+[2018-06-28 10:16:29.921499] [info] [AodPoolController:postEntitiesAction] Creo el formulario de validación
+[2018-06-28 10:16:29.955023] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion
+[2018-06-28 10:16:29.955104] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-06-28 10:16:29.955157] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Error
+[2018-06-28 10:16:29.955207] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Procesados
+[2018-06-28 10:16:29.955255] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados/20180628_101629
+[2018-06-28 10:16:29.955405] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/AodPool/web/publicacion/NoProcesados/20180628_101629/
+[2018-06-28 10:16:29.955775] [info] [Isonomia:__construct] Inicia el constructor
+[2018-06-28 10:16:29.955832] [info] [AodPoolController:postEntitiesAction] Compruebo que existe la isonomia
+[2018-06-28 10:16:29.955907] [info] [AodPoolController:postEntitiesAction] Si existe la isonomia: 11 Datos Municipio
+[2018-06-28 10:16:29.955969] [info] [AodPoolController:postEntitiesAction] Recojo el archivo Csv
+[2018-06-28 10:16:29.956072] [info] [AodPoolController:postEntitiesAction] Compurebo si el campo URI esta en la primera posición
+[2018-06-28 10:16:29.956120] [info] [AodPoolController:postEntitiesAction] El campo URI se encuentra en la primera posición
+[2018-06-28 10:16:29.956163] [info] [AodPoolController:postEntitiesAction] Se encontro el campo URI
+[2018-06-28 10:16:29.956212] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-06-28 10:16:29.956301] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 11 Datos Municipio
+[2018-06-28 10:16:29.956459] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-06-28 10:16:29.956511] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-06-28 10:16:29.958484] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Csv e Isonomia se corresponden
+[2018-06-28 10:16:29.958540] [info] [AodPoolController:postEntitiesAction] Muevo el archivo csv a la carpeta:/var/www/AodPool/web/publicacion/NoProcesados/20180628_101629/
+[2018-06-28 10:16:29.958781] [info] [AodPoolController:postEntitiesAction] La entidad mandada es validada por el formulario
+[2018-06-28 10:16:29.958844] [info] [AodPoolController:execute] Lanzo comando: curl http://localhost:8087/worker/MTEgRGF0b3MgTXVuaWNpcGlv_201806281016291530173789_ZmFsc2U=_true
+[2018-06-28 10:16:29.960743] [info] [AodPoolController:postEntitiesAction] Fin proceso rest
+[2018-06-28 10:18:45.257553] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 10:18:45.257644] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 10:18:45.257698] [info] [AodPoolController:postEntitiesAction] Creo un objeto entidad
+[2018-06-28 10:18:45.257803] [info] [AodPoolController:postEntitiesAction] Creo el formulario de validación
+[2018-06-28 10:18:45.290930] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion
+[2018-06-28 10:18:45.291032] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-06-28 10:18:45.291088] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Error
+[2018-06-28 10:18:45.291140] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Procesados
+[2018-06-28 10:18:45.291191] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados/20180628_101845
+[2018-06-28 10:18:45.291246] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/AodPool/web/publicacion/NoProcesados/20180628_101845/
+[2018-06-28 10:18:45.291758] [info] [Isonomia:__construct] Inicia el constructor
+[2018-06-28 10:18:45.291817] [info] [AodPoolController:postEntitiesAction] Compruebo que existe la isonomia
+[2018-06-28 10:18:45.291882] [info] [AodPoolController:postEntitiesAction] Si existe la isonomia: 11 Datos Municipio
+[2018-06-28 10:18:45.291946] [info] [AodPoolController:postEntitiesAction] Recojo el archivo Csv
+[2018-06-28 10:18:45.292047] [info] [AodPoolController:postEntitiesAction] Compurebo si el campo URI esta en la primera posición
+[2018-06-28 10:18:45.292112] [info] [AodPoolController:postEntitiesAction] El campo URI se encuentra en la primera posición
+[2018-06-28 10:18:45.292175] [info] [AodPoolController:postEntitiesAction] Se encontro el campo URI
+[2018-06-28 10:18:45.292258] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-06-28 10:18:45.292340] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 11 Datos Municipio
+[2018-06-28 10:18:45.292511] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-06-28 10:18:45.292563] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-06-28 10:18:45.294498] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Csv e Isonomia se corresponden
+[2018-06-28 10:18:45.294570] [info] [AodPoolController:postEntitiesAction] Muevo el archivo csv a la carpeta:/var/www/AodPool/web/publicacion/NoProcesados/20180628_101845/
+[2018-06-28 10:18:45.294836] [info] [AodPoolController:postEntitiesAction] La entidad mandada es validada por el formulario
+[2018-06-28 10:18:45.294900] [info] [AodPoolController:execute] Lanzo comando: curl http://localhost:8087/worker/MTEgRGF0b3MgTXVuaWNpcGlv_201806281018451530173925_ZmFsc2U=_true
+[2018-06-28 10:18:45.297221] [info] [AodPoolController:postEntitiesAction] Fin proceso rest
+[2018-06-28 10:20:00.403067] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 10:20:00.403158] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 10:20:00.403211] [info] [AodPoolController:postEntitiesAction] Creo un objeto entidad
+[2018-06-28 10:20:00.403317] [info] [AodPoolController:postEntitiesAction] Creo el formulario de validación
+[2018-06-28 10:20:00.436256] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion
+[2018-06-28 10:20:00.436340] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-06-28 10:20:00.436394] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Error
+[2018-06-28 10:20:00.436445] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Procesados
+[2018-06-28 10:20:00.436496] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados/20180628_102000
+[2018-06-28 10:20:00.436552] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/AodPool/web/publicacion/NoProcesados/20180628_102000/
+[2018-06-28 10:20:00.436933] [info] [Isonomia:__construct] Inicia el constructor
+[2018-06-28 10:20:00.436990] [info] [AodPoolController:postEntitiesAction] Compruebo que existe la isonomia
+[2018-06-28 10:20:00.437055] [info] [AodPoolController:postEntitiesAction] Si existe la isonomia: 11 Datos Municipio
+[2018-06-28 10:20:00.437118] [info] [AodPoolController:postEntitiesAction] Recojo el archivo Csv
+[2018-06-28 10:20:00.437217] [info] [AodPoolController:postEntitiesAction] Compurebo si el campo URI esta en la primera posición
+[2018-06-28 10:20:00.437264] [info] [AodPoolController:postEntitiesAction] El campo URI se encuentra en la primera posición
+[2018-06-28 10:20:00.437310] [info] [AodPoolController:postEntitiesAction] Se encontro el campo URI
+[2018-06-28 10:20:00.437361] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-06-28 10:20:00.437453] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 11 Datos Municipio
+[2018-06-28 10:20:00.437614] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-06-28 10:20:00.437665] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-06-28 10:20:00.439836] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Csv e Isonomia se corresponden
+[2018-06-28 10:20:00.439930] [info] [AodPoolController:postEntitiesAction] Muevo el archivo csv a la carpeta:/var/www/AodPool/web/publicacion/NoProcesados/20180628_102000/
+[2018-06-28 10:20:00.440304] [info] [AodPoolController:postEntitiesAction] La entidad mandada es validada por el formulario
+[2018-06-28 10:20:00.440397] [info] [AodPoolController:execute] Lanzo comando: curl http://localhost:8087/worker/MTEgRGF0b3MgTXVuaWNpcGlv_201806281020001530174000_ZmFsc2U=_true
+[2018-06-28 10:20:00.442383] [info] [AodPoolController:postEntitiesAction] Fin proceso rest
+[2018-06-28 10:24:22.545011] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 10:24:22.545104] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 10:24:22.545159] [info] [AodPoolController:postEntitiesAction] Creo un objeto entidad
+[2018-06-28 10:24:22.545258] [info] [AodPoolController:postEntitiesAction] Creo el formulario de validación
+[2018-06-28 10:24:22.631814] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion
+[2018-06-28 10:24:22.631906] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-06-28 10:24:22.631989] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Error
+[2018-06-28 10:24:22.632055] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Procesados
+[2018-06-28 10:24:22.632107] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados/20180628_102422
+[2018-06-28 10:24:22.632168] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/AodPool/web/publicacion/NoProcesados/20180628_102422/
+[2018-06-28 10:24:22.632539] [info] [Isonomia:__construct] Inicia el constructor
+[2018-06-28 10:24:22.632599] [info] [AodPoolController:postEntitiesAction] Compruebo que existe la isonomia
+[2018-06-28 10:24:22.632664] [info] [AodPoolController:postEntitiesAction] Si existe la isonomia: 11 Datos Municipio
+[2018-06-28 10:24:22.632729] [info] [AodPoolController:postEntitiesAction] Recojo el archivo Csv
+[2018-06-28 10:24:22.632832] [info] [AodPoolController:postEntitiesAction] Compurebo si el campo URI esta en la primera posición
+[2018-06-28 10:24:22.632882] [info] [AodPoolController:postEntitiesAction] El campo URI se encuentra en la primera posición
+[2018-06-28 10:24:22.632927] [info] [AodPoolController:postEntitiesAction] Se encontro el campo URI
+[2018-06-28 10:24:22.632980] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-06-28 10:24:22.633064] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 11 Datos Municipio
+[2018-06-28 10:24:22.633233] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-06-28 10:24:22.633287] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-06-28 10:24:22.635277] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Csv e Isonomia se corresponden
+[2018-06-28 10:24:22.635376] [info] [AodPoolController:postEntitiesAction] Muevo el archivo csv a la carpeta:/var/www/AodPool/web/publicacion/NoProcesados/20180628_102422/
+[2018-06-28 10:24:22.635613] [info] [AodPoolController:postEntitiesAction] La entidad mandada es validada por el formulario
+[2018-06-28 10:24:22.635679] [info] [AodPoolController:execute] Lanzo comando: curl http://localhost:8087/worker/MTEgRGF0b3MgTXVuaWNpcGlv_201806281024221530174262_ZmFsc2U=_true
+[2018-06-28 10:24:22.637717] [info] [AodPoolController:postEntitiesAction] Fin proceso rest
+[2018-06-28 10:24:27.049998] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 10:24:27.050079] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 10:24:27.050131] [info] [AodPoolController:postEntitiesAction] Creo un objeto entidad
+[2018-06-28 10:24:27.050223] [info] [AodPoolController:postEntitiesAction] Creo el formulario de validación
+[2018-06-28 10:24:27.088915] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion
+[2018-06-28 10:24:27.089009] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-06-28 10:24:27.089077] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Error
+[2018-06-28 10:24:27.089143] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Procesados
+[2018-06-28 10:24:27.089207] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados/20180628_102427
+[2018-06-28 10:24:27.089263] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/AodPool/web/publicacion/NoProcesados/20180628_102427/
+[2018-06-28 10:24:27.089663] [info] [Isonomia:__construct] Inicia el constructor
+[2018-06-28 10:24:27.089720] [info] [AodPoolController:postEntitiesAction] Compruebo que existe la isonomia
+[2018-06-28 10:24:27.089811] [info] [AodPoolController:postEntitiesAction] Si existe la isonomia: 11 Datos Municipio
+[2018-06-28 10:24:27.089874] [info] [AodPoolController:postEntitiesAction] Recojo el archivo Csv
+[2018-06-28 10:24:27.089977] [info] [AodPoolController:postEntitiesAction] Compurebo si el campo URI esta en la primera posición
+[2018-06-28 10:24:27.090024] [info] [AodPoolController:postEntitiesAction] El campo URI se encuentra en la primera posición
+[2018-06-28 10:24:27.090070] [info] [AodPoolController:postEntitiesAction] Se encontro el campo URI
+[2018-06-28 10:24:27.090135] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-06-28 10:24:27.090230] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 11 Datos Municipio
+[2018-06-28 10:24:27.090420] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-06-28 10:24:27.090473] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-06-28 10:24:27.092674] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Csv e Isonomia se corresponden
+[2018-06-28 10:24:27.092734] [info] [AodPoolController:postEntitiesAction] Muevo el archivo csv a la carpeta:/var/www/AodPool/web/publicacion/NoProcesados/20180628_102427/
+[2018-06-28 10:24:27.092983] [info] [AodPoolController:postEntitiesAction] La entidad mandada es validada por el formulario
+[2018-06-28 10:24:27.093048] [info] [AodPoolController:execute] Lanzo comando: curl http://localhost:8087/worker/MTEgRGF0b3MgTXVuaWNpcGlv_201806281024271530174267_ZmFsc2U=_true
+[2018-06-28 10:24:27.095284] [info] [AodPoolController:postEntitiesAction] Fin proceso rest
+[2018-06-28 10:27:53.447613] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 10:27:53.447729] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 10:27:53.447797] [info] [AodPoolController:postEntitiesAction] Creo un objeto entidad
+[2018-06-28 10:27:53.447916] [info] [AodPoolController:postEntitiesAction] Creo el formulario de validación
+[2018-06-28 10:27:53.550529] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion
+[2018-06-28 10:27:53.550616] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-06-28 10:27:53.550677] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Error
+[2018-06-28 10:27:53.550734] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Procesados
+[2018-06-28 10:27:53.550791] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados/20180628_102753
+[2018-06-28 10:27:53.550851] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/AodPool/web/publicacion/NoProcesados/20180628_102753/
+[2018-06-28 10:27:53.551253] [info] [Isonomia:__construct] Inicia el constructor
+[2018-06-28 10:27:53.551322] [info] [AodPoolController:postEntitiesAction] Compruebo que existe la isonomia
+[2018-06-28 10:27:53.551419] [info] [AodPoolController:postEntitiesAction] Si existe la isonomia: 11 Datos Municipio
+[2018-06-28 10:27:53.551501] [info] [AodPoolController:postEntitiesAction] Recojo el archivo Csv
+[2018-06-28 10:27:53.551614] [info] [AodPoolController:postEntitiesAction] Compurebo si el campo URI esta en la primera posición
+[2018-06-28 10:27:53.551670] [info] [AodPoolController:postEntitiesAction] El campo URI se encuentra en la primera posición
+[2018-06-28 10:27:53.551721] [info] [AodPoolController:postEntitiesAction] Se encontro el campo URI
+[2018-06-28 10:27:53.551778] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-06-28 10:27:53.551872] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 11 Datos Municipio
+[2018-06-28 10:27:53.552062] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-06-28 10:27:53.552123] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-06-28 10:27:53.554429] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Csv e Isonomia se corresponden
+[2018-06-28 10:27:53.554498] [info] [AodPoolController:postEntitiesAction] Muevo el archivo csv a la carpeta:/var/www/AodPool/web/publicacion/NoProcesados/20180628_102753/
+[2018-06-28 10:27:53.554780] [info] [AodPoolController:postEntitiesAction] La entidad mandada es validada por el formulario
+[2018-06-28 10:27:53.554864] [info] [AodPoolController:execute] Lanzo comando: curl http://localhost:8087/worker/MTEgRGF0b3MgTXVuaWNpcGlv_201806281027531530174473_ZmFsc2U=_true
+[2018-06-28 10:27:53.557089] [info] [AodPoolController:postEntitiesAction] Fin proceso rest
+[2018-06-28 10:28:22.489636] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 10:28:22.489732] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 10:28:22.489789] [info] [AodPoolController:postEntitiesAction] Creo un objeto entidad
+[2018-06-28 10:28:22.489891] [info] [AodPoolController:postEntitiesAction] Creo el formulario de validación
+[2018-06-28 10:28:22.524511] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion
+[2018-06-28 10:28:22.524595] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-06-28 10:28:22.524652] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Error
+[2018-06-28 10:28:22.524703] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Procesados
+[2018-06-28 10:28:22.524755] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados/20180628_102822
+[2018-06-28 10:28:22.524812] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/AodPool/web/publicacion/NoProcesados/20180628_102822/
+[2018-06-28 10:28:22.525212] [info] [Isonomia:__construct] Inicia el constructor
+[2018-06-28 10:28:22.525270] [info] [AodPoolController:postEntitiesAction] Compruebo que existe la isonomia
+[2018-06-28 10:28:22.525336] [info] [AodPoolController:postEntitiesAction] Si existe la isonomia: 11 Datos Municipio
+[2018-06-28 10:28:22.525401] [info] [AodPoolController:postEntitiesAction] Recojo el archivo Csv
+[2018-06-28 10:28:22.525504] [info] [AodPoolController:postEntitiesAction] Compurebo si el campo URI esta en la primera posición
+[2018-06-28 10:28:22.525552] [info] [AodPoolController:postEntitiesAction] El campo URI se encuentra en la primera posición
+[2018-06-28 10:28:22.525605] [info] [AodPoolController:postEntitiesAction] Se encontro el campo URI
+[2018-06-28 10:28:22.525657] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-06-28 10:28:22.525741] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 11 Datos Municipio
+[2018-06-28 10:28:22.525906] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-06-28 10:28:22.525959] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-06-28 10:28:22.528040] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Csv e Isonomia se corresponden
+[2018-06-28 10:28:22.528100] [info] [AodPoolController:postEntitiesAction] Muevo el archivo csv a la carpeta:/var/www/AodPool/web/publicacion/NoProcesados/20180628_102822/
+[2018-06-28 10:28:22.528347] [info] [AodPoolController:postEntitiesAction] La entidad mandada es validada por el formulario
+[2018-06-28 10:28:22.528410] [info] [AodPoolController:execute] Lanzo comando: curl http://localhost:8087/worker/MTEgRGF0b3MgTXVuaWNpcGlv_201806281028221530174502_ZmFsc2U=_true
+[2018-06-28 10:28:22.530319] [info] [AodPoolController:postEntitiesAction] Fin proceso rest
+[2018-06-28 10:34:51.982848] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 10:34:51.982937] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 10:34:51.982986] [info] [AodPoolController:postEntitiesAction] Creo un objeto entidad
+[2018-06-28 10:34:51.983079] [info] [AodPoolController:postEntitiesAction] Creo el formulario de validación
+[2018-06-28 10:34:52.017447] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion
+[2018-06-28 10:34:52.017568] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-06-28 10:34:52.017656] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Error
+[2018-06-28 10:34:52.017759] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Procesados
+[2018-06-28 10:34:52.017915] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados/20180628_103451
+[2018-06-28 10:34:52.018037] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/AodPool/web/publicacion/NoProcesados/20180628_103451/
+[2018-06-28 10:34:52.018563] [info] [Isonomia:__construct] Inicia el constructor
+[2018-06-28 10:34:52.018620] [info] [AodPoolController:postEntitiesAction] Compruebo que existe la isonomia
+[2018-06-28 10:34:52.018685] [info] [AodPoolController:postEntitiesAction] Si existe la isonomia: 11 Datos Municipio
+[2018-06-28 10:34:52.018748] [info] [AodPoolController:postEntitiesAction] Recojo el archivo Csv
+[2018-06-28 10:34:52.018877] [info] [AodPoolController:postEntitiesAction] Compurebo si el campo URI esta en la primera posición
+[2018-06-28 10:34:52.018924] [info] [AodPoolController:postEntitiesAction] El campo URI se encuentra en la primera posición
+[2018-06-28 10:34:52.018970] [info] [AodPoolController:postEntitiesAction] Se encontro el campo URI
+[2018-06-28 10:34:52.019021] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-06-28 10:34:52.019102] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 11 Datos Municipio
+[2018-06-28 10:34:52.019277] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-06-28 10:34:52.019367] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-06-28 10:34:52.021334] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Csv e Isonomia se corresponden
+[2018-06-28 10:34:52.021406] [info] [AodPoolController:postEntitiesAction] Muevo el archivo csv a la carpeta:/var/www/AodPool/web/publicacion/NoProcesados/20180628_103451/
+[2018-06-28 10:34:52.021744] [info] [AodPoolController:postEntitiesAction] La entidad mandada es validada por el formulario
+[2018-06-28 10:34:52.021833] [info] [AodPoolController:execute] Lanzo comando: curl http://localhost:8087/worker/MTEgRGF0b3MgTXVuaWNpcGlv_201806281034511530174892_ZmFsc2U=_true
+[2018-06-28 10:34:52.024003] [info] [AodPoolController:postEntitiesAction] Fin proceso rest
+[2018-06-28 10:37:08.729716] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 10:37:08.729816] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 10:37:08.729893] [info] [AodPoolController:postEntitiesAction] Creo un objeto entidad
+[2018-06-28 10:37:08.730000] [info] [AodPoolController:postEntitiesAction] Creo el formulario de validación
+[2018-06-28 10:37:08.762782] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion
+[2018-06-28 10:37:08.762865] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-06-28 10:37:08.762918] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Error
+[2018-06-28 10:37:08.762969] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Procesados
+[2018-06-28 10:37:08.763017] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados/20180628_103708
+[2018-06-28 10:37:08.763082] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/AodPool/web/publicacion/NoProcesados/20180628_103708/
+[2018-06-28 10:37:08.763530] [info] [Isonomia:__construct] Inicia el constructor
+[2018-06-28 10:37:08.763590] [info] [AodPoolController:postEntitiesAction] Compruebo que existe la isonomia
+[2018-06-28 10:37:08.763653] [info] [AodPoolController:postEntitiesAction] Si existe la isonomia: 11 Datos Municipio
+[2018-06-28 10:37:08.763716] [info] [AodPoolController:postEntitiesAction] Recojo el archivo Csv
+[2018-06-28 10:37:08.763819] [info] [AodPoolController:postEntitiesAction] Compurebo si el campo URI esta en la primera posición
+[2018-06-28 10:37:08.763866] [info] [AodPoolController:postEntitiesAction] El campo URI se encuentra en la primera posición
+[2018-06-28 10:37:08.763912] [info] [AodPoolController:postEntitiesAction] Se encontro el campo URI
+[2018-06-28 10:37:08.763967] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-06-28 10:37:08.764066] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 11 Datos Municipio
+[2018-06-28 10:37:08.764230] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-06-28 10:37:08.764281] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-06-28 10:37:08.766309] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Csv e Isonomia se corresponden
+[2018-06-28 10:37:08.766369] [info] [AodPoolController:postEntitiesAction] Muevo el archivo csv a la carpeta:/var/www/AodPool/web/publicacion/NoProcesados/20180628_103708/
+[2018-06-28 10:37:08.766619] [info] [AodPoolController:postEntitiesAction] La entidad mandada es validada por el formulario
+[2018-06-28 10:37:08.766684] [info] [AodPoolController:execute] Lanzo comando: curl http://localhost:8087/worker/MTEgRGF0b3MgTXVuaWNpcGlv_201806281037081530175028_ZmFsc2U=_true
+[2018-06-28 10:37:08.768759] [info] [AodPoolController:postEntitiesAction] Fin proceso rest
+[2018-06-28 10:40:36.804754] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 10:40:36.804847] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 10:40:36.804898] [info] [AodPoolController:postEntitiesAction] Creo un objeto entidad
+[2018-06-28 10:40:36.804992] [info] [AodPoolController:postEntitiesAction] Creo el formulario de validación
+[2018-06-28 10:40:36.837759] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion
+[2018-06-28 10:40:36.837877] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-06-28 10:40:36.837977] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Error
+[2018-06-28 10:40:36.838031] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Procesados
+[2018-06-28 10:40:36.838150] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados/20180628_104036
+[2018-06-28 10:40:36.838241] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/AodPool/web/publicacion/NoProcesados/20180628_104036/
+[2018-06-28 10:40:36.838694] [info] [Isonomia:__construct] Inicia el constructor
+[2018-06-28 10:40:36.838752] [info] [AodPoolController:postEntitiesAction] Compruebo que existe la isonomia
+[2018-06-28 10:40:36.838815] [info] [AodPoolController:postEntitiesAction] Si existe la isonomia: 11 Datos Municipio
+[2018-06-28 10:40:36.838880] [info] [AodPoolController:postEntitiesAction] Recojo el archivo Csv
+[2018-06-28 10:40:36.838980] [info] [AodPoolController:postEntitiesAction] Compurebo si el campo URI esta en la primera posición
+[2018-06-28 10:40:36.839056] [info] [AodPoolController:postEntitiesAction] El campo URI se encuentra en la primera posición
+[2018-06-28 10:40:36.839121] [info] [AodPoolController:postEntitiesAction] Se encontro el campo URI
+[2018-06-28 10:40:36.839226] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-06-28 10:40:36.839361] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 11 Datos Municipio
+[2018-06-28 10:40:36.839586] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-06-28 10:40:36.839658] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-06-28 10:40:36.841622] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Csv e Isonomia se corresponden
+[2018-06-28 10:40:36.841710] [info] [AodPoolController:postEntitiesAction] Muevo el archivo csv a la carpeta:/var/www/AodPool/web/publicacion/NoProcesados/20180628_104036/
+[2018-06-28 10:40:36.842025] [info] [AodPoolController:postEntitiesAction] La entidad mandada es validada por el formulario
+[2018-06-28 10:40:36.842089] [info] [AodPoolController:execute] Lanzo comando: curl http://localhost:8087/worker/MTEgRGF0b3MgTXVuaWNpcGlv_201806281040361530175236_ZmFsc2U=_true
+[2018-06-28 10:40:36.844170] [info] [AodPoolController:postEntitiesAction] Fin proceso rest
+[2018-06-28 10:41:23.336702] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 10:41:23.336811] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 10:41:23.336869] [info] [AodPoolController:postEntitiesAction] Creo un objeto entidad
+[2018-06-28 10:41:23.336972] [info] [AodPoolController:postEntitiesAction] Creo el formulario de validación
+[2018-06-28 10:41:23.420525] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion
+[2018-06-28 10:41:23.420615] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-06-28 10:41:23.420701] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Error
+[2018-06-28 10:41:23.420778] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Procesados
+[2018-06-28 10:41:23.420854] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados/20180628_104123
+[2018-06-28 10:41:23.420934] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/AodPool/web/publicacion/NoProcesados/20180628_104123/
+[2018-06-28 10:41:23.421355] [info] [Isonomia:__construct] Inicia el constructor
+[2018-06-28 10:41:23.421411] [info] [AodPoolController:postEntitiesAction] Compruebo que existe la isonomia
+[2018-06-28 10:41:23.421475] [info] [AodPoolController:postEntitiesAction] Si existe la isonomia: 11 Datos Municipio
+[2018-06-28 10:41:23.421540] [info] [AodPoolController:postEntitiesAction] Recojo el archivo Csv
+[2018-06-28 10:41:23.421653] [info] [AodPoolController:postEntitiesAction] Compurebo si el campo URI esta en la primera posición
+[2018-06-28 10:41:23.421701] [info] [AodPoolController:postEntitiesAction] El campo URI se encuentra en la primera posición
+[2018-06-28 10:41:23.421773] [info] [AodPoolController:postEntitiesAction] Se encontro el campo URI
+[2018-06-28 10:41:23.421838] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-06-28 10:41:23.421921] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 11 Datos Municipio
+[2018-06-28 10:41:23.422087] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-06-28 10:41:23.422141] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-06-28 10:41:23.424201] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Csv e Isonomia se corresponden
+[2018-06-28 10:41:23.424293] [info] [AodPoolController:postEntitiesAction] Muevo el archivo csv a la carpeta:/var/www/AodPool/web/publicacion/NoProcesados/20180628_104123/
+[2018-06-28 10:41:23.424671] [info] [AodPoolController:postEntitiesAction] La entidad mandada es validada por el formulario
+[2018-06-28 10:41:23.424752] [info] [AodPoolController:execute] Lanzo comando: curl http://localhost:8087/worker/MTEgRGF0b3MgTXVuaWNpcGlv_201806281041231530175283_ZmFsc2U=_true
+[2018-06-28 10:41:23.426842] [info] [AodPoolController:postEntitiesAction] Fin proceso rest
+[2018-06-28 10:44:11.249214] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 10:44:11.249274] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 10:44:11.249300] [info] [AodPoolController:postEntitiesAction] Creo un objeto entidad
+[2018-06-28 10:44:11.249361] [info] [AodPoolController:postEntitiesAction] Creo el formulario de validación
+[2018-06-28 10:44:11.289277] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion
+[2018-06-28 10:44:11.289326] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-06-28 10:44:11.289352] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Error
+[2018-06-28 10:44:11.289376] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Procesados
+[2018-06-28 10:44:11.289403] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados/20180628_104411
+[2018-06-28 10:44:11.289431] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/AodPool/web/publicacion/NoProcesados/20180628_104411/
+[2018-06-28 10:44:11.289618] [info] [Isonomia:__construct] Inicia el constructor
+[2018-06-28 10:44:11.289645] [info] [AodPoolController:postEntitiesAction] Compruebo que existe la isonomia
+[2018-06-28 10:44:11.289674] [info] [AodPoolController:postEntitiesAction] Si existe la isonomia: 11 Datos Municipio
+[2018-06-28 10:44:11.289715] [info] [AodPoolController:postEntitiesAction] Recojo el archivo Csv
+[2018-06-28 10:44:11.289793] [info] [AodPoolController:postEntitiesAction] Compurebo si el campo URI esta en la primera posición
+[2018-06-28 10:44:11.289817] [info] [AodPoolController:postEntitiesAction] El campo URI se encuentra en la primera posición
+[2018-06-28 10:44:11.289836] [info] [AodPoolController:postEntitiesAction] Se encontro el campo URI
+[2018-06-28 10:44:11.289870] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-06-28 10:44:11.289920] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 11 Datos Municipio
+[2018-06-28 10:44:11.290043] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-06-28 10:44:11.290066] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-06-28 10:44:11.290752] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Csv e Isonomia se corresponden
+[2018-06-28 10:44:11.290780] [info] [AodPoolController:postEntitiesAction] Muevo el archivo csv a la carpeta:/var/www/AodPool/web/publicacion/NoProcesados/20180628_104411/
+[2018-06-28 10:44:11.290991] [info] [AodPoolController:postEntitiesAction] La entidad mandada es validada por el formulario
+[2018-06-28 10:44:11.291023] [info] [AodPoolController:execute] Lanzo comando: curl http://localhost:8087/worker/MTEgRGF0b3MgTXVuaWNpcGlv_201806281044111530175451_ZmFsc2U=_true
+[2018-06-28 10:44:11.293087] [info] [AodPoolController:postEntitiesAction] Fin proceso rest
+[2018-06-28 10:44:18.876235] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 10:44:18.876327] [info] [AodPoolController:postEntitiesAction] Inicio proceso API publicacion
+[2018-06-28 10:44:18.876379] [info] [AodPoolController:postEntitiesAction] Creo un objeto entidad
+[2018-06-28 10:44:18.876476] [info] [AodPoolController:postEntitiesAction] Creo el formulario de validación
+[2018-06-28 10:44:18.915483] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion
+[2018-06-28 10:44:18.915600] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados
+[2018-06-28 10:44:18.915674] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Error
+[2018-06-28 10:44:18.915776] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/Procesados
+[2018-06-28 10:44:18.915827] [info] [AodPoolController:postEntitiesAction] Compruebo la carpeta publicacion/NoProcesados/20180628_104418
+[2018-06-28 10:44:18.915950] [info] [AodPoolController:ComprueboCarpeta] Creo Carpeta: /var/www/AodPool/web/publicacion/NoProcesados/20180628_104418/
+[2018-06-28 10:44:18.916496] [info] [Isonomia:__construct] Inicia el constructor
+[2018-06-28 10:44:18.916558] [info] [AodPoolController:postEntitiesAction] Compruebo que existe la isonomia
+[2018-06-28 10:44:18.916650] [info] [AodPoolController:postEntitiesAction] Si existe la isonomia: 11 Datos Municipio
+[2018-06-28 10:44:18.916732] [info] [AodPoolController:postEntitiesAction] Recojo el archivo Csv
+[2018-06-28 10:44:18.916882] [info] [AodPoolController:postEntitiesAction] Compurebo si el campo URI esta en la primera posición
+[2018-06-28 10:44:18.917040] [info] [AodPoolController:postEntitiesAction] El campo URI se encuentra en la primera posición
+[2018-06-28 10:44:18.917099] [info] [AodPoolController:postEntitiesAction] Se encontro el campo URI
+[2018-06-28 10:44:18.917154] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Compruebo correspondencia Csv isonomia 
+[2018-06-28 10:44:18.917241] [info] [Isonomia:CompruebaEsquema] Isonomia cargada con Identificador: 11 Datos Municipio
+[2018-06-28 10:44:18.917439] [info] [Isonomia:CompruebaEsquema] Isonomia validada por simplexml
+[2018-06-28 10:44:18.917494] [info] [Isonomia:CompruebaEsquema] Llamada a la función recursiva por todos los nodos y subnodos
+[2018-06-28 10:44:18.920233] [info] [AodPoolController:CompruebaCorrespondenciaCsvIsonomia] Csv e Isonomia se corresponden
+[2018-06-28 10:44:18.920360] [info] [AodPoolController:postEntitiesAction] Muevo el archivo csv a la carpeta:/var/www/AodPool/web/publicacion/NoProcesados/20180628_104418/
+[2018-06-28 10:44:18.920947] [info] [AodPoolController:postEntitiesAction] La entidad mandada es validada por el formulario
+[2018-06-28 10:44:18.921070] [info] [AodPoolController:execute] Lanzo comando: curl http://localhost:8087/worker/MTEgRGF0b3MgTXVuaWNpcGlv_201806281044181530175458_ZmFsc2U=_true
+[2018-06-28 10:44:18.923465] [info] [AodPoolController:postEntitiesAction] Fin proceso rest
