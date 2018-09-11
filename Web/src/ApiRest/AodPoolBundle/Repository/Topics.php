@@ -111,6 +111,17 @@ class Topics
         return $tema;
     }
 
+    function GetCodeByRdfType($rdfType) {
+        $entidad= "";
+        $consulta = $this->em->createQuery("SELECT t FROM ApiRestAodPoolBundle:Temas t 
+                                           WHERE t.rdf_type = '$rdfType' and t.parentCode=0");                         
+        $query = $consulta->getResult();
+        if (count($query)>0){
+           $entidad = $query[0]->getCode();
+        }
+        return $entidad;
+    }
+
     function GetParentType($rdftype) {
         $tema= "";
         $consulta = $this->em->createQuery("SELECT t FROM ApiRestAodPoolBundle:Temas t 

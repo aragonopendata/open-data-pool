@@ -9,14 +9,15 @@ use WebBundle\Controller\Utility\Trazas;
 //defino las url para realizar las consultas del paso1 (obtener los rftypes y cada cantador del los mismos)
 //define("FILTROMUNICIPIO","ei2a:location <http://opendata.aragon.es/pool/municipio/%s> . ");
 define("FILTROMUNICIPIO","?s wgs84_pos:location ?location . ?location dc:identifier '%s' . ");
-define("FILTROCOMARCA","?s wgs84_pos:location ?location . ?location dc:identifier '%s' . ");
-define("FILTROPROVINCIA","?s wgs84_pos:location ?location . ?location dc:identifier '%s' . ");
+define("FILTROCOMARCA","?s wgs84_pos:location ?location . ?location dc:identifier '%s' . ");                       
+define("FILTROPROVINCIA","?s wgs84_pos:location ?location. ?location org:subOrganizationOf ?provincia. ?provincia rdfs:label '%s' . ");
+
 define("FILTROENTIDAD","?s rdf:type <%s> . ");
 define("FILTROSUBENTIDAD","?s rdf:type <%s> . ?s dc:type <%s> .");
 define("FILTROTEMA","?s dc:type ?t0 . ?t0 rdf:type <%s> . ");
 define("FILTROSUBTEMA","?s dc:type ?t0 . ?t0 rdf:type <%s> . ?s dc:type <%s> . ");
 define("FILTRODFTYPE","?s dc:type <%s> . ");
-define("PREFIJOSDEFECTO","PREFIX ei2a:<http://opendata.aragon.es/def/ei2a#> PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>  PREFIX org:<http://www.w3.org/ns/org#> PREFIX foaf:<http://xmlns.com/foaf/0.1/> PREFIX dc:<http://purl.org/dc/elements/1.1/> PREFIX wgs84_pos:<http://www.w3.org/2003/01/geo/wgs84_pos#>");
+define("PREFIJOSDEFECTO","PREFIX ei2a:<http://opendata.aragon.es/def/ei2a#>  PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>  PREFIX org:<http://www.w3.org/ns/org#> PREFIX foaf:<http://xmlns.com/foaf/0.1/> PREFIX dc:<http://purl.org/dc/elements/1.1/> PREFIX wgs84_pos:<http://www.w3.org/2003/01/geo/wgs84_pos#>");
 
 define("QUERYRDFCUANTOSFACETAS","%s select ?type count(?s) as ?contador from <%s> where { ?s rdf:type ?type . %s } group by ?type");
 
@@ -254,10 +255,10 @@ class Filtros{
                 //la cada faceta debe filtrase con todo el demás contexto
                 foreach ($filtro as $key => $value) {
                     //quito los tipos porque ya esta en el rdftype del $rdfTypes 
-                    if (strpos($value,"rdf:type")===false) {
+                    //if (strpos($value,"rdf:type")===false) {
                         $this->trazas->LineaDebug("DameConsulta","Filtro: " .  $value);
                         $filtrosNavegacion .= $value . " ";
-                    }
+                    //}
                 } 
             }
             //por cada filtro encontrado
@@ -580,6 +581,7 @@ class Filtros{
                     # code...
                     $dctype = $faceta['nombre'];
                     $this->trazas->LineaDebug("DameFaceta","valor entrada: ",  $dctype);
+                    
                     //voy por la faceta con jerarquia (con sus subfacetas) y la almaceno en facetaTemporal
                     $facetaTemporal = $this->DameFacetaJerarquiaTipoEntidad($dctype, $faceta, $query);
                     $this->trazas->LineaDebug("DameFaceta","Voy por la faceta con jerarquia (con sus subfacetas) y la almaceno en facetaTemporal");
@@ -596,10 +598,15 @@ class Filtros{
                                 $this->trazas->LineaDebug("DameFaceta","Como el nombre es el mismo pregunto si tiene hijos, es decir: si ha faceta padre");
                                //Pregunto por el nombre de las facetas guardadas y la actual apara agrupar padres
                                 if (isset($facetaTemporal['subFacetas'])) {
-                                    //Como tiene hijos: hay padre. Añado la faceta a los hijos del padre que ya existe en guardadas
+                                    //Como tiene hijos: hay padre. Añado la faceta a los hijos del padre que ya existe en guardadas y sumo el contador
                                     $this->trazas->LineaDebug("DameFaceta","Como tiene hijos: hay padre. Añado la faceta a los hijos del padre que ya existe en guardadas");
                                     $facetasTemporal['subFacetas'][] = $facetaTemporal['subFacetas'][0];
+                                    $facetasTemporal['contador']=0;
+                                    foreach ($facetasTemporal['subFacetas'] as $subFacerta) {
+                                        $facetasTemporal['contador'] +=  $subFacerta['contador'];
+                                    }
                                     $facetaTemporal['subFacetas'] =  $facetasTemporal['subFacetas']; 
+                                    $facetaTemporal['contador']  =  $facetasTemporal['contador'] ;
                                 }
                                 $key = $cuenta;
                                 $cuenta++;
@@ -608,7 +615,11 @@ class Filtros{
                         //si la $key es mayor que -1 esque hay dato
                         if ($key>=0) {        
                             $this->trazas->LineaDebug("DameFaceta",sprintf("Faceta Padre: %s en posicion (%s) Añade faceta %s .",  $facetasTemporales[$key]['nombre'], $key , $facetaTemporal['nombre']));
-                            $facetasTemporales[$key] = $facetaTemporal;
+                            foreach ($facetasTemporales as $key=>$faceta) {
+                                if ($faceta['nombre']=== $facetaTemporal['nombre']){
+                                    $facetasTemporales[$key]=$facetaTemporal;
+                                }
+                            }
                         } else {
                             $this->trazas->LineaDebug("DameFaceta",sprintf("Faceta: %s . Añade faceta nueva." , $facetaTemporal['nombre']));
                             $facetasTemporales[] = $facetaTemporal;
@@ -830,7 +841,7 @@ class Filtros{
         //por cada uno delos parametros pregunto si exite 
         if (!(empty($this->navegacion->getProvinciaCode()))) {
             //si existe parseo el filtro (formato virtuoso), con su plantilla correspondiente
-            $filtro = sprintf(FILTROPROVINCIA, $this->navegacion->getProvinciaCode());
+            $filtro = sprintf(FILTROPROVINCIA, $this->navegacion->getProvinciaNombre());
             //añado el filtro al array con su clave correspondiente
             $filtros[PROVINCIA] = array(FACETA_PROVINCIA=>$filtro);
             $this->trazas->LineaDebug("DameFiltrosDeNavegacion", FACETA_PROVINCIA . ":" .$filtro);
@@ -916,8 +927,11 @@ class Filtros{
                 $nuevovalor = $valor;
                 break;
             case 'Provincias':
-                 $nuevovalor = $valor;
+                 $nuevovalor = $valor;                 
                 //$nuevovalor = $this->entidadesDB->GetDcTypeByName($valor);
+                break;
+            case 'Municipios':
+                $nuevovalor = $valor;
                 break;
             default:
                 $nuevovalor = $valor;
@@ -1055,7 +1069,7 @@ class Filtros{
             $subtipo = $this->entidadesDB->GetNameByDcType($resultado['dctype']); 
             $tipo = sprintf("%s - %s", $tipo, $subtipo);
             
-            $date = "Sin fecha";
+            $date = "";
             $name = "Sin Nombre";
             $this->trazas->LineaDebug("DameResultadosWeb","Iniclaizo el tipo la fecha y el nombre");
             //pongo la fecha

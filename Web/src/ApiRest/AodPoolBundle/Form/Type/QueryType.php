@@ -37,9 +37,9 @@ class QueryType extends AbstractType
         ->add('filters',TextType::class,
             [
                 'required' => true,
-                'description' => "Lista de los filtros que se añaden a la consulta 
+                'description' => "Lista de los filtros que se añaden a la consulta. 
                  Notas a la parametrización: 
-                1.-Los nombres de los filtros no admiten prefijos. 
+                1.-Los nombres de los filtros solo se admiten con prefijos. 
                 2.-Los nombres de los filtros no deben llevar limitadores '<' '>'.
                 3.-Los nombres de los filtros admiten anidamiento por @ y reverso por $ dela primara condición anidada.
                 4.-Los valores de los filtros han de llevar comillas o limadores '<' '>' si son necesarios para la consulta sparql.

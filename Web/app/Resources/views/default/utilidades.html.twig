@@ -18,7 +18,7 @@
 
 {% macro campooculto(id, name, earray) %}
    {% if earray|length > 0 %} 
-     <input type="hidden" name="{{ name }}" id="{{ id }}" value={{ earray|keys[0] }}>
+     <input type="hidden" name="{{ name }}" id="{{ id }}" value="{{ earray|keys[0] }}">
    {% else %} 
      <input type="hidden" name="{{ name }}" id="{{ id }}" value="">
    {% endif %}
@@ -26,11 +26,11 @@
 
 
 {% macro campoocultovalor(id, name, valor) %}
-    <input type="hidden" name="{{ name }}" id="{{ id }}" value={{ valor }}>
+    <input type="hidden" name="{{ name }}" id="{{ id }}" value="{{ valor }}">
 {% endmacro %}
 
 {% macro navegaoculto(id, name, path) %} 
-     <input type="hidden" name="{{ name }}" id="{{ name }}" value={{ path }}>
+     <input type="hidden" name="{{ name }}" id="{{ name }}" value="{{ path }}">
 {% endmacro %}
 
 
@@ -112,17 +112,18 @@
         <span class="faceta-title">{{ title }}</span>
         <div class="section">
             <ul class="listadoFacetas">
+                {% set counter = 0 %}
                 {% for faceta in facetaPrincipal.facetaArray %}
                     {% if faceta.subFacetas is defined %} 
-                         <li style="display: block;" id="{{ facetaPrincipal.id }}">
-                         <span id="desplegar_{{ facetaPrincipal.id }}" class="material-icons desplegar-faceta">keyboard_arrow_down</span>
+                         <li style="display: block;" id="{{ facetaPrincipal.id }}{{counter}}">
+                         <span id="desplegar_{{ facetaPrincipal.id }}{{counter}}" class="material-icons desplegar-faceta">keyboard_arrow_down</span>
                             {% if title == 'Tipos' or  title == 'Temas' %}                    
                                     <a rel="nofollow" href="#" class="faceta" name="{{ faceta.name }}" title="{{faceta.title}}">{{faceta.title}} <span>({{ faceta.count }})</span></a>
                             {% else %}
                                     <a rel="nofollow" href="{{faceta.href}}" class="faceta" name="{{ faceta.name }}" title="{{faceta.title}}">{{faceta.title}} <span>({{ faceta.count }})</span></a>
                             {% endif %}
                         </li>  
-                        <ul style="display: none" id="{{facetaPrincipal.id}}">  
+                        <ul style="display: none" id="{{facetaPrincipal.id}}{{counter}}">  
                             {% for subFaceta in faceta.subFacetas  %}  
                                     {% for subfaceta in subFaceta.facetaArray %}
                                         <li>
@@ -137,6 +138,7 @@
                             <a rel="nofollow" href="{{faceta.href}}" class="faceta" name="{{ faceta.name }}" title="{{faceta.title}}">{{faceta.title}} <span>({{ faceta.count }})</span></a>
                         </li>
                     {% endif %}
+                    {% set counter = counter + 1 %}
                 {% endfor %}
             </ul>
         </div>
@@ -313,14 +315,6 @@
         </div>    
     {% endif %} 
 {% endmacro %}
-
-{% macro rutaOrden(url) %}
-   {{ url|replace({ "filtros":"resultados" }) }}
-   {% if 'ord=' not in url %}
-     {{ url ~ "&ord=ASC" }}
-   {% endif %}
-{% endmacro %}
-
 
 
  

@@ -482,12 +482,28 @@ class Navegacion
         } else if(!empty($this->provinciaLiteral)) {
             $localidad= $this->provinciaLiteral;
         }
+        $localidad = trim($localidad);
         return $localidad;
     } 
 
+        //Función que devuelve la localidad selecionada que pude ser Provincia, Comarca, o Municipio 
+        public function getLocalidadCode()
+        {
+            $localidadCode ="";
+            if(!empty($this->municipioLiteral)) {
+                $localidadCode= $this->municipioCode;
+            } else if(!empty($this->comarcaLiteral)) {
+                $localidadCode= $this->comarcaCode;
+            } else if(!empty($this->provinciaLiteral)) {
+                $localidadCode= $this->provinciaCode;
+            }
+            $localidadCode = trim($localidadCode);
+            return $localidadCode;
+        } 
+
     //devuelve si tengo una entidad o un tema selecionado de la navegacion
     public function getEntidadoTema(){
-       $from = "ENTIDAD";
+       $from = "";
        if (!empty($this->subEntidadCode) or !empty($this->entidadCode)) {
             $from="ENTIDAD";
        } else if (!empty($this->subTemaCode) or !empty($this->temaCode)) {
@@ -526,6 +542,12 @@ class Navegacion
 		return $this->provinciaCode;
 	}
 
+     //Devuelve el Nombre de la provincia
+	public function getProvinciaNombre()
+	{
+		return trim($this->provinciaLiteral);
+    }
+     
     //Devuelve el codigo de la entidad
     public function getEntidadCode() 
 	{
@@ -684,7 +706,6 @@ class Navegacion
         (!empty($this->fromType)) ? $fromType = array($this->fromType => $this->fromType) : $fromType=array();
         (!empty($this->filters)) ? $filters = array(urlencode($this->filters)=> $this->filters) : $filters=array();
         (!empty($this->paginacion)) ? $paginacion = array($this->paginacion => $this->paginacion) : $paginacion=array();
-   
         (!empty($this->campoorden)) ? $campoorden = array($this->campoorden => $this->campoorden) : $campoorden=array();
         (!empty($this->campoBusquedaLibre)) ? $busquedaLibre = array($this->campoBusquedaLibre => $this->campoBusquedaLibre) : $busquedaLibre=array(""=>"");
         (!empty($this->urlSujeto)) ? $urlSujeto = array("UrlSujeto" => $this->urlSujeto) : $urlSujeto=array();

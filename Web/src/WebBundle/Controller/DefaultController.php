@@ -9,6 +9,7 @@ use WebBundle\Entity\Navegacion;
 use WebBundle\Entity\Filtros;
 
 use WebBundle\Controller\Utility\ParseaDetalle;
+use WebBundle\Controller\Utility\FiltroNavegacion;
 use WebBundle\Controller\Utility\Trazas;
 
 
@@ -47,9 +48,17 @@ class DefaultController extends Controller
     public function indexAction()
     {
         $this->IncializoTrazas();
-       // $_SESSION['from_url'] = $_SERVER['REQUEST_URI'];
        //redirijo el index al la accion portada
         $this->portadaAction(); 
+    }
+
+
+    private function home(){
+        //no tiene para metrizacion 
+        $repuesta = $this->render('default/index.html.twig', 
+        array("classBody" => 'homeBloque'));
+        $repuesta->setSharedMaxAge(60);
+        return  $repuesta;   
     }
 
     /** 
@@ -59,11 +68,9 @@ class DefaultController extends Controller
     {
         $this->IncializoTrazas();
         // $_SESSION['from_url'] = $_SERVER['REQUEST_URI'];
-        $this->trazas->LineaDebug("portadaAction","Entro función");
-        //no tiene para metrizacion 
-        return $this->render('default/index.html.twig', 
-                             array("classBody" => 'homeBloque'));
-        
+        $this->trazas->LineaDebug("portadaAction","Entro función"); 
+        $repuesta = $this->home();
+        return  $repuesta;
     }
 
     /**
@@ -93,13 +100,20 @@ class DefaultController extends Controller
         $this->trazas->LineaDebug("temasAction","Recojo los temas de progress"); 
         $dal = $this->get('Repository_Topics'); 
         $temas = $dal->GetFullTopicsWeb();
+
+        //recojo la localidad 
+        $localidad = $navegacion->getLocalidad();
+
         $this->trazas->LineaDebug("temasAction","Lanzo default/temas.html.twig");
         //devuelvo la pagina haciendo un render del twing con los objetos recogidos 
-        return $this->render('default/temas.html.twig', array(
+        $repuesta = $this->render('default/temas.html.twig', array(
             'classBody' => 'homeBloque',
             'navegacion' => $navegacion->getArray(),
             'temas' => $temas,
         ));
+
+        $repuesta->setSharedMaxAge(60);
+        return  $repuesta;   
     }
   
     /**
@@ -129,14 +143,18 @@ class DefaultController extends Controller
        //instancia del objeto Types a la base de datos donde saco el array de las entidades y subentidades
         $dal = $this->get('Repository_Types'); 
         $entidades = $dal->GetFullTypesWeb();
+        //recojo la localidad 
+        $localidad = $navegacion->getLocalidad();
 
         $this->trazas->LineaDebug("entidadesAction","Lanzo default/entidades.html.twig");
         //devuelvo la pagina haciendo un render del twing con los objetos recogidos 
-        return $this->render('default/entidades.html.twig', array(
+        $repuesta = $this->render('default/entidades.html.twig', array(
             'classBody' => 'homeBloque homeEntidades',
             'navegacion' => $navegacion->getArray(),
             'entidades' => $entidades,
         ));
+        $repuesta->setSharedMaxAge(60);
+        return  $repuesta;   
     }
 
     /**
@@ -168,6 +186,7 @@ class DefaultController extends Controller
         $lugaresArray = $dal->GetLocations();
         $nav = $navegacion->getArray();
 
+        
         $this->trazas->LineaDebug("lugaresAction","Recojo las los los temas de progress"); 
         //instancia del objeto Topic a la base de datos donde saco el array de los temas y subtemas 
         $subtemas = array();
@@ -178,6 +197,7 @@ class DefaultController extends Controller
         } else {
             $subtemas = $dal->GetSubTopics(0);
         }
+        
         $this->trazas->LineaDebug("lugaresAction","Recojo las los las entidades de progress"); 
        //instancia del objeto Types a la base de datos donde saco el array de los entidades y subentidades
         $dal = $this->get('Repository_Types'); 
@@ -188,19 +208,39 @@ class DefaultController extends Controller
         } else {
             $subTypes = $dal->GetSubTypes(0);
         }
+
+        //Filtro las localidades dependiendo entidades o los temas 
+        if ($navegacion->getfromType()!="Lugares"){
+            $this->trazas->LineaDebug("detallesAction","Recojo el acceso a virtuoso"); 
+            //instancia del objeto Acceso a virtuoso para hacer las consultas
+            $virtuoso = $this->get('Virtuoso_Acceso');
+            $this->trazas->LineaDebug("detallesAction","Recojo el acceso a virtuoso"); 
+            //Inicializo con los parametros y el directorio relativo raiz actual
+            $virtuoso->Configura($this->param,  $this->directoryPath);  
+            $filtroNavegacion = new FiltroNavegacion($virtuoso,  $this->directoryPath);
+            $filtroNavegacion->setLugaresArray($lugaresArray);
+    
+            $lugaresArray['Provincias'] = $filtroNavegacion->DameProvincias($navegacion->getRdfTypeEntidad(),$navegacion->getRdfTypeTema());
+            $lugaresArray['Comarcas'] = $filtroNavegacion->DameComarcas($navegacion->getRdfTypeEntidad(),$navegacion->getRdfTypeTema());
+            $lugaresArray['Municipios'] = $filtroNavegacion->DameMunicipios($navegacion->getRdfTypeEntidad(),$navegacion->getRdfTypeTema());
+        }
+
         $this->trazas->LineaDebug("lugaresAction","Lanzo default/lugares.html.twig");
         //devuelvo la pagina haciendo un render del twing con los objetos recogidos 
-        return $this->render('default/lugares.html.twig', array(
+        $repuesta =  $this->render('default/lugares.html.twig', array(
             'classBody' => 'homeSubbloque',
             'navegacion' => $nav,
             'lugaresArray' => $lugaresArray,
             'subTemas'=> $subtemas,
             'subEntidades' => $subTypes
         ));
+        $repuesta->setSharedMaxAge(60);
+        return  $repuesta; 
     }
     
     public function temasentidadesAction(Request $request)
     {
+        $redirigeHome = false; 
         $this->IncializoTrazas();
         //Controlador de la pagina principal de entidades
         $this->trazas->LineaDebug("temasentidadesAction","Entro función");
@@ -214,8 +254,12 @@ class DefaultController extends Controller
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {      
             $navegacion->ParamManeger($_GET);           
         } else {
-            //retuen error;
-        }
+            $redirigeHome = true; 
+        }  
+        //si no hay localidad seleccionada redirijo a home
+        if (empty($navegacion->getLocalidad())){
+            $redirigeHome = true; 
+        } 
         //pregunto porque si no es debug no voy a por los datos
         if ($this->modoTrazasDebug) {
             $this->trazas->LineaDebug("temasentidadesAction",$navegacion->getTraza()); 
@@ -225,23 +269,52 @@ class DefaultController extends Controller
         $localidad = $navegacion->getLocalidad();
         $this->trazas->LineaDebug("lugaresAction","Recojo las los los temas de progress"); 
         //instancia del objeto Topic a la base de datos donde saco el array de los temas y subtemas 
-        $dal = $this->get('Repository_Topics');
+        $dalTemas = $this->get('Repository_Topics');
         //Saco los temas Nivel 0
-        $temas = $dal->GetSubTopics(0);
+        $temas = $dalTemas->GetSubTopics(0);
         $this->trazas->LineaDebug("lugaresAction","Recojo las los las entidades de progress"); 
         //instancia del objeto Types a la base de datos donde saco el array de los entidades y subentidades
-        $dal = $this->get('Repository_Types'); 
+        $dalTypes = $this->get('Repository_Types'); 
         //Saco las entidades Nivel 0
-        $entidades = $dal->GetSubTypes(0);
-        $this->trazas->LineaDebug("temasentidadesAction","Lanzo default/temasentidades.html.twig");
-         //devuelvo la pagina haciendo un render del twing con los objetos recogidos 
-        return $this->render('default/temasentidades.html.twig', array(
-            'classBody' => 'homeSubbloque',
-            'navegacion' => $navegacion->getArray(),
-            'temas'=> $temas,
-            'entidades' => $entidades,
-            'localidad' => $localidad,
-        ));
+        $entidades = $dalTypes->GetSubTypes(0);
+           
+        //Filtro los temas y las entidades dependiendo de la localidad
+        if ($navegacion->getfromType()=="Lugares"){
+
+            $this->trazas->LineaDebug("detallesAction","Recojo el acceso a virtuoso"); 
+            //instancia del objeto Acceso a virtuoso para hacer las consultas
+            //iniclizo
+            $virtuoso = $this->get('Virtuoso_Acceso');
+            $this->trazas->LineaDebug("detallesAction","Recojo el acceso a virtuoso"); 
+            //Inicializo con los parametros y el directorio relativo raiz actual    
+            $virtuoso->Configura($this->param,  $this->directoryPath);  
+            $filtroNavegacion = new FiltroNavegacion($virtuoso,  $this->directoryPath);
+            $filtroNavegacion->setEntidadesArray($entidades);
+            $filtroNavegacion->setTemasArray($temas);
+            $filtroNavegacion->setDalTemas($dalTemas);
+            $filtroNavegacion->setDalTypes($dalTypes);
+            //tomo la localidad
+            $localidadCode = $navegacion->getLocalidadCode();
+            //filtro
+            $entidades = $filtroNavegacion->DameEntidades($localidadCode);
+            $temas = $filtroNavegacion->DameTemas($localidadCode);
+        }
+    
+        if ($redirigeHome==false) {
+            $this->trazas->LineaDebug("temasentidadesAction","Lanzo default/temasentidades.html.twig");
+            //devuelvo la pagina haciendo un render del twing con los objetos recogidos 
+           return $this->render('default/temasentidades.html.twig', array(
+               'classBody' => 'homeSubbloque',
+               'navegacion' => $navegacion->getArray(),
+               'temas'=> $temas,
+               'entidades' => $entidades,
+               'localidad' => $localidad,
+           ));
+        } else {
+            $this->trazas->LineaDebug("temasentidadesAction","Lanzo default/index.html.twig");
+            $repuesta = $this->home();
+            return  $repuesta;
+        }
     }
     
     /**
@@ -249,6 +322,7 @@ class DefaultController extends Controller
      */ 
     public function filtrosAction(Request $request)
     {
+        $redirigeHome = false; 
         $this->IncializoTrazas();
         //Controlador de la pagina de Filtros o facetas
         $this->trazas->LineaDebug("filtrosAction","Entro función");
@@ -261,82 +335,98 @@ class DefaultController extends Controller
             $navegacion->setUrlPrefijo($this->urlPrefijo);
             $navegacion->ParamManeger($_GET);
         } else {
-            //retuen error;
+            $redirigeHome = true; 
         }
-        //pregunto porque si no es debug no voy a por los datos
-        if ($this->modoTrazasDebug) {
-            $this->trazas->LineaDebug("filtrosAction",$navegacion->getTraza()); 
-        } 
-        $this->trazas->LineaDebug("filtrosAction","Recojo el acceso a virtuoso"); 
-       //instancia del objeto Acceso a virtuoso para hacer las consultas
-        $virtuoso = $this->get('Virtuoso_Acceso'); 
-        //Inicializo con los parametros y el directorio relativo raiz actual
-        $virtuoso->Configura($this->param, $this->directoryPath);  
-        $this->trazas->LineaDebug("filtrosAction","Instancia del objeto Filtros para gestionar lo campos de date, titulo y búsqueda libre"); 
-         //instancia del objeto Filtros para gestionar lo campos de date, titulo y búsqueda libre
-        $dalResultados = $this->get('Repository_ResultFields');
-        $this->trazas->LineaDebug("filtrosAction","Instancia del objeto Facets para gestionar las facetas diseñadas por cada rdftype"); 
-        //instancia del objeto Facets para gestionar las facetas diseñadas por cada rdftype
-        $dalFacetas = $this->get('Repository_Facets');     
-        $this->trazas->LineaDebug("filtrosAction","Instancia del objeto Topics para gestionar los temas pot código descripción"); 
-        //instancia del objeto Topics para gestionar los temas pot código descripción
-        $daltemas = $this->get('Repository_Topics');
-        $this->trazas->LineaDebug("filtrosAction","Instancia del objeto Topics para gestionar las entidades pot código descripción"); 
-        //instancia del objeto Topics para gestionar las entidades pot código descripción
-        $dalentidades = $this->get('Repository_Types');
-       // $dalocalodaes = $this->get('Repository_Locations');
-        $this->trazas->LineaDebug("filtrosAction","Instancia del objeto Facetacion para calcular las facetas y resultados"); 
-        $facetacion = new Filtros($navegacion,$virtuoso,$dalFacetas,$dalResultados, $daltemas, $dalentidades, $this->directoryPath);
-        //recojo el valor del campo busqueda Libre
-        $campoBusquedaLibre = $navegacion->getCampoBusquedaLibre();
-        //primero proceso las facetas
-        $this->trazas->LineaDebug("filtrosAction","Porceso Facetas"); 
-        $facetacion->ProcesaFacetas($campoBusquedaLibre);
-        //recojo el valor de paginacion de la sentencia get
-        $paginacion=$navegacion->getPaginacion();
-        //recojo el valor de order de la sentencia get ascencnte o descendente
-        $order= $navegacion->getOrder();
-        //recojo el valor de order de el capo por el que se ordena (date, title, relevancia, etc..)
-        $campoOrder= $navegacion->getCampoOrder();
-        //Proceso los resultados con estos parametros
-        $this->trazas->LineaDebug("filtrosAction","Porceso Resultados"); 
-        $facetacion->ProcesaResultados($paginacion,$order,$campoOrder,$campoBusquedaLibre);
-        //recojo el array de valores de los resultados para parsear en Twig
-        $resources = $facetacion->getElementosResultado();
-         //recojo el array de valores de las facetas para parsear en Twig
-        $facetas = $facetacion->getFacetasResultado(); 
-        
-        //recojo el array de las graficas en base a las facetas
-        $gaficas  =  $facetacion->DameGraficas($facetas);
+        //si no hay localidad seleccionada y un tema o entidad redirijo a home
+        if (empty($navegacion->getLocalidad()) || empty($navegacion->getEntidadoTema()) ){
+            $redirigeHome = true; 
+        }
+        if (!$redirigeHome) {
+            //pregunto porque si no es debug no voy a por los datos
+            if ($this->modoTrazasDebug) {
+                $this->trazas->LineaDebug("filtrosAction",$navegacion->getTraza()); 
+            } 
+            $this->trazas->LineaDebug("filtrosAction","Recojo el acceso a virtuoso"); 
+            //instancia del objeto Acceso a virtuoso para hacer las consultas
+            $virtuoso = $this->get('Virtuoso_Acceso'); 
+            //Inicializo con los parametros y el directorio relativo raiz actual
+            $virtuoso->Configura($this->param, $this->directoryPath);  
+            $this->trazas->LineaDebug("filtrosAction","Instancia del objeto Filtros para gestionar lo campos de date, titulo y búsqueda libre"); 
+            //instancia del objeto Filtros para gestionar lo campos de date, titulo y búsqueda libre
+            $dalResultados = $this->get('Repository_ResultFields');
+            $this->trazas->LineaDebug("filtrosAction","Instancia del objeto Facets para gestionar las facetas diseñadas por cada rdftype"); 
+            //instancia del objeto Facets para gestionar las facetas diseñadas por cada rdftype
+            $dalFacetas = $this->get('Repository_Facets');     
+            $this->trazas->LineaDebug("filtrosAction","Instancia del objeto Topics para gestionar los temas pot código descripción"); 
+            //instancia del objeto Topics para gestionar los temas pot código descripción
+            $daltemas = $this->get('Repository_Topics');
+            $this->trazas->LineaDebug("filtrosAction","Instancia del objeto Topics para gestionar las entidades pot código descripción"); 
+            //instancia del objeto Topics para gestionar las entidades pot código descripción
+            $dalentidades = $this->get('Repository_Types');
+            // $dalocalodaes = $this->get('Repository_Locations');
+            $this->trazas->LineaDebug("filtrosAction","Instancia del objeto Facetacion para calcular las facetas y resultados"); 
+            $facetacion = new Filtros($navegacion,$virtuoso,$dalFacetas,$dalResultados, $daltemas, $dalentidades, $this->directoryPath);
+            //recojo el valor del campo busqueda Libre
+            $campoBusquedaLibre = $navegacion->getCampoBusquedaLibre();
+            //primero proceso las facetas
+            $this->trazas->LineaDebug("filtrosAction","Porceso Facetas"); 
+            $facetacion->ProcesaFacetas($campoBusquedaLibre);
+            //recojo el valor de paginacion de la sentencia get
+            $paginacion=$navegacion->getPaginacion();
+            //recojo el valor de order de la sentencia get ascencnte o descendente
+            $order= $navegacion->getOrder();
+            //recojo el valor de order de el capo por el que se ordena (date, title, relevancia, etc..)
+            $campoOrder= $navegacion->getCampoOrder();
+            //Proceso los resultados con estos parametros
+            $this->trazas->LineaDebug("filtrosAction","Porceso Resultados"); 
+            $facetacion->ProcesaResultados($paginacion,$order,$campoOrder,$campoBusquedaLibre);
+            //recojo el array de valores de los resultados para parsear en Twig
+            $resources = $facetacion->getElementosResultado();
+            //recojo el array de valores de las facetas para parsear en Twig
+            $facetas = $facetacion->getFacetasResultado(); 
+            
+            //recojo el array de las graficas en base a las facetas
+            $gaficas  =  $facetacion->DameGraficas($facetas);
 
-        //recojo el nº total de rsultados
-         $nuResultados= $facetacion->getTotalResultados();
-        //recojo el valor from type para parsear en Twig 
-        $fromType = $navegacion->getfromType();
-        //recojo el valor from TItle para parsear en Twig 
-        $fromTitle = $navegacion->getfromTitle();
-        //recojo el array de valores de los filtros marcados  para parsear en Twig
-        $filtrosSpain = $navegacion->getfiltrosSpain();
-
-
-    
-        $this->trazas->LineaDebug("filtrosAction","Lanzo default/filtros.html.twig");
-         //devuelvo la pagina haciendo un render del twing con los objetos recogidos 
-        return $this->render('default/filtros.html.twig', array(
-            'classBody' => 'listadoComunidad facetas-mostrar',
-            'fromType' =>  $fromType ,
-            'fromTitle' =>  $fromTitle ,
-            'numeroResultados' => $nuResultados,
-            'filtrosSpain'=> $filtrosSpain,
-            'facetasArray' => $facetas,
-            'resourcesArray' => $resources,
-            'graficasArray' => $gaficas,
-            'navegacion' => $navegacion->getArray()
-        ));
+            //recojo el nº total de rsultados
+            $nuResultados= $facetacion->getTotalResultados();
+            //recojo el valor from type para parsear en Twig 
+            $fromType = $navegacion->getfromType();
+            //recojo el valor from TItle para parsear en Twig 
+            $fromTitle = $navegacion->getfromTitle();
+            //recojo el array de valores de los filtros marcados  para parsear en Twig
+            $filtrosSpain = $navegacion->getfiltrosSpain();
+            $rutaOrden = $_SERVER['REQUEST_URI'];
+            $rutaOrden = str_replace("filtros","resultados",$rutaOrden);
+            if (strpos($rutaOrden,"ord=")===false){
+                $rutaOrden =  $rutaOrden  ."&ord=ASC";
+            }
+        }
+        if ($redirigeHome==false) {
+            $this->trazas->LineaDebug("filtrosAction","Lanzo default/filtros.html.twig");
+            //devuelvo la pagina haciendo un render del twing con los objetos recogidos 
+           return $this->render('default/filtros.html.twig', array(
+               'classBody' => 'listadoComunidad facetas-mostrar',
+               'fromType' =>  $fromType ,
+               'fromTitle' =>  $fromTitle ,
+               'numeroResultados' => $nuResultados,
+               'filtrosSpain'=> $filtrosSpain,
+               'facetasArray' => $facetas,
+               'resourcesArray' => $resources,
+               'graficasArray' => $gaficas,
+               'rutaOrden' => $rutaOrden,
+               'navegacion' => $navegacion->getArray()
+           ));
+        } else {
+            $this->trazas->LineaDebug("filtrosAction","Lanzo default/index.html.twig");     
+            $repuesta = $this->home();
+            return  $repuesta;
+        }
     }
 
     public function resultadosAction(Request $request)
     {
+        $redirigeHome = false; 
         $this->IncializoTrazas();
         //Controlador de la pagina de Filtros o facetas
         $this->trazas->LineaDebug("resultadosAction","Entro función");
@@ -349,58 +439,72 @@ class DefaultController extends Controller
             $navegacion->setUrlPrefijo($this->urlPrefijo);
             $navegacion->ParamManeger($_GET);
         } else {
-            //retuen error;
+            $redirigeHome = true; 
         }
-        //pregunto porque si no es debug no voy a por los datos
-        if ($this->modoTrazasDebug) {
-            $this->trazas->LineaDebug("resultadosAction",$navegacion->getTraza()); 
-        } 
-        $this->trazas->LineaDebug("filtrosAction","Recojo el acceso a virtuoso"); 
-       //instancia del objeto Acceso a virtuoso para hacer las consultas
-        $virtuoso = $this->get('Virtuoso_Acceso'); 
-        //Inicializo con los parametros y el directorio relativo raiz actual
-        $virtuoso->Configura($this->param, $this->directoryPath);  
-        $this->trazas->LineaDebug("resultadosAction","Instancia del objeto Filtros para gestionar lo campos de date, titulo y búsqueda libre"); 
-         //instancia del objeto Filtros para gestionar lo campos de date, titulo y búsqueda libre
-        $dalResultados = $this->get('Repository_ResultFields');
-        $this->trazas->LineaDebug("resultadosAction","Instancia del objeto Facets para gestionar las facetas diseñadas por cada rdftype"); 
-        //instancia del objeto Facets para gestionar las facetas diseñadas por cada rdftype
-        $dalFacetas = $this->get('Repository_Facets');     
-        $this->trazas->LineaDebug("resultadosAction","Instancia del objeto Topics para gestionar los temas pot código descripción"); 
-        //instancia del objeto Topics para gestionar los temas pot código descripción
-        $daltemas = $this->get('Repository_Topics');
-        $this->trazas->LineaDebug("resultadosAction","Instancia del objeto Topics para gestionar las entidades pot código descripción"); 
-        //instancia del objeto Topics para gestionar las entidades pot código descripción
-        $dalentidades = $this->get('Repository_Types');
-       // $dalocalodaes = $this->get('Repository_Locations');
-        $this->trazas->LineaDebug("resultadosAction","Instancia del objeto Facetacion para calcular las facetas y resultados"); 
-        $facetacion = new Filtros($navegacion,$virtuoso,$dalFacetas,$dalResultados, $daltemas, $dalentidades, $this->directoryPath);
-        //recojo el valor del campo busqueda Libre
-        $campoBusquedaLibre = $navegacion->getCampoBusquedaLibre();
-        //recojo el valor de paginacion de la sentencia get
-        $paginacion=$navegacion->getPaginacion();
-        //recojo el valor de order de la sentencia get ascencnte o descendente
-        $order=$navegacion->getOrder();
-        //recojo el valor de order de el capo por el que se ordena (date, title, relevancia, etc..)
-        $campoOrder= $navegacion->getCampoOrder();
-        //Proceso los resultados con estos parametros
-        $this->trazas->LineaDebug("filtrosAction","Porceso Resultados"); 
-        $facetacion->ProcesaResultados($paginacion,$order,$campoOrder,$campoBusquedaLibre);
-        //recojo el array de lementos resultados
-        $resources = $facetacion->getElementosResultado();
-        //recojo el array de valores de las facetas para parsear en Twig
-        $facetas = $facetacion->getFacetasResultado(); 
-        $gaficas = array();
-        if (isset( $facetas)) {
-            //recojo el array de las graficas en base a las facetas
-            $gaficas  =  $facetacion->DameGraficas($facetas);
-        }  
-        $this->trazas->LineaDebug("filtrosAction","Lanzo default/resultados.html.twig");
-         //devuelvo la pagina haciendo un render del twing con los objetos recogidos 
-        return $this->render('default/resultados.html.twig', array(
-            'resourcesArray' => $resources,
-            'graficasArray' => $gaficas,
-        ));
+        //si no hay localidad seleccionada y un tema o entidad redirijo a home
+        if (empty($navegacion->getLocalidad()) || empty($navegacion->getEntidadoTema()) ){
+            $redirigeHome = true; 
+        }
+        if (!$redirigeHome) {
+        
+            //pregunto porque si no es debug no voy a por los datos
+            if ($this->modoTrazasDebug) {
+                $this->trazas->LineaDebug("resultadosAction",$navegacion->getTraza()); 
+            } 
+            $this->trazas->LineaDebug("filtrosAction","Recojo el acceso a virtuoso"); 
+            //instancia del objeto Acceso a virtuoso para hacer las consultas
+            $virtuoso = $this->get('Virtuoso_Acceso'); 
+            //Inicializo con los parametros y el directorio relativo raiz actual
+            $virtuoso->Configura($this->param, $this->directoryPath);  
+            $this->trazas->LineaDebug("resultadosAction","Instancia del objeto Filtros para gestionar lo campos de date, titulo y búsqueda libre"); 
+            //instancia del objeto Filtros para gestionar lo campos de date, titulo y búsqueda libre
+            $dalResultados = $this->get('Repository_ResultFields');
+            $this->trazas->LineaDebug("resultadosAction","Instancia del objeto Facets para gestionar las facetas diseñadas por cada rdftype"); 
+            //instancia del objeto Facets para gestionar las facetas diseñadas por cada rdftype
+            $dalFacetas = $this->get('Repository_Facets');     
+            $this->trazas->LineaDebug("resultadosAction","Instancia del objeto Topics para gestionar los temas pot código descripción"); 
+            //instancia del objeto Topics para gestionar los temas pot código descripción
+            $daltemas = $this->get('Repository_Topics');
+            $this->trazas->LineaDebug("resultadosAction","Instancia del objeto Topics para gestionar las entidades pot código descripción"); 
+            //instancia del objeto Topics para gestionar las entidades pot código descripción
+            $dalentidades = $this->get('Repository_Types');
+            // $dalocalodaes = $this->get('Repository_Locations');
+            $this->trazas->LineaDebug("resultadosAction","Instancia del objeto Facetacion para calcular las facetas y resultados"); 
+            $facetacion = new Filtros($navegacion,$virtuoso,$dalFacetas,$dalResultados, $daltemas, $dalentidades, $this->directoryPath);
+            //recojo el valor del campo busqueda Libre
+            $campoBusquedaLibre = $navegacion->getCampoBusquedaLibre();
+            //recojo el valor de paginacion de la sentencia get
+            $paginacion=$navegacion->getPaginacion();
+            //recojo el valor de order de la sentencia get ascencnte o descendente
+            $order=$navegacion->getOrder();
+            //recojo el valor de order de el capo por el que se ordena (date, title, relevancia, etc..)
+            $campoOrder= $navegacion->getCampoOrder();
+            //Proceso los resultados con estos parametros
+            $this->trazas->LineaDebug("filtrosAction","Porceso Resultados"); 
+            $facetacion->ProcesaResultados($paginacion,$order,$campoOrder,$campoBusquedaLibre);
+            //recojo el array de lementos resultados
+            $resources = $facetacion->getElementosResultado();
+            //recojo el array de valores de las facetas para parsear en Twig
+            $facetas = $facetacion->getFacetasResultado(); 
+            $gaficas = array();
+            if (isset( $facetas)) {
+                //recojo el array de las graficas en base a las facetas
+                $gaficas  =  $facetacion->DameGraficas($facetas);
+            }  
+        }
+        if ($redirigeHome==false) {
+            $this->trazas->LineaDebug("filtrosAction","Lanzo default/resultados.html.twig");
+            //devuelvo la pagina haciendo un render del twing con los objetos recogidos 
+           return $this->render('default/resultados.html.twig', array(
+               'resourcesArray' => $resources,
+               'graficasArray' => $gaficas,
+           ));
+        } else {
+            $this->trazas->LineaDebug("filtrosAction","Lanzo default/index.html.twig");     
+            $repuesta = $this->home();
+            return  $repuesta;
+        }
+
     }
     
     /**
@@ -408,6 +512,7 @@ class DefaultController extends Controller
      */ 
     public function detallesAction(Request $request)
     {
+        $redirigeHome = false; 
         $this->IncializoTrazas();
         //Controlador de la pagina de detalles
          $this->trazas->LineaDebug("","Entro función");
@@ -420,74 +525,92 @@ class DefaultController extends Controller
             $navegacion->setUrlPrefijo($this->urlPrefijo);
             $navegacion->ParamManeger($_GET);
         } else {
-            //retuen error;
+            $redirigeHome = true;
         }
          //pregunto porque si no es debug no voy a por los datos
-        if ($this->modoTrazasDebug) {
-             $this->trazas->LineaDebug("detallesAction",$navegacion->getTraza()); 
+        if ($this->modoTrazasDebug) {      
+            $this->trazas->LineaDebug("detallesAction",$navegacion->getTraza()); 
         } 
         $this->trazas->LineaDebug("detallesAction","Recojo el sujeto de la navegación"); 
-        $sujeto =  $navegacion->getUrlSujeto();
-        $this->trazas->LineaDebug("detallesAction","Recojo el acceso a virtuoso"); 
-        //instancia del objeto Acceso a virtuoso para hacer las consultas
-        $virtuoso = $this->get('Virtuoso_Acceso');
-        $this->trazas->LineaDebug("detallesAction","Recojo el acceso a virtuoso"); 
-        //Inicializo con los parametros y el directorio relativo raiz actual
-        $virtuoso->Configura($this->param,  $this->directoryPath);  
+        $sujeto =  trim($navegacion->getUrlSujeto());
+        //si no hay sujeto redirijo a home
+        if (empty($sujeto) ){
+            $redirigeHome = true; 
+        }
+        if (!$redirigeHome) {
+            $this->trazas->LineaDebug("detallesAction","Recojo el acceso a virtuoso"); 
+            //instancia del objeto Acceso a virtuoso para hacer las consultas
+            $virtuoso = $this->get('Virtuoso_Acceso');
+            $this->trazas->LineaDebug("detallesAction","Recojo el acceso a virtuoso"); 
+            //Inicializo con los parametros y el directorio relativo raiz actual
+            $virtuoso->Configura($this->param,  $this->directoryPath);  
 
-        $this->trazas->LineaDebug("detallesAction","Recojo la entidad"); 
-        $entidadrdf="";
-        $entydaddc="";
-        //prefunto por el type y el rdftype
-        //tengo el sujeto y voy a virtuoso por el rdftype y dftype
-        $from = $virtuoso->getIsqlDb();
-        $query = sprintf(QUERYRESULTADOSRDFTYPEDFTYPE,$from,$sujeto, $sujeto);
-        $this->trazas->LineaDebug("detallesAction","Pregunto por los resultados a virtuoso"); 
-        $types = $virtuoso->DameConsultaWeb($query,"SUJETOS");
-        if (count($types)>0){
-          $entydaddc=$types[0]['dctype'];
-          $entidadrdf=$types[0]['rdftype'];
-        }
-        //instancia del objeto rdf a la base de datos donde saco la configuracion yamer
-        $dalWebConfig = $this->get('Repository_WebConfig');   
-        //instancia del objeto Types a la base de datos donde saco el array de los entidades y subentidades
-        $dalTypes = $this->get('Repository_Types');  
-        $configutacion = array();
-        $nameType = "";
-        if  (!empty($entydaddc)) {
-            $configutacion = $dalWebConfig->GetConfiguracionWebbyName($entydaddc);
-            //si existe una configuracion para el dctype
-            if (count($configutacion)>0){
-                $nameType = $dalTypes->GetNameByDcType($entydaddc); 
-            } else {
-              $configutacion = $dalWebConfig->GetConfiguracionWebbyName($entidadrdf);
-              $nameType = $dalTypes->GetNameByRdfType($entidadrdf); 
+            $this->trazas->LineaDebug("detallesAction","Recojo la entidad"); 
+            $entidadrdf="";
+            $entydaddc="";
+            //prefunto por el type y el rdftype
+            //tengo el sujeto y voy a virtuoso por el rdftype y dftype
+            $from = $virtuoso->getIsqlDb();
+            $query = sprintf(QUERYRESULTADOSRDFTYPEDFTYPE,$from,$sujeto, $sujeto);
+            $this->trazas->LineaDebug("detallesAction","Pregunto por los resultados a virtuoso"); 
+            $types = $virtuoso->DameConsultaWeb($query,"SUJETOS");
+            if (count($types)>0){
+            $entydaddc=$types[0]['dctype'];
+            $entidadrdf=$types[0]['rdftype'];
             }
-        } else {         
-            $configutacion = $dalWebConfig->GetConfiguracionWebbyName($entidadrdf);
-            $nameType = $dalTypes->GetNameByRdfType($entidadrdf); 
+            //instancia del objeto rdf a la base de datos donde saco la configuracion yamer
+            $dalWebConfig = $this->get('Repository_WebConfig');   
+            //instancia del objeto Types a la base de datos donde saco el array de los entidades y subentidades
+            $dalTypes = $this->get('Repository_Types');  
+            $configutacion = array();
+            $nameType = "";
+            $webConfigTipo = "";
+            if  (!empty($entydaddc)) {
+                $configutacion = $dalWebConfig->GetConfiguracionWebbyName($entydaddc);
+                $webConfigTipo=$entydaddc;
+                //si existe una configuracion para el dctype
+                if (count($configutacion)>0){
+                    $nameType = $dalTypes->GetNameByDcType($entydaddc); 
+                } else {
+                    $configutacion = $dalWebConfig->GetConfiguracionWebbyName($entidadrdf);
+                    $webConfigTipo=$entidadrdf;
+                    $nameType = $dalTypes->GetNameByRdfType($entidadrdf); 
+                }
+            } else {         
+                $configutacion = $dalWebConfig->GetConfiguracionWebbyName($entidadrdf);
+                $webConfigTipo = $entidadrdf;
+                $nameType = $dalTypes->GetNameByRdfType($entidadrdf); 
+            }
+            $webConfigNombre = $dalWebConfig->GetSlugWebbyName($webConfigTipo); 
+            //si tengo entidadrdf
+            if  (!empty($nameType) &&  !empty($configutacion)  ) {
+                $this->trazas->LineaDebug("detallesAction","Recojo el tema"); 
+                
+                $bodyclass =  array_values($configutacion)[0]['BodyClass'];
+                //instancia del parasea detalle que con el acceso a virtuoso, el sujeto, el directorio raiz relativo y el  yamer
+                //crea el array de todos los datos que vamos a parsera en la plantilla 
+                $this->trazas->LineaDebug("detallesAction","Recojo el objeto que me da los valores a parsear ensegun: el sujeto, el directorio raiz relativo y el  yamer");
+                $parseador = new ParseaDetalle($virtuoso,$sujeto, $this->directoryPath, $configutacion);
+                //proceso de creacion de los datos de salida
+                $detalle = $parseador->Procesa();
+                // $bodyclass = $this->DameBodyClass($pareador->getTypreRdf());             
+            }
         }
-     
-        //si tengo entidadrdf
-        if  (!empty($nameType) &&  !empty($configutacion)  ) {
-            $this->trazas->LineaDebug("detallesAction","Recojo el tema"); 
-               
-            $bodyclass =  array_values($configutacion)[0]['BodyClass'];
-             //instancia del parasea detalle que con el acceso a virtuoso, el sujeto, el directorio raiz relativo y el  yamer
-             //crea el array de todos los datos que vamos a parsera en la plantilla 
-            $this->trazas->LineaDebug("detallesAction","Recojo el objeto que me da los valores a parsear ensegun: el sujeto, el directorio raiz relativo y el  yamer");
-            $pareador = new ParseaDetalle($virtuoso,$sujeto, $this->directoryPath, $configutacion);
-            //proceso de creacion de los datos de salida
-            $detalle = $pareador->Procesa();
-            // $bodyclass = $this->DameBodyClass($pareador->getTypreRdf());             
+        if ($redirigeHome==false) {
+            $this->trazas->LineaDebug("detallesAction","Lanzo default/detalles.html.twig");
+            //devuelvo la pagina haciendo un render del twing con los objetos recogidos 
+            return $this->render('default/detalles.html.twig', array(
+                'classBody' =>$bodyclass,
+                'tipo' => $nameType,
+                'detalle'=> $detalle,
+                'webConfigNombre'=> $webConfigNombre,   
+                'webConfigTipo' => $webConfigTipo
+            ));
+        } else {
+            $this->trazas->LineaDebug("detallesAction","Lanzo default/index.html.twig");
+            $repuesta = $this->home();
+            return  $repuesta;
         }
-        $this->trazas->LineaDebug("detallesAction","Lanzo default/detalles.html.twig");
-        //devuelvo la pagina haciendo un render del twing con los objetos recogidos 
-        return $this->render('default/detalles.html.twig', array(
-            'classBody' =>$bodyclass,
-            'tipo' => $nameType,
-            'detalle'=> $detalle,
-        ));
     }
 
     private function IncializoTrazas(){
@@ -505,64 +628,4 @@ class DefaultController extends Controller
             $this->trazas->LineaDebug("indexAction","Entro función");
         }
     }
-
-    
-    /*
-    public function subtemasAction(Request $request)
-    {
-        if (!$request->isXmlHttpRequest()) {
-            $tema ="";
-            if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-                if (!empty($_GET['stem'])) {
-                    $tema = $_GET['stem'];
-                }
-            }
-            $dal = $this->get('Repository_Topics');   
-            $subtemas = $dal->GetSubTopics($tema);
-            return $this->render('default/subtemas.html.twig', array(
-                'subtemas' => $subtemas,
-            ));
-        } else{
-            return; 
-        }
-    }
-
-    public function subtemaajaxAction(Request $request)
-    {
-       // if ($request->isXmlHttpRequest()) {
-            $tema ="";
-            if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-                if (!empty($_GET['stem'])) {
-                    $tema = $_GET['stem'];
-                }
-            }
-            $dal = $this->get('Repository_Topics'); 
-            $subtemas = $dal->GetSubTopics($tema);
-            return $this->render('default/subtemaajax.html.twig', array(
-                'subtemas' => $subtemas,
-            ));
-      //  } else{
-            return array(); 
-      //  }
-    }
-
-    public function subentidadesAction(Request $request)
-    {
-        if (!$request->isXmlHttpRequest()) {
-            $entidad ="";
-            if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-                if (!empty($_GET['sent'])) {
-                    $entidad = $_GET['sent'];
-                }
-            }
-            $dal = $this->get('Repository_Types');  
-            $subentidades = $dal->GetSubTypes($entidad);
-            return $this->render('default/subentidades.html.twig', array(
-                'subentidades' => $subentidades,
-            ));
-        } else{
-            return; 
-        }
-    }
-    */
 }

@@ -52,6 +52,10 @@ class Acceso{
      */
 	protected $error400 = "";
 
+	/**
+     * Array de prefijos
+     */
+	protected $prefijos = array();
 
 
 	public function getError(){
@@ -89,7 +93,7 @@ class Acceso{
 	
 	protected function configure()
     {
-        $this->setName('Virtuoso_Acceso');     
+		$this->setName('Virtuoso_Acceso');     
 	}	
 
 	public function Configura($parametros, $directoryPath) {
@@ -115,6 +119,8 @@ class Acceso{
 			$this->trazas->LineaDebug("Configura",sprintf("Inicializo la clase: %s, %s, %s",$parametros['isql_host'],$parametros['isql_db'],$parametros['trazas_debug'])); 
 		}
 	}
+
+
 	/**
 	* Función que corresponde al servicio get-query.
 	* dado una url devuelve el rdf completo de esa entidad
@@ -127,10 +133,13 @@ class Acceso{
 
 		$resupuesta = array();
 		$this->trazas->LineaDebug("DameQuery:",sprintf("parametros: filtes:%s, pageSize:%s, page:%s, orderBy:%s",
-		                                              $filtes, $pageSize, $page, $orderBy));
+													  $filtes, $pageSize, $page, $orderBy));
+	    $prefijos="";
 	   //valido que el parmetro es una url
 	   $arrayFilters = explode("|",$filtes);
 	   if (count($arrayFilters)>0) {
+		   $prefijos = $this->DamePrefijos($filtes);
+		   $this->trazas->LineaDebug("DameQuery", sprintf("prefijos: %s",$prefijos));	
 		   $this->trazas->LineaDebug("DameQuery", sprintf("filtes validados:%s",$filtes));			
 	   } else {
 		   //si no es correcto informo del error y marco el falg a true
@@ -165,7 +174,7 @@ class Acceso{
 	   //order by es un parametro opcional si existe creo la condicion sparql necesaria
 	   if (!$this->error){	
 		   if (!empty($orderBy)) {
-			  $condicionOrderBy = sprintf("?s <%s> ?oderby .",$orderBy);
+			  $condicionOrderBy = sprintf(" ?s %s ?oderby . ", $orderBy);
 		   }
 	   }
 	   //si no es error creo la plantilla y la parseo
@@ -180,10 +189,12 @@ class Acceso{
 
 		   //emprizo con la plantilla que voy creando segun los parámetros
 		   //primero las condiciones del filtro con el from
-		   $sql ="select ?s from <%s> where { %s }";
+		   $sql = $prefijos . " select ?s from <%s> where { %s }";
 		   //si existe order by añado la clausula orderby que ya esta incorporada en las condiciones
 		   if (!empty($orderBy)) {
-			$sql .= " Order by ?oderby";
+			$sql .= " order by ?oderby";
+		   } else {
+			$sql .= " order by ?s";
 		   }
 		   //si la pagina es mayot que 1 (la primera) añado el offseet
 		   if ($page>1) {
@@ -216,11 +227,11 @@ class Acceso{
 		$filterPart = explode("=",$filter);
 		//si hay condicon y valor 
 		if (count($filterPart)==2) {
-			//conpruebo que existe operador '@' (filtros anidados)
+			//compruebo que existe operador '@' (filtros anidados)
 			$pos = strpos($filterPart[0], "@");
 			//si no hay es una condicion simple 
 			if ( $pos === FALSE) {
-				 $filtro  = sprintf("?s <%s> %s .",$filterPart[0],$filterPart[1]);
+				 $filtro  = sprintf("?s %s %s .",$filterPart[0],$filterPart[1]);
 			} else {
 				//en caso contrario miro si existe operador $ (condicion reverso para la primara condición)
 				$condolar = (boolean)(strpos($filterPart[0], "$")===0);
@@ -232,13 +243,13 @@ class Acceso{
 					//en caso que sea la primara condiciopn y tenga reverso cruzo las condiciones
 					if ($count==0){
 						if ($condolar) {
-							$filtro .=  sprintf("?s%s <%s> ?s . ",$count, $filterCondition);
+							$filtro .=  sprintf("?s%s %s ?s . ",$count, $filterCondition);
 						} else {
 							//si no creo el anidamiento normalmente
-							$filtro .=  sprintf("?s <%s> ?s%s . ", $filterCondition, $count);
+							$filtro .=  sprintf("?s %s ?s%s . ", $filterCondition, $count);
 						}
 				    } else {
-						$filtro .=  sprintf("?s%s <%s> ?s%s . ",$count-1, $filterCondition, $count);		
+						$filtro .=  sprintf("?s%s %s ?s%s . ",$count-1, $filterCondition, $count);		
 					}
 					$count++;
 				}
@@ -250,6 +261,39 @@ class Acceso{
 		return $filtro;
 	}
 	
+	/**
+	 * Función que dada una cadena de texto devuelve el encabezado con los prefijos sparqs
+	 */
+	public function DamePrefijos($filter){
+	   $prefijos=""; 
+	   if (count($this->prefijos)==0) {
+		$this->prefijos = array('ei2a'=>'http://opendata.aragon.es/def/ei2a#',
+								'org'=>'http://www.w3.org/ns/org#',
+								'harmonise'=>'http://protege.stanford.edu/rdf/HTOv4002#',
+								'gtfs:http'=>'//vocab.gtfs.org/terms#',
+								'wisdom'=>'http://www.semanticwater.com/WISDOM#',
+								'dc:http'=>'//purl.org/dc/elements/1.1/',
+								'owl'=>'http://www.w3.org/2002/07/owl#',
+								'time'=>'http://www.w3.org/2006/time#',
+								'foaf'=>'http://xmlns.com/foaf/0.1/',
+								'locn'=>'http://www.w3.org/ns/locn#',
+								'vcard'=>'http://www.w3.org/2006/vcard/ns#',
+								'wgs84_pos'=>'http://www.w3.org/2003/01/geo/wgs84_pos#',
+								'person'=>'http://www.w3.org/ns/person#',
+								'dul'=>'http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#',
+								'event'=>'http://purl.org/NET/c4dm/event.owl#',
+								'rdf'=>'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
+								'rdfs'=>'http://www.w3.org/2000/01/rdf-schema#');
+	    }
+       foreach ($this->prefijos as $key => $value) {
+		   if (strpos($filter,$key)!==false){
+			$prefijo = sprintf("PREFIX %s:<%s> ",$key, $value);
+			$prefijos .=$prefijo;
+		   }
+	   }
+	   return  $prefijos;
+	}
+
 
 	/**
 	* Funcion que corresponde al servicio get-rdf.

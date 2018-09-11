@@ -139,7 +139,7 @@ var comportamientoFacetas = {
       var box = item.parents('.box').first();
       var facetedSearchBox = box.find('.facetedSearchBox');
 
-      if (facetedSearchBox.size() > 0){
+      if (facetedSearchBox.length > 0){
         if (box.hasClass('search-open')){
           box.removeClass('search-open');
           item.text('search');
@@ -164,8 +164,7 @@ var comportamientoFacetas = {
       var li = $(this);
       var img = li.children('.imgMas');
       var span = li.children('.desplegar-faceta');
-      
-      if (img.size() > 0 && span.size() == 0){
+      if (img.length > 0 && span.length  == 0){
         span = $('<span />').addClass('material-icons desplegar-faceta').text('keyboard_arrow_down');
         li.prepend(span);
         img.hide();
@@ -182,11 +181,11 @@ var comportamientoFacetas = {
   }
 }
 
+/*
 var lanzarCharts = {
   init: function () {
       this.config();
       this.comportamiento();
-
       return;
   },
   config: function () {
@@ -203,7 +202,7 @@ var lanzarCharts = {
       return;
   }
 };
-
+*/
 var panelMenu = {
   init: function(){
     this.config();
@@ -483,7 +482,7 @@ $(function(){
     mostrarRestoDatosFicha.init();
   }else if (body.hasClass('listadoComunidad')){
     comportamientoFacetas.init();
-    lanzarCharts.init();
+  //  lanzarCharts.init();
   }else if (body.hasClass('homeSubbloque')){
     mapaComarcas.init();
   }else if (body.hasClass('homeBloque')){

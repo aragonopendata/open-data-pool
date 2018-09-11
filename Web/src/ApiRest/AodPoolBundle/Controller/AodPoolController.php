@@ -166,13 +166,22 @@ class AodPoolController extends FOSRestController {
     */
 	public function getQueryAction(Request $request)
 	{
+        $errorFormulario ="";
         //calculo la ruta de destino
         $this->getTrazas()->LineaInfo("getQueryAction","Inicio");
         $this->trazas->LineaInfo("getQueryAction","Creo un objeto entidad");
         $query = new Query();
-        $query->setFilters($_GET['filters']);    
-        $query->setPage($_GET['page']); 
-        $query->setPageSize($_GET['pageSize']); 
+        $query->setFilters($_GET['filters']); 
+        if (!empty($_GET['pageSize'])) {   
+           $query->setPage($_GET['page']); 
+        } else {
+            $query->setPage(0); 
+        }
+        if (!empty($_GET['pageSize'])) {
+            $query->setPageSize($_GET['pageSize']); 
+        } else {
+            $query->setPageSize(0);
+        }
         if (!empty($_GET['orderBy'])) {
            $query->setOrderBy($_GET['orderBy']); 
         }
@@ -183,12 +192,12 @@ class AodPoolController extends FOSRestController {
             $errorFormulario = $errorFormulario .  $error;
         } 
         if (empty($query->getPage())) {
-            $error . " El Nº de página resultados es requerida";
+            $error = " El Nº de página resultados es requerida";
             $this->trazas->LineaError("getQueryAction",trim($error));
             $errorFormulario = $errorFormulario .  $error;
         }
         if (empty($query->getPageSize())) {
-            $error . " El tamaño de la página resultados es requerida";
+            $error = " El tamaño de la página resultados es requerida";
             $this->trazas->LineaError("getQueryAction",trim($error));
             $errorFormulario = $errorFormulario .  $error;
         }
@@ -205,7 +214,7 @@ class AodPoolController extends FOSRestController {
             $this->trazas->LineaError("getQueryAction",trim($virtuoso->getError400()));
             $this->trazas->LineaInfo("getQueryAction","Fin proceso rest");
             throw $ex;
-            return array('Query' => "Proceso con errores",);
+            return array('Query' => "Proceso con errores:".  $errorFormulario);
         } else {
             if (isset($respuesta)) {
                 $this->trazas->LineaInfo("getQueryAction","Fin proceso rest");

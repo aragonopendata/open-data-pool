@@ -83,6 +83,18 @@ class WebConfig
         return $configuracionWebSol;
     }
 
+    function GetSlugWebbyName($name) {
+        $configuracionWebSol = array();
+        $consulta = $this->em->createQuery("SELECT t FROM ApiRestAodPoolBundle:ConfiguracionWeb t 
+                                            WHERE
+                                            t.name = '$name'"); 
+        $configuracionWebes = $consulta->getResult();
+        foreach ($configuracionWebes as $configuracionWeb) { 
+            $configuracionWebSol= $configuracionWeb->getSlug();
+        }
+        return $configuracionWebSol;
+    }
+
     function DeleteConfiguracionWeb($slug) {
         $configuracionWebSol = array();
 
