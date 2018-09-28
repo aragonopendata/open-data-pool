@@ -10,9 +10,9 @@
 	$root = "root"; //El directorio raiz para la consulta xpath
 	$item = "item"; //El nombre de cada elemento item del xml.
 	
-	define ("URI10","http://opendata.aragon.es/pool/datos-comarca/"); //La uri para hacer referencia a entidades de la vista 10
-	define ("URI11","http://opendata.aragon.es/pool/municipio/"); //La uri para hacer referencia a entidades de la vista 11
-	define ("URI16","http://opendata.aragon.es/pool/datos-diputacion/"); //La uri para hacer referencia a entidades de la vista 16
+	define ("URI10","http://opendata.aragon.es/def/ei2a#datos-comarca-"); //La uri para hacer referencia a entidades de la vista 10
+	define ("URI11","http://opendata.aragon.es/def/ei2a#municipio-"); //La uri para hacer referencia a entidades de la vista 11
+	define ("URI16","http://opendata.aragon.es/def/ei2a#datos-diputacion-"); //La uri para hacer referencia a entidades de la vista 16
 	
 	
 	$clave10 = "CODIGO_COMARC"; //La clave de la uri de la vista 10
@@ -21,7 +21,7 @@
 	
 	
 	define("CLAVE_NECESITA", "UrlEntidad");  //La clave que pusimos en el mapeo
-	define("CLAVE_TIENE", "ID_ENTIDADLOCAL"); //La calve que tiene por la que tiene que buscar para relacionar con las demas vistas
+	define("CLAVE_TIENE", "ENTIDAD_LOCAL"); //La calve que tiene por la que tiene que buscar para relacionar con las demas vistas
 	
 	
 	

@@ -5,7 +5,8 @@
     
 	define ("CLAVE_NECESITA", "CODIGO_MUN");				//La clave que necesita para tener todos los datos
 	define ("MUNICIPIO", "COD_MUNICIPIO");					//La clave del codigo municipio en el xml de la vista
-
+    define ("PARADA", "COD_PARADA");
+	
 	array_push ($keys, CLAVE_NECESITA);
 	fwrite ($archivoCSV, "\"".CLAVE_NECESITA."\";");
 		
@@ -22,6 +23,10 @@
 				    if ($key == CLAVE_NECESITA){
 					   $municipio = $xml->item[$x]->{MUNICIPIO};						
 					   $elemento = substr($municipio,0,5);
+				    }
+				    
+				    if($key == PARADA){
+				        $elemento = substr($elemento,0,strlen($elemento)-2);
 				    }
 				    
 				    if ($key == CLAVE_URL) {				       

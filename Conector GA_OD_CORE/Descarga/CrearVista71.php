@@ -47,6 +47,7 @@
                     
                     fwrite ($archivoCSV, "\"$elemento\";");
                 }
+                
                 fwrite ($archivoCSV, "\n");
             }
         }
