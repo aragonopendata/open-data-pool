@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:org="http://www.w3.org/ns/org#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:vcard="http://www.w3.org/2006/vcard/ns#" id="89">
+  <Entity rdf:type="org:Organization" URI="http://opendata.aragon.es/def/ei2a#oficina-comarcal-{CAGENC}">
+    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+    <Property field="{CAGENC}" attribute="dc:identifier" type="string"/>
+    <Property link="ei2a:oficinas_comarcales" attribute="dc:type"/>
+    <Property field="{DAGENC}" attribute="ei2a:organizationName" type="string"/>
+    <Property field="{CTELEF}" attribute="ei2a:phone" type="string"/>
+    <Property field="{CCOSEC}" attribute="ei2a:officialCreationDate" type="datetime"/>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" attribute="wgs84_pos:location"/>
+    <Property field="{DIRECCIONEMAIL}" attribute="ei2a:email" type="string"/>
+    <Property link="ei2a:SinClasificar" attribute="ei2a:publicEntityType" type=""/>
+    <Property link="ei2a:órganoAdministrativo" attribute="ei2a:organizationType"/>
+    <Property link="ei2a:AdministraciónLocal" attribute="ei2a:administrativeLevel"/>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#sede-{CAGENC}" attribute="org:hasSite">
+      <Entity rdf:type="org:Site" URI="http://opendata.aragon.es/def/ei2a#sede-{CAGENC}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#vCardOficina-comarcal-{CAGENC}" attribute="org:siteAddress">
+          <Entity rdf:type="vcard:VCard" URI="http://opendata.aragon.es/def/ei2a#vCardOficina-comarcal-{CAGENC}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property field="{CFAX}" attribute="vcard:Fax" type="string"/>
+            <Property fieldLink="http://opendata.aragon.es/def/ei2a#adrOficina-comarcal-{CAGENC}" attribute="vcard:hasAddress">
+              <Entity rdf:type="vcard:ADR" URI="http://opendata.aragon.es/def/ei2a#adrOficina-comarcal-{CAGENC}">
+                <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                <Property field="{DLOCAL}" attribute="vcard:locality" type="string"/>
+                <Property field="{CPROVI}" attribute="vcard:region" type="string"/>
+                <Property field="{CPROVI}" attribute="vcard:postal-code" type="string"/>
+              </Entity>
+            </Property>
+          </Entity>
+        </Property>
+      </Entity>
+    </Property>
+  </Entity>
+</Mapping>
