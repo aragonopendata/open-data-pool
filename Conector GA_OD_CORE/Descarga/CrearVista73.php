@@ -5,12 +5,13 @@
 	define ("MUNICIPIO", "MUNICIPIO_ESTABLECIMIENTO");		//La clave relaciona con el municipio	
 	define ("PROVINCIA", "PROVINCIA_ESTABLECIMIENTO");		//La clave relaciona con la provincia
 	define ("CLAVE_URI", "SIGNATURA");
-	
+	define ("CLAVE_CATEGORIA", "CATEGORIA_VIVIENDA");
 	include 'comun.php';
 	
-		
+	$relacion = array (); //El array que se usa para realizar el cambio en el campo CATEGORIA
 	
-	
+	$relacion ["Basica"] = "3";
+	$relacion ["Superior"] = "5";
 	
 	if ($archivoCSV !== false) {
 	    array_push ($keys, CLAVE_NECESITA);
@@ -38,6 +39,10 @@
 					
 					if ($key == CLAVE_URL) {					    
 					    $elemento = obtenerUrlVinculacion($xml, $x, $vista, CLAVE_URI);
+					}
+					
+					if ($key == CLAVE_CATEGORIA) {
+					    $elemento = $relacion [trim($elemento->__toString())];
 					}
 					
 					editarElemento($elemento);

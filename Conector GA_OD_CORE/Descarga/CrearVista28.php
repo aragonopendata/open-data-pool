@@ -18,18 +18,18 @@
     $root = "root"; //El directorio raiz para la consulta xpath
     $item = "item"; //El nombre de cada elemento item del xml.
     
-    define ("URI10","https://opendata.aragon.es/pool/comarca/");  //La uri para hacer referencia a entidades de la vista 10
-    define ("URI11","https://opendata.aragon.es/pool/municipio/"); //La uri para hacer referencia a entidades de la vista 11
-    define ("URI13","https://opendata.aragon.es/pool/consorcios/"); //La uri para hacer referencia a entidades de la vista 13
-    define ("URI16","https://opendata.aragon.es/pool/diputacion/"); //La uri para hacer referencia a entidades de la vista 16
-    define ("URI19","https://opendata.aragon.es/pool/entidad-mayor/"); //La uri para hacer referencia a entidades de la vista 19
-    define ("URI20","https://opendata.aragon.es/pool/entidad-singular/"); //La uri para hacer referencia a entidades de la vista 20
-    define ("URI22","https://opendata.aragon.es/pool/datos-fundaciones/"); //La uri para hacer referencia a entidades de la vista 22
-    define ("URI24","https://opendata.aragon.es/pool/macomunidad/"); //La uri para hacer referencia a entidades de la vista 24
-    define ("URI26","https://opendata.aragon.es/pool/nucleo/"); //La uri para hacer referencia a entidades de la vista 36
-    define ("URI27","https://opendata.aragon.es/pool/organismo-autonomo/"); //La uri para hacer referencia a entidades de la vista 27
-    define ("URI34","https://opendata.aragon.es/pool/sociedad-mercantil/"); //La uri para hacer referencia a entidades de la vista 34
-    define ("URI35","https://opendata.aragon.es/pool/villas-y-tierras/"); //La uri para hacer referencia a entidades de la vista 35
+    define ("URI10","http://opendata.aragon.es/def/ei2a#comarca-");  //La uri para hacer referencia a entidades de la vista 10
+    define ("URI11","http://opendata.aragon.es/def/ei2a#municipio-"); //La uri para hacer referencia a entidades de la vista 11
+    define ("URI13","http://opendata.aragon.es/def/ei2a#consorcios-"); //La uri para hacer referencia a entidades de la vista 13
+    define ("URI16","http://opendata.aragon.es/def/ei2a#diputacion-"); //La uri para hacer referencia a entidades de la vista 16
+    define ("URI19","http://opendata.aragon.es/def/ei2a#entidad-mayor-"); //La uri para hacer referencia a entidades de la vista 19
+    define ("URI20","http://opendata.aragon.es/def/ei2a#entidad-singular-"); //La uri para hacer referencia a entidades de la vista 20
+    define ("URI22","http://opendata.aragon.es/def/ei2a#datos-fundaciones-"); //La uri para hacer referencia a entidades de la vista 22
+    define ("URI24","http://opendata.aragon.es/def/ei2a#macomunidad-"); //La uri para hacer referencia a entidades de la vista 24
+    define ("URI26","http://opendata.aragon.es/def/ei2a#nucleo-"); //La uri para hacer referencia a entidades de la vista 36
+    define ("URI27","http://opendata.aragon.es/def/ei2a#organismo-autonomo-"); //La uri para hacer referencia a entidades de la vista 27
+    define ("URI34","http://opendata.aragon.es/def/ei2a#sociedad-mercantil-"); //La uri para hacer referencia a entidades de la vista 34
+    define ("URI35","http://opendata.aragon.es/def/ei2a#villas-y-tierras-"); //La uri para hacer referencia a entidades de la vista 35
     
     $clave10 = "CODIGO_COMARC"; //La clave de la uri de la vista 10
     $clave11 = "CODIGO_MUN"; //La clave de la uri de la vista 11
@@ -46,6 +46,7 @@
     
     define("CLAVE_NECESITA", "UrlEntidad");  //La clave que pusimos en el mapeo
     define("CLAVE_TIENE", "ENTIDAD");  //La calve que tiene por la que tiene que buscar para relacionar con las demas vistas
+    define ("CLAVE_CARGO", "CARGO");
     
     $vista=28;
     
@@ -65,7 +66,24 @@
     
     $encontrado = false;
     
-    
+    $cargos = array ();
+    $cargos ["C"] = "CONCEJAL";
+    $cargos ["CC"] = "CONSEJERO COMARCAL";
+    $cargos ["A"] = "ALCALDE";
+    $cargos ["P"] = "PRESIDENTE";
+    $cargos ["V"] = "VOCAL";
+    $cargos ["v"] = "VOCAL";
+    $cargos ["T"] = "TESORERO";
+    $cargos ["VP 1º"] = "VICEPRESIDENTE 1º";
+    $cargos ["Vpte. 1º"] = "VICEPRESIDENTE 1º";
+    $cargos ["VP 2º"] = "VICEPRESIDENTE 2º";
+    $cargos ["Vpte. 2º"] = "VICEPRESIDENTE 2º";
+    $cargos ["VP"] = "VICEPRESIDENTE";
+    $cargos ["VICEPTE. 1º"] = "VICEPRESIDENTE 1º";
+    $cargos ["VICEPTE. 2º"] = "VICEPRESIDENTE 2º";
+    $cargos ["VICEPTE. 3º"] = "VICEPRESIDENTE 3º";
+    $cargos ["C. GESTORA"] = "C. GESTORA";
+    $cargos ["COM. GESTORA"] = "COM. GESTORA";
 
     include 'comun.php';   
     
@@ -152,6 +170,13 @@
                         $elemento = obtenerUrlVinculacion($xml, $x, $vista, CLAVE_URI);
                     }
                     
+                    if ($key == CLAVE_CARGO) {      
+                        $claves = array_keys ($cargos);
+                        if (in_array($elemento, $claves)){
+                            $elemento = $cargos[$elemento];
+                        }
+                        
+                    }                    
                     
                     editarElemento($elemento);
                     fwrite ($archivoCSV, "\"$elemento\";");

@@ -2,9 +2,10 @@
 	$vista = 74;               								//La vista de donde se optiene los datos
 	
 	define ("CLAVE_NECESITA", "CODIGO_MUN");				//La clave que necesita para poder completar los datos
-	define ("MUNICIPIO", "MUNICIPIO_ESTABLECIMIENTO");		//La clave relaciona con el municipio	
-	define ("PROVINCIA", "PROVINCIA_ESTABLECIMIENTO");		//La clave relaciona con la provincia
-	define ("CLAVE_URI", "SIGNATURA");
+	define ("MUNICIPIO", "MUNICIPIO_EXPEDIENTE");		//La clave relaciona con el municipio	
+	define ("PROVINCIA", "PROVINCIA_EXPEDIENTE");		//La clave relaciona con la provincia
+	define ("CLAVE_URI1", "NUM_EXPTE");
+	define ("CLAVE_URI2", " F_ACUERDO");
 	
 	include 'comun.php';
 	
@@ -33,7 +34,7 @@
 					}
 					
 					if ($key == CLAVE_URL) {					    
-					    $elemento = obtenerUrlVinculacion($xml, $x, $vista, CLAVE_URI);
+					    $elemento = obtenerUrlVinculacionVariasClaves($xml, $x, $vista, CLAVE_URI1, CLAVE_URI2);
 					}
 					
 					editarElemento($elemento);

@@ -3,13 +3,18 @@
     define("CLAVE_NECESITA", "CODIGO_MUN");                         //La clave que necesita para relacionarse con la vista 11   
     define("CLAVE_MUN", "MUNICIPIO_ESTABLECIMIENTO");               //Una de las claves por la cual se compone la calve que necesita
     define("CLAVE_PRO", "PROVINCIA_ESTABLECIMIENTO");               //La otra de las claves que se compone la calve que necesita
+    define ("CLAVE_CATEGORIA", "CATEGORIA_CAMPING"); 
     
     $vista=68;
     include 'comun.php';
     
-      
-    $datos11 = file_get_contents (RUTA_XML_11);
-    $xml11 = simplexml_load_string($datos11);
+    $relacion = array (); //El array que se usa para realizar el cambio en el campo CATEGORIA
+   
+    $relacion ["Tercera"] = "2";
+    $relacion ["Segunda"] = "3";
+    $relacion ["Primera"] = "4";
+    $relacion ["Lujo"] = "5";    
+    
     
     if ($archivoCSV !== false) {
         array_push ($keys, CLAVE_NECESITA);
@@ -39,6 +44,10 @@
                     
                     if ($key == CLAVE_URL) {
                         $elemento = obtenerUrlVinculacion($xml, $x, $vista, CLAVE_URI);
+                    }
+                    
+                    if ($key == CLAVE_CATEGORIA) {
+                        $elemento = $relacion [trim($elemento->__toString())];
                     }
                     
                     

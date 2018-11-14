@@ -20,19 +20,19 @@ $claveVista12 = "AGRUPACION_SECRETARIAL"; //La clave en la que tiene que buscarc
 $root = "root"; //El directorio raiz para la consulta xpath
 $item = "item"; //El nombre de cada elemento item del xml.
 
-define ("URI10","https://opendata.aragon.es/pool/comarca/");  //La uri para hacer referencia a entidades de la vista 10
-define ("URI11","https://opendata.aragon.es/pool/municipio/"); //La uri para hacer referencia a entidades de la vista 11
-define ("URI12","https://opendata.aragon.es/pool/agrupacion-secretarial/"); //La uri para hacer referencia a entidades de la vista 11
-define ("URI13","https://opendata.aragon.es/pool/consorcios/"); //La uri para hacer referencia a entidades de la vista 13
-define ("URI16","https://opendata.aragon.es/pool/diputacion/"); //La uri para hacer referencia a entidades de la vista 16
-define ("URI19","https://opendata.aragon.es/pool/entidad-mayor/"); //La uri para hacer referencia a entidades de la vista 19
-define ("URI20","https://opendata.aragon.es/pool/entidad-singular/"); //La uri para hacer referencia a entidades de la vista 20
-define ("URI22","https://opendata.aragon.es/pool/datos-fundaciones/"); //La uri para hacer referencia a entidades de la vista 22
-define ("URI24","https://opendata.aragon.es/pool/macomunidad/"); //La uri para hacer referencia a entidades de la vista 24
-define ("URI26","https://opendata.aragon.es/pool/nucleo/"); //La uri para hacer referencia a entidades de la vista 36
-define ("URI27","https://opendata.aragon.es/pool/organismo-autonomo/"); //La uri para hacer referencia a entidades de la vista 27
-define ("URI34","https://opendata.aragon.es/pool/sociedad-mercantil/"); //La uri para hacer referencia a entidades de la vista 34
-define ("URI35","https://opendata.aragon.es/pool/villas-y-tierras/"); //La uri para hacer referencia a entidades de la vista 35
+define ("URI10","http://opendata.aragon.es/def/ei2a#comarca-");  //La uri para hacer referencia a entidades de la vista 10
+define ("URI11","http://opendata.aragon.es/def/ei2a#municipio-"); //La uri para hacer referencia a entidades de la vista 11
+define ("URI12","http://opendata.aragon.es/def/ei2a#agrupacion-secretarial-"); //La uri para hacer referencia a entidades de la vista 11
+define ("URI13","http://opendata.aragon.es/def/ei2a#consorcios-"); //La uri para hacer referencia a entidades de la vista 13
+define ("URI16","http://opendata.aragon.es/def/ei2a#diputacion-"); //La uri para hacer referencia a entidades de la vista 16
+define ("URI19","http://opendata.aragon.es/def/ei2a#entidad-mayor-"); //La uri para hacer referencia a entidades de la vista 19
+define ("URI20","http://opendata.aragon.es/def/ei2a#entidad-singular-"); //La uri para hacer referencia a entidades de la vista 20
+define ("URI22","http://opendata.aragon.es/def/ei2a#datos-fundaciones-"); //La uri para hacer referencia a entidades de la vista 22
+define ("URI24","http://opendata.aragon.es/def/ei2a#macomunidad-"); //La uri para hacer referencia a entidades de la vista 24
+define ("URI26","http://opendata.aragon.es/def/ei2a#nucleo-"); //La uri para hacer referencia a entidades de la vista 36
+define ("URI27","http://opendata.aragon.es/def/ei2a#organismo-autonomo-"); //La uri para hacer referencia a entidades de la vista 27
+define ("URI34","http://opendata.aragon.es/def/ei2a#sociedad-mercantil-"); //La uri para hacer referencia a entidades de la vista 34
+define ("URI35","http://opendata.aragon.es/def/ei2a#villas-y-tierras-"); //La uri para hacer referencia a entidades de la vista 35
 
 $clave10 = "CODIGO_COMARC"; //La clave de la uri de la vista 10
 $clave11 = "CODIGO_MUN"; //La clave de la uri de la vista 11
