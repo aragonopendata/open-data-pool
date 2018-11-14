@@ -13,7 +13,7 @@ use WebBundle\Controller\Utility\FiltroNavegacion;
 use WebBundle\Controller\Utility\Trazas;
 
 
-define("QUERYRESULTADOSRDFTYPEDFTYPE","PREFIX dc:<http://purl.org/dc/elements/1.1/> PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> select ?dctype ?rdftype from <%s> where { <%s> rdf:type ?rdftype . <%s> dc:type ?dctype .  }");
+define("QUERYRESULTADOSRDFTYPEDFTYPE","PREFIX dc:<http://purl.org/dc/elements/1.1/> PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> select uri(min(str(?dctype2))) as ?dctype ?rdftype from <%s> where { <%s> rdf:type ?rdftype . <%s> dc:type ?dctype2 .  }");
 
 class DefaultController extends Controller
 {
@@ -54,9 +54,68 @@ class DefaultController extends Controller
 
 
     private function home(){
-        //no tiene para metrizacion 
+        $navegacion = new Navegacion($this->container);
+		 //instancia del objeto Topic a la base de datos donde saco el array de los temas y subtemas
+		$dal = $this->get('Repository_Topics'); 
+        $temas = $dal->GetFullTopicsWeb();
+		
+		$dal = $this->get('Repository_Types'); 
+        $entidades = $dal->GetFullTypesWeb();
+		
+		//instancia del objeto locatios a la base de datos donde saco el array de las localidades
+        $dal = $this->get('Repository_Locations'); 
+        $lugaresArray = $dal->GetLocations();
+        $nav = $navegacion->getArray();
+		
+		//instancia del objeto Topic a la base de datos donde saco el array de los temas y subtemas 
+        $subtemas = array();
+        $dal = $this->get('Repository_Topics');
+        //si hay tema recojo sus subtemas si no pongo los temas principales nivel1 (selección del tema final de pagina)
+        if (!empty($navegacion->getTemaCode())) {         
+            $subtemas = $dal->GetSubTopics($navegacion->getTemaCode());
+        } else {
+            $subtemas = $dal->GetSubTopics(0);
+        }
+		
+       //instancia del objeto Types a la base de datos donde saco el array de los entidades y subentidades
+        $dal = $this->get('Repository_Types'); 
+        //si hay entidad recojo sus subtemas si no pongo los temas principales nivel1 (selección del tema final de pagina)
+        $subTypes = array();
+        if (!empty($navegacion->getEntidadCode())) {
+            $subTypes = $dal->GetSubTypes($navegacion->getEntidadCode());
+        } else {
+            $subTypes = $dal->GetSubTypes(0);
+        }
+
+        //Filtro las localidades dependiendo entidades o los temas 
+        if ($navegacion->getfromType()!="Lugares"){
+            $this->trazas->LineaDebug("detallesAction","Recojo el acceso a virtuoso"); 
+            //instancia del objeto Acceso a virtuoso para hacer las consultas
+            $virtuoso = $this->get('Virtuoso_Acceso');
+            $this->trazas->LineaDebug("detallesAction","Recojo el acceso a virtuoso"); 
+            //Inicializo con los parametros y el directorio relativo raiz actual
+            $virtuoso->Configura($this->param,  $this->directoryPath);  
+            $filtroNavegacion = new FiltroNavegacion($virtuoso,  $this->directoryPath);
+            $filtroNavegacion->setLugaresArray($lugaresArray);
+    
+            $lugaresArray['Provincias'] = $filtroNavegacion->DameProvincias($navegacion->getRdfTypeEntidad(),$navegacion->getRdfTypeTema());
+            $lugaresArray['Comarcas'] = $filtroNavegacion->DameComarcas($navegacion->getRdfTypeEntidad(),$navegacion->getRdfTypeTema());
+            $lugaresArray['Municipios'] = $filtroNavegacion->DameMunicipios($navegacion->getRdfTypeEntidad(),$navegacion->getRdfTypeTema());
+        }
+		
+		
+		
         $repuesta = $this->render('default/index.html.twig', 
-        array("classBody" => 'homeBloque'));
+        //array("classBody" => 'homeBloque'));
+		array(
+            'classBody' => 'homeBloque',
+            'navegacion' => $navegacion->getArray(),
+			'temas' => $temas,
+			'entidades' => $entidades,
+			'lugaresArray' => $lugaresArray,
+            'subTemas'=> $subtemas,
+            'subEntidades' => $subTypes
+        ));
         $repuesta->setSharedMaxAge(60);
         return  $repuesta;   
     }
@@ -396,6 +455,12 @@ class DefaultController extends Controller
             $fromTitle = $navegacion->getfromTitle();
             //recojo el array de valores de los filtros marcados  para parsear en Twig
             $filtrosSpain = $navegacion->getfiltrosSpain();
+            //descodifico la ruta si vinene codificada de la busqueda abierta
+            if (strpos($rutaOrden,"%25")!==FALSE) {
+                $rutaOrden = urldecode($rutaOrden);
+                $rutaOrden = str_replace("%7C","|",$rutaOrden);
+            }
+            
             $rutaOrden = $_SERVER['REQUEST_URI'];
             $rutaOrden = str_replace("filtros","resultados",$rutaOrden);
             if (strpos($rutaOrden,"ord=")===false){
@@ -523,6 +588,7 @@ class DefaultController extends Controller
             $navegacion = new Navegacion($this->container);
             //informo el prefijo de los sujetos para gestionar los elementos
             $navegacion->setUrlPrefijo($this->urlPrefijo);
+			syslog ( LOG_WARNING , 'El prefijo es: '.$this->urlPrefijo );
             $navegacion->ParamManeger($_GET);
         } else {
             $redirigeHome = true;
@@ -532,7 +598,16 @@ class DefaultController extends Controller
             $this->trazas->LineaDebug("detallesAction",$navegacion->getTraza()); 
         } 
         $this->trazas->LineaDebug("detallesAction","Recojo el sujeto de la navegación"); 
+		
         $sujeto =  trim($navegacion->getUrlSujeto());
+		syslog ( LOG_WARNING , 'El sujeto es: '.$sujeto );
+		$ArrayURL=explode ('=',$_SERVER['REQUEST_URI']);
+		syslog ( LOG_WARNING , 'El ArrayURL es: '.$ArrayURL[0].' '.$ArrayURL[1] );		
+		$ArraySujeto=explode ('#',$sujeto);
+		syslog ( LOG_WARNING , 'El ArraySujeto es: '.$ArraySujeto[0].' '.$ArraySujeto[1] );	
+		$sujeto=$ArraySujeto[0].'#'.$ArrayURL[1];
+		syslog ( LOG_WARNING , 'El sujeto final es: '.$sujeto );
+		syslog ( LOG_WARNING , 'La url que llega de DefaultController es: '.$sujeto ."\n" .'         '.$ArraySujeto[0].'#'.$ArrayURL[1]);
         //si no hay sujeto redirijo a home
         if (empty($sujeto) ){
             $redirigeHome = true; 
@@ -553,6 +628,7 @@ class DefaultController extends Controller
             $from = $virtuoso->getIsqlDb();
             $query = sprintf(QUERYRESULTADOSRDFTYPEDFTYPE,$from,$sujeto, $sujeto);
             $this->trazas->LineaDebug("detallesAction","Pregunto por los resultados a virtuoso"); 
+			syslog ( LOG_WARNING , 'La query es: '.$query );
             $types = $virtuoso->DameConsultaWeb($query,"SUJETOS");
             if (count($types)>0){
             $entydaddc=$types[0]['dctype'];
@@ -565,6 +641,8 @@ class DefaultController extends Controller
             $configutacion = array();
             $nameType = "";
             $webConfigTipo = "";
+			syslog ( LOG_WARNING , 'La entydaddc es: '.$entydaddc );
+			$this->trazas->LineaDebug("La entydaddc es: ".$entydaddc);
             if  (!empty($entydaddc)) {
                 $configutacion = $dalWebConfig->GetConfiguracionWebbyName($entydaddc);
                 $webConfigTipo=$entydaddc;
@@ -576,12 +654,16 @@ class DefaultController extends Controller
                     $webConfigTipo=$entidadrdf;
                     $nameType = $dalTypes->GetNameByRdfType($entidadrdf); 
                 }
+				$this->trazas->LineaDebug("La nameType cuando la entidad dc es no vacia es: ".$nameType);
             } else {         
                 $configutacion = $dalWebConfig->GetConfiguracionWebbyName($entidadrdf);
                 $webConfigTipo = $entidadrdf;
                 $nameType = $dalTypes->GetNameByRdfType($entidadrdf); 
+				$this->trazas->LineaDebug("La nameType es: ".$nameType);
             }
             $webConfigNombre = $dalWebConfig->GetSlugWebbyName($webConfigTipo); 
+			syslog ( LOG_WARNING , 'El nameType es: '.$nameType );
+			syslog ( LOG_WARNING , 'La configuration es : '.$configutacion );
             //si tengo entidadrdf
             if  (!empty($nameType) &&  !empty($configutacion)  ) {
                 $this->trazas->LineaDebug("detallesAction","Recojo el tema"); 

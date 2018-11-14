@@ -139,7 +139,7 @@ var comportamientoFacetas = {
       var box = item.parents('.box').first();
       var facetedSearchBox = box.find('.facetedSearchBox');
 
-      if (facetedSearchBox.length > 0){
+      if (facetedSearchBox.size() > 0){
         if (box.hasClass('search-open')){
           box.removeClass('search-open');
           item.text('search');
@@ -164,7 +164,8 @@ var comportamientoFacetas = {
       var li = $(this);
       var img = li.children('.imgMas');
       var span = li.children('.desplegar-faceta');
-      if (img.length > 0 && span.length  == 0){
+      
+      if (img.length > 0 && span.length == 0){
         span = $('<span />').addClass('material-icons desplegar-faceta').text('keyboard_arrow_down');
         li.prepend(span);
         img.hide();
@@ -181,11 +182,11 @@ var comportamientoFacetas = {
   }
 }
 
-/*
 var lanzarCharts = {
   init: function () {
       this.config();
       this.comportamiento();
+
       return;
   },
   config: function () {
@@ -195,14 +196,14 @@ var lanzarCharts = {
   },
   comportamiento: function () {
       google.charts.load('current', { 'packages': ['treemap'] });
-      google.charts.setOnLoadCallback(graficoTemas);
+      //google.charts.setOnLoadCallback(graficoTemas);
       google.charts.setOnLoadCallback(graficoEntidades);
       google.charts.setOnLoadCallback(graficoLugares);
 
       return;
   }
 };
-*/
+
 var panelMenu = {
   init: function(){
     this.config();
@@ -259,7 +260,7 @@ var menuSecundario = {
       }
     });
 
-    var aLiNav = localBody.find('.row-menu-secundario nav > li > a');
+    var aLiNav = localBody.find('.row-menu-secundario ul > li > a');
 
     aLiNav.bind('click', function(e){
 
@@ -343,6 +344,292 @@ var mostrarRestoDatosFicha = {
     return;
   }
 };
+
+var verTodosFacetas = {
+  init: function(){
+    this.config();
+    this.comportamiento();
+    return;
+  },
+  config: function(){
+    this.body = body;
+    this.modal = this.body.find('#modalFacetas');
+    this.panFacetas = this.body.find('#panFacetas');
+    return;
+  },
+  comportamiento: function(){
+
+    var that = this;
+    var modal = this.modal;
+    var headerModal = this.modal.find('.modal-header');
+    var bodyModal = this.modal.find('.modal-body');
+    var inputBuscar = bodyModal.find('.buscador-modal input');
+
+    var bloquesFacetas = this.panFacetas.find('#idComarcas, #idMunicipios, #idPartido, #idCargo');
+
+    bloquesFacetas.each(function(){
+
+      var bloque = $(this);
+      var section = bloque.find('.section');
+      var lis = section.find('ul > li');
+
+      if (lis.length > 4){
+
+        var verTodos = $('<a />').addClass('ver-todas-facetas').text('Ver todos');
+
+        section.append(verTodos);
+
+        lis.each(function(i){
+          if (i > 3) $(this).addClass('oculto');
+        });
+
+        verTodos.bind('click', function(e){
+
+          var modalTitle = headerModal.find('.modal-title');
+          var lista = bodyModal.find('.lista-modal');
+          var ulClone = lis.parent().clone(true, true);
+          var id = bloque.attr('id').replace('id', '');
+
+          modalTitle.text(id);
+          lista.children().remove();
+          ulClone.find('li').removeClass('oculto');
+          lista.append(ulClone);
+          modal.modal('show');
+
+          that.eventoBuscar();
+
+        });
+
+      }
+
+    });
+
+    return;
+  },
+  eventoBuscar: function(){
+
+    var that = this;
+    var bodyModal = this.modal.find('.modal-body');
+    var inputBuscar = bodyModal.find('.buscador-modal input');
+
+    inputBuscar.unbind('keyup');
+    inputBuscar.bind('keyup input', function() {
+        var item = $(this);
+        var itemVal = item.val();
+        that.buscar(itemVal);
+    });
+
+    return;
+  },
+  buscar: function(valor){
+
+    var bodyModal = this.modal.find('.modal-body');
+    var lista = bodyModal.find('.lista-modal li');
+
+    lista.each(function(indice) {
+      var item = $(this);
+      var enlaceItem = item.children('a');
+      var itemText = enlaceItem.text();
+
+      item.removeClass('oculto');
+
+      if (itemText.toLowerCase().indexOf(valor.toLowerCase()) < 0) {
+          item.addClass('oculto');
+      } else {
+          item.parents('.oculto').removeClass('oculto');
+      }
+
+  });
+
+    return;
+  }
+};
+
+var headerMinScroll = {
+	posicionAnterior: 0,
+	obj_top: 0,
+	init: function () {
+		this.config();
+		this.scroll();
+		return;
+	},
+	config: function () {
+		this.body = body;
+		return;
+	},
+	scroll: function () {
+		var that = this;
+		$(window).scroll(function () {
+			that.lanzar();
+		});
+		return;
+	},
+	lanzar: function () {
+		var obj = $(window);
+		this.posicionAnterior = this.obj_top;
+		this.obj_top = obj.scrollTop();
+		if (/*this.obj_top < this.posicionAnterior || */this.obj_top <= 10) {
+			this.body.removeClass("headerMin");
+		} else {
+			this.body.addClass("headerMin");
+		}
+		return;
+	}
+};
+
+var marginTopHome = {
+  init: function(){
+    var busqueda = body.find('.sliderPrincipal');
+
+    if (busqueda) body.addClass('margen');
+
+  }
+};
+
+/*
+var facetaCategorias = {
+  init: function(){
+    this.config();
+    this.clonar();
+    return;
+  },
+  config: function(){
+    this.body = body;
+    this.panFacetas = this.body.find('#panFacetas');
+    this.categorias = this.panFacetas.find('#bbvao--about---bbvao--categoryNode');
+    this.modalResultados = this.body.find('#modal-resultados');
+    this.indiceLista = this.modalResultados.find('.indice-lista');
+    return;
+  },
+  clonar: function(){
+
+    this.indiceLista.children().remove();
+    this.indiceLista.removeAttr('style');
+    if (this.modalResultados.find('#bbvao--about---bbvao--categoryNode').size() > 0) return;
+    var that = this;
+
+    var clon = this.categorias.clone(true, true);
+    clon.find('ul.listadoFacetas > li.oculto').removeClass('oculto');
+    this.indiceLista.append(clon);
+
+
+    var aFacetas = clon.find('a.faceta');
+    var verTodos = this.modalResultados.find('.opciones .ver-todos');
+
+    aFacetas.bind('click', function(){
+
+      setTimeout(function(){
+        verTodos.trigger('click');
+      }, 100);
+
+    });
+
+    var desplegarSubFaceta = this.modalResultados.find('.desplegarSubFaceta i');
+    var desplegarNiveles = $('<span />').addClass('desplegarNiveles').text('Desplegar niveles');
+    clon.prepend(desplegarNiveles);
+
+    desplegarNiveles.bind('click', function(){
+
+      if (desplegarNiveles.hasClass('desplegados')){
+        desplegarNiveles.removeClass('desplegados').text('Desplegar niveles');
+        that.desplegarSubniveles(desplegarSubFaceta);
+      }else{
+        desplegarNiveles.addClass('desplegados').text('Plegar niveles');
+        that.plegarSubniveles(desplegarSubFaceta);
+      }
+
+    });
+    desplegarNiveles.trigger('click');
+    aFacetas.attr('onclick', "$('#modal-resultados').modal('hide')");
+
+    this.eventoBuscar();
+
+    return;
+  },
+  eventoBuscar: function(){
+
+    var that = this;
+    var box = this.modalResultados.find('#bbvao--about---bbvao--categoryNode');
+    var desplegables = this.modalResultados.find('.desplegarSubFaceta');
+    var desplegarNiveles = this.modalResultados.find('.desplegarNiveles');
+    var inputBuscador = this.modalResultados.find('.buscar .texto');
+
+    inputBuscador.unbind('keyup');
+    inputBuscador.bind('keyup input', function() {
+        var item = $(this);
+        var itemVal = item.val();
+        box.removeClass('oculto');
+        that.buscar(itemVal);
+    });
+
+    var desplegarSubFaceta = this.modalResultados.find('.desplegarSubFaceta i');
+
+    inputBuscador.focusin(function(){
+
+      //that.plegarSubniveles(desplegarSubFaceta);
+      //desplegables.addClass('oculto');
+      //desplegarNiveles.addClass('oculto');
+      //box.addClass('oculto');
+
+    });
+
+    inputBuscador.focusout(function(){
+
+      //that.desplegarSubniveles(desplegarSubFaceta);
+      //desplegables.removeClass('oculto');
+      //desplegarNiveles.removeClass('oculto');
+      //box.removeClass('oculto');
+
+    });
+
+    return;
+  },
+  buscar: function(valor){
+
+    var lista = this.modalResultados.find('.listadoFacetas li');
+
+    lista.each(function(indice) {
+        var item = $(this);
+        //if (indice === 0) debugger;
+        var enlaceItem = item.children('a');
+        var itemText = enlaceItem.text();
+
+        item.removeClass('oculto');
+
+        if (itemText.toLowerCase().indexOf(valor.toLowerCase()) < 0) {
+            item.addClass('oculto');
+        } else {
+            item.removeHighlight().highlight(valor);
+            item.parents('.oculto').removeClass('oculto');
+        }
+
+    });
+
+    return;
+  },
+  plegarSubniveles: function(desplegables){
+
+    var desplegarNiveles = this.modalResultados.find('.desplegarNiveles');
+    desplegarNiveles.addClass('desplegados').text('Plegar niveles');
+    desplegables.each(function(){
+      var desplegar = $(this);
+      if (desplegar.text() == "keyboard_arrow_down") desplegar.trigger('click');
+    });
+
+    return;
+  },
+  desplegarSubniveles: function(desplegables){
+
+    var desplegarNiveles = this.modalResultados.find('.desplegarNiveles');
+    desplegarNiveles.removeClass('desplegados').text('Desplegar niveles');
+    desplegables.each(function(){
+      var desplegar = $(this);
+      if (desplegar.text() == "keyboard_arrow_up") desplegar.trigger('click');
+    });
+
+    return;
+  }
+};*/
 
 /* FUNCIONES GRÁFICOS */
 
@@ -476,16 +763,20 @@ $(function(){
 
   panelMenu.init();
   menuSecundario.init();
+  headerMinScroll.init();
+  marginTopHome.init();
   
   if (body.hasClass('fichaComunidad')){
     accionesFicha.init();
     mostrarRestoDatosFicha.init();
   }else if (body.hasClass('listadoComunidad')){
     comportamientoFacetas.init();
-  //  lanzarCharts.init();
+    lanzarCharts.init();
+    verTodosFacetas.init();
   }else if (body.hasClass('homeSubbloque')){
     mapaComarcas.init();
   }else if (body.hasClass('homeBloque')){
+	 mapaComarcas.init();
     recortarDescBodyBloque.init();
   }
 

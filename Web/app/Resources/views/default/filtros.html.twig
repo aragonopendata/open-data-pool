@@ -9,10 +9,20 @@
     {{ utilidades.navegaoculto("path", "path", path('detalles')) }}
 
     <div class="container" role="main">
-        <div class="breadcrumb">
+        <div class="breadcrumb enlinea">
             <div class="wrap">
                 <ul>
-                    <li class="seccion">{{ fromType }}</li>
+					<li class="seccion"><a href="/pool">INICIO</a></li>
+					<li class="flecha"><span class="material-icons">keyboard_arrow_right</span></li>
+					{% if fromType == "Temas" %}
+						<li class="seccion"><a href="{{path('temas')}}?from=Temas">Temas</a></li>
+					{% endif %}
+					{% if fromType == "Entidades" %}
+						<li class="seccion"><a href="{{path('entidades')}}?from=Entidades">Entidades</a></li>
+					{% endif %}
+					{% if fromType == "Lugares" %}
+						<li class="seccion"><a href="{{path('lugares')}}?from=Lugares">Lugares</a></li>
+					{% endif %}
                     <li class="flecha"><span class="material-icons">keyboard_arrow_right</span></li>
                     <li class="titulo"> {{ fromTitle }} </li>
                 </ul>
@@ -31,36 +41,7 @@
                 </div>
                 <div class="col col-12 col-lg-8">
                 
-                    <form method="get" id="formCajaBusqueda" action="filtros">
-                        <fieldset style="display: block">
-                            <legend class="nota">facetas</legend>
-                            <div class="finderUtils" id="divCajaBusqueda"  title="Buscar">
-                                <div class="group finderSection">
-                                    <label for="finderSection">Encontrar</label>
-                                    <input type="text" name="busq" id="busq" class="finderSectionText autocompletar ac_input" value ="{{navegacion.CampoBuquedaLibre|keys[0]}}" autocomplete="off" placeholder="Busqueda abierta">
-                                    <span class="material-icons findAction">search</span>
-                                    <input type="hidden" value="https://preadveo.gnoss.com/products" >
-                                    <input type="hidden" value="sioc_t:Tag|foaf:firstName" class="inpt_facetasBusqPag">
-                                    <input type="hidden" class="inpt_parametros">
-                                    {{ utilidades.campooculto("pro", "pro", navegacion.Provincia) }}
-                                    {{ utilidades.campooculto("com", "com", navegacion.Comarca) }}
-                                    {{ utilidades.campooculto("mun", "mun", navegacion.Municipio) }}
-                                    {{ utilidades.campooculto("tem", "tem", navegacion.Tema) }}
-                                    {{ utilidades.campooculto("stem", "stem", navegacion.SubTema) }}
-                                    {{ utilidades.campooculto("ent", "ent", navegacion.Entidad) }}
-                                    {{ utilidades.campooculto("sent", "sent", navegacion.SubEntidad) }}
-                                    {{ utilidades.campooculto("pag", "pag", navegacion.Paginacion) }}
-                                    {{ utilidades.campooculto("ord", "ord", "") }}
-                                    {{ utilidades.campooculto("ordc", "ordc", "") }}
-                                    {{ utilidades.campooculto("from", "from", navegacion.From) }}
-                                    {{ utilidades.campooculto("filt", "filt", navegacion.Filters) }}
-                                </div>  
-                                <div class="group filterSpace">
-                                    <input type="submit" style="display: none;" id="enviarFormCajaBusqueda" value="enviar" title="enviar">
-                                </div>
-                            </div>
-                        </fieldset>
-                    </form>
+                    
             
                 </div>
             </div>
@@ -80,30 +61,57 @@
                         <span class="material-icons">close</span>
                     </div>
                     <div class="col logo">
-                        <img src="/img/logo-gobierno.png" alt="">
+                        <img src="img/logo-gobierno.png" alt="">
                     </div>
                 </div>
-                <form method="post" id="formPanFacetas" action="http://prered.gnoss.com/comunidad/nextweb/busqueda">
-                    <fieldset style="display: block">
-                        <legend class="nota">facetas</legend>
-                        <div id="panFacetas">
-                            <div class="facetedSearch" id="facetedSearch">
-                                {% for facetas in facetasArray %}
-                                    {% if facetas|length > 0 %}
-                                        {{ utilidades.pintaFaceta(facetas.id,facetas.boxid,facetas.title, facetas)  }}  
-                                    {% endif %}
-                                {% endfor %} 
-                            </div>
-                        </div>
-                        <input type="submit" style="display: none;" id="enviarFormPanFacetas" value="enviar" title="enviar">
-                    </fieldset>
-                </form>				
+                
+				<fieldset style="display: block">
+					<div id="panFacetas">
+						<div class="facetedSearch" id="facetedSearch">
+							{% for facetas in facetasArray %}
+								{% if facetas|length > 0 %}
+									{{ utilidades.pintaFaceta(facetas.id,facetas.boxid,facetas.title, facetas)  }}  
+								{% endif %}
+							{% endfor %} 
+						</div>
+					</div>
+					<input type="submit" style="display: none;" id="enviarFormPanFacetas" value="enviar" title="enviar">
+				</fieldset>
+                			
             </div>
 
 			<div class="col col-lg-8 col02">
               {% if ( resourcesArray |length > 0 ) %}
 				<div class="wrapCol02">
 					<div class="acciones-listado">
+						<form method="get" id="formCajaBusqueda" action="filtros">
+							<fieldset style="display: block">
+								<div class="finderUtils" id="divCajaBusqueda"  title="Buscar">
+									<div class="group finderSection">
+										<input type="text" name="busq" id="busq" class="finderSectionText autocompletar ac_input" value ="{{navegacion.CampoBuquedaLibre|keys[0]}}" autocomplete="off" placeholder="Busqueda abierta">
+										<span class="material-icons findAction">search</span>
+										<input type="hidden" value="sioc_t:Tag|foaf:firstName" class="inpt_facetasBusqPag">
+										<input type="hidden" class="inpt_parametros">
+										{{ utilidades.campooculto("pro", "pro", navegacion.Provincia) }}
+										{{ utilidades.campooculto("com", "com", navegacion.Comarca) }}
+										{{ utilidades.campooculto("mun", "mun", navegacion.Municipio) }}
+										{{ utilidades.campooculto("tem", "tem", navegacion.Tema) }}
+										{{ utilidades.campooculto("stem", "stem", navegacion.SubTema) }}
+										{{ utilidades.campooculto("ent", "ent", navegacion.Entidad) }}
+										{{ utilidades.campooculto("sent", "sent", navegacion.SubEntidad) }}
+										{{ utilidades.campooculto("pag", "pag", navegacion.Paginacion) }}
+										{{ utilidades.campooculto("ord", "ord", "") }}
+										{{ utilidades.campooculto("ordc", "ordc", "") }}
+										{{ utilidades.campooculto("from", "from", navegacion.From) }}
+										{{ utilidades.campooculto("filt", "filt", navegacion.Filters) }}
+									</div>  
+									<div class="group filterSpace">
+										<input type="submit" style="display: none;" id="enviarFormCajaBusqueda" value="enviar" title="enviar">
+									</div>
+								</div>
+							</fieldset>
+						</form>
+						
                         {% if navegacion.CampoBuquedaLibre|keys[0]|length >  0 %}
                             <div class="ordenacion dropdown">
                                 <a class="dropdown-toggle" id="dropdownOrdenacion" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ordenar por nombre</a>
@@ -114,22 +122,24 @@
                                 </div>
                             </div>
                         {% endif %}
+                        <div class="ordenacion">
+                            <a href="{{rutaOrden}}" id="ordenaListaMenu"  name="ordenaListaMenu" title="Ordenar Resultados">
+                                <span class="material-icons">swap_vert</span> Orden A-Z
+                            </a>
+                        </div>
 	                    <div id="divVista">
 		                    <div class="activado" id="view">
                                 <ul>
-                                    <li class="liFacetas">
-                                        <a href="#vistaListado" class="mostrar-ocultar-facetas" title="Mostrar/ocultar Facetas">
-                                            <span class="material-icons">view_headline</span>
-                                        </a>
-                                    </li>
                                     <li class="listView activeView" name="listView">
-                                        <a href="{{rutaOrden}}" id="ordenaListaMenu"  name="ordenaListaMenu" title="Ordenar Resultados">
-                                            <span class="material-icons">filter_list</span> 
+                                        <a href="#" id="verListadoMenu"  name="verListadoMenu" title="Mostrar listado resultados">
+                                            <span class="material-icons">view_headline</span> 
+                                            Listado
                                         </a>
                                     </li>
                                     <li class="lisGraphic" name="lisGraphic">
-                                        <a href="#" id="verGraficosMenu"  name="verGraficosMenu" title="Mostrar/ocultar estadística resultados ">
+                                        <a href="#" id="verGraficosMenu"  name="verGraficosMenu" title="Mostrar estadística resultados ">
                                             <span class="material-icons">show_chart</span>
+                                            Gráficos
                                         </a>
                                     </li>
                                 </ul>
@@ -143,7 +153,7 @@
 	                    <div class="listadoResultados">
                                <div class="resource-list" id="resource-list" name="resource-list">
                                {% for resource in resourcesArray %}
-                                    {{ utilidades.pintaRessource(resource.tipo,resource.fecha,resource.descripcion, resource.url) }} 
+                                    {{ utilidades.pintaRessource(resource.clase, resource.tipo,resource.fecha,resource.descripcion, resource.url, resource.downloadUri) }} 
                                {% endfor %} 
 		                    </div>
 	                    </div>
@@ -162,6 +172,31 @@
                 {% endif %}
 			</div>     
 		</div>
+		<div class="modal" id="modalFacetas" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title"></h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="buscador-modal">
+                      <form>
+                          <div>
+                              <input type="text" value="">
+                              <span class="material-icons">search</span>
+                          </div>
+                      </form>
+                  </div>
+                  <div class="lista-modal">
+
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
 	</div>
 {% endblock main %}
 

@@ -153,7 +153,7 @@ class Types
         }
         return $entidad;
     }
-
+    
     function GetChildTypeByDctype($dcType) {
         $entidad=array();
         $consulta = $this->em->createQuery("SELECT t FROM ApiRestAodPoolBundle:Entidades t 
@@ -178,6 +178,41 @@ class Types
         return $entidad;
     }
 
+    function GetNameByDcTypeR($dcType) {
+        $entidad= "";
+        $consulta = $this->em->createQuery("SELECT t FROM ApiRestAodPoolBundle:Entidades t 
+                                           JOIN ApiRestAodPoolBundle:Entidades s  
+                                           WHERE s.parentCode = t.code and
+                                           s.dc_type = '$dcType'");                         
+        $query = $consulta->getResult();
+        if (count($query)>0){
+           if ($query[0]->getParentCode() == 0) {
+              $entidad = $query[0]->getNameEs();
+           } else {
+              $entidad = $this->GetNameByDcTypeR($query[0]->getDc_type());
+           }
+        }
+        return $entidad;
+    }
+
+    function GetSlugByDcType($dcType) {
+        $slug= "";
+        $consulta = $this->em->createQuery("SELECT t FROM ApiRestAodPoolBundle:Entidades t 
+                                        JOIN ApiRestAodPoolBundle:Entidades s  
+                                        WHERE s.parentCode = t.code and
+                                        s.dc_type = '$dcType'");                         
+        $query = $consulta->getResult();
+ 
+        if (count($query)>0){
+            if ($query[0]->getParentCode()==0) {
+                $slug = $query[0]->getSlug();
+            } else{
+                $slug = $this->GetSlugByDcType($query[0]->getDc_type());
+            }
+        }
+        return $slug;
+    }
+
     function GetDcTypeByName($name) {
         $dcType= "";
         $consulta = $this->em->createQuery("SELECT t FROM ApiRestAodPoolBundle:Entidades t 
@@ -199,6 +234,18 @@ class Types
         }
         return $entidad;
     }
+
+    function GetSlugByRdfType($rdfType) {
+        $slug= "";
+        $consulta = $this->em->createQuery("SELECT t FROM ApiRestAodPoolBundle:Entidades t 
+                                           WHERE t.rdf_type = '$rdfType' order by t.parentCode");                         
+        $query = $consulta->getResult();
+        if (count($query)>0){
+           $slug = $query[0]->getSlug();
+        }
+        return $slug;
+    }
+
 
     function GetCodeByRdfType($rdfType) {
         $entidad= "";

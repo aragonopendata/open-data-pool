@@ -3,6 +3,7 @@
 namespace WebBundle\Entity;
 
 use WebBundle\Entity\Temas;
+use WebBundle\Controller\Utility\Trazas;
 
 
 /**
@@ -654,6 +655,7 @@ class Navegacion
 
     //funcion que devuelve los filtros para los marcadores de filtros añadidos en la pagina de facetacion
     public function getfiltrosSpain(){
+		$this->IncializoTrazas();
         $filtrosSpain = array();
        
         //pregunto si hay filtros porque si los hay ya los tengo cargados
@@ -661,15 +663,23 @@ class Navegacion
           //por cada uno de ellos hago un array cob clave codigo y literal nombre:valor
           $count=0;
           $filtroaquitar =  $_GET["filt"];
+          ////decodifico si la faceta viene codificada de la busqueda abierta
+          if (strpos($filtroaquitar ,"%3A")!==FALSE) {
+            $filtroaquitar  = urldecode( $filtroaquitar );
+          }
           $requestquitaFiltro = explode("|",$filtroaquitar);
           foreach ($this->filtersArray as  $filtro) {       
-            $nuevofiltro="";
-            foreach ($requestquitaFiltro as $value) {
-                if (strpos($value,$filtro['NameHead'])!==False){
+            $nuevofiltro="";		
+            foreach ($requestquitaFiltro as $value) {		
+                if (strpos($value,$filtro['NameHead'])!==False && strpos($value,$filtro['Valor'])!==False){
                     $nuevofiltro.= urlencode($value);
                 }
             }
-            $urlactual = "$_SERVER[REQUEST_URI]";
+            if (strpos("$_SERVER[REQUEST_URI]","%25")!==FALSE) {
+                $urlactual = urldecode("$_SERVER[REQUEST_URI]");
+            } else {
+                $urlactual = "$_SERVER[REQUEST_URI]";
+            }
             $nuevofiltro = str_replace($nuevofiltro,"", $urlactual);
             $nuevofiltro = str_replace("filt=|","filt=", $nuevofiltro);
             $nuevofiltro = str_replace("filt=%7C","filt=", $nuevofiltro);
@@ -684,12 +694,29 @@ class Navegacion
             if (substr($nuevofiltro,-3)=="%7C"){
                 $nuevofiltro= substr($nuevofiltro,0,-3);
             }
+			
             $nuevofiltro = $actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$nuevofiltro";
             $filtrosSpain[$count]= array("Nombre"=>$filtro['Nombre'], "Url"=>$nuevofiltro);
             $count++;
           }     
         }
         return $filtrosSpain;
+    }
+	
+	private function IncializoTrazas(){
+        if (empty( $this->directoryPath)) {
+            //contruyo el objeto trazas
+            $appPath = $this->context->getParameter('kernel.root_dir');
+            $this->directoryPath = str_replace("app","src/WebBundle/Resources/Files/", $appPath);	
+            $this->trazas = new Trazas($this->directoryPath);
+            $this->trazas->setClase("Navegacion");
+            $this->trazas->LineaDebug("__construct","Entro función");
+            //recojo parametros de la pliacopn
+            $this->param =  $this->context->getParameter('api_consulta');
+            $this->modoTrazasDebug = $this->param['trazas_debug'];
+            $this->urlPrefijo = $this->param['url_prefijo'];
+            $this->trazas->LineaDebug("indexAction","Entro función");
+        }
     }
 
     //funcion que me devuelve en formato array todo el objeto

@@ -60,6 +60,7 @@ class ParseaDetalle{
     public function __construct($virtuoso, $url, $directoryPath, $configuracion) {
       $this->virtuoso = $virtuoso;
       $this->url = $url;
+	  syslog ( LOG_WARNING , 'La url que llega ParseaDetalle es: '.$url );
       $this->directoryPath = $directoryPath;
       foreach ($configuracion as $key => $value) {
         $this->configuracion=$configuracion[$key];
@@ -97,19 +98,6 @@ class ParseaDetalle{
             $campo = $this->configuracion['PanelCentral']['Votos']['Campo'];
             $query=$this->configuracion['PanelCentral']['Votos']['Query'];
             $query= $this->DameQuery($campo, $query);
-            /*
-            if ($campo=="uri"){
-                $query = str_replace("%s",$this->url, $query);
-                $this->trazas->LineaDebug("Procesa","Creo la query el valor a parsear es el sujeto principal: " . $query );
-            } else {
-                $campo = $this->DameValorP($campo);
-                $this->trazas->LineaDebug("Procesa","El valor a parsear viene de las triples ya que es un campo en concreto: ".  $campo);
-                $this->trazas->LineaDebug("Procesa","");
-                //creo la query
-                $query = str_replace("%s",$campo,$query);
-                $this->trazas->LineaDebug("Procesa","Creo la query el valor a parsear es el sujeto principal: " . $query );
-            }
-            */
             $triples = $this->virtuoso->DameConsultaWeb($query,"SUJETOS"); 
             if (count($triples)>0) {
                 foreach ($triples[0] as $key => $value) {
@@ -149,18 +137,6 @@ class ParseaDetalle{
                 if (!empty($query) && !empty($campo)) {
                     $this->trazas->LineaDebug("Procesa","Recojo el campo para parsear en la plantilla de mapa". $campo);
                     $query= $this->DameQuery($campo, $query);
-                    /*
-                    if ($campo=="uri"){
-                        $query = str_replace("%s",$this->url, $query);
-                        $this->trazas->LineaDebug("Procesa","Creo la query el valor a parsear es el sujeto principal: " . $query );
-                    } else {
-                        $campo = $this->DameValorP($campo);
-                        $this->trazas->LineaDebug("Procesa","El valor a parsear viene de las triples ya que es un campo en concreto: ".  $campo);
-                        $this->trazas->LineaDebug("Procesa","");
-                        //creo la query
-                        $query = str_replace("%s",$campo,$query);
-                        $this->trazas->LineaDebug("Procesa","Creo la query el valor a parsear es el sujeto principal: " . $query );
-                    }*/
                     $marcadores = $this->virtuoso->DameConsultaWeb($query,"SUJETOS"); 
                     $markers = array();
                     //Creo el arrayu de marcasdores
@@ -215,18 +191,6 @@ class ParseaDetalle{
                     $query=$this->configuracion['PanelCentral']['Texto']['Query'];
                     $this->trazas->LineaDebug("Procesa","Recojo el campo para parsear en la plantilla de mapa". $campo);
                     $query= $this->DameQuery($campo, $query);
-
-                   /* if ($campo=="uri"){
-                        $query = str_replace("%s",$this->url, $query);
-                        $this->trazas->LineaDebug("Procesa","Creo la query el valor a parsear es el sujeto principal: " . $query );
-                    } else {
-                        $campo = $this->DameValorP($campo);
-                        $this->trazas->LineaDebug("Procesa","El valor a parsear viene de las triples ya que es un campo en concreto: ".  $campo);
-                        $this->trazas->LineaDebug("Procesa","");
-                        //creo la query
-                        $query = str_replace("%s",$campo,$query);
-                        $this->trazas->LineaDebug("Procesa","Creo la query el valor a parsear es el sujeto principal: " . $query );
-                    }*/
                     $this->trazas->LineaDebug("Procesa",  $query);
                     //lanzo consulta a virtuoso
                     $triples = $this->virtuoso->DameConsultaWeb($query,"SUJETOS"); 
@@ -248,18 +212,6 @@ class ParseaDetalle{
                     $query=$this->configuracion['PanelCentral']['Texto']['Query'];
                     $this->trazas->LineaDebug("Procesa","Recojo el campo para parsear en la plantilla de mapa". $campo);
                     $query= $this->DameQuery($campo, $query);
-
-                  /*  if ($campo=="uri"){
-                        $query = str_replace("%s",$this->url, $query);
-                        $this->trazas->LineaDebug("Procesa","Creo la query el valor a parsear es el sujeto principal: " . $query );
-                    } else {
-                        $campo = $this->DameValorP($campo);
-                        $this->trazas->LineaDebug("Procesa","El valor a parsear viene de las triples ya que es un campo en concreto: ".  $campo);
-                        $this->trazas->LineaDebug("Procesa","");
-                        //creo la query
-                        $query = str_replace("%s",$campo,$query);
-                        $this->trazas->LineaDebug("Procesa","Creo la query el valor a parsear es el sujeto principal: " . $query );
-                    }*/
                     $this->trazas->LineaDebug("Procesa",  $query);
                     //lanzo consulta a virtuoso
                     $triples = $this->virtuoso->DameConsultaWeb($query,"SUJETOS"); 
@@ -303,18 +255,6 @@ class ParseaDetalle{
                         $campo = $campovalor['Campo'];
                         $this->trazas->LineaDebug("Procesa","Recojo el campo para parsear en la plantilla". $campo);
                         $query= $this->DameQuery($campo, $query);
-                        /*
-                        if ($campo=="uri"){
-                            $query = str_replace("%s",$this->url, $query);
-                            $this->trazas->LineaDebug("Procesa","Creo la query el valor a parsear es el sujeto principal: " . $query );
-                        } else {
-                            $campo = $this->DameValorP($campo);
-                            $this->trazas->LineaDebug("Procesa","El valor a parsear viene de las triples ya que es un campo en concreto: ".  $campo);
-                            $this->trazas->LineaDebug("Procesa","");
-                            //creo la query
-                            $query = str_replace("%s",$campo,$query);
-                            $this->trazas->LineaDebug("Procesa","Creo la query el valor a parsear es el sujeto principal: " . $query );
-                        }*/
                     }
                     $this->trazas->LineaDebug("Procesa","Lanzo la consulta a virtusos y guardo las triples");
                     
@@ -323,14 +263,31 @@ class ParseaDetalle{
                     if (count($triples)>0) {
                         $this->trazas->LineaDebug("Procesa","Si tiene respuesta");
                         //por cada campo formo informo el nombre del campo el valor y la clase css
-                        foreach ($campovalor['Campos'] as $campo){                       
+                        foreach ($campovalor['Campos'] as $campo){  
+                            (isset($campo['Url'])) ? $link = $campo['Url'] : $link=""; 
+                            (isset($campo['CampoUrl'])) ? $filedlink = $campo['CampoUrl'] : $filedlink="";             
                             (isset($campo['Class'])) ? $class = $campo['Class'] : $class="";
                             $key = $campo['Valor'];
                             (isset($triples[0][$key]))? $valor = $triples[0][$key] : $valor="";
+
+                            //si existe el campo de parseado tomo el valor correspondiente al campo
+                            if (!empty($link) && !empty($filedlink)) {
+                              $filedlink = $triples[0][$filedlink];
+                              $link = sprintf($link,$filedlink);
+                            }
+
                             if (!empty($valor)) {
-                                $campoweb = array("Nombre"=> $campo['Nombre'],
-                                                    "Valor"=>$valor, 
+                                //si existe el link lo informo si no no
+                                if (!empty($link)) {
+                                    $campoweb = array("Nombre"=> $campo['Nombre'],
+                                                    "Valor"=>$valor,
+                                                    "Enlace"=>$link, 
                                                     "Class"=>$class);
+                                } else {
+                                    $campoweb = array("Nombre"=> $campo['Nombre'],
+                                                      "Valor"=>$valor,
+                                                      "Class"=>$class);
+                                }
                                 $this->trazas->LineaDebug("Procesa","Añado el campo al bloque");
                                 //añado el campo al bloque
                                 $campovalorweb['Campos'][] = array("Campos"=>$campoweb);
@@ -383,16 +340,6 @@ class ParseaDetalle{
                         $campo = $campovalor['Campo'];
                         $this->trazas->LineaDebug("Procesa","Creo la query el valor a parsear es el sujeto principal");
                         $query= $this->DameQuery($campo, $query);
-                        /*
-                       //creo la query el valor a parsear es el sujeto principal
-                        if ($campo=="uri"){
-                            $query = str_replace("%s",$this->url,$query);
-                        } else {
-                             $this->trazas->LineaDebug("Procesa","El valor a parsear viene de las triples ya que es un campo en concreto");
-                             //el valor a parsear viene de las triples ya que es un campo en concreto
-                            $campo = $this->DameValorP($campo);
-                            $query = str_replace("%s",$campo,$query);
-                        }*/
                     }
                     $this->trazas->LineaDebug("Procesa","Lanzo la consulta a virtusos para preguntar por la url externa");
                     //lanzo la consulta a virtusos para preguntar por la url externa
@@ -427,17 +374,35 @@ class ParseaDetalle{
                                 (isset($campo['Class'])) ? $class = $campo['Class'] : $class="";
                                 $key = $campo['Valor'];
                                 (isset($valoresArray[$key]))? $valor = $valoresArray[$key] : $valor="";
+                                (isset($campo['Url'])) ? $link = $campo['Url'] : $link=""; 
+                                (isset($campo['CampoUrl'])) ? $filedlink = $campo['CampoUrl'] : $filedlink="";
+
+                                //si existe el campo de parseado tomo el valor correspondiente al campo
+                                if (!empty($link) && !empty($filedlink)) {
+                                   if (count($triples)>0) {
+                                      $filedlink = $triples[0][$filedlink];
+                                      $link = sprintf($link,$filedlink);
+                                   }
+                                }
+
                                 $this->trazas->LineaDebug("Procesa","Preparo el capo valor estilo");
                                 //preparo el capo valor estilo
                                 if (!empty($valor)) {
-                                        $campoweb = array("Nombre"=> $campo['Nombre'],
-                                                        "Valor"=>$valor, 
-                                                        "Class"=>$class);
+                                       //si existe el link lo informo si no no
+                                        if (!empty($link)) {
+                                            $campoweb = array("Nombre"=> $campo['Nombre'],
+                                                            "Valor"=>$valor,
+                                                            "Enlace"=>$link, 
+                                                            "Class"=>$class);
+                                        } else {
+                                            $campoweb = array("Nombre"=> $campo['Nombre'],
+                                                            "Valor"=>$valor,
+                                                            "Class"=>$class);
+                                        }
                                         $this->trazas->LineaDebug("Procesa","Añado el campo al bloque");
                                         //añado el campo al bloque
                                         $campovalorweb['Campos'][] = array("Campos"=>$campoweb);
                                 }
-       
                             }
                         }
                     } else {
@@ -483,15 +448,6 @@ class ParseaDetalle{
                         $campo = $tabla['Campo'];
                         $this->trazas->LineaDebug("Procesa","Recojo el campo: " . $campo);
                         $query= $this->DameQuery($campo, $query);
-                        //si el campo es uri el valor es la url sujeto
-                     /*   if ($campo=="uri"){
-                            $query = str_replace("%s",$this->url,$query);
-                        } else {
-                            $this->trazas->LineaDebug("Procesa", $query);
-                            //si no es un valor en concreto a buscar en a las triples
-                            $campo = $this->DameValorP($campo);
-                            $query = str_replace("%s",$campo,$query);
-                        }*/
                     }
                     $this->trazas->LineaDebug("Procesa","Pregunto a virtuoso y recojo las triples");
                     //pregunto a virtuoso y recojo las triples
@@ -521,18 +477,39 @@ class ParseaDetalle{
                     //recorro todas la triples para buscar Cada array triples tiene los campos dentro,e s decir cada tripleS tiene los campos en triple
                     foreach ($triples as $triple) {
                         $fila = array(); 
+
                         $this->trazas->LineaDebug("Procesa","Recorro todas la triples para buscar Cada array triples tiene los campos dentro,e s decir cada tripleS tiene los campos en triple");
                         //recorro las triples donde la key es el nombre del encabezado
                         foreach ($triple as $key => $value) {
-                             //si tiene estilo el valor lo recojo
-                             (isset($columna['ClassValor'])) ? $classvalor= $columna['ClassValor'] : $classvalor="";
-                             $this->trazas->LineaDebug("Procesa","Si tiene estilo el valor lo recojo:" . $classvalor);
-                             //publico el valor y el estilo
-                             $valor = array("Valor"=>$triple[$key],"ClaseValor"=> $classvalor);
-                             $this->trazas->LineaDebug("Procesa","publico el valor y el estilo");
-                             //añado a la lista de filas
-                             $fila[] = $valor; 
-                             $this->trazas->LineaDebug("Procesa","Añado a la lista de filas");    
+                            $link ="";
+                            foreach ($tabla['Columnas'] as $columna) {
+                                if ($columna['Valor']===$key) {
+                                    //si tiene estilo el valor lo recojo
+                                    (isset($columna['ClassValor'])) ? $classvalor= $columna['ClassValor'] : $classvalor="";
+                                    $this->trazas->LineaDebug("Procesa","Si tiene estilo el valor lo recojo:" . $classvalor);
+
+                                    (isset($columna['Url'])) ? $link = $columna['Url'] : $link=""; 
+                                    $this->trazas->LineaDebug("Procesa","Si tiene enlace el valor lo recojo:" . $link);
+                                    (isset($columna['CampoUrl'])) ? $filedlink = $columna['CampoUrl'] : $filedlink="";  
+                                    $this->trazas->LineaDebug("Procesa","Si tiene enlace se parsea el valor lo recojo:" . $filedlink);
+
+		                    //si existe el campo de parseado tomo el valor correspondiente al campo
+		                     if (!empty($link) && !empty($filedlink)) {
+		                        $filedlink = $triple[$filedlink];
+		                        $link = sprintf($link,$filedlink);
+		                     }
+		                     //publico el valor y el estilo
+		                     if (!empty($link)) {
+		                        $valor = array("Valor"=>$triple[$key],"ClaseValor"=> $classvalor,"Enlace"=> $link);
+		                     } else {
+		                        $valor = array("Valor"=>$triple[$key],"ClaseValor"=> $classvalor);
+		                     }
+		                     $this->trazas->LineaDebug("Procesa","publico el valor y el estilo");
+		                     //añado a la lista de filas
+		                     $fila[] = $valor; 
+		                     $this->trazas->LineaDebug("Procesa","Añado a la lista de filas");  
+                                }
+                            }   
                         }        
                         //añado el conjunto de filas a las filas
                         $this->trazas->LineaDebug("Procesa","Añado el conjunto de filas a las filas"); 
@@ -571,17 +548,6 @@ class ParseaDetalle{
                     $query=$this->configuracion['PanelLateral']['Texto']['Query'];
                     $this->trazas->LineaDebug("Procesa","Recojo el campo para parsear en la plantilla de mapa". $campo);
                     $query= $this->DameQuery($campo, $query);
-                  /*  if ($campo=="uri"){
-                        $query = str_replace("%s",$this->url, $query);
-                        $this->trazas->LineaDebug("Procesa","Creo la query el valor a parsear es el sujeto principal: " . $query );
-                    } else {
-                        $campo = $this->DameValorP($campo);
-                        $this->trazas->LineaDebug("Procesa","El valor a parsear viene de las triples ya que es un campo en concreto: ".  $campo);
-                        $this->trazas->LineaDebug("Procesa","");
-                        //creo la query
-                        $query = str_replace("%s",$campo,$query);
-                        $this->trazas->LineaDebug("Procesa","Creo la query el valor a parsear es el sujeto principal: " . $query );
-                    }*/
                     $this->trazas->LineaDebug("Procesa",  $query);
                     //lanzo consulta a virtuoso
                     $triples = $this->virtuoso->DameConsultaWeb($query,"SUJETOS"); 
@@ -603,17 +569,6 @@ class ParseaDetalle{
                         $query=$this->configuracion['PanelLateral']['Texto']['Query'];
                         $this->trazas->LineaDebug("Procesa","Recojo el campo para parsear en la plantilla de mapa". $campo);
                         $query= $this->DameQuery($campo, $query);
-                      /*  if ($campo=="uri"){
-                            $query = str_replace("%s",$this->url, $query);
-                            $this->trazas->LineaDebug("Procesa","Creo la query el valor a parsear es el sujeto principal: " . $query );
-                        } else {
-                            $campo = $this->DameValorP($campo);
-                            $this->trazas->LineaDebug("Procesa","El valor a parsear viene de las triples ya que es un campo en concreto: ".  $campo);
-                            $this->trazas->LineaDebug("Procesa","");
-                            //creo la query
-                            $query = str_replace("%s",$campo,$query);
-                            $this->trazas->LineaDebug("Procesa","Creo la query el valor a parsear es el sujeto principal: " . $query );
-                        }*/
                         $this->trazas->LineaDebug("Procesa",  $query);
                         //lanzo consulta a virtuoso
                         $triples = $this->virtuoso->DameConsultaWeb($query,"SUJETOS"); 
@@ -643,6 +598,12 @@ class ParseaDetalle{
                 //inicializo el bloque con titulo y tipo
                 $listaweb  = array('Titulo' => $lista['Titulo'], 'Tipo' => $lista['Tipo']);
                 $listaweb['Enlaces'] = array();                
+                //busco si se requiere tratamiento de url sin acentos ni 'ñ'
+                /*
+				$sinAcentosUrl = false;
+                if (isset($lista['SinAcentosUrl'])){
+                    $sinAcentosUrl=$lista['SinAcentosUrl'];
+                }*/
                 $this->trazas->LineaDebug("Procesa","Inicializo el bloque con titulo y tipo");
                 //por cada enlace
                 foreach ($lista['Enlaces'] as $enlace ) {
@@ -673,7 +634,7 @@ class ParseaDetalle{
                     //si hay campo a parsear en la url lo recojo y parseo
                     if(!empty($campoUrl)){
                         $campoUrl = $this->DameValorP($campoUrl);  
-                        if (isset($sinAcentosUrl)) {
+                        if ($sinAcentosUrl) {
                             $campoUrl = $this->DameSinAcentos($campoUrl);
                         }                     
                         $url = sprintf($url,$campoUrl);
@@ -750,8 +711,7 @@ class ParseaDetalle{
                     $urlsp = explode("#",$valores['url']);
                     if (count($urlsp)==2){
                         //prepar los enlaces de los hijos
-						// TODO: Quitar http%3A%2F%2Fopendata.aragon.es%2Fdef%2Fei2a%23
-                        $url = sprintf("detalles?url=http%%3A%%2F%%2Fopendata.aragon.es%%2Fdef%%2Fei2a%%23%s",$urlsp[1]);
+                        $url = sprintf("detalles?url=%s",$urlsp[1]);
                     }
                     $this->trazas->LineaDebug("Procesa",sprintf("Añado enlace Nombre %s, Link; %s",$valores['name'], $url ));
                     $listaContexto['Enlaces'][] = array('Url' => $url,'Texto' => $valores['name']); 

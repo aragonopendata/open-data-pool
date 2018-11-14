@@ -10,10 +10,10 @@ PanelCentral:
     Latitud:
     Logitud:
   Texto: 
-    Tipo: Virtuoso
-    Query: 
-    Campo:  
-    Html: campo
+    Tipo: HTML
+    Query: select lcase(?campo) where { ?s <http://opendata.aragon.es/def/ei2a#organizationName> ?name. ?s <http://purl.org/dc/elements/1.1/identifier> ?identifier. filter (?s = <%s>) bind(concat(?name, '-', ?identifier) as ?campo)}
+    Campo: uri
+    Html: <iframe src="http://www.aemet.es/es/eltiempo/prediccion/municipios/mostrarwidget/%s"></iframe>
   CampoValores:
     CampoValor1:
       Tipo: Virtuoso
@@ -116,6 +116,7 @@ PanelLateral:
       Titulo: Enlaces de interes 
       #gadget-iconos gadget-enlaces gadget-masinfo
       Tipo: gadget-enlaces
+      SinAcentosUrl: true
       Enlaces:
         Enlace1:
           Texto: Ver ordenanzas municipales de %s

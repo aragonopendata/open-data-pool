@@ -34,6 +34,21 @@ jQuery(document).ready(function () {
         var data = e.params.data;
         enviaLocalidad("","",data.id);
     });
+	
+	$('.js-municipio-bis').on('select2:select', function (e) {
+        var data = e.params.data;
+        enviaLocalidadBis("",data.id,"");
+    });
+
+    $('.js-provincia-bis').on('select2:select', function (e) {
+        var data = e.params.data;
+        enviaLocalidadBis(data.id,"","");
+    });
+
+    $('.js-comarca-bis').on('select2:select', function (e) {
+        var data = e.params.data;
+        enviaLocalidadBis("","",data.id);
+    });
 
     jQuery('.bloque-mapa').removeClass('ocultar-bloque');
     jQuery('#vmap').vectorMap({
@@ -52,12 +67,33 @@ jQuery(document).ready(function () {
         },
         onRegionClick: function(element, code, region)
         {
-              enviaLocalidad("","",code.toUpperCase());
+			var homeBloque = document.getElementsByClassName('homeBloque');
+			if(homeBloque.length > 0){
+				enviaLocalidadBis("","",code.toUpperCase());
+			} else{
+				enviaLocalidad("","",code.toUpperCase());
+			}
+			
+            //enviaLocalidad("","",code.toUpperCase());
         }
     });
     jQuery('.bloque-mapa').addClass('ocultar-bloque');
   });
 
+function enviaLocalidadBis(pro,mun,com) {
+        var path =  document.getElementById('pathLugares').defaultValue + "?";
+        var tem = "tem=" + document.getElementById('tem').defaultValue  + "&";
+        var stem = "stem=" + document.getElementById('stem').defaultValue  + "&";
+        var pro = "pro=" + pro + "&";
+        var com = "com=" + com + "&";
+        var mun = "mun=" + mun + "&";
+        var ent = "ent=" + document.getElementById('ent').defaultValue + "&";
+        var sent = "sent=" +  document.getElementById('sent').defaultValue + "&";
+        var from = "from=" + document.getElementById('from').defaultValue;            
+        var newLocation =  path + tem + stem + pro + com + mun + ent + sent + from;
+        window.location.href = newLocation;
+ }  
+  
   function enviaLocalidad(pro,mun,com) {
         var path =  document.getElementById('path').defaultValue + "?";
         var tem = "tem=" + document.getElementById('tem').defaultValue  + "&";

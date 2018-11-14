@@ -12,6 +12,18 @@
 
 {% block main %}
     <div class="container" role="main">
+		<div class="breadcrumb enlinea">
+            <div class="wrap">
+                <ul>
+					<li class="seccion"><a href="/pool">INICIO</a></li>
+					<li class="flecha"><span class="material-icons">keyboard_arrow_right</span></li>
+                    <li class="titulo">{{ tipo }} </li>
+                </ul>
+                {% if numeroResultados>0 %}
+                 <p>Selecciona algún filtro/criterio de la columna de la izquierda para mostrar resultados más relevantes</p>
+                 {% endif %}
+            </div>
+        </div>
         <div class="row row-ficha">
             <div class="col col-12 col-lg-8 col01">
                 <div class="row row-cabecera-ficha">
@@ -21,7 +33,7 @@
                         <div class="imagen" title='{{tipo}}'></div>
                         <div class="titulo">
                             <span class="tipo">{{ tipo }} </span>
-                            <span class="literal">{{ detalle.PanelCentral.Titulo }}</span>  
+                            <h1 class="literal">{{ detalle.PanelCentral.Titulo }}</h1>  
                             {% if detalle.PanelCentral.Votos is defined  %}
                                 {{ utilidades.pintaVotos(detalle.PanelCentral.Votos) }}   
                             {% endif %}

@@ -111,6 +111,7 @@ class Topics
         return $tema;
     }
 
+
     function GetCodeByRdfType($rdfType) {
         $entidad= "";
         $consulta = $this->em->createQuery("SELECT t FROM ApiRestAodPoolBundle:Temas t 

@@ -88,7 +88,7 @@ class Triples
                 if ($cuenta>0) {
                     if (!empty($linea)) {
                         $this->trazas->LineaDebug("DameTriples", sprintf("Proceso Linea: %s",$linea));
-                        $linea = str_replace("\"","", $linea);
+                        //$linea = str_replace("\"","", $linea);
                         //llamo a dame triple pasandole la linea y elencabezado
                         $ArrayRespuestas[] = $this->DameTripe($linea, $header);
                     }
@@ -111,18 +111,22 @@ class Triples
         $sujeto ="";
         $verbo ="";
         $predicado ="";
-        $tem = explode(",",$linea);
+        //$tem = explode(",",$linea);
+        $tem = $this->explodeAvanzado($linea, count($header));
         if (isset($tem[0])) {
             $this->trazas->LineaDebug("DameTripe", sprintf("Proceso Sujeto: %s",$tem[0]));
             $sujeto= sprintf("%s", $tem[0]);
+            $sujeto = str_replace("\"","", $sujeto);
         }
         if (isset($tem[1])) {
             $this->trazas->LineaDebug("DameTripe", sprintf("Proceso Verbo: %s",$tem[1]));
             $verbo=sprintf("%s", $tem[1]);
+            $verbo = str_replace("\"","", $verbo);
         }
         if (isset($tem[2])) {
            $this->trazas->LineaDebug("DameTripe", sprintf("Proceso Predicado: %s",$tem[2]));
            $predicado= sprintf("%s", $tem[2]);
+           $predicado = str_replace("\"","", $predicado);
         }
         $arrayLinea = array($header[0] => $sujeto, $header[1]=>$verbo, $header[2]=> $predicado);
         return  $arrayLinea ;

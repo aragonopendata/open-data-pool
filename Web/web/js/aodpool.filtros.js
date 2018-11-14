@@ -21,14 +21,14 @@ $(document).ready(function() {
         } else if (tmpval == 'ASC')  {
                 $('input[name=ordajax]').val("DESC");
                 if (url.search("ord=ASC")>0) {
-                    url = url.replace("ord=DESC",'ord=ASC');
+                    url = url.replace("ord=ASC",'ord=DESC');
                 } else {
                     url = url.concat("&ord=DESC");
                 }
-        } else if (tmpval == 'DESC') {
+            } else if (tmpval == 'DESC') {
                 $('input[name=ordajax]').val("ASC"); 
                 if (url.search("ord=ASC")>0) {
-                    url = url.replace("ord=ASC",'ord=DESC');
+                    url = url.replace("ord=DESC",'ord=ASC');
                 } else {
                     url = url.concat("&ord=ASC");
                 } 
@@ -40,7 +40,8 @@ $(document).ready(function() {
         $('div#panResultados').load(url); // load the html response into a DOM element
         e.preventDefault(); // stop the browser from following the link
     });
-    $('a#verGraficosMenu').bind('click', function(e) {           
+    $('a#verGraficosMenu').bind('click', function(e) {     
+        e.preventDefault();      
          var panResultados = $('div[name=panResultados]');
          var listView  =  $('li[name=listView]'); 
          var panGraficos = $('div[name=panGraficos]');
@@ -51,6 +52,21 @@ $(document).ready(function() {
               $(panGraficos).css("display","block");
               $(lisGraphic).addClass('activeView');
               $(listView).removeClass("activeView");
+         } 
+    });
+
+    $('a#verListadoMenu').bind('click', function(e) {     
+        e.preventDefault();      
+         var panResultados = $('div[name=panResultados]');
+         var listView  =  $('li[name=listView]'); 
+         var panGraficos = $('div[name=panGraficos]');
+         var lisGraphic = $('li[name=lisGraphic]');
+         var styloActual = panResultados.css("display");
+         if (styloActual=="none") {
+              $(panResultados).css("display","block");
+              $(panGraficos).css("display","none");
+              $(lisGraphic).removeClass('activeView');
+              $(listView).addClass("activeView");
          } 
     });
     

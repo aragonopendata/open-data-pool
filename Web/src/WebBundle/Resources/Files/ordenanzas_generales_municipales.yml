@@ -1,4 +1,4 @@
- BodyClass: fichaComunidad fichaOrdenanza
+BodyClass: fichaComunidad fichaOrdenanza
 PanelCentral:
   Titulo: http://opendata.aragon.es/def/ei2a#nameDocument    
   CampoValores:

@@ -21,7 +21,8 @@ define("FILTROENTIDAD","?s rdf:type <%s> . ");
 define("FILTROTEMA","?s dc:type ?t0 . ?t0 rdf:type <%s> . ");
 
 
-define("QUERY_MUNICIPIO_COMARCA","%s select  ?id as ?contador from <%s> where { ?s rdf:type ?type .  ?s wgs84_pos:location ?location . ?location dc:identifier ?id .  ?location dc:type <http://opendata.aragon.es/def/ei2a#%s>. %s}  group by ?id");
+define("QUERY_COMARCA","%s select  ?id as ?contador from <%s> where { ?s rdf:type ?type .  ?s wgs84_pos:location ?location . ?location wgs84_pos:location ?comarca . ?comarca dc:identifier ?id .  ?comarca dc:type <http://opendata.aragon.es/def/ei2a#%s>. %s}  group by ?id");
+define("QUERY_MUNICIPIO","%s select  ?id as ?contador from <%s> where { ?s rdf:type ?type .  ?s wgs84_pos:location ?location . ?location dc:identifier ?id .  ?location dc:type <http://opendata.aragon.es/def/ei2a#%s>. %s}  group by ?id");
 define("QUERY_PROVINCIA","%s select ?id as ?contador from <%s> where { ?s rdf:type ?type .  ?s wgs84_pos:location ?location. ?location org:subOrganizationOf ?provincia. ?provincia rdfs:label ?id . %s}  group by ?id");
 
 define("QUERY_ENTIDAD","%s select  ?id as ?contador from <%s> where { ?s rdf:type ?id . %s}  group by ?id");
@@ -197,7 +198,7 @@ class FiltroNavegacion{
             $condicion =sprintf(FILTROENTIDAD,$rdfTypeentidad);
          }
         //monto la query
-        $query = sprintf(QUERY_MUNICIPIO_COMARCA,$prefijos,$from,"comarca",$condicion);
+        $query = sprintf(QUERY_COMARCA,$prefijos,$from,"comarca",$condicion);
         $comarcas =  $this->virtuoso->DameConsultaWeb($query,"SUJETOS"); 
         //por cada comarca devuelta creo otro array con los datos del array con todas las provincias
         //las comarcas son de  tamaño 2
@@ -232,7 +233,7 @@ class FiltroNavegacion{
            $condicion =sprintf(FILTROENTIDAD,$rdfTypeentidad);
         }
          //monto la query
-        $query = sprintf(QUERY_MUNICIPIO_COMARCA,$prefijos,$from,"municipio",$condicion);
+        $query = sprintf(QUERY_MUNICIPIO,$prefijos,$from,"municipio",$condicion);
         $municipios =  $this->virtuoso->DameConsultaWeb($query,"SUJETOS"); 
         //por cada municipio devuelta creo otro array con los datos del array con todas las provincias
         //los municipio son de codigo con tamaño 5
@@ -267,6 +268,7 @@ class FiltroNavegacion{
         if ( $tipoLocalidad==2 || $tipoLocalidad==5) {
            $condicion =sprintf(FILTROMUNICIPIOCOMARCA,$localidad); 
         } else if ( $tipoLocalidad==4)  {
+           $localidad = $this->DameNombreProvincia($localidad);
            $condicion =sprintf(FILTROPROVINCIA,$localidad);
         }
           //monto la query
@@ -303,6 +305,7 @@ class FiltroNavegacion{
         if ( $tipoLocalidad==2 || $tipoLocalidad==5) {
            $condicion =sprintf(FILTROMUNICIPIOCOMARCA,$localidad); 
         } else if ( $tipoLocalidad==4)  {
+           $localidad = $this->DameNombreProvincia($localidad);
            $condicion =sprintf(FILTROPROVINCIA,$localidad);
         }
         //monto la query
@@ -320,6 +323,22 @@ class FiltroNavegacion{
         //ordeno el array
         asort($filtro);
         return $filtro;
+    }
+
+    private function DameNombreProvincia($codigo){
+       $nombreProvincia ="";
+       switch ($codigo) {
+        case 7823:
+            $nombreProvincia = "Zaragoza";
+            break;
+        case 7824:
+            $nombreProvincia = "Huesca";
+            break;
+        case 7825:
+            $nombreProvincia = "Teruel";
+            break;
+       }
+       return $nombreProvincia;
     }
       
 }

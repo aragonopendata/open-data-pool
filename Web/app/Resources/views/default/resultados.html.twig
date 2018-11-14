@@ -3,7 +3,7 @@
 <div class="listadoResultados">
         <div class="resource-list" id="resource-list" name="resource-list">
         {% for resource in resourcesArray %}
-            {{ utilidades.pintaRessource(resource.tipo,resource.fecha,resource.descripcion, resource.url) }} 
+            {{ utilidades.pintaRessource(resource.clase, resource.tipo,resource.fecha,resource.descripcion, resource.url, resource.downloadUri) }} 
         {% endfor %} 
     </div>
 </div>	

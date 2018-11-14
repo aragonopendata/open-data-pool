@@ -15,8 +15,13 @@
     <link href="{{ asset('css/datatables.min.css') }}"  rel="stylesheet" type="text/css">
     <!-- PERSONALIZACION TEMA -->
     <link href="{{ asset('css/theme.css') }}"  rel="stylesheet" type="text/css">
+	<link href="{{ asset('css/theme1.css') }}"  rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=roboto:400,700' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+	
+	<!-- FONT AWESOME -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	
     {% block extra_css %} {% endblock extra_css%}
 {% endblock stylesheets %}
 {% block javascripts %}
@@ -44,21 +49,21 @@
 	<div class="container-fluid">
 		<div class="row row-principal">
 			<div class="col col-4 col-sm-6">
-				<img src="/img/logo-gobierno.png" alt="Logo gobierno de Aragón" title="Logo gobierno de Aragón">
-				<img src="/img/logo-europa.png" alt="Logo Fondo Europeo de Desarrollo Regional" title="Logo Fondo Europeo de Desarrollo Regional">
+				<img src="img/logo-gobierno.png" alt="Logo gobierno de Aragón" title="Logo gobierno de Aragón">
+				<img src="img/logo-europa.png" alt="Logo Fondo Europeo de Desarrollo Regional" title="Logo Fondo Europeo de Desarrollo Regional">
 			</div>
 			<div class="col col-8 col-sm-6">
 				<ul>
-					<li><a href="http://transparencia.aragon.es/" target="_blank" class="col-3">Transparencia</a></li>
-					<li><a href="http://aragonparticipa.aragon.es" target="_blank" class="col-6">Participación ciudadana</a></li>
 					<li><a href="/" class="col-3 active">Open data</a></li>
+					<li><a href="http://aragonparticipa.aragon.es" target="_blank" class="col-6">Participación ciudadana</a></li>
+					<li><a href="http://transparencia.aragon.es/" target="_blank" class="col-3">Transparencia</a></li>
 				</ul>
 			</div>
 		</div>
 		<div class="row row-secundaria">
 			<a href="/" class="logo">
-				<img src="/img/aragon-open-data.png" alt="Aragón Open Data" title="Aragón Open Data" class="azul">
-				<img src="/img/aragon-open-data-blanco.png" alt="Aragón Open Data" class="blanco">
+				<img src="img/aragon-open-data.png" alt="Aragón Open Data" title="Aragón Open Data" class="azul">
+				<img src="img/aragon-open-data-blanco.png" alt="Aragón Open Data" class="blanco">
 			</a>
 			<div class="menuLogin">
 				<a class="aLogin" href="https://opendata.aragon.es/login" title="Acceso plataforma"></a>
@@ -68,7 +73,7 @@
 			</div>
 		</div>
 		<div class="row-menu-secundario">
-			<nav>
+			<ul>
 				<li>
 					<a href="#" title="Datos">Datos</a>
 					<ul>
@@ -107,7 +112,7 @@
                         <li><a href="https://github.com/aragonopendata/Aragon-Open-Data-3" target="_blank" onclick="openNav()">GITHUB</a></li>
 					</ul>
 				</li>
-			</nav>
+			</ul>
 			<div class="buscador">
 				<div class="wrap">
                     <form class="search" method="post" onsubmit="return buscaCkan()">
@@ -145,7 +150,7 @@
                     <span class="material-icons">close</span>
                 </div>
                 <div class="col logo">
-                    <img src="/img/logo-gobierno.png" alt="">
+                    <img src="img/logo-gobierno.png" alt="">
                 </div>
             </div>
             <div class="body-panel">
@@ -170,7 +175,7 @@
                         </nav>
                         <div class="union-europea">
                             <div class="imagen">
-                                <img src="/img/flag-europe.png" alt="Union Europea">
+                                <img src="img/flag-europe.png" alt="Union Europea">
                             </div>
                             <div class="texto">
                                 <p>Union Europea</p>
@@ -179,6 +184,14 @@
                                 <p class="minus">"Construyendo Europa desde Aragón"</p>
                             </div>
                         </div>
+						<div class="licencia">
+							<div class="imagen-licencia">
+								<img src="img/cc.png">
+							</div>
+							<div class="texto-licencia">
+								<p>Los contenidos del portal están sujetos a la licencia creative commons reconocimiento 4.0 salvo que se indique lo contrario</p>
+							</div>
+						</div>
                     </div>
                     <div class="col col-menu">
                         <p class="titulo">Contenido destacado</p>
@@ -192,31 +205,31 @@
                         </nav>
                     </div>
                     <div class="col col-powered">
-                       <p class="titulo">Desarrollado por</p>
+                       <p class="titulo">Powered By</p>
                         <div class="logos">
                             <div class="logo">
-                                 	<a alt="ckan" href="http://ckan.org/" target="_blank"><img src="/img/cajaLogoCKAN.jpg"></a>
+                                 	<a alt="ckan" href="http://ckan.org/" target="_blank"><img src="img/cajaLogoCKAN.jpg"></a>
                             </div>
                             <div class="logo">
-                                  <a alt="mediawiki" href="http://www.mediawiki.org/" target="_blank"><img src="/img/cajaLogoMediaWiki.jpg"></a>
+                                  <a alt="mediawiki" href="http://www.mediawiki.org/" target="_blank"><img src="img/cajaLogoMediaWiki.jpg"></a>
                             </div>
                             <div class="logo">
-                                <a alt="virtuoso" href="http://virtuoso.openlinksw.com/" target="_blank"><img src="/img/cajaLogoVirtuoso.jpg"></a>
+                                <a alt="virtuoso" href="http://virtuoso.openlinksw.com/" target="_blank"><img src="img/cajaLogoVirtuoso.jpg"></a>
                             </div>
                             <div class="logo">
-                                 <a alt="elda" href="http://epimorphics.github.io/elda/" target="_blank"><img src="/img/cajaLogoElda.jpg"></a>
+                                 <a alt="elda" href="http://epimorphics.github.io/elda/" target="_blank"><img src="img/cajaLogoElda.jpg"></a>
                             </div>
                             <div class="logo">
-                               <a alt="swagger" href="http://swagger.io/" target="_blank"><img src="/img/cajaLogoSwagger.jpg"></a>
+                               <a alt="swagger" href="http://swagger.io/" target="_blank"><img src="img/cajaLogoSwagger.jpg"></a>
                             </div>
                             <div class="logo">
-                                <a alt="node" href="https://nodejs.org/es/" target="_blank"><img src="/img/cajaLogoNodeJS.jpg"></a>
+                                <a alt="node" href="https://nodejs.org/es/" target="_blank"><img src="img/cajaLogoNodeJS.jpg"></a>
                             </div>
                             <div class="logo">
-                                <a alt="angular" href="https://angular.io/" target="_blank"><img src="/img/cajaLogoAngular.jpg"></a>
+                                <a alt="angular" href="https://angular.io/" target="_blank"><img src="img/cajaLogoAngular.jpg"></a>
                             </div>
                             <div class="logo">
-                                <a alt="kibana" href="https://www.elastic.co/products/kibana/" target="_blank"><img src="/img/cajaLogoKibana.jpg"></a>
+                                <a alt="kibana" href="https://www.elastic.co/products/kibana/" target="_blank"><img src="img/cajaLogoKibana.jpg"></a>
                             </div>
                         </div>
                     </div>
@@ -224,18 +237,39 @@
                 <div class="row row02">
                     <div class="col col-aragon">
                         <div class="wrap-imagen">
-                            <img src="/img/logo-aragon.png" alt="Gobierno de aragón" title="Gobierno de aragón">
+                            <img src="img/logo-aragon.png" alt="Gobierno de aragón" title="Gobierno de aragón">
                         </div>
                     </div>
+					
+					<div class="col redes-sociales">
+						<div class="social mail">
+							<a href="mailto:opendata@aragon.es">
+								<i class="far fa-envelope">
+									<span>AOD</span>
+								</i>
+							</a>
+						</div>
+						<div class="social youtube">
+							<a href="https://www.youtube.com/watch?v=8d409yteTJM&amp;list=PLQ3k0vA0UZvhBVOz_mCq-9Wyn3VCB6QCe">
+								<i class="fab fa-youtube"></i>
+							</a>
+						</div>
+						<div class="social twitter">
+							<a href="https://www.twitter.com/oasi">
+								<i class="fab fa-twitter"></i>
+							</a>	
+						</div>
+						<div class="social facebook">
+							<a href="https://www.facebook.com/observatorio.aragones">
+								<i class="fab fa-facebook"></i>
+							</a>
+						</div>
+					</div>
+					
                 </div>
                 <div class="row row03">
-                    <div class="col col-direccion">
-                        <nav>
-                            <li>Gobierno de aragón</li>
-                            <li>Edificio Pignatelli</li>
-                            <li>Paseo María Agustín, 36, 50071</li>
-                            <li><a href="tel:/+34976714000">Tel 976714000</a></li>
-                        </nav>
+                    <div class="gobText">
+						<p> Gobierno de Aragón - Edificio Pignatelli - Paseo María Agustín, 36, 50071 - Zaragoza - Tel 976714000 </p>
                     </div>
                 </div>
             </div>

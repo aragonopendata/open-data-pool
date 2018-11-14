@@ -2,72 +2,291 @@
 {% import 'default/utilidades.html.twig' as utilidades %}
 
 {% block extra_css %}
+  <link href="{{ asset('css/jqvmap.css') }}"  rel="stylesheet" type="text/css">
+  <link href="{{ asset('css/select2.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ asset('css/select2-bootstrap.css') }}" rel="stylesheet" type="text/css" />
+     <style>
+      #vmap {
+        width: auto;
+        height: 600px;
+        background-color: '#ffffff';
+      }
+    </style>
 {% endblock extra_css %}
 
 {% block main %} 
-        <div class="container" role="main">			
-            <div class="row row-bloques">
-                <div class="col bloque bloque-temas">
-                    <div class="wrap">
-                        <div class="header-bloque" title="Temas">
-                            <div class="imagen">
-                            </div>
-                        </div>
-                        <div class="body-bloque" title="Temas">
-                            <a href="{{path('temas')}}?from=Temas">Temas</a>
-                        </div>
-                    </div>
-                </div>
+		<div class="sliderPrincipal">
+			<div class="item" style="background: url(img/slide1.jpg) no-repeat center;"> 
+				<div class="wrap">
+				<h1>DATOS ENLAZADOS</H1>
+				<p>Datos Enlazados representa el proyecto Aragón Open Data Pool: descubre nueva información navegando de manera sencilla por los datos que se han normalizado conforme al EI2A. Desde este apartado, datos diversos y heterogéneos procedentes de todo tipo de fuentes se pueden consultar y relacionar mediante una navegación sencilla.</p>
+				</div>
+			</div>
+		</div>
+        <div class="container" role="main">
+			
+			
+			<!-- Temas-->
+			<h2>Temas</h2>
 
-                <div class="col bloque bloque-lugares">
-                    <div class="wrap">
-                        <div class="header-bloque" title="Lugares">
-                            <div class="imagen"></div>
-                        </div>
-                        <div class="body-bloque" title="Lugares">
-                            <a href="{{path('lugares')}}?from=Lugares">Lugares</a>
-                        </div>
-                    </div>
-                </div>
+      
+			{% if navegacion.Provincia|length == 0 and navegacion.Comarca|length == 0 and  navegacion.Municipio|length == 0 %}
+				{{ utilidades.navegaoculto("path", "path", path('lugares')) }}
+			{% else %}   
+				{{ utilidades.navegaoculto("path", "path", path('entidades')) }}
+			{% endif %}
+			{{ utilidades.campooculto("pro", "pro", navegacion.Provincia) }}
+			{{ utilidades.campooculto("com", "com", navegacion.Comarca) }}
+			{{ utilidades.campooculto("mun", "mun", navegacion.Municipio) }}
+			{{ utilidades.campooculto("ent", "ent", navegacion.Entidad) }}
+			{{ utilidades.campooculto("sent", "sent", navegacion.SubEntidad) }}
+			<div class="row row-bloques-min"> 
+				{% for tema in temas %}
+					{{ utilidades.pintatema(tema.Topic.code, tema.Topic.slug,tema.Topic.nameES, tema.SubTopicsTexto) }}
+				{% endfor %}    
+			</div>
+			<!-- Temas-->
+			
+			<!-- Lugares-->
+			<h2>Lugares</h2>
+			{% if navegacion.SubTema|length == 0 and navegacion.Tema|length == 0 and navegacion.SubEntidad|length == 0 and navegacion.Entidad|length == 0 %} 
+            {{ utilidades.navegaoculto("path", "pathLugares", path('temasentidades')) }}
+			{% endif %}
 
-                <div class="col bloque bloque-entidades">
-                    <div class="wrap">
-                        <div class="header-bloque" title="Entidades">
-                            <div class="imagen"></div>
-                        </div>
-                        <div class="body-bloque" title="Entidades">
-                            <a href="{{path('entidades')}}?from=Entidades">Entidades</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+			{{ utilidades.campooculto("ent", "ent", navegacion.Entidad) }}
+			{{ utilidades.campooculto("sent", "sent", navegacion.SubEntidad) }}
+			{{ utilidades.campooculto("tem", "tem", navegacion.Tema) }}
+			{{ utilidades.campooculto("stem", "stem", navegacion.SubTema) }}
+			{{ utilidades.campooculto("from", "from", navegacion.From) }}
 
-            <div class="row row-bloques bloques-dobles">
-                <div class="col bloque bloque-simple bloque-doble">
-                    <div class="wrap">
-                        <div class="bloque-interno bloque-izq">
-                            <div class="wrap">
-                                <div class="header-bloque">
-                                    <div class="imagen"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bloque-interno bloque-dch" title="Bloque configurable">
-                            <div class="wrap">
-                                <div class="body-bloque" title="Bloque configurable">
-                                    <p>Bloque configurable</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col bloque bloque-simple">
-                    <div class="wrap">
-                        <div class="body-bloque" title="Desarrolladores">
-                            <a href="https://opendata.aragon.es/herramientas/desarrolladores">Desarrolladores</a>
-                        </div>	
-                    </div>
-                </div>
-            </div>
+			 
+			<div class="row row-bloques-min bloques-wrap">
+				<div class="col bloque-min bloque-provincias">
+					<div class="wrap">
+						<div class="header-bloque">
+							<div class="imagen"></div>
+							<h3>Provincias</h3>
+						</div>
+						<div class="body-bloque"  title='Provincias'>
+							{{ utilidades.camposeclect2("pro", "pro", "js-lugares js-provincia-bis",lugaresArray['Provincias']) }}
+						</div>
+					</div>
+				</div>
+				<div class="col bloque-min bloque-municipios">
+					<div class="wrap">
+						<div class="header-bloque">
+							<div class="imagen"></div>
+							<h3>Municipios</h3>
+						</div>
+						<div class="body-bloque" title='Municipios'>
+							{{ utilidades.camposeclect2("mun", "mun", "js-lugares js-municipio-bis",lugaresArray['Municipios']) }}
+						</div>
+					</div>
+				</div>
+			
+				<div class="col bloque-min bloque-comarcas">
+					<div class="wrap">
+						<div class="header-bloque">
+							<div class="imagen"></div>
+							<h3>Comarcas</h3>
+							<span class="enlace-mapa">Mapa</span>
+						</div>
+						<div class="body-bloque" title='Comarcas'>
+							{{ utilidades.camposeclect2("com", "com", "js-lugares js-comarca-bis",lugaresArray['Comarcas']) }}
+						</div>
+					</div>
+				</div>
+
+				 <div class="col bloque bloque-buscar bloque-comarcas-min ocultar-bloque">
+					<div class="wrap">
+						<div class="header-bloque" title='Comarcas'>
+							<div class="imagen"></div>
+							<h3>Comarcas</h3>
+						</div>
+						<div class="body-bloque" title='Comarcas'>
+								{{ utilidades.camposeclect2("com", "com", "js-lugares js-comarca-bis",lugaresArray['Comarcas']) }}
+						</div>
+					</div>
+				</div>
+				<div class="col bloque bloque-mapa ocultar-bloque">
+					<div class="wrap">
+						<div class="header-bloque" title='Mapa Comarcas'>
+							<span class="material-icons cerrar">close</span>
+							<div style="max-width: 600px; max-height: 580px;" id="vmap"></div>
+						</div>
+					</div>
+				</div> 
+
+			</div>
+			
+			<!-- Lugares -->
+			
+			<!-- Entidades -->
+			<h2>Entidades</h2>
+		  
+			{% if navegacion.SubTema|length == 0 and navegacion.Tema|length == 0 and navegacion.SubEntidad|length == 0 and navegacion.Entidad|length == 0 %} 
+            {{ utilidades.navegaoculto("path", "path", path('temasentidades')) }}
+			{% else %}
+				{{ utilidades.navegaoculto("path", "path", path('temasentidades')) }}
+			{% endif %}
+
+			{{ utilidades.campooculto("ent", "ent", navegacion.Entidad) }}
+			{{ utilidades.campooculto("sent", "sent", navegacion.SubEntidad) }}
+			{{ utilidades.campooculto("tem", "tem", navegacion.Tema) }}
+			{{ utilidades.campooculto("stem", "stem", navegacion.SubTema) }}
+			{{ utilidades.campooculto("from", "from", navegacion.From) }}
+
+			<div class="row row-bloques-min"> 
+				{% for entidad in entidades %}
+					{{ utilidades.pintaentidad(entidad.Type.code, entidad.Type.slug, entidad.Type.nameES, entidad.SubTypeTexto) }}
+				{% endfor %}
+				<div class="col bloque-min  bloque-pac">
+					<div class="wrap">
+					  <div class="imagen"></div>
+					  <div class="titulo"  title='PAC'>
+						<a id="93" href="pac.php"><h3 >PAC</h3></a>
+					  </div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Entidades -->
+			
+			
+			
+			<!-- Ejemplos -->
+			<h2>Aquí puedes ver algunos ejemplos de búsquedas en Aragón Open Data Pool por temas, lugares y entidades</h2>
+			<div class="row row-index">
+				<div class="col col-12 col-md-4">
+					<div class="listado-bloques bloque-temas">
+						<div class="header-listado">
+							<div class="imagen">
+								<span></span>
+							</div>
+							<div class="titulo">
+								<h2><a href="{{path('temas')}}?from=Temas">Temas</a></h2>
+							</div>
+						</div>
+						<div class="body-listado">
+							<div class="item-listado resource-medio">
+								<div class="imagen">
+									<span></span>
+								</div>
+								<div class="titulo">
+									<h3><a href="{{path('filtros')}}?tem=4&stem=&pro=7824&com=&mun=&ent=&sent=&from=Temas">Turismo de Huesca</a></h3>
+								</div>
+							</div>
+							<div class="item-listado resource-medio">
+								<div class="imagen">
+									<span></span>
+								</div>
+								<div class="titulo">
+									<h3><a href="{{path('filtros')}}?tem=4&stem=&pro=7825&com=&mun=&ent=&sent=&from=Temas">Turismo de Teruel</a></h3>
+								</div>
+							</div>
+							<div class="item-listado resource-medio">
+								<div class="imagen">
+									<span></span>
+								</div>
+								<div class="titulo">
+									<h3><a href="{{path('filtros')}}?tem=4&stem=&pro=7823&com=&mun=&ent=&sent=&from=Temas">Turismo de Zaragoza</a></h3>
+								</div>
+							</div>
+							<div class="item-mas">
+								<a href="{{path('temas')}}?from=Temas">Navegar por <span>temas</span> <span class="material-icons">keyboard_arrow_right</span></a>
+								</div>
+						</div>
+					</div>
+				</div>
+				<div class="col col-12 col-md-4">
+					<div class="listado-bloques bloque-lugares">
+						<div class="header-listado">
+							<div class="imagen">
+								<span></span>
+							</div>
+							<div class="titulo">
+								<h2><a href="{{path('lugares')}}?from=Lugares">Lugares</a></h2>
+							</div>
+						</div>
+						<div class="body-listado">
+							<div class="item-listado resource-documento">
+								<div class="imagen">
+										<span></span>
+								</div>
+								<div class="titulo">
+										<h3><a href="{{path('filtros')}}?tem=&stem=&pro=&com=&mun=44009&ent=46&sent=&from=Lugares&filt=Document+Type__ei2a%3AdocumentType__PRECIOS+PÚBLICOS____PRECIOS+PÚBLICOS">Precios Públicos de Albarracin</a></h3>
+								</div>
+							</div>
+							<div class="item-listado resource-documento">
+								<div class="imagen">
+										<span></span>
+								</div>
+								<div class="titulo">
+										<h3><a href="{{path('filtros')}}?tem=5&stem=&pro=&com=&mun=50252&ent=&sent=&from=Lugares&filt=Tipos__dc%3Atype__<http%3A%2F%2Fopendata.aragon.es%2Fdef%2Fei2a%23ordenanza_general_municipio>____Ordenanza+General+Municipio">Ordenanzas generales de Tauste</a></h3>
+								</div>
+							</div>
+							<div class="item-listado resource-documento">
+								<div class="imagen">
+										<span></span>
+								</div>
+								<div class="titulo">
+										<h3><a href="{{path('filtros')}}?tem=&stem=&pro=&com=&mun=22130&ent=46&sent=&from=Lugares&filt=Document+Type__ei2a%3AdocumentType__TASAS____TASAS">Tasas de Jaca</a></h3>
+								</div>
+							</div>
+							<div class="item-mas">
+									<a href="{{path('lugares')}}?from=Lugares">Navegar por <span>lugares</span> <span class="material-icons">keyboard_arrow_right</span></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col col-12 col-md-4">
+					<div class="listado-bloques bloque-entidades">
+						<div class="header-listado">
+							<div class="imagen">
+								<span></span>
+							</div>
+							<div class="titulo">
+								<h2><a href="{{path('entidades')}}?from=Entidades">Entidades</a></h2>
+							</div>
+						</div>
+						<div class="body-listado">
+							<div class="item-listado resource-entidades">
+								<div class="imagen">
+									<span></span>
+								</div>
+								<div class="titulo">
+									<h3><a href="{{path('filtros')}}?tem=&stem=&pro=&com=01&mun=&ent=1&sent=&from=Entidades&filt=Tipos__dc%3Atype__<http%3A%2F%2Fopendata.aragon.es%2Fdef%2Fei2a%23municipio>____Municipio">Ayuntamientos de la comarca La Jacetania</a></h3>
+								</div>
+							</div>
+							<div class="item-listado resource-entidades">
+								<div class="imagen">
+									<span></span>
+								</div>
+								<div class="titulo">
+									<h3><a href="{{path('filtros')}}?tem=&stem=&pro=&com=10&mun=&ent=36&sent=&from=Entidades">Pleno comarcal de Los Monegros</a></h3>
+								</div>
+							</div>
+							<div class="item-listado resource-entidades">
+								<div class="imagen">
+									<span></span>
+								</div>
+								<div class="titulo">
+									<h3><a href="{{path('filtros')}}?tem=&stem=&pro=&com=&mun=44050&ent=46&sent=&from=Entidades">Escudos y Banderas de Calamocha</a></h3>
+								</div>
+							</div>
+							<div class="item-mas">
+										<a href="{{path('entidades')}}?from=Entidades">Navegar por <span>entidades</span> <span class="material-icons">keyboard_arrow_right</span></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
         </div>
 {% endblock main %}
+
+{% block extra_javascript %}
+   <script type="text/javascript" src="{{ asset('js/jquery.vmap.js') }}" ></script>
+   <script type="text/javascript" src="{{ asset('js/jquery.aragon.map.js') }}" ></script>
+   <script type="text/javascript" src="{{ asset('js/select2.js') }}" ></script>
+   <script type="text/javascript" src="{{ asset('js/aodpool.navegacion.js') }}" ></script>
+{% endblock extra_javascript %}

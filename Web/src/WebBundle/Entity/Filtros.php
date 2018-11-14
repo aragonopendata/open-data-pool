@@ -6,39 +6,37 @@ use ApiRest\AodPoolBundle\Entity\Facetas;
 
 use WebBundle\Controller\Utility\Trazas;
 
-//defino las url para realizar las consultas del paso1 (obtener los rftypes y cada cantador del los mismos)
-//define("FILTROMUNICIPIO","ei2a:location <http://opendata.aragon.es/pool/municipio/%s> . ");
 define("FILTROMUNICIPIO","?s wgs84_pos:location ?location . ?location dc:identifier '%s' . ");
-define("FILTROCOMARCA","?s wgs84_pos:location ?location . ?location dc:identifier '%s' . ");                       
+//define("FILTROCOMARCA","?s wgs84_pos:location ?location . ?location dc:identifier '%s' . "); 
+define("FILTROCOMARCA","?s wgs84_pos:location ?location . ?location wgs84_pos:location ?location2 . ?location2 dc:identifier '%s' . ");                      
 define("FILTROPROVINCIA","?s wgs84_pos:location ?location. ?location org:subOrganizationOf ?provincia. ?provincia rdfs:label '%s' . ");
 
 define("FILTROENTIDAD","?s rdf:type <%s> . ");
 define("FILTROSUBENTIDAD","?s rdf:type <%s> . ?s dc:type <%s> .");
 define("FILTROTEMA","?s dc:type ?t0 . ?t0 rdf:type <%s> . ");
 define("FILTROSUBTEMA","?s dc:type ?t0 . ?t0 rdf:type <%s> . ?s dc:type <%s> . ");
+
 define("FILTRODFTYPE","?s dc:type <%s> . ");
 define("PREFIJOSDEFECTO","PREFIX ei2a:<http://opendata.aragon.es/def/ei2a#>  PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>  PREFIX org:<http://www.w3.org/ns/org#> PREFIX foaf:<http://xmlns.com/foaf/0.1/> PREFIX dc:<http://purl.org/dc/elements/1.1/> PREFIX wgs84_pos:<http://www.w3.org/2003/01/geo/wgs84_pos#>");
 
-define("QUERYRDFCUANTOSFACETAS","%s select ?type count(?s) as ?contador from <%s> where { ?s rdf:type ?type . %s } group by ?type");
 
-define("QUERYFACETA","%s select ?nombre count(?s) as ?contador from <%s> where { %s } group by ?nombre order by ?nombre");
-define("QUERYRDFCUANTOSRESULADOS","%s select ?s ?type from <%s> where { ?s rdf:type ?type . %s } group by ?type");
-define("QUERYRDFCUANTOSRESULADOSHTML","%s select count(distinct ?s) as ?contador  from <%s> where { ?s rdf:type ?type . %s %s }");
-define("QUERYRESULTADOS2","%s select distinct ?s max(?type) as ?type ?date ?name ?scoreText ?dctype from <%s> where { ?s rdf:type ?type. %s %s . ?s dc:type ?dctype .  } order by %s(%s) LIMIT 10 OFFSET %s "); 
-define("QUERYRESULTADOS2FILTRORDFTYPE","?s rdf:type <%s> .");
-define("QUERYRESULTADOS2FILTROUNIONSINBUSQUEDA","{ optional {%s}  %s %s } UNION ");
-define("QUERYRESULTADOS2FILTROUNIONCONBUSQUEDA","{ optional {%s}  %s %s %s } UNION ");
-define("QUERYBUSQUEDALIBRE", "?s %s ?y . filter(regex(?y, %s, 'i')) .");
-define("QUERYBUSQUEDALIBRESCORE", "?name bif:contains '%s' OPTION ( SCORE ?scoreText ) .");
-define("QUERYBUSQUEDALIBRESCORE2", '?name bif:contains "%s" OPTION ( SCORE ?scoreText ) .');
+define("QUERYRDFCUANTOSFACETAS","%s select ?type count(?s) as ?contador from <%s> where { ?s rdf:type ?type . %s } group by ?type");
+define("QUERYRDFCUANTOSRESULADOSHTML","%s %s");
+
+
+define("SUBQUERYFACETA","{ select distinct ?s from <%s> where { %s %s }}");
+define("QUERYFACETA","%s select ?nombre count(?s) as  ?contador from <%s> where {%s %s } order by ?nombre");
+define("SUBQUERYFACETABUSQUEDAABIERTA","{?s rdf:type <%s> . ?s %s ?name .?name bif:contains \"'%s'\"  . } UNION ");
+
+define("QUERYRESULTADOS","%s select ?s max(?type2) as ?type ?date ?name uri(min(str(?dctype2))) as ?dctype %s ?downloadUri from <%s> where { ?s rdf:type ?type2 . ?s dc:type ?dctype2 %s {%s} OPTIONAL {?s ei2a:URIDocument ?downloadUri} } order by %s(%s) LIMIT 10 OFFSET %s ");
+define("QUERYRESULTADOSOPTIONAL","optional {  ?s rdf:type <%s> . %s } ");
+define("QUERYRESULTADOSOPTIONALNOMBRE","?s %s ?name . ");
+define("QUERYRESULTADOSOPTIONALFECHA","?s %s ?date . ");
+define("SUBQUERYRESULTADOS","{ select distinct ?s %s from <%s> where { ?s rdf:type ?type . %s %s }}");
+define("SUBQUERYRESULTADOSBUSQUEDAABIERTA","{?s rdf:type <%s> .?s %s ?name .?name bif:contains \"'%s'\" OPTION ( SCORE ?scoreText ) . } UNION ");
 
 
 define("CAMPO_FACETA_NOMBRE","?nombre");
-/*
-define("CAMPO_RESULTADO_NOMBRE","?descripcion ");
-define("CAMPO_RESULTADO_FECHA","?fecha");
-*/
-
 define("FACETA_TEMA","Temas");
 define("FACETA_ENTIDAD","Tipos");
 define("FACETA_PROVINCIA","Provincias");
@@ -225,13 +223,9 @@ class Filtros{
         $this->trazas->LineaDebug("ProcesaResultados","Inicializo el array de resultados");
         //pregunto por los rdftype cuantos hay
         $this->trazas->LineaDebug("ProcesaResultados","Pregunto por los rdftype cuantos hay");
+        $scoreText="";
         $rdfTypes = $this->DameConsulta(QUERYRDFCUANTOSFACETAS);   
         if (count($rdfTypes)>0) {
-         /*   if (count($rdfTypes)>100){
-                $rdfTypes = array_slice($rdfTypes, 0,100);
-            }*/
-            //ya tengo los rdftypes y ahora voy por los campos particulares de cada uno de ellos a progress 
-            $filtros ="";
             $cuenta = 0;
             //Inicializo los prefijos porque en el mismo forech consulto por los campos particulares y
             //monto la consulta a virtuoso con Union. SI algún campo particular tiene un prefijo especifico se añade al 
@@ -261,126 +255,91 @@ class Filtros{
                     //}
                 } 
             }
+            $busquedaAbierta ="";
+            $optionalporRdfType ="";
             //por cada filtro encontrado
             foreach ($rdfTypes as $rdfType) {
                 $this->trazas->LineaDebug("ProcesaResultados","Pregunto a progrees por sus campos particulares");
                 //pregunto a progrees por sus campos particulares e fecha, titulo, campo búsqueda , etc..
                 $parametrosResultados = $this->camposResultadoDB->GetCamposbyRdfType($rdfType['type']);
-                //si el prefijo del campo fecha no está vacío lo informo
-                if (!empty($parametrosResultados[0]['PrefijoFieldDate'])){
-                    if (strpos($prefijos,$parametrosResultados[0]['PrefijoFieldDate'])===false){
-                        $prefijos = $prefijos . " " . $parametrosResultados[0]['PrefijoFieldDate'];
-                        $this->trazas->LineaDebug("ProcesaResultados","Prefijo del campo fecha no está vacío:".$parametrosResultados[0]['PrefijoFieldDate']);
-                    }
-                }
-                //si el prefijo del campo nombre (titulo) no está vacío lo informo
-                if (!empty($parametrosResultados[0]['PrefijoFieldName'])){
-                    if (strpos($prefijos,$parametrosResultados[0]['PrefijoFieldName'])===false){
-                        $prefijos = $prefijos . " " . $parametrosResultados[0]['PrefijoFieldName'];
-                        $this->trazas->LineaDebug("ProcesaResultados","Prefijo del campo nombre no está vacío:".$parametrosResultados[0]['PrefijoFieldName']);
-                    }
-                }
-                //si hay busqueda abierta
-                if (!empty($campoSearch)){
-                    //si el prefijo del campo buequeda (titulo) no está vacío lo informo
-                    if (!empty( $resultadosFaceta)){
-                        if (strpos($prefijos,$parametrosResultados[0]['PrefijoFieldSearch'])===false){
-                            $prefijos = $prefijos . " " . $parametrosResultados[0]['PrefijoFieldSearch'];
-                            $this->trazas->LineaDebug("ProcesaResultados","Prefijo del campo búsqueda abierta no está vacío:".$parametrosResultados[0]['PrefijoFieldSearch']);
-                        }
-                    }  
-                }
-                $CampoFecha ="";
-                if (!empty($parametrosResultados[0]['FieldDate'])){
-                    $CampoFecha = $parametrosResultados[0]['FieldDate'];
-                    $this->trazas->LineaDebug("ProcesaResultados","Informo los campo fecha:".  $CampoFecha);
-                }
-    
-                //si el campo fecha no esta vacío añado su filtro
-                if (!empty($CampoFecha )){
-                    $CampoFecha = $this->DameFiltro($CampoFecha,"",'?date');
-                    $this->trazas->LineaDebug("ProcesaResultados","Filtro Fecha;" .  $CampoFecha);
-                }
 
-                $CampoNombre="";
-                if (!empty($parametrosResultados[0]['FieldName'])){
-                    $CampoNombre = $parametrosResultados[0]['FieldName'];
-                    $this->trazas->LineaDebug("ProcesaResultados","Informo los campo nombre:". $parametrosResultados[0]['FieldName']);
-                }
-                //si el campo nombre no esta vacío añado su filtro
-                if (!empty($CampoNombre)){
-                    $CampoNombre = $this->DameFiltro($CampoNombre,"",'?name');
-                    $this->trazas->LineaDebug("ProcesaResultados","Filtro Nombre;" . $CampoNombre);
-
-                }
-                //si hay búsqueda abierta informo la búsqueda abierta
-                $filtroBusqueda="";
-                $filtroBusquedaScore="";
-                if (!empty($campoSearch)){
-                    $CampoBuequeda = $parametrosResultados[0]['FieldSearch'];
-                    $this->trazas->LineaDebug("ProcesaResultados","Informo los campo buequeda:". $parametrosResultados[0]['FieldSearch']);
-                    //si el campo buequeda no esta vacío añado su filtro
-                    if (!empty($CampoBuequeda)){
-                        //primero el filtro de la propia expresion
-                        $valor = sprintf('"%s"',$campoSearch);            
-                        $filtroBusqueda = sprintf(QUERYBUSQUEDALIBRE ,$CampoBuequeda, $valor);    
-                        $this->trazas->LineaDebug("ProcesaResultados","Filtro Buequeda;" .  $filtroBusqueda);
-                        //despues el filtro del score
-                        $valor="";
-                        //primero creo el conjunto de AND para cada espacio entre palabras
-                        $campoSearch = trim($campoSearch);
-                        if (strpos($campoSearch, " ")=== FALSE){
-                            $filtroBusquedaScore =  sprintf(QUERYBUSQUEDALIBRESCORE , $campoSearch);
-                        } else {
-                            $valoresScore = explode(" ",$campoSearch);
-                            foreach ($valoresScore as $value) {
-                                $valor = $valor . sprintf(" '%s' AND",$value);
+                if (count($parametrosResultados)>0){
+                   //creo las sentencias de busqueda texto literal (buesueda abierta)
+                   if (!empty($campoSearch)){
+                      $scoreText = " ?scoreText ";
+                      //si tiene campo de busqueda abierta
+                      if (!empty($parametrosResultados[0]['FieldSearch'])) {
+                         $busquedaAbierta .= sprintf(SUBQUERYRESULTADOSBUSQUEDAABIERTA , $parametrosResultados[0]['RdfType'],$parametrosResultados[0]['FieldSearch'],$campoSearch);
+                         //si el prefijo del campo buequeda (titulo) no está vacío lo informo
+                         if (!empty( $resultadosFaceta)){
+                            if (strpos($prefijos,$parametrosResultados[0]['PrefijoFieldSearch'])===false){
+                                $prefijos = $prefijos . " " . $parametrosResultados[0]['PrefijoFieldSearch'];
+                                $this->trazas->LineaDebug("ProcesaResultados","Prefijo del campo búsqueda abierta no está vacío:".$parametrosResultados[0]['PrefijoFieldSearch']);
                             }
-                            //quito el ultiomo AND
-                            $valor = substr($valor, 0, strlen($valor) - 3);
-                            $valor = trim( $valor);
-                            $filtroBusquedaScore =  sprintf(QUERYBUSQUEDALIBRESCORE2 , $valor);
+                         }  
+                      }
+                   }
+                   //si el rdftype esta en la tabla de tipos
+                   if (!empty($this->entidadesDB->GetDcTypeByRdfType($parametrosResultados[0]['RdfType']))){
+                        $opcionalNombre="";
+                        if (!empty($parametrosResultados[0]['FieldName'])){
+                            $opcionalNombre=  sprintf(QUERYRESULTADOSOPTIONALNOMBRE,$parametrosResultados[0]['FieldName']);
+                            $optionalporRdfType .= sprintf(QUERYRESULTADOSOPTIONAL , $parametrosResultados[0]['RdfType'],$opcionalNombre);
+                            //si el prefijo del campo nombre (titulo) no está vacío lo informo
+                            if (!empty($parametrosResultados[0]['PrefijoFieldName'])){
+                                    if (strpos($prefijos,$parametrosResultados[0]['PrefijoFieldName'])===false){
+                                        $prefijos = $prefijos . " " . $parametrosResultados[0]['PrefijoFieldName'];
+                                        $this->trazas->LineaDebug("ProcesaResultados","Prefijo del campo nombre no está vacío:".$parametrosResultados[0]['PrefijoFieldName']);
+                                    }
+                                }
                         }
-                        if (strlen($filtroBusquedaScore)>0) {           
-                            $this->trazas->LineaDebug("ProcesaResultados","Filtro Buequeda SCORE: " .  $filtroBusquedaScore);
-                            //junto los dos filtros en uno para lanzar la consulta
-                            $filtroBusqueda = sprintf("%s %s",$filtroBusqueda,$filtroBusquedaScore);
+                        $opcionalFecha="";
+                        if (!empty($parametrosResultados[0]['FieldDate'])){
+                            $opcionalFecha=  sprintf(QUERYRESULTADOSOPTIONALFECHA,$parametrosResultados[0]['FieldDate']);
+                            $optionalporRdfType .= sprintf(QUERYRESULTADOSOPTIONAL , $parametrosResultados[0]['RdfType'],$opcionalFecha);
+                            //si el prefijo del campo fecha no está vacío lo informo
+                            if (!empty($parametrosResultados[0]['PrefijoFieldDate'])){
+                                if (strpos($prefijos,$parametrosResultados[0]['PrefijoFieldDate'])===false){
+                                    $prefijos = $prefijos . " " . $parametrosResultados[0]['PrefijoFieldDate'];
+                                    $this->trazas->LineaDebug("ProcesaResultados","Prefijo del campo fecha no está vacío:".$parametrosResultados[0]['PrefijoFieldDate']);
+                                }
+                            }
                         } 
                     }
                 }
-                //cada rdftype se filtra el SPARQL con una expresión     del tipo filter(?s in (valor))
-                $filtroSujetos= sprintf(QUERYRESULTADOS2FILTRORDFTYPE,$rdfType['type']);
-                $this->trazas->LineaDebug("ProcesaResultados","Filtro por sujetos filter(?s in (valor)" .$filtroSujetos );
-                // informo la parte union del rdftype 
-                $filtroUnion ="";
-                //if ((!empty($CampoNombre) &&  !empty($filtroSujetos))) {
-                if (empty($filtroBusqueda)){ 
-                    $filtroUnion = sprintf(QUERYRESULTADOS2FILTROUNIONSINBUSQUEDA, $CampoFecha , $CampoNombre, $filtroSujetos);
-                } else{
-                    $filtroUnion = sprintf(QUERYRESULTADOS2FILTROUNIONCONBUSQUEDA, $CampoFecha , $CampoNombre, $filtroSujetos, $filtroBusqueda);
-                }
-                $this->trazas->LineaDebug("ProcesaResultados","Filtro Union: " . $filtroUnion);
-                //añado el segmento union a la consulta total
-                $filtros.= $filtroUnion;
-              // }
             }
-            //quito el ultimo " UNION"
-            $filtros = substr($filtros, 0, strlen($filtros) - 6);
-            $this->trazas->LineaDebug("ProcesaResultados","Filtro completo " . $filtros  );
-            //calculo la paginación por el parámetro de entrada  
-     
+            $this->trazas->LineaDebug("ProcesaResultados","Filtro principal date y name: " . $optionalporRdfType);
+
+           //quito el ultimo UNION de la busqueda Abierta
+            if (strlen($busquedaAbierta)>6) {
+              $busquedaAbierta = substr($busquedaAbierta, 0, strlen($busquedaAbierta) - 6);
+              $busquedaAbierta = trim( $busquedaAbierta);
+              $this->trazas->LineaDebug("ProcesaResultados","Filtro Busqueda Abierta: " . $busquedaAbierta);
+            }
+        
             $this->trazas->LineaDebug("ProcesaResultados","Paginacion:" . $paginacion);
             //si el parámetro informa de un campo order by  lo añado
             if (empty($campoOrder)){
                 $campoOrder = "?name";
             }
+            if (empty($order)){
+                $order = "ASC";
+            }
             $this->trazas->LineaDebug("ProcesaResultados","Campo Order:" . $campoOrder);
-            if ($filtros!==false) {
-                //voy por los filtros de la navegacion
-                //pregunto por los resulrados el nº con todo los filtros
-                $query = sprintf(QUERYRDFCUANTOSRESULADOSHTML, $prefijos,$from,$filtrosNavegacion, $filtros);
+            if (strlen($filtrosNavegacion)>0) {
+                //creo la subconsulta
+                $subconsulta = sprintf(SUBQUERYRESULTADOS,$scoreText, $from, $filtrosNavegacion, $busquedaAbierta);
+
+                $consultaCuantos=  substr($subconsulta, 1, strlen($subconsulta));
+                $consultaCuantos = substr($consultaCuantos, 0, strlen($consultaCuantos) - 1);
+                $consultaCuantos = str_replace("distinct ?s" ,"count(distinct ?s) as ?contador",$consultaCuantos);
+                $consultaCuantos = str_replace(" ?scoreText " ,"",$consultaCuantos);
+                $consultaCuantos = str_replace(" OPTION ( SCORE) ." ,"",$consultaCuantos);
+
+                $query = sprintf(QUERYRDFCUANTOSRESULADOSHTML, $prefijos,$consultaCuantos);
                 $this->trazas->LineaDebug("ProcesaResultados","pregunto por los resulrados el nº con todo los filtros");
                 $resultados = $this->virtuoso->DameConsultaWeb($query,"SUJETOS");
+             
                 //pongo un primer nº de resultados sin facetar 
                 if (count($resultados)==1) {
                     $this->totalResultados =  $resultados[0]['contador'];
@@ -389,7 +348,8 @@ class Filtros{
                 }
                 $this->trazas->LineaDebug("ProcesaResultados","Total resultados a mostrar nº: " .  $this->totalResultados);
                 //Monto la query final con todo
-                $query = sprintf(QUERYRESULTADOS2, $prefijos,$from, $filtrosNavegacion, $filtros, $order,$campoOrder,$paginacion);      
+               
+                $query = sprintf(QUERYRESULTADOS, $prefijos, $scoreText, $from, $optionalporRdfType, $subconsulta, $order,$campoOrder,$paginacion);     
                 //pregunto por los resultados
                 $this->trazas->LineaDebug("ProcesaResultados","Pregunto por los resultados a virtuoso");
                 $resultados = $this->virtuoso->DameConsultaWeb($query,"SUJETOS");
@@ -476,37 +436,45 @@ class Filtros{
             }
         }
 
-        if (!empty($campoSearch)) {
-            //ahora añado el campo busquedalibre si lo tienene y se ha solicitado
-            $this->trazas->LineaDebug("ProcesaResultados","Pregunto a progrees por sus campos particulares");
+        $rdfTypes = $this->DameConsulta(QUERYRDFCUANTOSFACETAS); 
+        $busquedaAbierta ="";
+        $optionalporRdfType ="";
+        //por cada filtro encontrado
+        foreach ($rdfTypes as $rdfType) {
+            $this->trazas->LineaDebug("DameFaceta","Pregunto a progrees por sus campos particulares");
             //pregunto a progrees por sus campos particulares e fecha, titulo, campo búsqueda , etc..
-            $parametrosResultados = $this->camposResultadoDB->GetCamposbyRdfType($facetaRdf['RdfType']);         
-            if (!empty($parametrosResultados['PrefijoFieldSearch'])){
-                //si hay busqueda abierta
-                $prefijos = $prefijos . " " . $parametrosResultados[0]['PrefijoFieldSearch'];
-                $this->trazas->LineaDebug("ProcesaResultados","Prefijo del campo búsqueda abierta no está vacío:".$parametrosResultados[0]['PrefijoFieldSearch']);
-            }
-            //si hay búsqueda abierta informo la búsqueda abierta
-            $filtroBusqueda="";
-            $CampoBuequeda = $parametrosResultados[0]['FieldSearch'];
-            $this->trazas->LineaDebug("ProcesaResultados","Informo los campo buequeda:". $parametrosResultados[0]['FieldSearch']);
-            //si el campo buequeda no esta vacío añado su filtro
-            if (!empty($CampoBuequeda )){
-                $valor = sprintf('"%s"',$campoSearch);            
-                $filtroBusqueda = sprintf(QUERYBUSQUEDALIBRE ,$CampoBuequeda, $valor);
-                $filtros.= $filtroBusqueda;
-                $this->trazas->LineaDebug("ProcesaResultados","Filtro Buequeda;" .  $filtroBusqueda);
+            $parametrosResultados = $this->camposResultadoDB->GetCamposbyRdfType($rdfType['type']);
+
+            if (count($parametrosResultados)>0){
+               //creo las sentencias de busqueda texto literal (buesueda abierta)
+               if (!empty($campoSearch)){
+                  //si tiene campo de busqueda abierta
+                  if (!empty($parametrosResultados[0]['FieldSearch'])) {
+                     $busquedaAbierta .= sprintf(SUBQUERYFACETABUSQUEDAABIERTA , $parametrosResultados[0]['RdfType'],$parametrosResultados[0]['FieldSearch'],$campoSearch);
+                     //si el prefijo del campo buequeda (titulo) no está vacío lo informo
+                     if (!empty( $resultadosFaceta)){
+                        if (strpos($prefijos,$parametrosResultados[0]['PrefijoFieldSearch'])===false){
+                            $prefijos = $prefijos . " " . $parametrosResultados[0]['PrefijoFieldSearch'];
+                            $this->trazas->LineaDebug("DameFaceta","Prefijo del campo búsqueda abierta no está vacío:".$parametrosResultados[0]['PrefijoFieldSearch']);
+                        }
+                     }  
+                  }
+               }
             }
         }
-        //ahora pregunto por los filtros del rdftype en cuestion, añado ?nombre, ya que se agrupa la faceta
-        //por ese parametro ?nombre en SPARQL
-        $this->trazas->LineaDebug("DameFaceta", "Pregunto por los filtros del rdftype en cuestion");
-        $query = sprintf(QUERYFACETA,$prefijos,$from,$filtros);
-        $filtros.= $this->DameFiltro($facetaRdf['Faceta'],$facetaRdf['Condition'],CAMPO_FACETA_NOMBRE);
-        $this->trazas->LineaDebug("DameFaceta","Creo la query con la plantilla");
-        //Creo la query con la plantilla
-        $this->trazas->LineaDebug("DameFaceta","Filtro completo: " .  $filtros);
-        $query = sprintf(QUERYFACETA,$prefijos,$from,$filtros);
+        //quito el ultimo UNION de la busqueda Abierta
+        if (strlen($busquedaAbierta)>6) {
+            $busquedaAbierta = substr($busquedaAbierta, 0, strlen($busquedaAbierta) - 6);
+            $busquedaAbierta = trim( $busquedaAbierta);
+            $this->trazas->LineaDebug("DameFaceta","Filtro Busqueda Abierta: " . $busquedaAbierta);
+        }
+        //creo la consulta interna
+        $subquery = sprintf(SUBQUERYFACETA,$from,$filtros,$busquedaAbierta);
+        //recojo el filtro de la faceta
+        $filtrosFaceta = $this->DameFiltro($facetaRdf['Faceta'],$facetaRdf['Condition'],CAMPO_FACETA_NOMBRE,$facetaRdf['NameHead']);
+        $this->trazas->LineaDebug("DameFaceta","Filtro faceta: " .  $filtrosFaceta);
+       //creo la consulta 
+        $query = sprintf(QUERYFACETA,$prefijos,$from, $filtrosFaceta, $subquery);
         //llamo a virtuoso
         $this->trazas->LineaDebug("DameFaceta","Pregunto por los resultados a virtuoso");
         $facetas = $this->virtuoso->DameConsultaWeb($query,"SUJETOS");
@@ -547,7 +515,7 @@ class Filtros{
                                     $facetaPadre['subFacetas'][] = $facetaHija;
                                     //si no hay facetas padre acumuladas la publico
                                     if (count($facetasTemporales)==0) {
-                                        $facetaPadre['valor']="#";
+                                        $facetaPadre['valor']=$rdftypeHija;
                                         $facetasTemporales[] = $facetaPadre;
                                         $puesta=true;
                                     //si no bueco la que corresponde
@@ -560,7 +528,7 @@ class Filtros{
                                             }     
                                         } 
                                         if (!$puesta) {
-                                            $facetaPadre['valor']="#";
+                                            $facetaPadre['valor']=$rdftypeHija;
                                             $facetasTemporales[] = $facetaPadre;
                                         }
                                     }
@@ -718,7 +686,7 @@ class Filtros{
                 $querydc = str_replace("select ?nombre", "select ?nombre  ?rdftype", $query);
                 $querydc = str_replace("group by ?nombre", "group by ?nombre ?rdftype", $querydc);
                 $querydc = str_replace("?s dc:type ?nombre .", "?s dc:type ?nombre . ?s rdf:type ?rdftype .", $querydc);
-                 
+                $this->trazas->LineaDebug("DameFacetaJerarquiaTipoEntidad","El dcType es:" . $dctype);
                 $this->trazas->LineaDebug("DameFacetaJerarquiaTipoEntidad", "query resultante:" . $query);
                 //pregunto por el padre a virtuoso
                 $subfaceta = $this->virtuoso->DameConsultaWeb($querydc,"SUJETOS");
@@ -733,11 +701,12 @@ class Filtros{
                     $this->trazas->LineaDebug("DameFacetaJerarquiaTipoEntidad", "Si hay respuesta. Creo una faceta padre y le añado como hiko la actual");
                     $facetaPadre = array(); 
                     if (count($subfaceta)>0) {
-                        $facetaPadre['valor'] =  "#";
+						//getDc_type()
+                        $facetaPadre['valor'] =  $padre->getRdf_type();
                         $facetaPadre['nombre'] = $this->entidadesDB->GetNameByRdfType($subfaceta[0]['rdftype']); 
                         $facetaPadre['contador']= $subfaceta[0]['contador'];
                     } else{
-                        $facetaPadre['valor'] =  "#"; 
+                        $facetaPadre['valor'] =  $padre->getRdf_type(); 
                         $facetaPadre['nombre'] = "Sin nombre";
                         $facetaPadre['contador'] = 0; 
                     }
@@ -758,10 +727,11 @@ class Filtros{
 	 * Los filtos pueden estar anidados por @ y condicionados con $ para el reverso
      * Tambien admite un campo condition que es otro filtro anidado con el mismo origen que $filter por lo que no hay que repetirlo
 	 */
-	public function DameFiltro($filter,$condition,$valor){
+	public function DameFiltro($filter,$condition,$valor,$campoanidado){
         $this->trazas->LineaDebug("DameFiltro","Entro función");
   
-		$filtro = "";
+	$filtro = "";
+        $campoanidado = "?" . strtolower($campoanidado);
         //compruebo que existe operador '@' (filtros anidados)
         $pos = strpos($filter, "@");
         $this->trazas->LineaDebug("DameFiltro","Compruebo que existe operador '@'");
@@ -783,21 +753,25 @@ class Filtros{
                 //en caso que sea la primara condicion y tenga reverso cruzo las condiciones
                 if ($count==0){
                     if ($condolar) {
-                        $filtro .=  sprintf("?s%s %s ?s . ",$count, $filterCondition);
+                        //$filtro .=  sprintf("?s%s %s ?s . ",$count, $filterCondition);
+                        $filtro .=  sprintf("%s%s %s ?s . ",$campoanidado,$count, $filterCondition);
                         $this->trazas->LineaDebug("DameFiltro","Cruzo las condiciones");
                     } else {
                         //si no creo el anidamiento normalmente
-                        $filtro .=  sprintf("?s %s ?s%s . ", $filterCondition, $count);
+                        //$filtro .=  sprintf("?s %s ?s%s . ", $filterCondition, $count);
+                        $filtro .=  sprintf("?s %s %s%s . ", $filterCondition, $campoanidado,$count);
                         $this->trazas->LineaDebug("DameFiltro","creo el anidamiento normalmente");
                     }
                 } else {
-                    $filtro .=  sprintf("?s%s %s ?s%s . ",$count-1, $filterCondition, $count);		
+                   // $filtro .=  sprintf("?s%s %s ?s%s . ",$count-1, $filterCondition, $count);	
+                    $filtro .=  sprintf("%s%s %s %s%s . ",$campoanidado,$count-1, $filterCondition, $campoanidado,$count);		
                 }
                 $this->trazas->LineaDebug("DameFiltro","Filtro". $filtro);
                 $count++;
             }
             //remplazo la ultima variable con el valor a buscar
-            $ultimo = sprintf("?s%s",$count-1);
+            //$ultimo = sprintf("?s%s",$count-1);
+            $ultimo = sprintf("%s%s",$campoanidado,$count-1);
             $filtro = str_replace($ultimo,$valor,$filtro);
             $this->trazas->LineaDebug("DameFiltro","Filtro:" . $filtro);
             //si hay filtro condicion
@@ -817,7 +791,8 @@ class Filtros{
                         $campoValor = explode("=",$filterCondition);
                         $this->trazas->LineaDebug("DameFiltro","separo el campo del valor por '='");
                         if (count($campoValor)==2) {
-                            $filtroCondicion =  sprintf(" ?s%s %s %s . ",$count-1, $campoValor[0], $campoValor[1]);
+                           // $filtroCondicion =  sprintf(" ?s%s %s %s . ",$count-1, $campoValor[0], $campoValor[1]);
+                            $filtroCondicion =  sprintf(" %s%s %s %s . ",$campoanidado,$count-1, $campoValor[0], $campoValor[1]);
                             $this->trazas->LineaDebug("DameFiltro","Filtro Condición:", $filtroCondicion);
                         }		
                     }
@@ -898,7 +873,7 @@ class Filtros{
                 //recojo el valor de la faceta por el filtro 
                 $valor = $this->DameValorFaceta($filter['NameHead'],$filter['Valor'],$filter['Faceta']);
                 //calculo y añado el filtro a la cadena de filtros
-                $stringFiltres .= $this->DameFiltro($filter['Faceta'],"", $valor) . " ";
+                $stringFiltres .= $this->DameFiltro($filter['Faceta'],"", $valor,$filter['NameHead']) . " ";
 
            }
            $this->trazas->LineaDebug("DameFiltrosDeNavegacion","Facetas de Filtros" .$stringFiltres);
@@ -1007,6 +982,10 @@ class Filtros{
     private function DameUrlFacetaFiltroWeb($nombre,$valor,$facetaRdf,$filt)
     {   
         $this->trazas->LineaDebug("DameUrlFacetaFiltroWeb","Entro función");
+        //decodifico si la faceta viene codificada de la busqueda abierta
+        if (strpos($filt,"%3A")!==FALSE) {
+            $filt = urldecode( $filt);
+        }
         $filtro ="";
         $filtroFinal="";
         //si el valor es una url ya le pongo el enmarcado <>
@@ -1018,7 +997,14 @@ class Filtros{
         }
         $this->trazas->LineaDebug("DameUrlFacetaFiltroWeb","valor:". $valor);
         //creo el filtro encuention. pero puede haber varios y pude estar ya estaren el filtro altual
-        $filtroComp = sprintf("%s__%s__%s__%s",$facetaRdf['NameHead'],$facetaRdf['Faceta'],$valor,$facetaRdf['PrefijoFaceta']);
+		$valorFaceta = $facetaRdf['Faceta'];
+		if( strcmp($valorFaceta, "dc:type")==0 && (strcmp ($valor,"<http://opendata.aragon.es/def/ei2a#Document>") == 0 || strcmp ($valor,"<http://opendata.aragon.es/def/ei2a#EventAgenda>") == 0 || strcmp ($valor,"<http://opendata.aragon.es/def/ei2a#EventAgenda>") == 0 || strpos($valor,"http://opendata.aragon.es/def/ei2a#") === false)){			
+			$valorFaceta = "rdf:type";
+		}
+        //$filtroComp = sprintf("%s__%s__%s__%s",$facetaRdf['NameHead'],$facetaRdf['Faceta'],$valor,$facetaRdf['PrefijoFaceta']);
+		
+		$filtroComp = sprintf("%s__%s__%s__%s",$facetaRdf['NameHead'],$valorFaceta,$valor,$facetaRdf['PrefijoFaceta']);
+		$this->trazas->LineaDebug("DameUrlFacetaFiltroWeb","Faceta RDF NameHead: " . $facetaRdf['NameHead'] . " Faceta RDF faceta: " . $facetaRdf['Faceta'] );
         $this->trazas->LineaDebug("DameUrlFacetaFiltroWeb","Filtro Comparación" . $filtroComp );
         //busco si el filtro ya existe
         $ponfiltro = true;
@@ -1028,7 +1014,7 @@ class Filtros{
         }
         if ($ponfiltro) {
             //si no existe en el filtro actual 
-            $filtro = sprintf("%s__%s__%s__%s__%s",$facetaRdf['NameHead'],$facetaRdf['Faceta'],$valor,$facetaRdf['PrefijoFaceta'],$nombre);
+            $filtro = sprintf("%s__%s__%s__%s__%s",$facetaRdf['NameHead'],$valorFaceta,$valor,$facetaRdf['PrefijoFaceta'],$nombre);
 
             if (!empty($filt) ) {  
                 //si ya existe el parametro lo continuo
@@ -1064,20 +1050,33 @@ class Filtros{
         //por cada elemento de resultado  
         $this->trazas->LineaDebug("DameResultadosWeb","Por cada elemento de resultados");
         foreach ($resultadosVirtuoso as $resultado) {
+            
             //Iniclaizo el tipo la fecha y el nombre
             $tipo =  $this->entidadesDB->GetNameByRdfType($resultado['type']);
+            if (empty($tipo)) {
+                $tipo = $this->entidadesDB->GetNameByDcTypeR($resultado['dctype']); 
+            }
             $subtipo = $this->entidadesDB->GetNameByDcType($resultado['dctype']); 
             $tipo = sprintf("%s - %s", $tipo, $subtipo);
-            
             $date = "";
             $name = "Sin Nombre";
+			$downloadUri = "";
+            //recojo el slug para el icono 
+            $clase = $this->entidadesDB->GetSlugByRdfType($resultado['type']);
+            if (empty($clase)){
+               $clase = $this->entidadesDB->GetSlugByDcType($resultado['dctype']);
+            }
+            $clase = str_replace("bloque-","resource-", $clase);
             $this->trazas->LineaDebug("DameResultadosWeb","Iniclaizo el tipo la fecha y el nombre");
             //pongo la fecha
             if (isset($resultado['date'])) {
                 if (!empty($resultado['date'])) {
                     $date = $resultado['date'];
-                    $this->trazas->LineaDebug("DameResultadosWeb","Pongo la fecha:" .  $date );
-    
+					$cadenaBis = str_replace("T00:00:00", " ",$date);
+					$date = $cadenaBis;
+					$this->trazas->LineaDebug("DameResultadosWeb","Pongo la fecha:" .  $date );
+					
+
                 }     
             }
             //pongo el nombre
@@ -1087,17 +1086,25 @@ class Filtros{
                     $this->trazas->LineaDebug("DameResultadosWeb","Pongo el nombre:". $name);
                 }
             }
+			//pongo la urldefichero
+			if (isset($resultado['downloadUri'])){
+				if (!empty($resultado['downloadUri'])) {
+                    $downloadUri =  $resultado['downloadUri'];
+                    $this->trazas->LineaDebug("DameResultadosWeb","Pongo el downloadUri:". $downloadUri);
+                }
+			}
+						
             //calculo la ruta link al elemento detalle
             $ruta = str_replace("filtros","detalles",$urlcompose[0]);
             $ruta = str_replace("resultados","detalles", $ruta);
             $s = str_replace($this->navegacion->getUrlPrefijo(),"",$resultado['s']);
-            $s = urlencode($s);
-            $url = sprintf("%s?url=%s&%s",$ruta, $s,$urlcompose[1]);
+            //$s = urlencode($s);
+            $url = sprintf("%s?url=%s",$ruta, $s);
             $this->trazas->LineaDebug("DameResultadosWeb","Calculo la ruta link al elemento detalle: " . $url);
             //añado publico el elemento a parsear en twing
-            $traza = sprintf("tipo:%s fecha:%s descripcion:%s url:%s",$tipo, $date,$name,$url);
+            $traza = sprintf("tipo:%s fecha:%s descripcion:%s url:%s",$tipo, $date,$name,$url,$downloadUri);
             $this->trazas->LineaDebug("DameResultadosWeb","Añado resultado", $traza );
-            $resources[] = array("tipo"=>$tipo,"fecha"=>$date,"descripcion"=>$name,"url"=>$url);
+            $resources[] = array("clase"=>$clase,"tipo"=>$tipo,"fecha"=>$date,"descripcion"=>$name,"url"=>$url,"downloadUri"=>$downloadUri);
         }
         $this->trazas->LineaDebug("DameResultadosWeb","Salgo función");
         //devuelvo la los resources
@@ -1105,20 +1112,29 @@ class Filtros{
     }
 
     public function DameGraficas($facetas){
-        $naranja='#ff6600';
-        $azul='#0066ff';
-        $verde='#cccc00';
-        $rojo='#ff0000';
-        $amarillo='#ffff00';
-        $colores = array($naranja, $azul, $verde,$amarillo);
+        $naranja='#F79646';
+        $azul='#4BACC6';
+        $verde='#9BBB59';
+        $rojo='#C0504D';
+        $amarillo='#8064A2';
+        $colores = array( $azul,$verde,$rojo, $naranja);
 
         $style=array();
-        $style['fontSize']= '15px';
+        $style['fontSize']= '20px';
         $style['fontWeight']= 'bold';
-        $dataLabels = array('enabled' =>'true','align'=>'center','verticalAlign'=>'top', 'style'=>$style);
-
-        $levels = array();
+		$style['fontFamily']='Calibri';
+        $dataLabels = array('enabled' =>'true','align'=>'left','verticalAlign'=>'top', 'style'=>$style);
+		
+		$style2=array();
+        $style2['fontSize']= '15px';
+        $style2['fontWeight']= 'bold';
+		$style2['fontFamily']='Calibri';
+		$dataLabels2 = array('enabled' =>'true','align'=>'center','verticalAlign'=>'middle', 'style'=>$style2);
+		
+		$levels = array();
         $levels[] = array('level'=>1,'layoutAlgorithm'=>'sliceAndDice', 'dataLabels'=>$dataLabels);
+		$levels[] = array('level'=>2, 'dataLabels'=>$dataLabels2);
+		
 
         $gaficas =  array();
         $cuantacolor =0;
@@ -1134,19 +1150,24 @@ class Filtros{
                             $data[] = array('name'=>$subfacetaCotador['title'], 'value'=>intval($subfacetaCotador['count']), 'parent'=> $id);
                         }
                     }
+					if ($cuantacolor==3){
+						$cuantacolor=0; 
+					} else {
+						$cuantacolor++;
+					}
                 } else  {
                      $data[] = array('name'=>$facetaCotador['title'], 'value'=>intval($facetaCotador['count']), 'color'=> $colores[$cuantacolor]);
                 }
             }
-            if ($cuantacolor==3){
-                $cuantacolor=0; 
-            } else {
-                $cuantacolor++;
-            }
+			$cuantacolor=0;
+            
             $series = array();
             $series[]= array('type'=> 'treemap','layoutAlgorithm' =>'stripes','alternateStartingDirection'=> true,'levels'=> $levels,'data'=>$data);
             $title = array('text'=>$faceta['title']);
-            $script = array('series'=>$series, 'title'=>$title );
+            $credits = array('enabled'=>false);
+			$estilo = array('fontFamily'=>'Arial','fontSize'=>'20px','color'=>'#FFFFFF');
+			$styles = array('style'=>$estilo);
+            $script = array('chart'=>$styles,'credits'=>$credits,'series'=>$series, 'title'=>$title);
             $id = "grafico" . $faceta['title'];
             $id= str_replace(" ", "_",$id);
             $gaficas[] = array('titulo' => $faceta['title'], "id" =>$id,'script'=> $script );

@@ -27,23 +27,25 @@
         {{ utilidades.campooculto("stem", "stem", navegacion.SubTema) }}
         {{ utilidades.campooculto("from", "from", navegacion.From) }}
         
-        <div class="breadcrumb">
+        <div class="breadcrumb enlinea">
             <div class="wrap">
                 <ul>
+					<li class="seccion"><a href="/pool">INICIO</a></li>
+					<li class="flecha"><span class="material-icons">keyboard_arrow_right</span></li>
                     {% if navegacion.Tema|length > 0  %}  
-                        <li class="seccion">Temas</li>
+                        <li class="seccion"><a href="{{path('temas')}}?from=Temas">Temas</a></li>
                         <li class="flecha"><span class="material-icons">keyboard_arrow_right</span></li>
                         {% for key,value in navegacion.Tema %}
                             <li class="titulo">{{ value }}</li>
                         {% endfor %}
                     {% elseif navegacion.Entidad|length > 0  %} 
-                        <li class="seccion">Entidad</li>
+                        <li class="seccion"><a href="{{path('entidades')}}?from=Entidades">Entidades</a></li>
                         <li class="flecha"><span class="material-icons">keyboard_arrow_right</span></li>
                         {% for key,value in navegacion.Entidad %}
                             <li class="titulo">{{ value }}</li>
                         {% endfor %}
                     {% else %}
-                        <li class="seccion">Lugares</li>
+                        <li class="seccion"><a href="{{path('lugares')}}?from=Lugares">Lugares</a></li>
                         <li class="flecha"><span class="material-icons">keyboard_arrow_right</span></li>
                         <li class="titulo">Seleccione un lugar:</li>
                     {% endif %}
@@ -52,58 +54,48 @@
             </div>
         </div>
 
-        <div class="row row-bloques bloques-wrap">
-            <div class="col bloque bloque-buscar bloque-provincias">
+        <div class="row row-bloques-min bloques-wrap">
+            <div class="col bloque-min bloque-provincias">
                 <div class="wrap">
-                    <div class="header-bloque"  title='Provincias'>
-                        <div class="imagen"></div>
-                    </div>
-                    <div class="body-bloque"  title='Provincias'>
-                        <div class="wrap-titulo">
-                            <h3>Provincias</h3>
-                            <span class="material-icons buscar">search</span>
-                        </div>
+					<div class="header-bloque">
+						<div class="imagen"></div>
+						<h3>Provincias</h3>
+					</div>
+					<div class="body-bloque"  title='Provincias'>
                         {{ utilidades.camposeclect2("pro", "pro", "js-lugares js-provincia",lugaresArray['Provincias']) }}
                     </div>
                 </div>
             </div>
-            <div class="col bloque bloque-buscar bloque-municipios">
+            <div class="col bloque-min bloque-municipios">
                 <div class="wrap">
-                    <div class="header-bloque" title='Municipios'>
-                        <div class="imagen"></div>
-                    </div>
-                    <div class="body-bloque" title='Municipios'>
-                        <div class="wrap-titulo">
-                            <h3>Municipios</h3>
-                            <span class="material-icons buscar">search</span>
-                        </div>
+					<div class="header-bloque">
+						<div class="imagen"></div>
+						<h3>Municipios</h3>
+					</div>
+					<div class="body-bloque" title='Municipios'>
                         {{ utilidades.camposeclect2("mun", "mun", "js-lugares js-municipio",lugaresArray['Municipios']) }}
                     </div>
                 </div>
             </div>
         
-            <div class="col bloque bloque-buscar bloque-comarcas">
+            <div class="col bloque-min bloque-comarcas">
                 <div class="wrap">
-                    <div class="header-bloque" title='Comarcas'>
-                        <div class="imagen"></div>
-                    </div>
-                    <div class="body-bloque" title='Comarcas'>
-                        <div class="wrap-titulo">
-                            <h3>Comarcas</h3>
-                            <span class="enlace-mapa">Mapa</span>
-                            <span class="material-icons buscar">search</span>
-                        </div>
-                        {{ utilidades.camposeclect2("com", "com", "js-lugares js-comarca",lugaresArray['Comarcas']) }}
+					<div class="header-bloque">
+						<div class="imagen"></div>
+						<h3>Comarcas</h3>
+						<span class="enlace-mapa">Mapa</span>
+					</div>
+					<div class="body-bloque" title='Comarcas'>
+						{{ utilidades.camposeclect2("com", "com", "js-lugares js-comarca",lugaresArray['Comarcas']) }}
                     </div>
                 </div>
             </div>
 
-            <div class="col bloque bloque-buscar bloque-comarcas-min ocultar-bloque">
+             <div class="col bloque bloque-buscar bloque-comarcas-min ocultar-bloque">
                 <div class="wrap">
                     <div class="header-bloque" title='Comarcas'>
                         <div class="imagen"></div>
-                        <h3>Comarcas</h3>
-                        <span class="material-icons buscar">search</span>
+						<h3>Comarcas</h3>
                     </div>
                     <div class="body-bloque" title='Comarcas'>
                             {{ utilidades.camposeclect2("com", "com", "js-lugares js-comarca",lugaresArray['Comarcas']) }}
@@ -117,7 +109,7 @@
                         <div style="max-width: 600px; max-height: 580px;" id="vmap"></div>
                     </div>
                 </div>
-            </div> 
+            </div>  
             {% if subTemas|length > 0 and not navegacion.From == "Lugares" %}  
                 {{ utilidades.pintabloque("bloque-temas",subTemas,"Temas", "enviaLocalidadSubtema") }}
             {% endif %}
