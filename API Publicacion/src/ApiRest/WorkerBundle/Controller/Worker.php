@@ -98,9 +98,25 @@ class Worker
      */
 	protected $mailFile;
 
+		/**
+	* El usuario de virtuoso
+	*/
+	protected $usuVirtuoso;
+	
+	/**
+	* La contraseña de virtuoso
+	*/
+	protected $passVirtuoso;
+
 	/**
      * array de trazas de error
      */
+
+	/**
+	* El dominio de la aplicación
+	*/
+	protected $dominioAplicacion;
+
 	protected $trazas;
 	         
 
@@ -120,6 +136,9 @@ class Worker
 								$emailTo,
 								$mailFile,						
 								$trazasDebug,
+								$usuVirtuoso,
+								$passVirtuoso,
+								$dominioAplicacion,
 								$trazas) 
 	{
 		$this->trazas = $trazas;
@@ -138,6 +157,9 @@ class Worker
 		$this->emailFrom = $emailFrom;
 		$this->emailTo = $emailTo;
 		$this->mailFile = $mailFile;
+		$this->usuVirtuoso = $usuVirtuoso;
+		$this->passVirtuoso = $passVirtuoso;
+		$this->dominioAplicacion = $dominioAplicacion;
 		$this->trazas->setClase("worker");
 		$this->trazas->LineaInfo("__construct", "Inicia el constructor del worker"); 
 		$this->trazas->setEscribeTrazasDebug($trazasDebug);
@@ -309,6 +331,14 @@ class Worker
 		
 		// inicilizo la url endpoint de virtuoso
 		$url = $this->isqlHost;
+		$nombrefichero = $pathNoporcesados . "/datos.n3";  
+		$this->InsertaTriplesConFichero($nombrefichero);
+		if ($this->trazas->SinError()) {
+			$this->trazas->LineaInfo("GuardaTriplesVirtuoso", "Se insertaron todos los triples correctamente"); 
+		} else {
+			$this->trazas->LineaError("GuardaTriplesVirtuoso", "No se insertaron todos los triples correctamente"); 
+		}
+		/*
 		//preparo la plantilla de sparql
 		$sql = "INSERT INTO <" . $this->isqlDb  . "> { %s }";
 		//$sql = "DELETE { GRAPH <" . $this->isqlDb  ."> { %s }}";
@@ -339,7 +369,7 @@ class Worker
 							$query = sprintf($sql,$query); 
 							//lanzo consulta
 							$this->trazas->LineaDebug("GuardaTriplesVirtuoso", "Lanzo Consulta: " . $query); 
-							$this->LanzaConsulta($url,$query,$this->trazas);
+							$this->LanzaConsulta($url,$query);
 							//cuento para el log
 							if (!$this->trazas->SinError()) {
 							  $cuentaError =  $cuentaError + $cuenta;
@@ -383,7 +413,32 @@ class Worker
 		} else {
 			$this->trazas->LineaError("GuardaTriplesVirtuoso", "Archivo no encontrado: ". $nombrefichero ); 
 		}
+		*/
 	}
+
+	/*
+	* Función que lanza un insert, obteneinedo los triples de un archivo .n3
+	*/
+	function InsertaTriplesConFichero($fichero)
+	{
+		$conn = odbc_connect('VOS', $this->usuVirtuoso, $this->passVirtuoso);
+		$ruta=explode("web",$fichero);
+
+		//$fichero = str_replace ($this->dominioAplicacion,"/var/www/html/web/", $fichero);
+		$fichero =$this->dominioAplicacion. $ruta[1];
+		$comando = "CALL DB.DBA.TTLP_MT(http_get('".$fichero."'), '', '".$this->isqlDb."', 0, 2)";
+		$result = odbc_exec($conn, $comando);
+		
+		$this->trazas->LineaDebug("InsertaTriplesConFichero", "Ejecuto " . $comando); 
+		if ($result === FALSE) { 
+			$this->trazas->LineaError("InsertaTriplesConFichero", "Se ha producido el siguiente error: " . odbc_errormsg($conn)); 
+		} else {
+			$this->trazas->LineaDebug("InsertaTriplesConFichero", "Resultado:" . $result);  
+		}
+		
+		odbc_close ($conn);
+		
+	}  
 
 	/**
 	 * Función que realiza una consulta a Virtuoso para obtener los triples que hay que borrar por dc:type
@@ -488,7 +543,7 @@ class Worker
 			//lanzo las consulta de borrado
 			$consulta = "delete data from <$this->isqlHost> { $tripleBorrar }";
 			$this->trazas->LineaDebug("BorraTriples",'Borro: '. $totalborradas);
-			$this->LanzaConsulta($this->isqlHost,$consulta,$this->trazas);
+			$this->LanzaConsulta($this->isqlHost,$consulta);
 		}	
 	}
 	
@@ -499,9 +554,43 @@ class Worker
 		$this->trazas->LineaInfo("borraTriplesDctype","Comienzo a borrar");	
 		$consulta = "DELETE FROM GRAPH <".$this->isqlDb."> { ?s ?p ?o }  where {?sujetoTipo dc:type <$this->dcType>. ?sujetoTipo dc:source ?source. ?s dc:source ?source. ?s ?p ?o. }";	
 		// inicilizo la url endpoint de virtuoso
-		$this->LanzaConsulta($this->isqlHost,$consulta,$this->trazas);
+		$this->LanzaConsulta($this->isqlHost,$consulta);
 	}
 	
+	/**
+	 * Función que lanza la consulta POST sobre VIRTUOSO
+	 *  Parámetros:
+	 *    pathNoporcesados:  path de la carpeta donde está el archivo n3 a procesar
+	 *                      /web/publicacion/NoProcesados/{$carpeta}
+	 *    trazas:            objeto de trazas
+	 *    url:               url endpoint del servicio web virtuoso (http://localhost:8890/sparql)
+	 *    query:             spaql de inserción
+	 
+	*function LanzaConsulta($url,$query)
+	*{
+	*	$this->trazas->LineaDebug("LanzaConsulta", "Query:" . $query);  
+	*	$data = array('query' => $query , 
+	*				'timeout' => 0,
+	*				'format' => 'text/csv');
+	*	// use key 'http' even if you send the request to https://...
+	*	$options = array(
+	*		'http' => array(
+	*			'header'  => "Content-type: application/x-www-form-urlencoded",
+	*			'method'  => 'POST',
+	*			'encoding' => 'UTF8',
+	*			'content' => http_build_query($data)
+	*		)
+	*	);
+	*	$context  = stream_context_create($options);
+	*	$result = file_get_contents($url, false, $context);
+	*	if ($result === FALSE) { 
+	*		$this->trazas->LineaError("LanzaConsulta", "Se a producido un error en la carga:" .$query); 
+	*	} else {
+	*		$this->trazas->LineaDebug("LanzaConsulta", "Resultado:" . $result);  
+	*	}	
+	*}   
+	*/
+
 	/**
 	 * Función que lanza la consulta POST sobre VIRTUOSO
 	 *  Parámetros:
@@ -513,29 +602,18 @@ class Worker
 	 */
 	function LanzaConsulta($url,$query)
 	{
-		$this->trazas->LineaDebug("LanzaConsulta", "Query:" . $query);  
-		$data = array('query' => $query , 
-					'timeout' => 0,
-					'format' => 'text/csv');
-		// use key 'http' even if you send the request to https://...
-		$options = array(
-			'http' => array(
-				'header'  => "Content-type: application/x-www-form-urlencoded",
-				'method'  => 'POST',
-				'encoding' => 'UTF8',
-				'content' => http_build_query($data)
-			)
-		);
-		$context  = stream_context_create($options);
-		$result = file_get_contents($url, false, $context);
+		$this->trazas->LineaDebug("LanzaConsulta", "Query:" . $query);  		
+		$conn = odbc_connect('VOS', $this->usuVirtuoso, $this->passVirtuoso);		
+		$result = odbc_exec($conn, 'CALL DB.DBA.SPARQL_EVAL(\'' . $query . '\', NULL, 0)');
+		
 		if ($result === FALSE) { 
 			$this->trazas->LineaError("LanzaConsulta", "Se a producido un error en la carga:" .$query); 
 		} else {
 			$this->trazas->LineaDebug("LanzaConsulta", "Resultado:" . $result);  
 		}
 		
+		odbc_close ($conn);	
 	}   
-	
 	/**
 	 * Función que lanza la consulta POST sobre VIRTUOSO
 	 *  Parámetros:

@@ -552,7 +552,7 @@ class Triple
 					$filaCVSNamespace[$value] = $valor;
 				} else {
 					switch ($tipo) {
-						case 'float':
+						case 'float': 
 							$valor = $filaCVS[$value];
 							$valor = str_replace(".","",$valor);
 							$valor = str_replace(",",".",$valor);
@@ -573,18 +573,34 @@ class Triple
 							}
 						break;
 						case 'datetime':
+						    $formatoVirtuoso = 'Y-m-d H:i:s';
 							$formato = 'Y-m-d H:i:s';
 							$valor="";
-							if (DateTime::createFromFormat($formato, $date) !== false) {
+							$date = $filaCVS[$value];
+							$Esfecha = true;
+							if (DateTime::createFromFormat($formato, $date) === false) {
+								$formato = 'd-m-Y H:i:s';
+								if (DateTime::createFromFormat($formato, $date) === false) {
+									$formato = 'Y-m-d';
+									if (DateTime::createFromFormat($formato, $date) === false) {
+										$formato = 'd-m-Y';
+										if (DateTime::createFromFormat($formato, $date) === false) {
+											$Esfecha = false;
+										}	
+									}
+								}
+							} 
+							if ($Esfecha)	{
 								$fecha = new DateTime($filaCVS[$value]);
-								$valor = date_format($fecha, $formato);
+								$valor = date_format($fecha,  $formatoVirtuoso);
 								$valor = str_replace(" ", "T", $valor);
-							} 	
+							}
 							$filaCVSNamespace[$value] = $valor;	
 						break;
 						case 'time':
 							$formato = 'H:i:s';
 							$valor="";
+							$date = $filaCVS[$value];
 							if (DateTime::createFromFormat($formato, $date) !== false) {
 								$fecha = new DateTime($filaCVS[$value]);
 								$valor = date_format($fecha, $formato);

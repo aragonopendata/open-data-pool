@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:gtfs="http://vocab.gtfs.org/terms#" xmlns:dc="http://purl.org/dc/elements/1.1/" id="149">
+  <Entity rdf:type="gtfs:StopTime" URI="http://opendata.aragon.es/def/ei2a#transporte-expedicion-parada-{COD_EXPEDICION}-{COD_PARADA}">
+    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+    <Property field="{COD_EXPEDICION}-{COD_PARADA}" attribute="dc:identifier" type="string"/>
+    <Property link="ei2a:transporte_expedicion_parada_horario" attribute="dc:type" />
+    <Property field="{ORDEN_PARADA}" attribute="gtfs:stopSequence" type="integer"/>
+    <Property field="{HORARIO}" attribute="gtfs:arrivalTime" type="datetime"/>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#transporte-expedicion-{COD_EXPEDICION}" attribute="gtfs:trip" />
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#transporte-parada-{COD_PARADA}" attribute="gtfs:stop"/>
+  </Entity>
+</Mapping>

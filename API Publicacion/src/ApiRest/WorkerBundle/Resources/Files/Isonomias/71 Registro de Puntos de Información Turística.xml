@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:org="http://www.w3.org/ns/org#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:vcard="http://www.w3.org/2006/vcard/ns#" id="71">
+  <Entity rdf:type="org:Organization" URI="http://opendata.aragon.es/def/ei2a#punto-informacion-turistica-{CODIGO}">
+    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+    <Property field="{CODIGO}" attribute="dc:identifier" type="string"/>
+	<Property link="ei2a:punto_informacion_turistica" attribute="dc:type" />
+    <Property field="{NOMBRE}" attribute="ei2a:organizationName" type="string"/>
+    <Property field="{TELEFONO_ESTABLECIMIENTO}" attribute="ei2a:phone" type="string"/>
+    <Property link="ei2a:oficinadeturismo" attribute="ei2a:publicEntityType"/>
+    <Property link="ei2a:puntodeinformacion" attribute="ei2a:organizationType"/>
+	<Property fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" attribute="wgs84_pos:location" />
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#sede-{CODIGO}" attribute="org:hasSite">
+      <Entity rdf:type="org:Site" URI="http://opendata.aragon.es/def/ei2a#sede-{CODIGO}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#vCard-punto-informacion-turistica-{CODIGO}" attribute="org:siteAddress">
+          <Entity rdf:type="vcard:VCard" URI="http://opendata.aragon.es/def/ei2a#vCard-punto-informacion-turistica-{CODIGO}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property fieldLink="http://opendata.aragon.es/def/ei2a#adr-punto-informacion-turistica-{CODIGO}" attribute="vcard:hasAddress">
+              <Entity rdf:type="vcard:ADR" URI="http://opendata.aragon.es/def/ei2a#adr-punto-informacion-turistica-{CODIGO}">
+                <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                <Property field="{DIRECCION_ESTABLECIMIENTO}" attribute="vcard:street-address" type="string"/>
+                <Property field="{LOCA_MUN}" attribute="vcard:locality" type="string"/>
+                <Property field="{NOMBRE_PROVINCIA}" attribute="vcard:region" type="string"/>
+              </Entity>
+            </Property>
+          </Entity>
+        </Property>
+      </Entity>
+    </Property>
+  </Entity>
+</Mapping>

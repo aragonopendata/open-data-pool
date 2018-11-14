@@ -11,7 +11,7 @@
       <Entity rdf:type="org:Site" URI="http://opendata.aragon.es/def/ei2a#sede-{DIRECCION_ID}">
         <Property field="{FUENTE}" attribute="dc:source" type="string"/>
         <Property fieldLink="http://opendata.aragon.es/def/ei2a#vCardInteres-{DIRECCION_ID}" attribute="org:siteAddress">
-          <Entity rdf:type="vcard:VCard" URI="http://opendata.aragon.es/def/ei2a#vCardMayor-{DIRECCION_ID}">
+          <Entity rdf:type="vcard:VCard" URI="http://opendata.aragon.es/def/ei2a#vCardInteres-{DIRECCION_ID}">
             <Property field="{FUENTE}" attribute="dc:source" type="string"/>
             <Property field="{FAX}" attribute="vcard:Fax" type="string"/>
             <Property fieldLink="http://opendata.aragon.es/def/ei2a#adrInteres-{DIRECCION_ID}" attribute="vcard:hasAddress">

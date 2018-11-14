@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:org="http://www.w3.org/ns/org#" xmlns:vcard="http://www.w3.org/2006/vcard/ns#" id="16">
-  <Entity rdf:type="org:Organization" URI="http://opendata.aragon.es/pool/datos-diputacion/{DIPUTACION_ID}">
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:org="http://www.w3.org/ns/org#" xmlns:vcard="http://www.w3.org/2006/vcard/ns#" id="16">
+  <Entity rdf:type="org:Organization" URI="http://opendata.aragon.es/def/ei2a#diputacion-{DIPUTACION_ID}">
     <Property field="{FUENTE}" attribute="dc:source" type="string"/>
     <Property field="{DIPUTACION_ID}" attribute="dc:identifier" type="string"/>
+	<Property link="ei2a:diputacion" attribute="dc:type" />
     <Property field="{DENOMINACION}" attribute="ei2a:organizationName" type="string"/>
     <Property field="{TELEFONO}" attribute="ei2a:phone" type="string"/>
     <Property field="{EMAIL}" attribute="foaf:mbox" type="string"/>
@@ -10,15 +11,16 @@
     <Property link="ei2a:DiputaciónProvincialForal" attribute="ei2a:publicEntityType"/>
     <Property link="ei2a:órganoAdministrativo" attribute="ei2a:organizationType"/>
     <Property link="ei2a:AdministraciónLocal" attribute="ei2a:administrativeLevel"/>
-    <Property fieldLink="http://opendata.aragon.es/pool/sitesDiputacion/{DIPUTACION_ID}" attribute="org:hasSite">
-      <Entity rdf:type="org:Site" URI="http://opendata.aragon.es/pool/sitesDiputacion/{DIPUTACION_ID}">
+	<Property fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" attribute="wgs84_pos:location" />
+	<Property fieldLink="http://opendata.aragon.es/def/ei2a#sede-{DIPUTACION_ID}" attribute="org:hasSite">
+      <Entity rdf:type="org:Site" URI="https://opendata.aragon.es/pool/sede/{DIPUTACION_ID}">
         <Property field="{FUENTE}" attribute="dc:source" type="string"/>
-        <Property fieldLink="http://opendata.aragon.es/pool/vCardDiputacion/{DIPUTACION_ID}" attribute="org:siteAddress">
-          <Entity rdf:type="vcard:VCard" URI="http://opendata.aragon.es/pool/vCardMayor/{DIPUTACION_ID}">
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#vCardDiputacion-{DIPUTACION_ID}" attribute="org:siteAddress">
+          <Entity rdf:type="vcard:VCard" URI="http://opendata.aragon.es/def/ei2a#vCardMayor-{DIPUTACION_ID}">
             <Property field="{FUENTE}" attribute="dc:source" type="string"/>
             <Property field="{FAX}" attribute="vcard:Fax" type="string"/>
-            <Property fieldLink="http://opendata.aragon.es/pool/adrDiputacion/{DIPUTACION_ID}" attribute="vcard:hasAddress">
-              <Entity rdf:type="vcard:ADR" URI="http://opendata.aragon.es/pool/adrDiputacion/{DIPUTACION_ID}">
+            <Property fieldLink="http://opendata.aragon.es/def/ei2a#adrDiputacion-{DIPUTACION_ID}" attribute="vcard:hasAddress">
+              <Entity rdf:type="vcard:ADR" URI="http://opendata.aragon.es/def/ei2a#adrDiputacion-{DIPUTACION_ID}">
                 <Property field="{FUENTE}" attribute="dc:source" type="string"/>
                 <Property field="{DIRECCION}" attribute="vcard:street-address" type="string"/>
                 <Property field="{CP}" attribute="vcard:postal-code" type="string"/>

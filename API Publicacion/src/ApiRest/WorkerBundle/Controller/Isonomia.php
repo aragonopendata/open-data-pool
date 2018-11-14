@@ -258,19 +258,13 @@ class Isonomia
 					   if ($this->trazas->SinError()) 
 					   {
 					      //cargo el namespace para el predicado
-						  $ns = explode("=",$node['fieldLink']);
-						  if (count($predicado)==1) 
-						  {
-							 $predicado = $ns[0];
+							 $predicado = $node['fieldLink'];
 							 $predicadoParseo =  $this->DameParseo($predicado);
 							 foreach($predicadoParseo as $parseo) {
 								$predicado = str_replace('{'. $parseo .'}', "%s", $predicado);
 							 }
 							 //pongo los tag de nodo
 							 $predicado = sprintf("<%s>",$predicado);
-						  } else {
-							$this->trazas->LineaError("ProcesaEntity", "No devuelve un array de dos valores: ". $node['fieldLink']->asXML());    
-						  }
 					   }
 				   } else if (isset($node['link'])){ 
 					   $tipoNodo ='link';

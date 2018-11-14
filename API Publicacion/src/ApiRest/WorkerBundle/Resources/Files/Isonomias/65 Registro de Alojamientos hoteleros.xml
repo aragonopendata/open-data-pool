@@ -6,8 +6,8 @@
     <Property field="{SIGNATURA}" attribute="dc:identifier" type="string"/>
     <Property link="ei2a:alojamiento_hotelero" attribute="dc:type" type="string"/>
 	<Property field="{NOMBRE_COMPLETO}" attribute="ei2a:organizationName" type="string"/>
-    <Property fieldLink="http://opendata.aragon.es/def/ei2a#name-alojamientos-hotelero/{SIGNATURA}" attribute="harmonise:name">
-      <Entity rdf:type="harmonise:MultiLanguageText" URI="http://opendata.aragon.es/def/ei2a#name-alojamientos-hotelero/{SIGNATURA}">
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#name-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:name">
+      <Entity rdf:type="harmonise:MultiLanguageText" URI="http://opendata.aragon.es/def/ei2a#name-alojamientos-hotelero-{SIGNATURA}">
         <Property field="{FUENTE}" attribute="dc:source" type="string"/>
         <Property fieldLink="http://opendata.aragon.es/def/ei2a#laguageText-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:languageText">
           <Entity rdf:type="harmonise:LanguageText" URI="http://opendata.aragon.es/def/ei2a#laguageText-alojamientos-hotelero-{SIGNATURA}">
@@ -52,7 +52,7 @@
       </Entity>
     </Property>
     <Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-alta-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:schedule">
-      <Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-alta-alojamientos-hotelero/{SIGNATURA}">
+      <Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-alta-alojamientos-hotelero-{SIGNATURA}">
         <Property field="{FUENTE}" attribute="dc:source" type="string"/>
         <Property link="aodpool:temporada_alta" attribute="harmonise:season"/>
         <Property fieldLink="http://opendata.aragon.es/def/ei2a#date-range-alta-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:dateRange">
@@ -89,37 +89,7 @@
           </Entity>
         </Property>
       </Entity>
-    </Property>
-    <Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-todo-ano-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:schedule" condition="{ABIERTO_TODO_ANO}">
-      <Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-todo-ano-alojamientos-hotelero-{SIGNATURA}">
-        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
-        <Property link="aodpool:todo_ano" attribute="harmonise:season"/>
-      </Entity>
-    </Property>
-    <Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-navidad-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:schedule" condition="{ABIERTO_NAVIDAD}">
-      <Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-navidad-alojamientos-hotelero-{SIGNATURA}">
-        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
-        <Property link="aodpool:navidad" attribute="harmonise:season"/>
-      </Entity>
-    </Property>
-    <Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-semana-santa-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:schedule" condition="{ABIERTO_SEMANA_SANTA}">
-      <Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-semana-santa-alojamientos-hotelero-{SIGNATURA}">
-        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
-        <Property link="aodpool:semana_santa" attribute="harmonise:season"/>
-      </Entity>
-    </Property>
-    <Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-fiestas-locales-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:schedule" condition="{ABIERTO_FIESTAS_LOCALES}">
-      <Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-fiestas-locales-alojamientos-hotelero-{SIGNATURA}">
-        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
-        <Property link="aodpool:fiestas_locales" attribute="harmonise:season"/>
-      </Entity>
-    </Property>
-    <Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-periodos-multiples-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:schedule" condition="{ABIERTO_PERIODOS_MULTIPLES}">
-      <Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-periodos-multiples-alojamientos-hotelero-{SIGNATURA}">
-        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
-        <Property link="aodpool:preiodos_multiples" attribute="harmonise:season"/>
-      </Entity>
-    </Property>
+    </Property>    
     <Property fieldLink="http://opendata.aragon.es/def/ei2a#service-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:service" condition="{TIENE_RESTAURANTE}">
       <Entity rdf:type="harmonise:Service" URI="http://opendata.aragon.es/def/ei2a#service-alojamientos-hotelero-{SIGNATURA}">
         <Property field="{FUENTE}" attribute="dc:source" type="string"/>
@@ -369,6 +339,36 @@
             <Property field="{NUMERO_PLAZAS_CONVENCIONES}" attribute="harmonise:fieldValue" type="string"/>
           </Entity>
         </Property>
+      </Entity>
+    </Property>
+	<Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-todo-ano-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:schedule" condition="{ABIERTO_TODO_ANO}">
+      <Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-todo-ano-alojamientos-hotelero-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property link="aodpool:todo_ano" attribute="harmonise:season"/>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-navidad-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:schedule" condition="{ABIERTO_NAVIDAD}">
+      <Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-navidad-alojamientos-hotelero-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property link="aodpool:navidad" attribute="harmonise:season"/>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-semana-santa-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:schedule" condition="{ABIERTO_SEMANA_SANTA}">
+      <Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-semana-santa-alojamientos-hotelero-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property link="aodpool:semana_santa" attribute="harmonise:season"/>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-fiestas-locales-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:schedule" condition="{ABIERTO_FIESTAS_LOCALES}">
+      <Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-fiestas-locales-alojamientos-hotelero-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property link="aodpool:fiestas_locales" attribute="harmonise:season"/>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-periodos-multiples-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:schedule" condition="{ABIERTO_PERIODOS_MULTIPLES}">
+      <Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-periodos-multiples-alojamientos-hotelero-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property link="aodpool:preiodos_multiples" attribute="harmonise:season"/>
       </Entity>
     </Property>
   </Entity>

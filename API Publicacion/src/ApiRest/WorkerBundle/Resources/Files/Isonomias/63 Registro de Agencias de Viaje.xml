@@ -7,8 +7,8 @@
     <Property field="{NOMBRE_COMERCIAL}" attribute="ei2a:organizationName" type="string"/>
     <Property field="{TELEFONO}" attribute="ei2a:phone" type="string"/>
     <Property field="{E_MAIL}" attribute="foaf:mbox" type="string"/>
-    <Property field="{FECHA_ALTA}" attribute="ei2a:officialCreationDate" type="dateTime"/>
-    <Property field="{FECHA_BAJA}" attribute="ei2a:officialLeavingDate" type="dateTime"/>
+    <Property field="{FECHA_ALTA}" attribute="ei2a:officialCreationDate" type="datetime"/>
+    <Property field="{FECHA_BAJA}" attribute="ei2a:officialLeavingDate" type="datetime"/>
     <Property field="{WEB}" attribute="foaf:homepage" type="string"/>
     <Property fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" attribute="wgs84_pos:location"/>
     <Property link="ei2a:empresa" attribute="ei2a:organizationType"/>

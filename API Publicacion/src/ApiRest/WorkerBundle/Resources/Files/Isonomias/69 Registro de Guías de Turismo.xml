@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:person="http://www.w3.org/ns/person#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" id="69">
+  <Entity rdf:type="person:Person" URI="http://opendata.aragon.es/def/ei2a#persona-{SIGNATURA}">
+    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+    <Property field="{SIGNATURA}" attribute="dc:identifier" type="string"/>
+	<Property link="ei2a:guia_turismo" attribute="dc:type" />
+    <Property field="{NOMBRE_GUIA}" attribute="foaf:firstName" type="string"/>
+    <Property field="{APELLIDO_GUIA}" attribute="foaf:familyName" type="string"/>
+    <Property field="{GUIA}" attribute="ei2a:fullName" type="string"/>
+    <Property field="{E_MAIL}" attribute="foaf:mbox" type="string"/>
+    <Property field="{TELEFONO_TITULAR}" attribute="foaf:phone" type="string"/>
+    <Property field="{DIRECCION_WEB}" attribute="foaf:homepage" type="string"/>
+	<Property fieldLink="http://opendata.aragon.es/def/ei2a#comarca-{CODIGO_COMARC1}" attribute="wgs84_pos:location" />
+	<Property fieldLink="http://opendata.aragon.es/def/ei2a#comarca-{CODIGO_COMARC2}" attribute="wgs84_pos:location" />
+	<Property fieldLink="http://opendata.aragon.es/def/ei2a#comarca-{CODIGO_COMARC3}" attribute="wgs84_pos:location" />
+	<Property fieldLink="http://opendata.aragon.es/def/ei2a#comarca-{CODIGO_COMARC4}" attribute="wgs84_pos:location" />
+	<Property fieldLink="http://opendata.aragon.es/def/ei2a#comarca-{CODIGO_COMARC5}" attribute="wgs84_pos:location" />
+	<Property fieldLink="http://opendata.aragon.es/def/ei2a#comarca-{CODIGO_COMARC6}" attribute="wgs84_pos:location" />
+	<Property fieldLink="http://opendata.aragon.es/def/ei2a#comarca-{CODIGO_COMARC7}" attribute="wgs84_pos:location" />
+	<Property fieldLink="http://opendata.aragon.es/def/ei2a#comarca-{CODIGO_COMARC8}" attribute="wgs84_pos:location" />
+	<Property fieldLink="http://opendata.aragon.es/def/ei2a#comarca-{CODIGO_COMARC9}" attribute="wgs84_pos:location" />
+	<Property fieldLink="http://opendata.aragon.es/def/ei2a#comarca-{CODIGO_COMARC10}" attribute="wgs84_pos:location" />
+	<Property fieldLink="http://opendata.aragon.es/def/ei2a#comarca-{CODIGO_COMARC11}" attribute="wgs84_pos:location" />
+	<Property fieldLink="http://opendata.aragon.es/def/ei2a#comarca-{CODIGO_COMARC12}" attribute="wgs84_pos:location" />
+	<Property fieldLink="http://opendata.aragon.es/def/ei2a#comarca-{CODIGO_COMARC13}" attribute="wgs84_pos:location" />
+	<Property fieldLink="http://opendata.aragon.es/def/ei2a#comarca-{CODIGO_COMARC14}" attribute="wgs84_pos:location" />
+	<Property fieldLink="http://opendata.aragon.es/def/ei2a#comarca-{CODIGO_COMARC15}" attribute="wgs84_pos:location" />
+  </Entity>
+</Mapping>

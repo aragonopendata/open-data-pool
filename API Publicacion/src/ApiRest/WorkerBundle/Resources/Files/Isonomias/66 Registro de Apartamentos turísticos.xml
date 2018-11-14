@@ -123,7 +123,7 @@
       <Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-fin-ano-apartamento-{SIGNATURA}">
         <Property field="{FUENTE}" attribute="dc:source" type="string"/>
         <Property link="aodpool:temporada_fin_ano" attribute="harmonise:season"/>
-        <Property fieldLink="http://opendata.aragon.es/def/ei2a#date-range-fin-ano-apartamento/{SIGNATURA}" attribute="harmonise:dateRange">
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#date-range-fin-ano-apartamento-{SIGNATURA}" attribute="harmonise:dateRange">
           <Entity rdf:type="harmonise:DateRange" URI="http://opendata.aragon.es/def/ei2a#date-range-fin-ano-apartamento-{SIGNATURA}">
             <Property field="{FUENTE}" attribute="dc:source" type="string"/>
             <Property field="{FECHA_DESDE_TEMP_FIN_ANO}" attribute="harmonise:startDate" type="string"/>
@@ -131,37 +131,7 @@
           </Entity>
         </Property>
       </Entity>
-    </Property>
-    <Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-todo-ano-apartamento-{SIGNATURA}" attribute="harmonise:schedule" condition="{ABIERTO_TODO_ANO}">
-      <Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-todo-ano-apartamento-{SIGNATURA}">
-        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
-        <Property link="aodpool:todo_ano" attribute="harmonise:season"/>
-      </Entity>
-    </Property>
-    <Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-navidad-apartamento-{SIGNATURA}" attribute="harmonise:schedule" condition="{ABIERTO_NAVIDAD}">
-      <Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-navidad-apartamento-{SIGNATURA}">
-        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
-        <Property link="aodpool:navidad" attribute="harmonise:season"/>
-      </Entity>
-    </Property>
-    <Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-semana-santa-apartamento-{SIGNATURA}" attribute="harmonise:schedule" condition="{ABIERTO_SEMANA_SANTA}">
-      <Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-semana-santa-apartamento-{SIGNATURA}">
-        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
-        <Property link="aodpool:semana_santa" attribute="harmonise:season"/>
-      </Entity>
-    </Property>
-    <Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-fiestas-locales-apartamento-{SIGNATURA}" attribute="harmonise:schedule" condition="{ABIERTO_FIESTAS_LOCALES}">
-      <Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-fiestas-locales-apartamento-{SIGNATURA}">
-        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
-        <Property link="aodpool:fiestas_locales" attribute="harmonise:season"/>
-      </Entity>
-    </Property>
-    <Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-periodos-multiples-apartamento-{SIGNATURA}" attribute="harmonise:schedule" condition="{ABIERTO_PERIODOS_MULTIPLES}">
-      <Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-periodos-multiples-apartamento-{SIGNATURA}">
-        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
-        <Property link="aodpool:preiodos_multiples" attribute="harmonise:season"/>
-      </Entity>
-    </Property>
+    </Property>    
     <Property fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" attribute="wgs84_pos:location"/>
     <Property fieldLink="http://opendata.aragon.es/def/ei2a#locate-apartamento-{SIGNATURA}" attribute="harmonise:location">
       <Entity rdf:type="harmonise:Location" URI="http://opendata.aragon.es/def/ei2a#locate-apartamento-{SIGNATURA}">
@@ -195,10 +165,10 @@
             </Property>
           </Entity>
         </Property>
-        <Property fieldLink="http://opendata.aragon.es/def/ei2a#address-apartamento/{SIGNATURA}" attribute="harmonise:address">
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#address-apartamento-{SIGNATURA}" attribute="harmonise:address">
           <Entity rdf:type="harmonise:Address" URI="http://opendata.aragon.es/def/ei2a#address-apartamento-{SIGNATURA}">
             <Property field="{FUENTE}" attribute="dc:source" type="string"/>
-            <Property fieldLink="http://opendata.aragon.es/def/ei2a#street-address-apartamento/{SIGNATURA}" attribute="harmonise:streetAddress">
+            <Property fieldLink="http://opendata.aragon.es/def/ei2a#street-address-apartamento-{SIGNATURA}" attribute="harmonise:streetAddress">
               <Entity rdf:type="harmonise:StreetAddress" URI="http://opendata.aragon.es/def/ei2a#street-address-apartamento-{SIGNATURA}">
                 <Property field="{FUENTE}" attribute="dc:source" type="string"/>
                 <Property field="{DIRECCION_ESTABLECIMIENTO}" attribute="harmonise:streetName" type="string"/>
@@ -208,7 +178,7 @@
               <Entity rdf:type="harmonise:MultiLanguageText" URI="http://opendata.aragon.es/def/ei2a#city-apartamento-{SIGNATURA}">
                 <Property field="{FUENTE}" attribute="dc:source" type="string"/>
                 <Property fieldLink="http://opendata.aragon.es/def/ei2a#city-apartamento-languageText-{SIGNATURA}" attribute="harmonise:languageText">
-                  <Entity rdf:type="harmonise:LanguageText" URI="http://opendata.aragon.es/def/ei2a#city-apartamento-languageText/-{SIGNATURA}">
+                  <Entity rdf:type="harmonise:LanguageText" URI="http://opendata.aragon.es/def/ei2a#city-apartamento-languageText-{SIGNATURA}">
                     <Property field="{FUENTE}" attribute="dc:source" type="string"/>
                     <Property field="{LOCALIDAD_ESTABLECIMIENTO}" attribute="harmonise:text" type="string"/>
                   </Entity>
@@ -246,13 +216,43 @@
     <Property fieldLink="http://opendata.aragon.es/def/ei2a#profile-apartamento-{SIGNATURA}" attribute="harmonise:profile">
       <Entity rdf:type="harmonise:Profile" URI="http://opendata.aragon.es/def/ei2a#profile-apartamento-{SIGNATURA}">
         <Property field="{FUENTE}" attribute="dc:source" type="string"/>
-        <Property fieldLink="http://opendata.aragon.es/def/ei2a#places-apartamento/{SIGNATURA}" attribute="harmonise:profileField">
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#places-apartamento-{SIGNATURA}" attribute="harmonise:profileField">
           <Entity rdf:type="harmonise:ProfileField" URI="http://opendata.aragon.es/def/ei2a#places-apartamento-{SIGNATURA}">
             <Property field="{FUENTE}" attribute="dc:source" type="string"/>
             <Property value="Número de plazas" attribute="harmonise:fieldName" type="string"/>
             <Property field="{NUMERO_PLAZAS}" attribute="harmonise:fieldValue" type="string"/>
           </Entity>
         </Property>
+      </Entity>
+    </Property>
+	<Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-todo-ano-apartamento-{SIGNATURA}" attribute="harmonise:schedule" condition="{ABIERTO_TODO_ANO}">
+      <Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-todo-ano-apartamento-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property link="aodpool:todo_ano" attribute="harmonise:season"/>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-navidad-apartamento-{SIGNATURA}" attribute="harmonise:schedule" condition="{ABIERTO_NAVIDAD}">
+      <Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-navidad-apartamento-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property link="aodpool:navidad" attribute="harmonise:season"/>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-semana-santa-apartamento-{SIGNATURA}" attribute="harmonise:schedule" condition="{ABIERTO_SEMANA_SANTA}">
+      <Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-semana-santa-apartamento-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property link="aodpool:semana_santa" attribute="harmonise:season"/>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-fiestas-locales-apartamento-{SIGNATURA}" attribute="harmonise:schedule" condition="{ABIERTO_FIESTAS_LOCALES}">
+      <Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-fiestas-locales-apartamento-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property link="aodpool:fiestas_locales" attribute="harmonise:season"/>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-periodos-multiples-apartamento-{SIGNATURA}" attribute="harmonise:schedule" condition="{ABIERTO_PERIODOS_MULTIPLES}">
+      <Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-periodos-multiples-apartamento-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property link="aodpool:preiodos_multiples" attribute="harmonise:season"/>
       </Entity>
     </Property>
   </Entity>

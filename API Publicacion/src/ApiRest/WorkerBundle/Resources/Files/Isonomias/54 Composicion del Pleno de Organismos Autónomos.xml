@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:person="http://www.w3.org/ns/person#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:org="http://www.w3.org/ns/org#" id="54">
+  <Entity rdf:type="person:Person" URI="http://opendata.aragon.es/def/ei2a#persona-{NOMBRE}">
+    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+    <Property field="{NOMBRE}" attribute="dc:identifier" type="string"/>
+	<Property link="ei2a:miembro_pleno_organismo_autonomo" attribute="dc:type" />
+	<Property link="ei2a:miembro_pleno" attribute="dc:type" />
+    <Property field="{NOMBRE}" attribute="ei2a:fullName" type="string"/>
+	<Property fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" attribute="wgs84_pos:location"/>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#organizacion-{PARTIDO}" attribute="org:memberOf">
+      <Entity rdf:type="org:Organization" URI="http://opendata.aragon.es/def/ei2a#organizacion-{PARTIDO}">
+        <Property field="{PARTIDO}" attribute="ei2a:organizationName" type="string"/>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#membership-{ORGAUTO_ID}-{NOMBRE}" attribute="org:hasMembership">
+      <Entity rdf:type="org:Membership" URI="http://opendata.aragon.es/def/ei2a#membership-{ORGAUTO_ID}-{NOMBRE}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#person-{NOMBRE}" attribute="org:member"/>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#organismo-autonomo-{ORGAUTO_ID}" attribute="org:organization"/>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#role-{ORGAUTO_ID}-{NOMBRE}" attribute="org:role">
+          <Entity rdf:type="org:Role" URI="http://opendata.aragon.es/def/ei2a#role-{ORGAUTO_ID}-{NOMBRE}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property field="{CARGO}" attribute="ei2a:roleName" type="string"/>
+          </Entity>
+        </Property>
+      </Entity>
+    </Property>
+  </Entity>
+</Mapping>

@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Mapping id="5" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:org="http://www.w3.org/ns/org#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:vcard="http://www.w3.org/2006/vcard/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#">
-	<Entity rdf:type="ei2a:Document" URI="https://opendata.aragon.es/pool/ordenanza-general-municipio/{ORDYREG_ID}">
+<Mapping id="5" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:org="http://www.w3.org/ns/org#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:vcard="http://www.w3.org/2006/vcard/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#"  xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<Entity rdf:type="ei2a:Document" URI="http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-{ORDYREG_ID}">
 		<Property field="{FUENTE}" attribute="dc:source" type="string" />
 		<Property field="{ORDYREG_ID}" attribute="dc:identifier" type="string"/>
-		<Property value="ordenanza_general_municipio" attribute="dc:type" type="string" />
+		<Property link="ei2a:ordenanza_general_municipio" attribute="dc:type" />		
 		<Property field="{TEXTO}" attribute="ei2a:nameDocument" type="string" /> 
-		<Property field="{F_PUBLICACION_APRO_INI}" attribute="ei2a:registrationDate" type="string" />
-		<Property field="{F_ACUERDO_APRO_INI}" attribute="ei2a:startDate" type="string" />
+		<Property field="{F_PUBLICACION_APRO_INI}" attribute="ei2a:registrationDate" type="datetime" />
+		<Property field="{F_ACUERDO_APRO_INI}" attribute="ei2a:startDate" type="datetime" />
 		<Property field="{TIPO}" attribute="ei2a:documentType" type="string" />
 		<Property field="{AMPLIACION}" attribute="ei2a:observations" type="string" />
-		<Property fieldLink="https://opendata.aragon.es/pool/municipio/{CODIGO_MUN}" attribute="wgs84_pos:location" />
-		<Property fieldLink="https://opendata.aragon.es/pool/municipio/{CODIGO_MUN}" attribute="ei2a:isOfInterestTo" />
+		<Property fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" attribute="wgs84_pos:location" />
+		<Property fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" attribute="ei2a:isOfInterestTo" />
+		<Property fieldLink="http://servicios.aragon.es/portalAALL/document.do?clobId={CLOB_ID}" attribute="ei2a:URIDocument" />
+		<Property fieldLink="http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-{CLOB_ID}" attribute="owl:sameAs" >
+			<Entity rdf:type="ei2a:Document" URI="http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-{CLOB_ID}">
+				<Property field="{FUENTE}" attribute="dc:source" type="string" />
+				<Property fieldLink="http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-{ORDYREG_ID}" attribute="owl:sameAs" />
+				<Property field="{CLOB_ID}" attribute="dc:identifier" type="string"/>
+			</Entity>
+		</Property>
 	</Entity>	
 </Mapping>

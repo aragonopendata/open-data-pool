@@ -5,7 +5,7 @@
     <Property field="{PRESU_ID}" attribute="dc:identifier" type="string"/>
 	<Property link="ei2a:presupuesto" attribute="dc:type" />
     <Property fieldLink="{UrlEntidad}" attribute="wgs84_pos:location" />     
-    <Property field="{ANO}" attribute="ei2a:registrationDate" type="dateTime"/>
+    <Property field="{ANO}" attribute="ei2a:registrationDate" type="datetime"/>
     <Property value="Presupuesto" attribute="ei2a:documentType" type="string"/>
   </Entity>
 </Mapping>

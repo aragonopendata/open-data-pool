@@ -18,6 +18,7 @@ class DefaultController extends Controller
         $nowtime = time();
         $trazaError="";
         $error = false;
+        $carpeta ="";
         try{
             $parametrosUrl = explode("_",$id);
             $idIso = base64_decode($parametrosUrl[0]);
@@ -28,9 +29,12 @@ class DefaultController extends Controller
             //el nombre de la carpeta 
             $csv  = substr($parametrosUrl[1], 0, 8) . "_" . substr($parametrosUrl[1], 8, 6);
             $dctype = base64_decode($parametrosUrl[2]);
-			$actualizarItems = $parametrosUrl[3];
-            //id de isonomia
-           
+            $actualizarItems = base64_decode($parametrosUrl[3]);
+         
+            (empty($parametrosUrl[4])) ?  $fichero="" : $fichero=base64_decode($parametrosUrl[4]);
+            (empty($parametrosUrl[5])) ?  $log="" : $log=base64_decode($parametrosUrl[5]);
+            $carpeta = $csv;
+                
         }  catch (Exception $e) {
             $trazaError=$e->getMessage();
         } 
@@ -55,6 +59,10 @@ class DefaultController extends Controller
             $error = $error && (!isset($parametros['mail_file']));
             $error = $error && (!isset($parametros['trazas_debug']));
             $error = $error && (!isset($parametros['time_stamp_worker']));
+            $error = $error && (!isset($parametros['usu_virtuoso']));
+            $error = $error && (!isset($parametros['pass_virtuoso']));
+            $error = $error && (!isset($parametros['dominio_aplicacion']));
+            
             if ($error) {
                 $trazaError = "No se han informado alguno de los parámetros de configuración AodPool";
             } 
@@ -84,6 +92,15 @@ class DefaultController extends Controller
         $trazas = new Trazas($pathNoporcesados);
         $trazas->setClase("worker");
         $trazas->LineaInfo("indexAction","Inicio Trabajo worker");
+
+        //inicio el dal de acceso a la tabla de trazas carga cargaVistas y preparo datos para cargar en tabla
+        $dal = $this->get('Repository_AdminCargas'); 
+
+        $tiempo = explode("_",$carpeta);
+        $fecha = substr($tiempo[0],0,4) . "-". substr($tiempo[0],-4,2) . "-".  substr($tiempo[0],-2);
+        $hora = substr($tiempo[1],0,2) . ":" . substr($tiempo[1],2,2);
+        $ficherotraza = "log_" . $fecha . ".txt";
+
         if (!$error) {          
             $worker = new Worker($idIso, 
                                 $csv,
@@ -101,14 +118,28 @@ class DefaultController extends Controller
                                 $parametros['email_to'],
                                 $parametros['mail_file'],
                                 $parametros['trazas_debug'],
+                                $parametros['usu_virtuoso'],
+                                $parametros['pass_virtuoso'],
+                                $parametros['dominio_aplicacion'],
                                 $trazas);
 			$worker->Procesa($webPath,$appPath); 
             $trazas->LineaInfo("indexAction","Fin Trabajo worker"); 
+            if (!empty($fichero)) {
+                $logfichero  = sprintf("%s %s %s\n", $fecha, $hora, $log);
+                file_put_contents($fichero,  $logfichero, FILE_APPEND | LOCK_EX);          
+                $dal->InsertaCargaVistas($idIso,"A demanda","",$log,$ficherotraza,$carpeta,$fecha,$hora);
+            }
             return $this->render('@ApiRestAodPool/Default/index.html.twig', array(
                 "mensaje" =>  "Proceso realizado con éxito"));  
         } else {
             $trazas->LineaInfo("indexAction","Fin Trabajo worker");   
-            $trazas->LineaError("indexAction", $trazaError);   
+            $trazas->LineaError("indexAction", $trazaError); 
+            if (!empty($fichero)) {
+                $logfichero  = sprintf("%s %s %s %s %s\n", $fecha, $hora, $log," Error ", $trazaError );
+                file_put_contents($logfichero,  $logfichero , FILE_APPEND | LOCK_EX);
+                $log = $log . " Error " . $trazaError; 
+                $dal->InsertaCargaVistas($idIso,"A demanda","",$log, $ficherotraza, $carpeta,$fecha,$hora);
+            }  
             return $this->render('@ApiRestAodPool/Default/index.html.twig', array(
                 "mensaje" =>  "Acceso no permitido o erróneo"));
         }

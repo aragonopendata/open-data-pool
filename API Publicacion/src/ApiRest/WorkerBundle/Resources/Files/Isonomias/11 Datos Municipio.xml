@@ -13,10 +13,12 @@
 		<Property link="ei2a:AdministraciónLocal" attribute="ei2a:administrativeLevel" />
 		<Property fieldLink="http://opendata.aragon.es/def/ei2a#comarca-{CODIGO_COMARC}" attribute="org:subOrganizationOf" />
 		<Property fieldLink="http://opendata.aragon.es/def/ei2a#comarca-{CODIGO_COMARC}" attribute="wgs84_pos:location" />		
+		<Property fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" attribute="wgs84_pos:location" />		
 		<Property fieldLink="http://opendata.aragon.es/def/ei2a#geoposicion-municipio-{CODIGO_MUN}" attribute="wgs84_pos:location" >		
 			<Entity rdf:type="wgs84_pos:Point" URI="http://opendata.aragon.es/def/ei2a#geoposicion-municipio-{CODIGO_MUN}">
-				<Property  field="{LAT}" attribute="wgs84_pos:lat" type="float"/> 
-				<Property  field="{LOG}" attribute="wgs84_pos:long" type="float"/> 
+				<Property field="{FUENTE}" attribute="dc:source" type="string" />
+				<Property  field="{LAT}" attribute="wgs84_pos:lat" type="string"/> 
+				<Property  field="{LOG}" attribute="wgs84_pos:long" type="string"/> 
 			</Entity>
 		</Property>		
 		<Property fieldLink="{ProvinciaAragopediaURI}" attribute="org:subOrganizationOf" />

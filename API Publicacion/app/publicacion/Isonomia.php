@@ -192,17 +192,12 @@ class Isonomia
 					   if ($this->trazas->SinError()) 
 					   {
 					      //cargo el namespace para el predicado
-						  $ns = explode("=",$node['fieldLink']);
-						  if (count($predicado)==1) 
-						  {
-							 $predicado = $ns[0];
+						  
+							 $predicado = $node['fieldLink'];
 							 $predicadoParseo =  $this->DameParseo($predicado);
 							 $predicado=str_replace('{'.$predicadoParseo.'}',"%s",$predicado);
 							 //pongo los tag de nodo
 							 $predicado = sprintf("<%s>",$predicado);
-						  } else {
-							$this->trazas->LineaError("ProcesaEntity", "No devueve un array de dos valores:". $node['fieldLink']->asXML());    
-						  }
 					   }
 				   } else if (isset($node['link'])){ 
 					   $this->trazas->LineaInfo("ProcesaEntity",sprintf('Nodo tipo link: %s ',$node['link']->asXML()));
@@ -253,7 +248,7 @@ class Isonomia
 		if (count($output)==2)
 		   return $output[1];
 		else {
-			$this->trazas->LineaError("DameParseo", "No devueve un array de dos valores:". $literal);
+			$this->trazas->LineaError("DameParseo", "No devueve un array de dos valores proviniente de procesaEntity :". $literal);
 			return null;
 		} 
 	}

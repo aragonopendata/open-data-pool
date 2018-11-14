@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#" id="145">
+  <Entity rdf:type="ei2a:Document" URI="http://opendata.aragon.es/def/ei2a#archivos-aragon-{IDITEM}">
+    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+    <Property field="{IDITEM}" attribute="dc:identifier" type="string"/>
+    <Property link="ei2a:dara_archivos_aragon" attribute="dc:type" />
+    <Property field="{TITLE}" attribute="ei2a:nameDocument" type="string"/>
+    <Property field="{LASTMODIFIED}" attribute="ei2a:endDate" type="datetime"/>   
+    <Property field="{ANIO}" attribute="ei2a:registrationDate" type="string"/>   
+    <Property fieldLink="{TIPO}" attribute="ei2a:documentCategory" /> 
+    <Property field="{LICENCIA}" attribute="dc:rights" type="string"/>
+	<Property fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" attribute="wgs84_pos:location" />
+	<Property fieldLink="http://dara.aragon.es/opac/app/item?i={IDITEM}" attribute="ei2a:URIDocument" />
+    <Property value="DARA Archivos de Aragón" attribute="ei2a:documentType" type="string"/>
+  </Entity>
+</Mapping>

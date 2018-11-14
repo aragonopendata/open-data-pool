@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Mapping id="72" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:org="http://www.w3.org/ns/org#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:vcard="http://www.w3.org/2006/vcard/ns#" xmlns:harmonise="http://protege.stanford.edu/rdf/HTOv4002#" xmlns:aodpool="http://opendata.aragon.es/pool/season/#" xmlns:dc="http://purl.org/dc/elements/1.1/" >
+<Mapping id="72" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:org="http://www.w3.org/ns/org#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:vcard="http://www.w3.org/2006/vcard/ns#" xmlns:harmonise="http://protege.stanford.edu/rdf/HTOv4002#" xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:aodpool="http://opendata.aragon.es/pool/season/#" xmlns:dc="http://purl.org/dc/elements/1.1/" >
 	<Entity rdf:type="harmonise:Attraction" URI="http://opendata.aragon.es/def/ei2a#empresa-turismo-activo-{SIGNATURA}" >
 		<Property link="org:Organization" attribute="rdf:type"/>
 		<Property field="{FUENTE}" attribute="dc:source" type="string" />
@@ -96,7 +96,7 @@
 				<Property link="aodpool:fiestas_locales" attribute="harmonise:ListValue" />
 			</Entity>
 		</Property>		
-		<Property fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" attribute="org:Organization" />
+		<Property fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" attribute="wgs84_pos:location" />
 		<Property fieldLink="http://opendata.aragon.es/def/ei2a#location-empresa-turismo-activo-{SIGNATURA}" attribute="harmonise:location">
 			<Entity rdf:type="harmonise:Location" URI="http://opendata.aragon.es/def/ei2a#location-empresa-turismo-activo-{SIGNATURA}">
 				<Property field="{FUENTE}" attribute="dc:source" type="string" />

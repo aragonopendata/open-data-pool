@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:org="http://www.w3.org/ns/org#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:vcard="http://www.w3.org/2006/vcard/ns#" id="143">
+  <Entity rdf:type="org:Organization" URI="http://opendata.aragon.es/def/ei2a#cra-centro-{CCENTRO}">
+    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+    <Property field="{CCENTRO}" attribute="dc:identifier" type="string"/>
+    <Property link="ei2a:cra_centro" attribute="dc:type" />
+    <Property field="{DCENTRO_REGISTRAL}" attribute="ei2a:organizationName" type="string"/>
+    <Property field="{TELEFONO}" attribute="ei2a:phone" type="string"/>
+    <Property field="{NIF_CENT}" attribute="ei2a:CIF" type="string"/>
+    <Property field="{EMAIL}" attribute="ei2a:email" type="string"/>
+    <Property link="ei2a:centroeducativo" attribute="ei2a:publicEntityType"/>
+    <Property link="ei2a:escuela" attribute="ei2a:organizationType"/>
+	<Property fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" attribute="wgs84_pos:location" />
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#sedeCraCentro-{CCENTRO}" attribute="org:hasSite">
+      <Entity rdf:type="org:Site" URI="http://opendata.aragon.es/def/ei2a#sedeCraCentro-{CCENTRO}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#vCardCraCentro-{CCENTRO}" attribute="org:siteAddress">
+          <Entity rdf:type="vcard:VCard" URI="http://opendata.aragon.es/def/ei2a#vCardCraCentro-{CCENTRO}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property field="{FAX}" attribute="vcard:Fax" type="string"/>
+            <Property fieldLink="http://opendata.aragon.es/def/ei2a#adrCraCentro-{CCENTRO}" attribute="vcard:hasAddress">
+              <Entity rdf:type="vcard:ADR" URI="http://opendata.aragon.es/def/ei2a#adrCraCentro-{CCENTRO}">
+                <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                <Property field="{DOMICILIO_REGISTRAL}" attribute="vcard:street-address" type="string"/>
+                <Property field="{LOCALIDADS_CLOC}" attribute="vcard:locality" type="string"/>
+                <Property field="{CPROV}" attribute="vcard:region" type="string"/>
+                <Property field="{CCODIGOPOSTAL}" attribute="vcard:postal-code" type="string"/>
+              </Entity>
+            </Property>
+          </Entity>
+        </Property>
+      </Entity>
+    </Property>
+  </Entity>
+</Mapping>

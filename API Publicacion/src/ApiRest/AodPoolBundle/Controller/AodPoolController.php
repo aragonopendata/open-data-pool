@@ -446,7 +446,7 @@ class AodPoolController extends FOSRestController {
                 $ex = new BadRequestHttpException($errorFormulario);
                 $this->getTrazas()->LineaError("postConfiguracionAction","Fin proceso rest");  
                 throw $ex;
-                return array('Configuracion RdfType' => "Proceso con errores");
+                //return array('Configuracion RdfType' => "Proceso con errores");
             }
         } else {
             $ex = new BadRequestHttpException("Sin Parámetros",null ,400);
@@ -560,10 +560,10 @@ class AodPoolController extends FOSRestController {
             header('Pragma: public');
             header('Content-Length: ' . filesize($fileDestino));
             header('Content-disposition: attachment; filename='. basename(str_replace(" ", "_",$fileDestino)));
-            header('Pragma:public');
-            header('Content-Length:' . filesize($fileDestino));
             $this->getTrazas()->LineaInfo("getXmlAction","Fin proceso rest");    
-            readfile($fileDestino);       
+            readfile($fileDestino);    
+			$e = new \Exception;
+			return $e->getTraceAsString();
         } else {     
             $ex = new BadRequestHttpException($errorFormulario);
             $this->getTrazas()->LineaError("getXmlAction","Fin proceso rest");  
@@ -759,7 +759,7 @@ class AodPoolController extends FOSRestController {
                 $ex = new BadRequestHttpException($errorFormulario);
                 $this->getTrazas()->LineaInfo("postEsquemaAction","Fin proceso rest");
                 throw $ex;
-                return array('Isonomía' => "Proceso con errores",);
+                //return array('Isonomía' => "Proceso con errores",);
             }
         } else {
             $ex = new BadRequestHttpException("Sin Parámetros",null ,400);
@@ -815,13 +815,15 @@ class AodPoolController extends FOSRestController {
         //calculo la ruta de destino
         $this->getTrazas()->LineaInfo("postInsertAction","Inicio proceso API publicacion");
         $webPath = realpath($this->appPath. '/../web');
+        $path_logs = $webPath . "/logs";
         $path_publicacion = $webPath . "/publicacion";
         $path_publicacion_noprocesados = $webPath . "/publicacion/NoProcesados";
         $path_publicacion_error = $webPath . "/publicacion/Error";
         $path_publicacion_procesados = $webPath . "/publicacion/Procesados";
 
         //creo el nombre de la carpeta donde irá el proceso y almacenará el csv, log y nt
-        $carpeta =date("Ymd_His");
+        $datetimecarpeta = new \DateTime();
+        $carpeta =  $datetimecarpeta->format('Ymd_His');
         //creo la ruta de carpeta destino 
         $directorio =  sprintf("%s/%s/",$path_publicacion_noprocesados,$carpeta,false); 
         $this->getTrazas()->LineaInfo("postInsertAction","Creo un objeto entidad");
@@ -849,6 +851,8 @@ class AodPoolController extends FOSRestController {
         $this->getTrazas()->LineaInfo("postInsertAction", "Compruebo la carpeta publicacion/NoProcesados/" . $carpeta);
         $this->ComprueboCarpeta($fileSystem,$directorio);
 
+        $original_filename="";
+        $nombre_esquema ="";
          //si la entidad mandada es validada por el formulario
 	    if ($form->isValid()) {
             $errorFormulario ="";
@@ -856,6 +860,9 @@ class AodPoolController extends FOSRestController {
             $this->getTrazas()->LineaInfo("postInsertAction","Compruebo que existe la isonomia");
             $comprubaISOCSV = new Isonomia($publica->getIdesquema(), $this->trazas->getLogger(), $this->appPath, $this->trazas->getEscribeTrazasDebug()); 
 
+            //$nombre_esquema = $publica->getIdesquema();
+            $nombre_esquema = strtolower($publica->getIdesquema());
+            $nombre_esquema = str_replace(" ","_", $nombre_esquema);
             if (empty($publica->getIdesquema())) {
                 $errorFormulario = $errorFormulario . " El id de isonomía es requerido";
                 $this->getTrazas()->LineaError("postInsertAction","El id de isonomía es requerido"); 
@@ -954,9 +961,22 @@ class AodPoolController extends FOSRestController {
                 $isonomiaNombre = base64_encode($publica->getIdesquema()); 
                 //$param = sprintf("%s_%s%s",$isonomiaNombre,str_replace("_","",$carpeta),$nowtime);
                 $valorDcType = base64_encode("false");
-                $actualizarItems = "false";
+                $actualizarItems = base64_encode("false");
 
-                $param = sprintf("%s_%s%s_%s_%s",$isonomiaNombre,str_replace("_","",$carpeta),$nowtime, $valorDcType, $actualizarItems);
+                //escribo el log de actualizacion
+                //compruebo la carpeta publicacion
+                $this->getTrazas()->LineaInfo("postInsertAction","Compruebo la carpeta logs");
+                $this->ComprueboCarpeta($fileSystem,$path_logs);      
+                $fichero = $path_logs . "/" .  $nombre_esquema  . ".txt";         
+                if (strlen($original_filename)>0)  {
+                    $log = sprintf("Tipo (Inserción): Archivo (%s)  Clase: Total", $original_filename);
+                } else {
+                    $log = sprintf("Tipo (Inserción): Formulario Web  Clase: Total");
+                }
+                $fichero = base64_encode($fichero);
+                $log = base64_encode($log);
+
+                $param = sprintf("%s_%s%s_%s_%s_%s_%s",$isonomiaNombre,str_replace("_","",$carpeta),$nowtime, $valorDcType, $actualizarItems,$fichero,$log);
                 $procesCMD = sprintf("curl %s/worker/%s",$urlweb, $param);        
                 $this->getTrazas()->LineaInfo("execute", "Lanzo comando: ". $procesCMD);
                 exec($procesCMD . " > /dev/null 2>&1 &"); 
@@ -974,9 +994,8 @@ class AodPoolController extends FOSRestController {
 				rename($path_publicacion_noprocesados ,$path_publicacion_error);
                 $ex = new BadRequestHttpException($errorFormulario);
                 $this->getTrazas()->LineaInfo("postInsertAction","Fin proceso rest");
-                return array('Publicacion' => "Proceso con errores",);
+                //return array('Publicacion' => "Proceso con errores",);
                 throw $ex;
-
             }
         } else {
             if (strpos($path_publicacion_noprocesados, $carpeta)===FALSE) {
@@ -1043,6 +1062,7 @@ class AodPoolController extends FOSRestController {
         $this->getTrazas()->LineaInfo("postEntitiesAction","Inicio proceso API publicacion");
         //calculo la ruta de destino
         $webPath = realpath($this->appPath . '/../web');
+        $path_logs = $webPath . "/logs";
         $path_publicacion = $webPath . "/publicacion";
         $path_publicacion_noprocesados = $webPath . "/publicacion/NoProcesados";
         $path_publicacion_error = $webPath . "/publicacion/Error";
@@ -1063,7 +1083,7 @@ class AodPoolController extends FOSRestController {
         $form->handleRequest($request);
         $fileSystem = new Filesystem();
 			
-		 //compruebo la carpeta publicacion
+	//compruebo la carpeta publicacion
         $this->getTrazas()->LineaInfo("postEntitiesAction","Compruebo la carpeta publicacion");
         $this->ComprueboCarpeta($fileSystem,$path_publicacion);
         //compruebo la carpeta publicacion/NoProcesados
@@ -1078,13 +1098,17 @@ class AodPoolController extends FOSRestController {
         //compruebo la carpeta publicacion/Procesados
         $this->getTrazas()->LineaInfo("postEntitiesAction", "Compruebo la carpeta publicacion/NoProcesados/" . $carpeta);
         $this->ComprueboCarpeta($fileSystem,$directorio);
-		
+        
+        $original_filename="";
+        $nombre_esquema ="";
          //si la entidad mandada es validada por el formulario
 	    if ($form->isValid()) {
             $errorFormulario ="";
             $comprubaISOCSV = new Isonomia($update->getIdesquema(), $this->trazas->getLogger(), $this->appPath, $this->trazas->getEscribeTrazasDebug());
           
             //compruebo el id isonomia
+            $nombre_esquema = strtolower($update->getIdesquema());
+            $nombre_esquema = str_replace(" ","_", $nombre_esquema);
             $this->getTrazas()->LineaInfo("postEntitiesAction","Compruebo que existe la isonomia");
             if (empty($update->getIdesquema())) {
                 $errorFormulario = $errorFormulario . " El id de isonomía es requerido";
@@ -1093,6 +1117,7 @@ class AodPoolController extends FOSRestController {
                 $errorFormulario = $errorFormulario . "No existe la isonomia: " . $update->getIdesquema();
                 $this->getTrazas()->LineaError( "postEntitiesAction","No existe la isonomia: " . $update->getIdesquema()); 
             }
+
             //Compruebo el csv	
             if (empty($errorFormulario)) {
                 $this->getTrazas()->LineaInfo("postEntitiesAction","Si existe la isonomia: " . $update->getIdesquema()); 
@@ -1208,14 +1233,27 @@ class AodPoolController extends FOSRestController {
                  $isonomiaNombre = base64_encode($update->getIdesquema()); 
                  //$param = sprintf("%s_%s%s",$isonomiaNombre,str_replace("_","",$carpeta),$nowtime);
                  $valorDcType = base64_encode("false");
-                 $actualizarItems = "true";
+                 $actualizarItems = base64_encode("true");
    
-                 $param = sprintf("%s_%s%s_%s_%s",$isonomiaNombre,str_replace("_","",$carpeta),$nowtime, $valorDcType, $actualizarItems);
+                 //escribo el log de actualizacion
+                 //compruebo la carpeta publicacion
+                 $this->getTrazas()->LineaInfo("postEntitiesAction","Compruebo la carpeta logs");
+                 $this->ComprueboCarpeta($fileSystem,$path_logs);      
+                 $fichero = $path_logs . "/" .  $nombre_esquema  . ".txt";         
+                 if (strlen($original_filename)>0)  {
+                    $log = sprintf("Tipo (Actualización): Archivo (%s) Clase: Total",$original_filename);
+                 } else {
+                    $log = sprintf("Tipo (Actualización): Formulario Web Clase: Total");
+                 }
+                 $fichero = base64_encode($fichero);
+                 $log = base64_encode($log);
+
+                 $param = sprintf("%s_%s%s_%s_%s_%s_%s",$isonomiaNombre,str_replace("_","",$carpeta),$nowtime, $valorDcType, $actualizarItems,$fichero,$log);
                  $procesCMD = sprintf("curl %s/worker/%s",$urlweb, $param);        
                  $this->getTrazas()->LineaInfo("execute", "Lanzo comando: ". $procesCMD);
-                 exec($procesCMD . " > /dev/null 2>&1 &"); 
-  
-                 $this->getTrazas()->LineaInfo("postEntitiesAction","Fin proceso rest");  
+                 exec($procesCMD . " > /dev/null 2>&1 &");            
+                 $this->getTrazas()->LineaInfo("postEntitiesAction","Fin proceso rest"); 
+                 
                  return array("publicacion" =>  "Carga Csv registrada con éxito");
              } else {       
                  if (strpos($path_publicacion_noprocesados, $carpeta)===FALSE) {
@@ -1227,7 +1265,7 @@ class AodPoolController extends FOSRestController {
                  rename($path_publicacion_noprocesados ,$path_publicacion_error);
                  $ex = new BadRequestHttpException($errorFormulario);
                  $this->getTrazas()->LineaInfo("postEntitiesAction","Fin proceso rest");
-                 return array('Publicacion' => "Proceso con errores",);
+                 //return array('Publicacion' => "Proceso con errores:" . $errorFormulario);
                  throw $ex;
             }
         
@@ -1352,6 +1390,7 @@ class AodPoolController extends FOSRestController {
         //calculo la ruta de destino
 
         $webPath = realpath($this->appPath . '/../web');
+        $path_logs = $webPath . "/logs";
         $path_publicacion = $webPath . "/publicacion";
         $path_publicacion_noprocesados = $webPath . "/publicacion/NoProcesados";
         $path_publicacion_error = $webPath . "/publicacion/Error";
@@ -1387,11 +1426,18 @@ class AodPoolController extends FOSRestController {
         //compruebo la carpeta publicacion/Procesados
         $this->getTrazas()->LineaInfo("postViewAction", "Compruebo la carpeta publicacion/NoProcesados/" . $carpeta);
         $this->ComprueboCarpeta($fileSystem,$directorio);
-		
+        
+        $original_filename="";
+        $nombre_esquema ="";
+        $dcType ="";
          //si la entidad mandada es validada por el formulario
 	    if ($form->isValid()) {
             $errorFormulario ="";
-			
+            
+            //compruebo el id isonomia
+            $nombre_esquema = strtolower($update->getIdesquema());
+            $nombre_esquema = str_replace(" ","_", $nombre_esquema);
+
             $comprubaISOCSV = new Isonomia($update->getIdesquema(), $this->trazas->getLogger(), $this->appPath, $this->trazas->getEscribeTrazasDebug());
             if (empty($update->getIdesquema())) {
                 $errorFormulario = $errorFormulario . " El id de isonomía es requerido";
@@ -1401,7 +1447,6 @@ class AodPoolController extends FOSRestController {
                 $errorFormulario = $errorFormulario . "No existe la isonomia: " . $update->getIdesquema();
                 $this->getTrazas()->LineaError("postViewAction","No existe la isonomia: " . $update->getIdesquema()); 
             }   
-
             //compruebo el Csv
             if (empty($errorFormulario)) {
                 $this->getTrazas()->LineaInfo("postViewAction","Si existe la isonomia: " . $update->getIdesquema()); 
@@ -1514,9 +1559,25 @@ class AodPoolController extends FOSRestController {
                 //lanzo el timespan de seguridad
                 $nowtime = time();
                 $isonomiaNombre = base64_encode($update->getIdesquema());
+                $dctypelog = $dcType;
                 $dcType = base64_encode($dcType);
-                $actualizarItems = "false";
-                $param = sprintf("%s_%s%s_%s_%s",$isonomiaNombre,str_replace("_","",$carpeta),$nowtime, $dcType, $actualizarItems);
+                $actualizarItems = base64_encode("false");
+
+                //escribo el log de actualizacion
+                //compruebo la carpeta publicacion
+                $this->getTrazas()->LineaInfo("postEntitiesAction","Compruebo la carpeta logs");
+                $this->ComprueboCarpeta($fileSystem,$path_logs);
+                $fichero = $path_logs . "/" .  $nombre_esquema  . ".txt"; 
+                if (strlen($original_filename)>0)  {
+                    $log = sprintf("Tipo (Actualización): Archivo (%s) Clase: dc_type (%s)", $original_filename, $dctypelog);
+                } else {
+                    $log = sprintf("Tipo (Actualización): Formulario Web Clase: dc_type (%s)", $dctypelog);
+                }
+                $fichero = base64_encode($fichero);
+                $log = base64_encode($log);
+
+                //$param = sprintf("%s_%s%s_%s_%s",$isonomiaNombre,str_replace("_","",$carpeta),$nowtime, $dcType, $actualizarItems);
+                $param = sprintf("%s_%s%s_%s_%s_%s_%s",$isonomiaNombre,str_replace("_","",$carpeta),$nowtime, $dcType, $actualizarItems,$fichero,$log);
                 $procesCMD = sprintf("curl %s/worker/%s",$urlweb, $param);        
                 $this->getTrazas()->LineaInfo("execute", "Lanzo comando: ". $procesCMD);
                 exec($procesCMD . " > /dev/null 2>&1 &"); 
@@ -1534,7 +1595,7 @@ class AodPoolController extends FOSRestController {
                 $ex = new BadRequestHttpException($errorFormulario);
                 $this->getTrazas()->LineaInfo("postViewAction","Fin proceso rest");
                 throw $ex;
-                return array('Actualización' => "Proceso con errores",);
+                //return array('Actualización' => "Proceso con errores",);
             } 
         } else {
             if (strpos($path_publicacion_noprocesados, $carpeta)===FALSE) {

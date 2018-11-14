@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:gtfs="http://vocab.gtfs.org/terms#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#" id="151">
+  <Entity rdf:type="gtfs:Route" URI="http://opendata.aragon.es/def/ei2a#transporte-ruta-{COD_RUTA}">
+    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+    <Property field="{COD_RUTA}" attribute="dc:identifier" type="string"/>
+    <Property link="ei2a:transporte_ruta" attribute="dc:type"/>
+	<Property field="{DENO_RUTA}" attribute="dc:title" type="string" />
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#transporte-parada-{PARADA_ORIGEN}" attribute="gtfs:originStop"/>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#transporte-parada-{PARADA_DESTINO}" attribute="gtfs:destinationStop"/>
+	<Property fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{MUN_ORIGEN}" attribute="wgs84_pos:location" />	
+	<Property fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{MUN_DESTINO}" attribute="wgs84_pos:location" />	
+    <Property link="gtfs:Bus" attribute="gtfs:routeType"/>
+  </Entity>
+</Mapping>
