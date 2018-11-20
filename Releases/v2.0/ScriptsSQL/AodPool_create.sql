@@ -6984,7 +6984,8 @@ ALTER TABLE ONLY lugares
 ALTER TABLE ONLY temas
     ADD CONSTRAINT temas_pkey PRIMARY KEY (code);
 
-
+ALTER SEQUENCE cargavistas_code_seq RESTART WITH 124;
+	
 --
 -- PostgreSQL database dump complete
 --
