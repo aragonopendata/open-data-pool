@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:org="http://www.w3.org/ns/org#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:foaf="http://xmlns.com/foaf/0.1/" id="135">
+  <Entity rdf:type="org:Organization" URI="http://opendata.aragon.es/def/ei2a#operador-{IDOPERADOR}">
+    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+    <Property field="{IDOPERADOR}" attribute="dc:identifier" type="string"/>
+    <Property link="ei2a:operador" attribute="dc:type" />
+    <Property field="{NOMBRE}" attribute="ei2a:organizationName" type="string"/>
+    <Property field="{WEB}" attribute="foaf:homepage" type="string"/>
+    <Property link="ei2a:empresa" attribute="ei2a:organizationType"/>
+  </Entity>
+</Mapping>

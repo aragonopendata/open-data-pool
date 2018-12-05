@@ -78,7 +78,7 @@ class AodPoolController extends FOSRestController {
 
 
     /**
-    * Servicio de lectura de los temas de Aragopedia. Devuelve los Temas existentes.
+    * Servicio de lectura de los temas del Gobierno de Aragon. Devuelve los Temas existentes.
     * 
     * 
 	* @var Request $request
@@ -108,7 +108,7 @@ class AodPoolController extends FOSRestController {
     }
 
     /**
-    * Servicio de lectura de los tipos de entidades de Aragopedia. Devuelve los tipos de entidades existentes.
+    * Servicio de lectura de los tipos de entidades del Gobierno de Aragon. Devuelve los tipos de entidades existentes.
     * 
 	* @var Request $request
 	* @return View|array

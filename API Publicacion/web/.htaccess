@@ -66,3 +66,12 @@ DirectoryIndex app.php
         # RedirectTemp cannot be used instead
     </IfModule>
 </IfModule>
+php_value date.timezone "Europe/Madrid"
+<IfModule mod_php5.c>
+php_value post_max_size 5000M
+php_value upload_max_filesize 5000M
+php_value memory_limit 1208M
+php_value max_execution_time 900
+php_value max_input_time 900
+php_value session.gc_maxlifetime 1200
+</IfModule>

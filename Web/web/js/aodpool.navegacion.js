@@ -57,9 +57,9 @@ jQuery(document).ready(function () {
         showTooltip: true,
         backgroundColor: '#fcfcfa',
         selectedColor: '#aaaaaa',
-        hoverColor: '#dada0d',
+        hoverColor: '#5ea2ba',
         color: '#fcfcfb',
-        borderColor: '#dada0d',
+        borderColor: '#5ea2ba',
         borderWidth: 3,
         onResize: function (element, width, height) {
             console.log('Map Size: ' +  width + 'x' +  height);

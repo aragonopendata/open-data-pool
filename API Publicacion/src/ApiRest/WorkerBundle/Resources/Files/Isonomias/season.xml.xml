@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping id="season" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ei2a="http://opendata.aragon.es/def/ei2ia#" xmlns:org="http://www.w3.org/ns/org#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:vcard="http://www.w3.org/2006/vcard/ns#" xmlns:harmonise="http://protege.stanford.edu/rdf/HTOv4002#" >
+	<Entity rdf:type="harmonise:ListValue" URI="http://opendata.aragon.es/pool/season/list-value/{Url}" >
+		<Property fieldLink="http://opendata.aragon.es/pool/season/reference-value/{Url}" attribute="harmonise:referencedValue" type="harmonise:ReferencedValue" >
+			<Entity rdf:type="harmonise:ReferencedValue" URI="http://opendata.aragon.es/pool/season/reference-value/{Url}">
+				<Property field="Name" attribute="harmonise:domainName" type="string"/>
+				<Property field="Value" attribute="harmonise:domainValue" type="string"/>
+			</Entity>
+		</Property>
+	</Entity>
+</Mapping>

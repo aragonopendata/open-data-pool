@@ -1,0 +1,343 @@
+<?php
+
+namespace WebBundle\Controller\Utility;
+use Symfony\Component\Yaml\Yaml;
+use WebBundle\Controller\Utility\Trazas;
+use WebBundle\Entity\Navegacion;
+//Clase que se encarga de filtrar los resultados de la navegacion entre localidades, temas y entidades
+//Navegando desde la home a una de las opciones (por ejemplo Entidades), en esa página pinchamos 
+//en una de las opciones (por ejemplo organizaciones), nos lleva a una página donde nos aparecen lugares.
+//la clase filtra sólo los que tienen resultados a partir del primer filtro. Es decir, todos los municipios, comarcas y provincias en las que existe alguna organización. 
+//En el caso de navegar por temas, la clase funciona también de esta manera. 
+//En el caso de navegar por lugar, en la siguiente pantalla aparecen temas y entidades, que también deberían son filtrados en base al lugar seleccionado. 
+
+define("PREFIJOSDEFECTO","PREFIX ei2a:<http://opendata.aragon.es/def/ei2a#>  PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>  PREFIX org:<http://www.w3.org/ns/org#> PREFIX foaf:<http://xmlns.com/foaf/0.1/> PREFIX dc:<http://purl.org/dc/elements/1.1/> PREFIX wgs84_pos:<http://www.w3.org/2003/01/geo/wgs84_pos#>");
+
+
+define("FILTROMUNICIPIOCOMARCA","?s wgs84_pos:location ?location . ?location dc:identifier '%s' . ");                       
+define("FILTROPROVINCIA","?s wgs84_pos:location ?location. ?location org:subOrganizationOf ?provincia. ?provincia rdfs:label '%s' . "); 
+
+define("FILTROENTIDAD","?s rdf:type <%s> . ");
+define("FILTROTEMA","?s dc:type ?t0 . ?t0 rdf:type <%s> . ");
+
+
+define("QUERY_MUNICIPIO_COMARCA","%s select  ?id as ?contador from <%s> where { ?s rdf:type ?type .  ?s wgs84_pos:location ?location . ?location dc:identifier ?id .  ?location dc:type <http://opendata.aragon.es/def/ei2a#%s>. %s}  group by ?id");
+define("QUERY_PROVINCIA","%s select ?id as ?contador from <%s> where { ?s rdf:type ?type .  ?s wgs84_pos:location ?location. ?location org:subOrganizationOf ?provincia. ?provincia rdfs:label ?id . %s}  group by ?id");
+
+define("QUERY_ENTIDAD","%s select  ?id as ?contador from <%s> where { ?s rdf:type ?id . %s}  group by ?id");
+define("QUERY_TEMA","%s select  ?id as ?contador from <%s> where { ?s dc:type ?t0 . ?t0 rdf:type ?id . %s}  group by ?id");
+
+class FiltroNavegacion{
+
+    /**
+    * Objeto que accede a virtuoso, también realiza trasformaciones de parámetros a query sparql
+    * instacia del la clase acceso
+    */
+    protected $virtuoso;
+
+    /**
+    * Objeto array con todas las localiades
+    */
+    protected $lugaresArray;
+
+    /**
+    * Objeto array con todas los temas
+
+    */
+    protected $temasArray;
+
+
+     /**
+      * Objeto array con todas las entidades
+     */
+    protected $entidadesArray; 
+
+     /**
+      * Objeto de acceso a progress a la tablas temas
+      * instacia del la clase acceso
+    */
+    protected $dalTemas; 
+
+
+     /**
+    * Objeto de acceso a progress a la tabla entidades
+    * instacia del la clase acceso
+    */
+    protected $dalTypes; 
+
+
+    /**
+     * sujeto de la triple uri principal 
+     */
+    protected $url;
+
+     /**
+     * Objeto que contiene la configuración yammer almacenada en la BD
+     * Intacia de la clese repositorio WebConfig
+     */
+    protected $configuracion;
+
+
+    /**
+     * Directorio pricipal relativo
+    */
+    protected $directoryPath;
+  
+    /**
+    * Objeto de salida Array con todos los valores a mostrar en la ficha
+    */
+    protected $parametrosWeb;
+
+
+    //clase de trazas
+    protected $trazas=null;
+
+    /**
+     * 
+     *  Constructor que receive:
+     *  $virtuoso: objeto de acceso a virtuoso
+     *  $url: la url principal sujeto de la entidad a mostrar
+     *  $directoryPath: directorio relativo principal
+    */
+    public function __construct($virtuoso, $directoryPath) {
+        $this->virtuoso = $virtuoso;
+        $this->directoryPath = $directoryPath;
+       
+        $this->trazas = new Trazas($directoryPath);
+        $this->trazas->setClase("FiltroNavegacion");
+        $this->trazas->LineaDebug("__construct","Entro función");
+    }
+
+    /**
+     * Set de variable
+     */
+    public function setEntidadesArray($entidadesArray){
+        $this->entidadesArray = $entidadesArray;
+    }
+
+    /**
+     * Set de variable
+     */
+    public function setTemasArray($temasArray){
+        $this->temasArray = $temasArray;
+    }
+
+    /**
+     * Set de variable
+     */
+    public function setLugaresArray($lugaresArray){
+        $this->lugaresArray = $lugaresArray;
+    }
+
+    /**
+     * Set de variable
+     */  
+    public function setDalTemas($dalTemas){ 
+        $this->dalTemas = $dalTemas;         
+    }
+     
+    /**
+     * Set de variable
+     */  
+    public function setDalTypes($dalTypes){
+        $this->dalTypes = $dalTypes;
+    }
+    
+    /**
+     * Función que filtra las provincias a mostrar por rdfType de entidad y rdfType del tema
+     * Parámetros:
+     * $rdfTypeentidad: rdftype de la entidad seleccionada
+     * $rdfTypetema: rdftype del tema seleccionado
+     */
+    public function DameProvincias($rdfTypeentidad, $rdfTypetema){
+      $filtro=array();
+      //inicializo los prefijos
+      $prefijos = PREFIJOSDEFECTO;
+      //inicializo el form del sparql
+      $from = $this->virtuoso->getIsqlDb();
+      $condicion ="";
+      //dependiendo del rdftype pasado filtro por entidad  o por tema
+      if (!empty($rdfTypetema)) {
+        $condicion =sprintf(FILTROTEMA,$rdfTypetema);
+      } else if (!empty($rdfTypeentidad) ) {
+        $condicion =sprintf(FILTROENTIDAD,$rdfTypeentidad);
+      }
+      //monto la query
+      $query = sprintf(QUERY_PROVINCIA,$prefijos,$from,$condicion);
+      //pregunto a virtuoso
+      $provincias =  $this->virtuoso->DameConsultaWeb($query,"SUJETOS"); 
+      //por cada provincia devuelta creo otro array con los datos del array con todas las provincias
+      foreach ($provincias as $provincia) {
+        $nombre = $provincia['contador'];
+        $codigo = array_search($nombre, $this->lugaresArray['Provincias']);
+        $filtro[$codigo] = $nombre;
+      }
+      //ordeno el array
+      asort($filtro);
+      return $filtro;
+    }
+
+    /**
+     * Función que filtra las comarcas a mostrar por rdfType de entidad y rdfType del tema
+     * Parámetros:
+     * $rdfTypeentidad: rdftype de la entidad seleccionada
+     * $rdfTypetema: rdftype del tema seleccionado
+     */
+    public function DameComarcas($rdfTypeentidad,$rdfTypetema){
+        $filtro=array();
+        //inicializo los prefijos
+        $prefijos = PREFIJOSDEFECTO;
+         //inicializo el form del sparql
+        $from = $this->virtuoso->getIsqlDb();
+        $condicion ="";
+        //dependiendo del rdftype pasado filtro por entidad  o por tema
+        if (!empty($rdfTypetema)) {
+            $condicion =sprintf(FILTROTEMA,$rdfTypetema);
+         } else if (!empty($rdfTypeentidad) ) {
+            $condicion =sprintf(FILTROENTIDAD,$rdfTypeentidad);
+         }
+        //monto la query
+        $query = sprintf(QUERY_MUNICIPIO_COMARCA,$prefijos,$from,"comarca",$condicion);
+        $comarcas =  $this->virtuoso->DameConsultaWeb($query,"SUJETOS"); 
+        //por cada comarca devuelta creo otro array con los datos del array con todas las provincias
+        //las comarcas son de  tamaño 2
+        foreach ($comarcas as $comarca) {
+           $codigo = $comarca['contador'];
+           if (strlen($codigo)===2){         
+             $filtro[$codigo] = $this->lugaresArray['Comarcas'][(int)$codigo];
+           }
+        }
+         //ordeno el array
+        asort($filtro);
+        return $filtro;
+    }
+
+    /**
+     * Función que filtra los municipios a mostrar por rdfType de entidad y rdfType del tema
+     * Parámetros:
+     * $rdfTypeentidad: rdftype de la entidad seleccionada
+     * $rdfTypetema: rdftype del tema seleccionado
+     */
+    public function DameMunicipios($rdfTypeentidad,$rdfTypetema){
+        $filtro=array();
+         //inicializo los prefijos
+        $prefijos = PREFIJOSDEFECTO;
+        //inicializo el form del sparql
+        $from = $this->virtuoso->getIsqlDb();
+        $condicion ="";
+         //dependiendo del rdftype pasado filtro por entidad  o por tema
+        if (!empty($rdfTypetema)) {
+           $condicion =sprintf(FILTROTEMA,$rdfTypetema);
+        } else if (!empty($rdfTypeentidad) ) {
+           $condicion =sprintf(FILTROENTIDAD,$rdfTypeentidad);
+        }
+         //monto la query
+        $query = sprintf(QUERY_MUNICIPIO_COMARCA,$prefijos,$from,"municipio",$condicion);
+        $municipios =  $this->virtuoso->DameConsultaWeb($query,"SUJETOS"); 
+        //por cada municipio devuelta creo otro array con los datos del array con todas las provincias
+        //los municipio son de codigo con tamaño 5
+        foreach ($municipios as $municipio) {
+            $codigo = $municipio['contador'];
+            if (strlen($codigo)===5){
+                $nombre =  $this->lugaresArray['Municipios'][$codigo];
+                if (!empty($nombre)) {
+                    $filtro[$codigo] = $nombre;
+                }
+            } 
+        }
+        //ordeno el array
+        asort($filtro);
+        return $filtro;
+    }
+
+    /**
+     * Función que filtra los los temas a mostrar por localidad (puede ser provincia, comarca o municipio)
+     * Parámetros:
+     * $localidad: codigo de la localidad. Se distingue por tamaño (4 provincia, 2 comarca, 5 municipio)
+     */
+    public function DameTemas($localidad){
+        $filtro=array();
+        //inicializo los prefijos
+        $prefijos = PREFIJOSDEFECTO;
+        //inicializo el form del sparql
+        $from = $this->virtuoso->getIsqlDb();
+        $condicion ="";
+        //tomo el tamaño de la localidad para saber el tipo y proceso dependiendo de este
+        $tipoLocalidad = strlen($localidad);
+        if ( $tipoLocalidad==2 || $tipoLocalidad==5) {
+           $condicion =sprintf(FILTROMUNICIPIOCOMARCA,$localidad); 
+        } else if ( $tipoLocalidad==4)  {
+           $localidad = $this->DameNombreProvincia($localidad);
+           $condicion =sprintf(FILTROPROVINCIA,$localidad);
+        }
+          //monto la query
+        $query = sprintf(QUERY_TEMA,$prefijos,$from,$condicion);
+        $entidades =  $this->virtuoso->DameConsultaWeb($query,"SUJETOS"); 
+        //por cada  rdftype devuelto 
+        foreach ($entidades as $entidad) {
+            $codigo = $entidad['contador'];
+            //pregunto a progress el codigo
+            $codigo = $this->dalTemas->GetCodeByRdfType($codigo); 
+            if (!empty($codigo)) {
+              //creo el elemento con el codigo y el descriptivo del array con todos los temas
+              $filtro[$codigo] = $this->temasArray[$codigo];
+            }       
+        }
+       //ordeno el array
+        asort($filtro);
+        return $filtro;
+    }
+    /**
+     * Función que filtra los las entidades a mostrar por localidad (puede ser provincia, comarca o municipio)
+     * Parámetros:
+     * $localidad: codigo de la localidad. Se distingue por tamaño (4 provincia, 2 comarca, 5 municipio)
+     */
+    public function DameEntidades($localidad){
+        $filtro=array();
+        //inicializo los prefijos
+        $prefijos = PREFIJOSDEFECTO;
+        //inicializo el form del sparql
+        $from = $this->virtuoso->getIsqlDb();
+        $condicion ="";
+         //tomo el tamaño de la localidad para saber el tipo y proceso dependiendo de este
+        $tipoLocalidad = strlen($localidad);
+        if ( $tipoLocalidad==2 || $tipoLocalidad==5) {
+           $condicion =sprintf(FILTROMUNICIPIOCOMARCA,$localidad); 
+        } else if ( $tipoLocalidad==4)  {
+           $localidad = $this->DameNombreProvincia($localidad);
+           $condicion =sprintf(FILTROPROVINCIA,$localidad);
+        }
+        //monto la query
+        $query = sprintf(QUERY_ENTIDAD,$prefijos,$from,$condicion);
+        $entidades =  $this->virtuoso->DameConsultaWeb($query,"SUJETOS"); 
+        foreach ($entidades as $entidad) {
+            $codigo = $entidad['contador'];
+            //pregunto a progress el codigo
+            $codigo = $this->dalTypes->GetCodeByRdfType($codigo); 
+            if (!empty($codigo)) {
+                //creo el elemento con el codigo y el descriptivo del array con todos la entidades
+                 $filtro[$codigo] = $this->entidadesArray[$codigo];
+            }
+        }
+        //ordeno el array
+        asort($filtro);
+        return $filtro;
+    }
+
+    private function DameNombreProvincia($codigo){
+       $nombreProvincia ="";
+       switch ($codigo) {
+        case 7823:
+            $nombreProvincia = "Zaragoza";
+            break;
+        case 7824:
+            $nombreProvincia = "Huesca";
+            break;
+        case 7825:
+            $nombreProvincia = "Teruel";
+            break;
+       }
+       return $nombreProvincia;
+    }
+      
+}

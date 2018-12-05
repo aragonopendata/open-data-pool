@@ -635,6 +635,9 @@ class ParseaDetalle{
                     if(!empty($campoUrl)){
                         $campoUrl = $this->DameValorP($campoUrl);  
                         if ($sinAcentosUrl) {
+							if(strcmp($campoUrl,"ALMUNIA DE DOÑA GODINA, LA") === 0){
+								$campoUrl = "LA ALMUNIA DE DOÑA GODINA";
+							}
                             $campoUrl = $this->DameSinAcentos($campoUrl);
                         }                     
                         $url = sprintf($url,$campoUrl);
@@ -762,7 +765,11 @@ class ParseaDetalle{
      */
     function DameSinAcentos($campoUrl){
         $campoUrlSinAcentos = strtolower($campoUrl);
-        $campoUrlSinAcentos = str_replace(" ", "-", $campoUrlSinAcentos );
+		$campoUrlSinAcentos = str_replace("Ñ", "n", $campoUrlSinAcentos);
+		$campoUrlSinAcentos = str_replace("ñ", "n", $campoUrlSinAcentos);
+        $campoUrlSinAcentos = str_replace(" ", "-", $campoUrlSinAcentos);
+		$campoUrlSinAcentos = str_replace("/", "-", $campoUrlSinAcentos);
+		$campoUrlSinAcentos = str_replace(",", "",$campoUrlSinAcentos);
         $charset='UTF-8'; 
         $campoUrlSinAcentos = iconv($charset, 'ASCII//TRANSLIT', $campoUrlSinAcentos);
         return $campoUrlSinAcentos;

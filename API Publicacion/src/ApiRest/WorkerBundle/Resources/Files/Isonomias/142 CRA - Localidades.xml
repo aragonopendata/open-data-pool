@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:locn="http://www.w3.org/ns/locn#" xmlns:dc="http://purl.org/dc/elements/1.1/" id="142">
+  <Entity rdf:type="locn:Location" URI="http://opendata.aragon.es/def/ei2a#cra-localidad-{CLOC}">
+    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+    <Property field="{CLOC}" attribute="dc:identifier" type="string"/>
+    <Property link="ei2a:cra_localidad" attribute="dc:type" />
+    <Property field="{CLOC}" attribute="dc:identifier" type="string"/>
+    <Property field="{DLOC}" attribute="dc:title" type="string"/>    
+  </Entity>
+</Mapping>

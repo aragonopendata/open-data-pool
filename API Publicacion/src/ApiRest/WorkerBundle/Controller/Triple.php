@@ -439,6 +439,7 @@ class Triple
 	 */
 	private function MultiParseo($valorIso, $valorParseo, $donde){
 		$valor ="";	
+		$this->trazas->LineaDebug("MultiParseo", "Informa de los datos de MultiParseo valorIso ". $valorIso); 
 		if($this->tipoNodo=="field" &&  $donde=="P") {
 			$filaCVS =  $this->DameValorFormato($this->filaCVS,$valorParseo); ;
 		} else{
@@ -450,6 +451,7 @@ class Triple
 			switch ($cuantos) {
 				case 1:
 					//$valorFormato = DameValorFormato($valorIso,$tipo);
+					$this->trazas->LineaDebug("MultiParseo", "Informa de los datos de ValorParseo ". $valorParseo[0]); 
 					$valor = sprintf($valorIso, trim($filaCVS[$valorParseo[0]]));
 					break;
 				case 2:
@@ -628,8 +630,11 @@ class Triple
 			//OJO Purde que eun futuro pueda fallar en expesiones de plantilla tipo http://http://opendata.aragon.es?url={$valor} 
 			if(filter_var($valor, FILTER_VALIDATE_URL) === FALSE)
 			{
-				$valor = urlencode($valor);
+				if(strpos($valor,"http://opendata.aragon.es/recurso/territorio/Municipio") !== 0){
+					$valor = urlencode($valor);
+				}
 			}
+			
 			$filaCVSNamespace[$value] = $valor;
 		}
 		return $filaCVSNamespace;

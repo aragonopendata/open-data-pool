@@ -101,13 +101,13 @@ var comportamientoFacetas = {
       this.boton.on('click', function (e) {
 
         e.preventDefault();
-        if (localBody.hasClass('facetas-mostrar')) {
+        /*if (localBody.hasClass('facetas-mostrar')) {
           lanzarCharts.init();
           localBody.removeClass('facetas-mostrar');
         } else {
           lanzarCharts.init();
           localBody.addClass('facetas-mostrar');
-        }
+        }*/
         if (localBody.hasClass('facetas-mostrar-movil')){
           localBody.removeClass('facetas-mostrar-movil');
         }else{
@@ -260,7 +260,7 @@ var menuSecundario = {
       }
     });
 
-    var aLiNav = localBody.find('.row-menu-secundario ul > li > a');
+    var aLiNav = localBody.find('.row-menu-secundario > ul > li > a');
 
     aLiNav.bind('click', function(e){
 
@@ -439,7 +439,7 @@ var verTodosFacetas = {
           item.parents('.oculto').removeClass('oculto');
       }
 
-  });
+    });
 
     return;
   }
@@ -483,6 +483,205 @@ var marginTopHome = {
 
     if (busqueda) body.addClass('margen');
 
+  }
+};
+
+var enlazarBloquesMin = {
+  init: function(){
+
+    var bloques = body.find('.col.bloque-min');
+    bloques.each(function(e){
+      
+      var item = $(this);
+      if (!item.hasClass('bloque-provincias') && !item.hasClass('bloque-municipios') && !item.hasClass('bloque-comarcas')){
+        var enlace = item.find('.titulo a').first();
+
+        enlace.bind('click', function(e){
+          
+          if ($(this).attr('onclick') != undefined){
+            e.stopPropagation();
+          }else{
+            window.location.href = $(this).attr('href');
+          }
+        });
+
+        item.unbind('click');
+        item.bind('click', function(e){
+          e.preventDefault();
+          e.stopPropagation();
+          enlace.trigger('click');
+        });
+      }
+    });
+
+    return;
+  }
+};
+
+var breadcrumbMovil = {
+  init: function(){
+    this.config();
+    this.comportamiento();
+    return;
+  },
+  config: function(){
+    this.body = body;
+    return;
+  },
+  comportamiento: function(){
+
+    var width = this.body.width();
+
+    if (width < 992){
+
+      var breadcrumb = this.body.find('.breadcrumb');
+      var wrap = breadcrumb.children('.wrap');
+      var p = wrap.children('p');
+
+      if (p.length > 0){
+
+        var spanAyuda = wrap.children('.ayuda');
+        if (spanAyuda.length == 0){
+
+          spanAyuda = $('<span />').addClass('ayuda');
+
+          wrap.append(spanAyuda);
+
+          spanAyuda.bind('click', function(e){
+            wrap.toggleClass('ayuda-open');
+          });
+
+        } 
+
+      }
+
+    }
+
+    return;
+  }
+};
+
+var filtrarMovil = {
+  init: function(){
+    this.config();
+    this.comportamiento();
+    return;
+  },
+  config: function(){
+    this.body = body;
+    this.wrapCol02 = this.body.find('.row-listado > .col02 > .wrapCol02');
+    this.accionesListado = this.wrapCol02.children('.acciones-listado');
+    return;
+  },
+  comportamiento: function(){
+
+    var wrapfiltrar = $('<div />').addClass('wrap-filtrar');
+    var form = this.accionesListado.children('form');
+
+    var btn = $('<a />').addClass('mostrar-ocultar-facetas').text('Filtrar resultados');
+
+    wrapfiltrar.append(form).append(btn);
+    this.accionesListado.prepend(wrapfiltrar);
+
+    return;
+  }
+};
+
+var moverIframeAEMET = {
+  init: function(){
+
+    var iframeNormal = body.find('iframe.normal');
+    var iframeMovil = body.find('iframe.movil');
+
+    iframeMovil.parents('.gadget').hide();
+    iframeMovil.insertAfter(iframeNormal);
+
+    return;
+  }
+};
+
+var buscarEnMenu = {
+  init: function(){
+    this.config();
+    this.autocompletar();
+    this.buscar();
+    return;
+  },
+  config: function(){
+    this.body = body;
+    this.rowMenuSecundario = this.body.find('.row-menu-secundario');
+    return;
+  },
+  autocompletar: function(){
+
+    var input = this.rowMenuSecundario.find('#buscador_header');
+    var resultsList = this.rowMenuSecundario.find('#resultsList');
+    
+    input.removeAttr('onkeyup');
+    
+    input.unbind('keyup');
+    input.bind('keyup input', function() {
+      var item = $(this);
+      var val = item.val();
+      
+      if (val.length > 2){
+        var urlpeticion = window.location.protocol + '//' + window.location.hostname + '/aod/services/web/datasets/autocomplete?text=' + val + '&limit=4';
+        //var urlpeticion = 'https://preopendata.aragon.es/aod/services/web/datasets/autocomplete?text=' + val + '&limit=4';
+        $.ajax({url: urlpeticion, success: function(result){
+          
+          var objeto = JSON.parse(result);
+          var correcto = objeto.success;
+
+          if (correcto){
+
+            resultsList.children().remove();
+            var ul = $('<ul />');
+            var resultados = objeto.result;
+
+            $.each(resultados, function(c,v){
+
+              var field = v.match_field;
+              var displayed = v.match_displayed;
+              var name = v.name;
+              var title = v.title;
+              var urldestino = window.location.protocol + '//' + window.location.hostname + '/datos/catalogo/dataset/' + name;
+              //var urldestino = 'https://preopendata.aragon.es/datos/catalogo/dataset/' + name;
+              var a = $('<a />').text(title).attr('href', urldestino);
+              var li = $('<li />').append(a);
+              ul.append(li);
+            });
+
+            resultsList.append(ul);
+
+          }
+
+
+        }});
+      }
+
+    });
+
+    return;
+  },
+  buscar: function(){
+
+    var input = this.rowMenuSecundario.find('#buscador_header');
+    var lupa = this.rowMenuSecundario.find('a.lupa');
+
+    lupa.off('click').on('click', function(e){
+      var val = input.val();
+      var urlpeticion = window.location.protocol + '//' + window.location.hostname + '/datos/catalogo?texto=' + val;
+      //var urlpeticion = 'https://preopendata.aragon.es/datos/catalogo?texto=' + val;
+      window.location.href = urlpeticion;
+    });
+
+    input.keypress(function(e) {
+      if(e.which == 13) {
+        lupa.trigger('click');
+      }
+    });
+
+    return;
   }
 };
 
@@ -765,13 +964,16 @@ $(function(){
   menuSecundario.init();
   headerMinScroll.init();
   marginTopHome.init();
+  buscarEnMenu.init();
   
   if (body.hasClass('fichaComunidad')){
+    moverIframeAEMET.init();
     accionesFicha.init();
     mostrarRestoDatosFicha.init();
   }else if (body.hasClass('listadoComunidad')){
+    filtrarMovil.init();
     comportamientoFacetas.init();
-    lanzarCharts.init();
+    //lanzarCharts.init();
     verTodosFacetas.init();
   }else if (body.hasClass('homeSubbloque')){
     mapaComarcas.init();
@@ -779,5 +981,8 @@ $(function(){
 	 mapaComarcas.init();
     recortarDescBodyBloque.init();
   }
+
+  enlazarBloquesMin.init();
+  breadcrumbMovil.init();
 
 });

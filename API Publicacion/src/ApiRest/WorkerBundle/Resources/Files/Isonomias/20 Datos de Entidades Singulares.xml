@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:org="http://www.w3.org/ns/org#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#" id="20">
-  <Entity rdf:type="org:Organization" URI="http://opendata.aragon.es/def/ei2a#entidad-singular-{CODIGO}">
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:org="http://www.w3.org/ns/org#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" id="20">
+  <Entity rdf:type="org:Organization" URI="http://opendata.aragon.es/pool/datos-entidades-singulares/{CODIGO}">
     <Property field="{FUENTE}" attribute="dc:source" type="string"/>
     <Property field="{CODIGO}" attribute="dc:identifier" type="string"/>
-	<Property link="ei2a:entidad_singular" attribute="dc:type" />
     <Property field="{DENOMINACION}" attribute="ei2a:organizationName" type="string"/>
-    <Property fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" attribute="wgs84_pos:location"/>
+    <Property fieldLink="http://opendata.aragon.es/pool/municipio/{CODIGO_MUN}" attribute="ei2a:location"/>
     <Property link="ei2a:Ayuntamiento" attribute="ei2a:publicEntityType"/>
     <Property link="ei2a:órganoAdministrativo" attribute="ei2a:organizationType"/>
     <Property link="ei2a:AdministraciónLocal" attribute="ei2a:administrativeLevel"/>

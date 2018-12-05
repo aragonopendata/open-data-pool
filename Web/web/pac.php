@@ -20,7 +20,7 @@
 		<!-- PERSONALIZACION TEMA -->
 		<link href="css/theme.css"  rel="stylesheet" type="text/css">
 		<link href="css/theme1.css"  rel="stylesheet" type="text/css">
-		<link href='http://fonts.googleapis.com/css?family=roboto:400,700' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
 		
 		<!-- FONT AWESOME -->
@@ -37,8 +37,6 @@
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 		<!-- DATATABLES -->
 		<script type="text/javascript" src="js/datatables.min.js" ></script>
-		<!-- GOOGLE CHARTS -->
-		<script type="text/javascript" src="https:/www.gstatic.com/charts/loader.js"></script> 
 		<!-- PERSONALIZACION TEMA -->
 		<script type="text/javascript" src="js/theme.js" ></script>
 		
@@ -173,7 +171,7 @@
 			<div class="breadcrumb enlinea">
 				<div class="wrap">
 				  <ul>
-					<li class="seccion"><a href="/pool">INICIO</a></li>
+					<li class="seccion"><a href="/pool/">INICIO</a></li>
 					<li class="flecha"><span class="material-icons">keyboard_arrow_right</span></li>
 					<li class="titulo">Acerca de los datos de la PAC</li>
 				  </ul>
@@ -217,7 +215,7 @@
 							A pesar de este tamaño y de su diferenciación en un grafo diferente en Virtuoso, los datos de la PAC están enlazados con el resto y se pueden usar de manera conjunta, como se puede ver en la ficha de un municipio (por ejemplo, en <a class="pac" href="detalles?url=municipio-50252"> Tauste</a>), que muestra un resumen de las parcelas declaradas en su término municipal de 1.996 a 2.014.  Además de la integración de datos en la ficha de un municipio, los datos de la PAC pueden ser accedidos desde el punto SPARQL del proyecto. Por ejemplo, se podrían ejecutar consultas como:
 							</p>
 							<p><strong>Total de parcelas por cada solicitud para un municipio:</strong></p>
-							<code>
+							<a href="/sparql?default-graph-uri=&query=SELECT+%3Fs+count%28%3Fparcelas%29+%0D%0AFROM+<http%3A%2F%2Fopendata.aragon.es%2Fdef%2Fei2a%2Fpac>++%0D%0A%7B++%0D%0A%3Fs+dc%3Atype+<http%3A%2F%2Fopendata.aragon.es%2Fdef%2Fei2a%23solicitudes-pac>+.+%0D%0A%3Fs+<http%3A%2F%2Fwww.w3.org%2F2003%2F01%2Fgeo%2Fwgs84_pos%23location>+<http%3A%2F%2Fopendata.aragon.es%2Fdef%2Fei2a%23municipio-50056>.+%0D%0A%3Fs+<http%3A%2F%2Fopendata.aragon.es%2Fdef%2Fei2a%23references>+%3Fparcelas+%0D%0A%7D+%0D%0AGROUP+BY+%3Fs&should-sponge=&format=text%2Fhtml&timeout=0&debug=on" target="_blank"><code>
 								SELECT ?s count(?parcelas) <br>
 								FROM &lthttp://opendata.aragon.es/def/ei2a/pac&gt  <br>
 								{  <br>
@@ -226,19 +224,19 @@
 								?s &lthttp://opendata.aragon.es/def/ei2a#references&gt ?parcelas <br>
 								} <br>
 								GROUP BY ?s<br>
-							</code>
+							</code></a>
 							<p><strong>Datos de una solicitud de la PAC:</strong></p>
-							<code>
+							<a href="/sparql?default-graph-uri=&query=SELECT+*+%0D%0AFROM+<http%3A%2F%2Fopendata.aragon.es%2Fdef%2Fei2a%2Fpac>++%0D%0A%7B+%3Fs+%3Fp+%3Fo+.+filter%28%3Fs+%3D+<http%3A%2F%2Fopendata.aragon.es%2Fdef%2Fei2a%23solicitud-pac-300-2006-50056>%29%7D&should-sponge=&format=text%2Fhtml&timeout=0&debug=on" target="_blank"><code>
 								SELECT * <br>
 								FROM &lthttp://opendata.aragon.es/def/ei2a/pac&gt  <br>
 								{ ?s ?p ?o . filter(?s = &lthttp://opendata.aragon.es/def/ei2a#solicitud-pac-300-2006-50056&gt)}<br>
-							</code>
+							</code></a>
 							<p><strong>Datos de un cultivo herbáceo perteneciente a una solicitud:</strong></p>
-							<code>
+							<a href="/sparql?default-graph-uri=&query=SELECT+*+%0D%0AFROM+<http%3A%2F%2Fopendata.aragon.es%2Fdef%2Fei2a%2Fpac>++%0D%0A%7B%3Fs+%3Fp+%3Fo+.+filter%28%3Fs+%3D+<http%3A%2F%2Fopendata.aragon.es%2Fdef%2Fei2a%23cultivo-herbaceo-300-2006-50056-11-3-0018>%29%7D&should-sponge=&format=text%2Fhtml&timeout=0&debug=on" target="_blank"><code>
 								SELECT * <br>
 								FROM &lthttp://opendata.aragon.es/def/ei2a/pac&gt  <br>
 								{?s ?p ?o . filter(?s = &lthttp://opendata.aragon.es/def/ei2a#cultivo-herbaceo-300-2006-50056-11-3-0018&gt)}<br>
-							</code>
+							</code></a>
 						  </div>
 
 						</div>
