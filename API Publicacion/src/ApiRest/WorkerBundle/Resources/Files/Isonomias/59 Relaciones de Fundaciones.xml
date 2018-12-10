@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:org="http://www.w3.org/ns/org#" xmlns:dc="http://purl.org/dc/elements/1.1/" id="59">
+  <Entity rdf:type="org:Organization" URI="http://opendata.aragon.es/def/ei2a#fundacion-{ID_FUN}">    
+    <Property field="{AGRUPADO}" attribute="dc:relation" type="string"/>
+  </Entity>
+</Mapping>

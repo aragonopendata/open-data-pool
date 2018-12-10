@@ -88,7 +88,7 @@ PanelLateral:
           Query: select ?parseo where { <%s>  <http://purl.org/dc/elements/1.1/identifier> ?parseo .}
           Campo: http://www.w3.org/2003/01/geo/wgs84_pos#location     
     ListaContexto2:
-      Titulo: Apartamentos turísticos de %s
+      Titulo: Apartamentos turísticos en %s
       CampoParseo: 
           Query: select ?parseo where  { <%s>  <http://opendata.aragon.es/def/ei2a#organizationName> ?parseo .}
           Campo: http://www.w3.org/2003/01/geo/wgs84_pos#location

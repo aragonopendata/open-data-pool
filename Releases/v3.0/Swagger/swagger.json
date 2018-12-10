@@ -1,0 +1,294 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "API Documentation",
+        "version": "1.2",
+        "title": "GA_OD_CORE API",
+        "termsOfService": "http://opendata.aragon.es/terminos",
+        "contact": {
+            "name": "opendata@aragon.es"
+        },
+        "license": {
+            "name": "Creative Commons - Reconocimiento (CC-by 4.0)",
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+        }
+    },
+    "host": "miv-aodfront-01.aragon.local:7030",
+    "basePath": "/GA_OD_Core",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/views": {
+            "get": {
+                "summary": "Return all available Views.",
+                "description": "Return all available Views.",
+                "operationId": "views",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "user",
+                        "description": "Authenticated user in opendata portal",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "unexpected error"
+                    }
+                }
+            }
+        },
+        "/show_columns": {
+            "get": {
+                "summary": "Return all columns of a table",
+                "description": "Returns information about name and type of the columns of a table.",
+                "operationId": "show_columns",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "view_id",
+                        "description": "ID of the View to query",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "unexpected error"
+                    }
+                }
+            }
+        },
+        "/preview": {
+            "get": {
+                "summary": "Returns the result of a query to one of the available Views.",
+                "description": "Returns the result of a query to one of the available Views.",
+                "operationId": "preview",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "view_id",
+                        "description": "ID of the View to query",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "in": "query",
+                        "name": "select_sql",
+                        "description": "String fields you want to retrieve. If are more than one, separate them by a coma (SQL Format)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "filter_sql",
+                        "description": "String with filters to add to the query (SQL Format)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "_pageSize",
+                        "description": "Number of results in each page",
+                        "required": false,
+                        "type": "integer",
+                        "default": 100
+                    },
+                    {
+                        "in": "query",
+                        "name": "_page",
+                        "description": "Number of the page",
+                        "required": false,
+                        "type": "integer",
+                        "default": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "unexpected error"
+                    }
+                }
+            }
+        },
+        "/download": {
+            "get": {
+                "summary": "Downloads a file in XML, JSON or CSV format.",
+                "description": "Downloads a file in XML, JSON or CSV format with the result of a Query.",
+                "operationId": "download",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "view_id",
+                        "description": "ID of the View to query",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "in": "query",
+                        "name": "select_sql",
+                        "description": "String fields you want to retrieve. If are more than one, separate them by a coma (SQL Format)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "filter_sql",
+                        "description": "String fields you want to retrieve. If are more than one, separate them by a coma (SQL Format)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "formato",
+                        "description": "Format of the file to download, must be XML, JSON or CSV",
+                        "required": true,
+                        "type": "string",
+                        "enum": ["csv","json","xml"]
+                    },
+                    {
+                        "in": "query",
+                        "name": "_pageSize",
+                        "description": "Number of results in each page",
+                        "required": false,
+                        "type": "integer",
+                        "default": 100
+                    },
+                    {
+                        "in": "query",
+                        "name": "_page",
+                        "description": "Number of the page",
+                        "required": false,
+                        "type": "integer",
+                        "default": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "unexpected error"
+                    }
+                }
+            }
+        }, 
+		"/pool/api-consulta/topics": {
+            "get": {
+                "summary": "Return all available topics.",
+                "description": "Servicio de lectura de los temas del Gobierno de Aragon. Devuelve los Temas existentes.",
+                "operationId": "topics",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "unexpected error"
+                    }
+                }
+            }
+        }, 
+		"/pool/api-consulta/types": {
+            "get": {
+                "summary": "Return all available types.",
+                "description": "Servicio de lectura de los tipos de entidades del Gobierno de Aragon. Devuelve los tipos de entidades existentes.",
+                "operationId": "types",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "unexpected error"
+                    }
+                }
+            }
+        }, 
+		"/pool/api-consulta/query": {
+            "get": {
+                "summary": "Returns the result of a query to the AOD Pool Graph.",
+                "description": "Servicio que permite consultar los contenidos del AOD Pool, pasándole los filtros por los que se desean filtrar. El API permitirá traer un número determinado de contenidos, permitiendo paginar los resultados y ordenarlos por un campo. ",
+                "operationId": "query",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "filters",
+                        "description": "Lista de los filtros que se añaden a la consulta. Notas a la parametrización: 1.-Los nombres de los filtros solo se admiten con prefijos. 2.-Los nombres de los filtros no deben llevar limitadores '<' '>'. 3.-Los nombres de los filtros admiten anidamiento por @ y reverso por $ dela primara condición anidada. 4.-Los valores de los filtros han de llevar comillas o limadores '<' '>' si son necesarios para la consulta sparql. 5.-Los filtros ha de separase por '|' ejemplo: filtro1=valor1|filtro2=valor2",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "page",
+                        "description": "Nº de la página de resultados",
+                        "required": false,
+                        "type": "integer",
+                        "default": 1
+                    },
+                    {
+                        "in": "query",
+                        "name": "pageSize",
+                        "description": "Cantidad de registros por página",
+                        "required": false,
+                        "type": "integer",
+                        "default": 100
+                    },
+                    {
+                        "in": "query",
+                        "name": "orderBy",
+                        "description": "Campo por el que se desea ordenar. Notas a la parametrización: 1.-El capo de ordenación se incluye en los filtros sparql. 2.-No deben llevar limitadores '<' '>'.",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "unexpected parameter"
+                    },
+                    "default": {
+                        "description": "unexpected error"
+                    }
+                }
+            }
+        }, 
+		"/pool/api-consulta/rdf": {
+            "get": {
+                "summary": "Returns the triples of an AOD Pool entity.",
+                "description": "Servicio que permite permite obtener el RDF completo de una entidad ",
+                "operationId": "rdf",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "uri",
+                        "description": "URI of the entity to get the triples",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "unexpected parameter"
+                    },
+                    "default": {
+                        "description": "unexpected error"
+                    }
+                }
+            }
+        }
+    }
+}

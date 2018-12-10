@@ -105,11 +105,50 @@ $(document).ready(function() {
         }
         e.preventDefault(); 
     });  
+
+
+    $('body > footer').attr('id', 'footer');
+    var waypoint = new Waypoint({
+        element: document.getElementById('footer'),
+        handler: function(direction) {
+
+            var offset = $('.resource').length; 
+            var resulados =  $('#numResultadosspan').text();
+            if (resulados - offset >0) {
+                var urlpaginado = $('input[name=lasturl]').val() + "&pag=" + offset;
+                $.ajax({
+                    url: urlpaginado,
+                    dataType: 'html',
+                    success: function(html) {
+                        $('div#panResultados').append(html); 
+                        setTimeout(function(){
+                            Waypoint.refreshAll();
+                        }, 500);
+                    }
+                });  
+            }
+
+        },
+        offset: '100%'
+    });
+
+    /*
     var win = $(window);
+    var footer = $('body').children('footer');
+    var posFooter = footer.offset().top;
+    var windowHeight = win.height();
+    var header = $('body').children('header');
+    var headerHeight = header.height();
+    var calculo = $(document).height() - win.height() - footer.height();
     // Each time the user scrolls
     win.scroll(function() {
         // End of the document reached?
-        if ($(document).height() - win.height() == win.scrollTop()) {
+        var scrolltop = win.scrollTop(); 
+
+
+        if ((scrolltop + headerHeight) >= calculo) {
+            calculo = $(document).height() - win.height() - footer.height();
+            //$('#prueba').css('top', calculo);
             var offset = $('.resource').length; 
             var resulados =  $('#numResultadosspan').text();
             if (resulados - offset >0) {
@@ -124,5 +163,6 @@ $(document).ready(function() {
             }
         }
         
-    });                   
+    });        
+         */
 });

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping id="241" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:org="http://www.w3.org/ns/org#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:vcard="http://www.w3.org/2006/vcard/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#">
+	<Entity rdf:type="org:Organization" URI="http://opendata.aragon.es/def/ei2a#coto-{NUMERO_REGISTRO}">
+		<Property field="{FUENTE}" attribute="dc:source" type="string" />
+		<Property field="{NUMERO_REGISTRO}" attribute="dc:identifier" type="string"/>		
+		<Property link="ei2a:inaga-terrenos-cinegeticos-y-no-cinegeticos-de-aragon" attribute="dc:type" />	
+		<Property field="{NOMBRE_COTO}" attribute="ei2a:organizationName" type="string" />	
+		<Property fieldLink="http://opendata.aragon.es/def/ei2a#geoposicion-coto-{NUMERO_REGISTRO}" attribute="wgs84_pos:location" >		
+			<Entity rdf:type="wgs84_pos:Point" URI="http://opendata.aragon.es/def/ei2a#geoposicion-coto-{NUMERO_REGISTRO}">
+				<Property field="{FUENTE}" attribute="dc:source" type="string" />
+				<Property  field="{COORD_Y}" attribute="wgs84_pos:lat" type="string"/> 
+				<Property  field="{COORD_X}" attribute="wgs84_pos:long" type="string"/> 
+			</Entity>
+		</Property>		
+		<Property fieldLink="{ProvinciaAragopediaURI}" attribute="org:subOrganizationOf" />
+	</Entity>
+</Mapping>

@@ -477,15 +477,29 @@ class Navegacion
     {
         $localidad ="";
         if(!empty($this->municipioLiteral)) {
-            $localidad= $this->municipioLiteral;
+            $localidad= " del municipio de ".$this->municipioLiteral;
         } else if(!empty($this->comarcaLiteral)) {
-            $localidad= $this->comarcaLiteral;
+            $localidad= " de la comarca de ".$this->comarcaLiteral;
         } else if(!empty($this->provinciaLiteral)) {
-            $localidad= $this->provinciaLiteral;
+            $localidad= " de la provincia de ".$this->provinciaLiteral;
         }
         $localidad = trim($localidad);
         return $localidad;
-    } 
+    }
+
+	public function getLocalidadCorto()
+    {
+        $localidad ="";
+        if(!empty($this->municipioLiteral)) {
+            $localidad= "Del municipio de ".$this->municipioLiteral;
+        } else if(!empty($this->comarcaLiteral)) {
+            $localidad= "De la comarca de ".$this->comarcaLiteral;
+        } else if(!empty($this->provinciaLiteral)) {
+            $localidad= "De la provincia de ".$this->provinciaLiteral;
+        }
+        $localidad = trim($localidad);
+        return $localidad;
+    }
 
         //Función que devuelve la localidad selecionada que pude ser Provincia, Comarca, o Municipio 
         public function getLocalidadCode()
@@ -629,23 +643,23 @@ class Navegacion
     {
        $titulo ="";
        if ($this->fromType=="Lugares") {
-          $titulo = $this->getLocalidad();
+          $titulo = " ".$this->getLocalidadCorto();
           if (!empty($this->temaLiteral)) {
-            $titulo = $this->temaLiteral . " de " . $this->getLocalidad();
-          } else if (!empty($this->entidadLiteral)) {
-            $titulo = $this->entidadLiteral . " de " . $this->getLocalidad();
+            $titulo = $this->temaLiteral . " " . $this->getLocalidad();
+          } elseif (!empty($this->entidadLiteral)) {
+            $titulo = $this->entidadLiteral . " " . $this->getLocalidad();
           }
-        } else if ($this->fromType=="Temas") {
+        } elseif ($this->fromType=="Temas") {
           $titulo = $this->temaLiteral;
-          $localidad = $this->getLocalidad();
+          $localidad = " ". $this->getLocalidad();
           if (!empty($localidad)) {
-            $titulo = $this->temaLiteral . " de " . $localidad;
+            $titulo = $this->temaLiteral . " " . $localidad;
           }
-       } else if ($this->fromType=="Entidades") {
+       } elseif ($this->fromType=="Entidades") {
           $titulo = $this->entidadLiteral;
-          $localidad = $this->getLocalidad();
+          $localidad = " ".$this->getLocalidad();
           if (!empty($localidad)) {
-            $titulo = $this->entidadLiteral . " de " . $localidad;
+            $titulo = $this->entidadLiteral . " " . $localidad;
           }
        }
        return $titulo;

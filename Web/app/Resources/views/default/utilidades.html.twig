@@ -177,7 +177,7 @@
                   <span class="fecha">{{ fecha }}</span>
               </div>
               <div class="row02">
-                  <h2><a href="{{ url }}">{{ descripcion }}</a></h2>
+                  <h2><a name="{{ descripcion }}" href="{{ url }}">{{ descripcion }}</a></h2>
               </div>
 			  {%if downloadUri != false %}
               <div class="row03" title='Ver más'>
@@ -222,7 +222,7 @@
         <p class="titulo"> {{lista.Titulo}}</p>
         <ul>
             {% for enlace in lista.Enlaces %}
-                <li><a  title='{{enlace.Texto}}' href="{{enlace.Url}}"> {{enlace.Texto}} </a></li>
+                <li><a  title='{{enlace.Texto}}' href="{{enlace.Url}}" target="_blank"> {{enlace.Texto}} </a></li>
             {% endfor %}
         </ul>
     </div>

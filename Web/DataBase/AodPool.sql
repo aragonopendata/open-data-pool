@@ -1,15 +1,73 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.6.8
+-- Dumped by pg_dump version 9.6.8
+
+-- Started on 2018-05-23 18:25:26 CEST
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+DROP DATABASE "AodPool";
+--
+-- TOC entry 2280 (class 1262 OID 16384)
+-- Name: AodPool; Type: DATABASE; Schema: -; Owner: postgres
+--
+
+CREATE DATABASE "AodPool" WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'es_ES.UTF-8' LC_CTYPE = 'es_ES.UTF-8';
 
 
-DROP TABLE public.camposresultados;
-DROP SEQUENCE public.camposresultados_code_seq;
-CREATE SEQUENCE public.camposresultados_code_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+ALTER DATABASE "AodPool" OWNER TO postgres;
+
+\connect "AodPool"
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- TOC entry 1 (class 3079 OID 12469)
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- TOC entry 2283 (class 0 OID 0)
+-- Dependencies: 1
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 193 (class 1259 OID 24909)
+-- Name: camposresultados; Type: TABLE; Schema: public; Owner: postgres
+--
+
 CREATE TABLE public.camposresultados (
-    code integer DEFAULT nextval('public.camposresultados_code_seq'::regclass) NOT NULL,
+    code integer NOT NULL,
     rdf_type character varying(100) DEFAULT NULL::character varying,
     order_by character varying(100) NOT NULL,
     field_date character varying(100) DEFAULT NULL::character varying,
@@ -23,38 +81,30 @@ CREATE TABLE public.camposresultados (
 );
 
 
+ALTER TABLE public.camposresultados OWNER TO postgres;
 
-DROP TABLE public.configuracionweb;
-DROP SEQUENCE public.configuracionweb_code_seq;
-CREATE SEQUENCE public.configuracionweb_code_seq
+--
+-- TOC entry 192 (class 1259 OID 24894)
+-- Name: camposresultados_code_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.camposresultados_code_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
     NO MAXVALUE
     CACHE 1;
-CREATE TABLE public.configuracionweb (
-    code integer DEFAULT nextval('public.configuracionweb_code_seq'::regclass) NOT NULL,
-    slug character varying(50) DEFAULT NULL::character varying,
-    name character varying(100) DEFAULT NULL::character varying,
-    configuracion text,
-    active boolean DEFAULT true NOT NULL,
-    created date DEFAULT now() NOT NULL
-);
 
 
+ALTER TABLE public.camposresultados_code_seq OWNER TO postgres;
 
-
-DROP TABLE public.entidades;
-DROP SEQUENCE public.entidades_code_seq;
-CREATE SEQUENCE public.entidades_code_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+--
+-- TOC entry 194 (class 1259 OID 24940)
+-- Name: entidades; Type: TABLE; Schema: public; Owner: postgres
+--
 
 CREATE TABLE public.entidades (
-    code integer DEFAULT nextval('public.entidades_code_seq'::regclass) NOT NULL,
+    code integer NOT NULL,
     slug character varying(100),
     name_es character varying(100),
     name_en character varying(100),
@@ -64,25 +114,34 @@ CREATE TABLE public.entidades (
     dc_type character varying(100),
     parent_code integer NOT NULL,
     active bit(1) NOT NULL,
-    created date DEFAULT now() NOT NULL
+    created date NOT NULL
 );
 
 
+ALTER TABLE public.entidades OWNER TO postgres;
 
+--
+-- TOC entry 186 (class 1259 OID 16522)
+-- Name: entidades_code_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
 
-
-
-DROP TABLE public.facetas;
-DROP SEQUENCE public.facetas_code_seq;
-CREATE SEQUENCE public.facetas_code_seq
+CREATE SEQUENCE public.entidades_code_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
     NO MAXVALUE
     CACHE 1;
 
+
+ALTER TABLE public.entidades_code_seq OWNER TO postgres;
+
+--
+-- TOC entry 196 (class 1259 OID 24957)
+-- Name: facetas; Type: TABLE; Schema: public; Owner: postgres
+--
+
 CREATE TABLE public.facetas (
-    code integer DEFAULT nextval('public.facetas_code_seq'::regclass) NOT NULL,
+    code integer NOT NULL,
     rdf_type character varying(100) DEFAULT NULL::character varying,
     dc_type character varying(100) DEFAULT NULL::character varying,
     faceta character varying(100) DEFAULT NULL::character varying,
@@ -95,8 +154,28 @@ CREATE TABLE public.facetas (
 );
 
 
+ALTER TABLE public.facetas OWNER TO postgres;
 
-DROP TABLE public.lugares;
+--
+-- TOC entry 191 (class 1259 OID 24892)
+-- Name: facetas_code_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.facetas_code_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.facetas_code_seq OWNER TO postgres;
+
+--
+-- TOC entry 185 (class 1259 OID 16431)
+-- Name: lugares; Type: TABLE; Schema: public; Owner: postgres
+--
+
 CREATE TABLE public.lugares (
     code integer NOT NULL,
     slug character varying(50),
@@ -104,22 +183,65 @@ CREATE TABLE public.lugares (
     type character varying(1),
     comarca_code integer,
     provincia_code integer,
-    created date DEFAULT now() NOT NULL
+    created date NOT NULL
 );
 
 
+ALTER TABLE public.lugares OWNER TO postgres;
 
+--
+-- TOC entry 187 (class 1259 OID 16524)
+-- Name: lugares_code_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
 
-DROP TABLE public.temas;
-DROP SEQUENCE public.temas_code_seq;
-CREATE SEQUENCE public.temas_code_seq
+CREATE SEQUENCE public.lugares_code_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
     NO MAXVALUE
     CACHE 1;
+
+
+ALTER TABLE public.lugares_code_seq OWNER TO postgres;
+
+--
+-- TOC entry 190 (class 1259 OID 16584)
+-- Name: rfdconfiguracion; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.rfdconfiguracion (
+    code integer NOT NULL,
+    slug character varying(50) DEFAULT NULL::character varying,
+    name character varying(100) DEFAULT NULL::character varying,
+    configuracion text,
+    active boolean NOT NULL
+);
+
+
+ALTER TABLE public.rfdconfiguracion OWNER TO postgres;
+
+--
+-- TOC entry 189 (class 1259 OID 16528)
+-- Name: rfdconfiguracion_code_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.rfdconfiguracion_code_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.rfdconfiguracion_code_seq OWNER TO postgres;
+
+--
+-- TOC entry 195 (class 1259 OID 24949)
+-- Name: temas; Type: TABLE; Schema: public; Owner: postgres
+--
+
 CREATE TABLE public.temas (
-    code integer DEFAULT nextval('public.temas_code_seq'::regclass) NOT NULL,
+    code integer NOT NULL,
     slug character varying(50),
     name_es character varying(60),
     name_en character varying(60),
@@ -128,33 +250,40 @@ CREATE TABLE public.temas (
     parent_code integer NOT NULL,
     rdf_type character varying(100),
     active bit(1) NOT NULL,
-    created date DEFAULT now() NOT NULL
+    created date NOT NULL
 );
 
 
+ALTER TABLE public.temas OWNER TO postgres;
 
 --
--- TOC entry 2272 (class 0 OID 25368)
--- Dependencies: 186
+-- TOC entry 188 (class 1259 OID 16526)
+-- Name: temas_code_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.temas_code_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.temas_code_seq OWNER TO postgres;
+
+--
+-- TOC entry 2271 (class 0 OID 24909)
+-- Dependencies: 193
 -- Data for Name: camposresultados; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.camposresultados (code, rdf_type, order_by, field_date, prefijo_field_date, field_name, prefijo_field_name, field_search, prefijo_field_search, active, created) VALUES (1, 'http://opendata.aragon.es/def/ei2a#Document', 'ei2a:nameDocument', 'ei2a:registrationDate', '', 'ei2a:nameDocument', '', 'ei2a:nameDocument', '', true, '2018-05-22');
 INSERT INTO public.camposresultados (code, rdf_type, order_by, field_date, prefijo_field_date, field_name, prefijo_field_name, field_search, prefijo_field_search, active, created) VALUES (2, 'http://www.w3.org/ns/org#Organization', 'ei2a:organizationName', '', '', 'ei2a:organizationName', '', 'ei2a:organizationName', '', true, '2018-05-22');
-INSERT INTO public.camposresultados (code, rdf_type, order_by, field_date, prefijo_field_date, field_name, prefijo_field_name, field_search, prefijo_field_search, active, created) VALUES (3, 'http://www.w3.org/ns/person#Person', 'ei2a:fullName', '', '', 'ei2a:fullName', '', 'ei2a:fullName', '', true, '2018-06-25');
-INSERT INTO public.camposresultados (code, rdf_type, order_by, field_date, prefijo_field_date, field_name, prefijo_field_name, field_search, prefijo_field_search, active, created) VALUES (4, 'http://opendata.aragon.es/def/ei2a#EventAgenda', 'event:literal_factor', 'dc:date
-', '', 'event:literal_factor', '', 'event:literal_factor', '', true, '2018-06-25');
-INSERT INTO public.camposresultados (code, rdf_type, order_by, field_date, prefijo_field_date, field_name, prefijo_field_name, field_search, prefijo_field_search, active, created) VALUES (5, 'http://opendata.aragon.es/def/ei2a#EventHistory', 'event:literal_factor', 'dc:date', '', 'event:literal_factor', '', 'event:literal_factor', '', true, '2018-06-25');
-INSERT INTO public.camposresultados (code, rdf_type, order_by, field_date, prefijo_field_date, field_name, prefijo_field_name, field_search, prefijo_field_search, active, created) VALUES (10, 'http://opendata.aragon.es/def/ei2ia#Line', 'dc:identifier', '', '', 'dc:identifier', '', 'dc:identifier', '', true, '2018-06-25');
-INSERT INTO public.camposresultados (code, rdf_type, order_by, field_date, prefijo_field_date, field_name, prefijo_field_name, field_search, prefijo_field_search, active, created) VALUES (6, 'http://vocab.gtfs.org/terms#Route', 'dc:title', '', '', 'dc:title', '', 'dc:title', '', true, '2018-06-25');
-INSERT INTO public.camposresultados (code, rdf_type, order_by, field_date, prefijo_field_date, field_name, prefijo_field_name, field_search, prefijo_field_search, active, created) VALUES (7, 'http://protege.stanford.edu/rdf/HTOv4002#Accommodation', 'ei2a:organizationName', '', '', 'ei2a:organizationName', '', 'ei2a:organizationName', '', true, '2018-06-25');
-INSERT INTO public.camposresultados (code, rdf_type, order_by, field_date, prefijo_field_date, field_name, prefijo_field_name, field_search, prefijo_field_search, active, created) VALUES (8, 'http://protege.stanford.edu/rdf/HTOv4002#Gastro', 'ei2a:organizationName', '', '', 'ei2a:organizationName', '', 'ei2a:organizationName', '', true, '2018-06-25');
-INSERT INTO public.camposresultados (code, rdf_type, order_by, field_date, prefijo_field_date, field_name, prefijo_field_name, field_search, prefijo_field_search, active, created) VALUES (9, 'http://protege.stanford.edu/rdf/HTOv4002#Attraction', 'ei2a:organizationName', '', '', 'ei2a:organizationName', '', 'ei2a:organizationName', '', true, '2018-06-25');
+INSERT INTO public.camposresultados (code, rdf_type, order_by, field_date, prefijo_field_date, field_name, prefijo_field_name, field_search, prefijo_field_search, active, created) VALUES (1, 'http://opendata.aragon.es/def/ei2a#Document', 'ei2a:nameDocument', 'ei2a:registrationDate', '', 'ei2a:nameDocument', '', '', '', true, '2018-05-22');
 
 
 --
--- TOC entry 2293 (class 0 OID 0)
--- Dependencies: 187
+-- TOC entry 2284 (class 0 OID 0)
+-- Dependencies: 192
 -- Name: camposresultados_code_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -162,511 +291,207 @@ SELECT pg_catalog.setval('public.camposresultados_code_seq', 1, false);
 
 
 --
--- TOC entry 2274 (class 0 OID 25385)
--- Dependencies: 188
--- Data for Name: configuracionweb; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-INSERT INTO public.configuracionweb (code, slug, name, configuracion, active, created) VALUES (2, 'OrdenanzaGeneralMunicipio', 'http://opendata.aragon.es/def/ei2a#ordenanza_general_municipio', 'BodyClass: fichaComunidad fichaOrdenanza
-PanelCentral:
-  Titulo: http://opendata.aragon.es/def/ei2a#nameDocument    
-  CampoValores:
-    CampoValor1:
-      Tipo: Virtuoso
-      Oculto: False
-      Query: select  ?nombreMunicipio ?texto ?fechaPublicacion ?fechaAprobacion ?tipo ?apliacion where { optional {?ordenanza <http://opendata.aragon.es/def/ei2a#nameDocument> ?texto .} optional {?ordenanza <http://www.w3.org/2003/01/geo/wgs84_pos#location> ?localidad . 	?localidad <http://opendata.aragon.es/def/ei2a#organizationName> ?nombreMunicipio .} optional {?ordenanza <http://opendata.aragon.es/def/ei2a#registrationDate> ?fechaPublicacion .} optional {?ordenanza <http://opendata.aragon.es/def/ei2a#startDate> ?fechaAprobacion .} optional {?ordenanza <http://opendata.aragon.es/def/ei2a#documentType> ?tipo .} optional {?ordenanza <http://opendata.aragon.es/def/ei2a#observations> ?apliacion .} filter(?ordenanza = <%s>)}
-      Campo: uri
-      Campos:
-        Campo1:
-          Nombre: Municipio
-          Valor: nombreMunicipio
-        Campo2:
-          Nombre: Fecha acuerdo
-          Valor: fechaAprobacion
-        Campo3:
-          Nombre: Fecha publicación
-          Valor: fechaPublicacion
-    CampoValor2:
-      Tipo: Api
-      Oculto: True
-      OcultoTexto : Ver resto de fechas de la ordenanza
-      Query: select ?source where  {<%s> <http://purl.org/dc/elements/1.1/source> ?source}
-      Campo: uri
-      Campos:
-        Campo1:
-          Nombre: Fecha de acuerdo de aporbación definitiva 
-          Valor: F_ACUERDO_APRO_DEF
-        Campo2:
-          Nombre: Fecha de publicación de aporbación definitiva 
-          Valor: F_PUBLICACION_APRO_DEF
-        Campo3:
-          Nombre: Año
-          Valor: ANO
-        Campo4:
-          Nombre: Fecha de acuerdo de apobación inicial de la modificación
-          Valor: F_ACUERDO_APRO_INI_MOD
-        Campo4:
-          Nombre: Fecha de publicación de apobación inicial de la modificación
-          Valor: F_PUBLICACION_APRO_INI_MOD
-        Campo5:
-          Nombre: Fecha de acuerdo de apobación definitiva de la modificación
-          Valor: F_ACUERDO_APRO_DEF_MOD
-        Campo6:
-          Nombre: Fecha de publicación de apobación definitiva de la modificación
-          Valor: F_PUBLICACION_APRO_DEF_MOD
-    CampoValor3:
-      Tipo: Api
-      Query: select ?source where  {<%s> <http://purl.org/dc/elements/1.1/source> ?source}
-      Oculto: False
-      Campo: uri
-      Campos:
-        Campo1:
-          Nombre: TEXTO MODIFICACION
-          Valor: TEXTOMODIFICACION
-          Class: dato dato-texto info
-PanelLateral:
-  ListaContextos:
-    ListaContexto1:
-      Titulo: Otras ordenanzas generales de %s
-      CampoParseo: 
-          Query: select ?parseo where  { <%s>  <http://opendata.aragon.es/def/ei2a#organizationName> ?parseo .}
-          Campo: http://www.w3.org/2003/01/geo/wgs84_pos#location
-      Query: select ?url ?name where {?url <http://opendata.aragon.es/def/ei2a#nameDocument> ?name . ?url <http://www.w3.org/2003/01/geo/wgs84_pos#location> ?municipio. ?ordenanzaOriginal <http://www.w3.org/2003/01/geo/wgs84_pos#location> ?municipio. ?url <http://purl.org/dc/elements/1.1/type> <http://opendata.aragon.es/def/ei2a#ordenanza_general_municipio> . filter(?ordenanzaOriginal = <%s>)} LIMIT 5     
-      Campo: uri
-      Tipo: gadget-iconos
-      EnlaceVerMas: 
-        Texto: Ver más.
-        url: /filtros?tem=&stem=&pro=&com=&mun=%s&ent=46&sent=&from=Lugares&filt=Tipos__dc%3Atype__%3Chttp%3A%2F%2Fopendata.aragon.es%2Fdef%2Fei2a%23ordenanza_general_municipio%3E__
-        CampoParseo: 
-          Query: select ?parseo where { <%s>  <http://purl.org/dc/elements/1.1/identifier> ?parseo .}
-          Campo: http://www.w3.org/2003/01/geo/wgs84_pos#location     
-    ListaContexto2:
-      Titulo: Ordenanzas fiscales de %s
-      CampoParseo: 
-          Query: select ?parseo where  { <%s>  <http://opendata.aragon.es/def/ei2a#organizationName> ?parseo .}
-          Campo: http://www.w3.org/2003/01/geo/wgs84_pos#location
-      Query: select ?url ?name where  {?url <http://opendata.aragon.es/def/ei2a#nameDocument> ?name . ?url <http://www.w3.org/2003/01/geo/wgs84_pos#location> ?municipio. ?ordenanzaOriginal <http://www.w3.org/2003/01/geo/wgs84_pos#location> ?municipio. ?url <http://purl.org/dc/elements/1.1/type> <http://opendata.aragon.es/def/ei2a#ordenanza_fiscal_municipio> filter(?ordenanzaOriginal = <%s>) } LIMIT 5     
-      Campo: uri
-      Tipo: gadget-iconos
-      #gadget-iconos gadget-enlaces gadget-masinfo      
-      EnlaceVerMas:
-        Texto: Ver más.
-        url: /filtros?tem=&stem=&pro=&com=&mun=%s&ent=46&sent=&from=Lugares&filt=Tipos__dc%3Atype__%3Chttp%3A%2F%2Fopendata.aragon.es%2Fdef%2Fei2a%23ordenanza_fiscal_municipio%3E__
-        CampoParseo: 
-          Query: select ?parseo where  { <%s>  <http://purl.org/dc/elements/1.1/identifier> ?parseo .}
-          Campo: http://www.w3.org/2003/01/geo/wgs84_pos#location', true, '2018-06-18');
-INSERT INTO public.configuracionweb (code, slug, name, configuracion, active, created) VALUES (3, 'Ruta', 'http://opendata.aragon.es/def/ei2a#ruta', 'BodyClass: fichaComunidad fichaLugar
-PanelCentral:
-  #titulo del panel
-  Titulo: http://purl.org/dc/elements/1.1/title
-  Mapa:
-      Tipo: open
-      Marker: markerParda.png
-      Zoom: 7
-      Marcadores:
-          Query: select distinct ?lat ?long ?title  ?secuence where { ?stop <http://www.w3.org/2003/01/geo/wgs84_pos#lat> ?lat. ?stop <http://www.w3.org/2003/01/geo/wgs84_pos#long> ?long. { ?stopTime <http://vocab.gtfs.org/terms#stop> ?stop. ?stopTime <http://vocab.gtfs.org/terms#trip> ?trip. ?trip <http://vocab.gtfs.org/terms#route> ?route. } union { ?route <http://vocab.gtfs.org/terms#destinationStop> ?stop. } union { ?route <http://vocab.gtfs.org/terms#originStop> ?stop. } optional {?stop <http://purl.org/dc/elements/1.1/title> ?title.} filter(?route = <%s>) .}
-          Campo: uri       
-PanelLateral:
-    Texto:
-        Tipo: HTML
-        Query: none
-        Campo: none
-        Html: <h3>Texto Libre</h2><br/><p class=''dato''><strong>Dirección</strong><span>Camino de la estación, 27</span></p><p class=''dato''><strong>CIF</strong><span>P-2200100-B</span></p>', true, '2018-07-04');
-INSERT INTO public.configuracionweb (code, slug, name, configuracion, active, created) VALUES (1, 'Organization', 'http://www.w3.org/ns/org#Organization', 'BodyClass: fichaComunidad fichaLugar
-PanelCentral:
-  #titulo del panel
-  Titulo: http://opendata.aragon.es/def/ei2a#organizationName
-  Mapa:
-    Tipo: idearagon
-    Valor: http://idearagon.aragon.es/visor/index.html?ACTIVELAYER=Localidad&amp;QUERY=c_muni_ine=%s&amp;HERRAMIENTAS=NO
-    Campo: http://purl.org/dc/elements/1.1/identifier
-  Texto: 
-    Tipo: Virtuoso
-    Query:  select ?nombrePersona where  {?membership <http://www.w3.org/ns/org#organization> <http://opendata.aragon.es/def/ei2a#municipio-22001> . ?membership <http://www.w3.org/ns/org#member> ?member. ?membership  <http://www.w3.org/ns/org#role> ?role . ?member <http://opendata.aragon.es/def/ei2a#fullName> ?nombrePersona . ?role <http://opendata.aragon.es/def/ei2a#roleName> ?roleName .?member <http://www.w3.org/ns/person#memberOf> ?partido .	?partido <http://opendata.aragon.es/def/ei2a#organizationName> ?nombrePartido. ?member <http://opendata.aragon.es/def/ei2a#fullName> "ADOLFO PUENTE OLIVEROS (IND)" .}
-    Campo:  uri
-    Html: <h1>Hola Mundo </h1>
-  CampoValores:
-    CampoValor1:
-      Tipo: Virtuoso
-      Oculto: False
-      Query: PREFIX ei2a:<http://opendata.aragon.es/def/ei2a#> PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>  PREFIX org:<http://www.w3.org/ns/org#> PREFIX foaf:<http://xmlns.com/foaf/0.1/> PREFIX vcard:<http://www.w3.org/2006/vcard/ns#> select ?cif ?telefono ?email ?fax ?direccion ?nombreComarca ?nombreAlcalde ?nombreDiputacion ?nombreProvincia where { <%s> ei2a:CIF ?cif . optional {<%s> ei2a:phone ?telefono .} optional {<%s> foaf:mbox ?email .} optional {<%s> org:hasSite ?site . ?site org:siteAddress ?siteAddress . ?siteAddress vcard:Fax ?fax . ?siteAddress vcard:hasAddress ?address . ?address vcard:street-address ?direccion . } optional {<%s> org:subOrganizationOf ?comarca . ?comarca ei2a:publicEntityType ei2a:Comarca . ?comarca ei2a:organizationName ?nombreComarca .} optional {?membership org:organization <%s> . ?membership org:member ?member. ?membership org:role ?role . ?member foaf:name ?nombreAlcalde . ?role <http://opendata.aragon.es/def/ei2ia#roleName> ''A'' .} optional {<%s> org:subOrganizationOf ?diputacion . ?diputacion ei2a:publicEntityType ei2a:DiputaciónProvincialForal . ?diputacion foaf:organizationName ?nombreDiputacion .} optional {<%s> org:subOrganizationOf ?provincia . ?provincia rdf:type <http://dbpedia.org/ontology/Province> . ?provincia <http://www.w3.org/2000/01/rdf-schema#label> ?nombreProvincia .}}
-      Campo: uri
-      Campos:
-        Campo1:
-          Nombre: Dirección
-          Valor: direccion
-        Campo2:
-          Nombre: CIF
-          Valor: cif
-        Campo3:
-          Nombre: Comarca
-          Valor: nombreComarca
-        Campo4:
-          Nombre: Telefono
-          Valor: telefono
-        Campo6:
-          Nombre: Fax
-          Valor: fax
-        Campo7:
-          Nombre: Email
-          Valor: email
-        Campo8:
-          Nombre: Alcalde
-          Valor: nombreAlcalde
-        Campo10:
-          Nombre: Provincia        
-          Valor: nombreProvincia
-        Campo11:
-          Nombre: Diputacion        
-          Valor: nombreDiputacion
-    CampoValor2:
-      Tipo: Api
-      Oculto: False
-      Query: select ?source where  {<%s> <http://purl.org/dc/elements/1.1/source> ?source}
-      Campo: uri
-      Campos:
-        Campo1:
-          Nombre: Habitantes        
-          Valor: HABITANTES
-        Campo2:
-          Nombre: Superficie        
-          Valor: SUPERFICIE
-  Tablas:     
-    Tabla1:
-      Tipo: Virtuoso
-      Titulo: Padrón 
-      Descripcion: Habitantes según el padrón municipal, datos anuales 
-      Query: select SUBSTR(?year,0,4) as ?year ?population where{ ?obs <http://purl.org/linked-data/cube#dataSet> <http://opendata.aragon.es/recurso/DataSet/PadronMunicipal> . ?obs ?x ?y  . {?obs <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?uriAragopedia . <%s> owl:sameAs ?uriAragopedia} UNION {<%s> owl:sameAs ?uriAragopedia. ?uriAragopedia <http://opendata.aragon.es/def/Aragopedia#hasObservation> ?obs} ?obs <http://opendata.aragon.es/def/Aragopedia#year> ?year. ?obs <http://opendata.aragon.es/def/Aragopedia#population> ?population.  } ORDER BY ?year
-      Campo: uri
-      Columnas:
-        Columna1:
-          Nombre: Año
-          Valor: year
-          ClassTitulo: w25     
-          ClassValor:  mays
-        Columna2:
-          Nombre: Habitantes
-          Valor: population
-    Tabla2:
-      Titulo: Pleno del municipio 
-      Tipo: Virtuoso
-      Query: select ?nombrePersona ?cargo where  {?membership <http://www.w3.org/ns/org#organization> <%s> . ?membership <http://www.w3.org/ns/org#member> ?member. ?membership  <http://www.w3.org/ns/org#role> ?role . ?member <http://opendata.aragon.es/def/ei2a#fullName> ?nombrePersona . ?role <http://opendata.aragon.es/def/ei2a#roleName> ?roleName .?member <http://www.w3.org/ns/person#memberOf> ?partido .	?partido <http://opendata.aragon.es/def/ei2a#organizationName> ?nombrePartido. bind(concat(?roleName, '' '' , ?nombrePartido) as ?cargo)}
-      Campo: uri
-      Columnas:
-        Columna1:
-          Nombre: Persona
-          Valor: nombrePersona
-        Columna2:
-          Nombre: Cargo
-          Valor: cargo  
-          ClassTitulo: w25     
-          ClassValor:  mays
-PanelLateral:
-  ListaEnlaces:
-    ListaEnlace1:
-      Titulo: Más información
-      Tipo: gadget-masinfo
-      Enlaces:
-        Enlace1:
-          Texto: Aragopedia
-          url: http://opendata.aragon.es/aragopedia/municipio/%s
-          CampoUrl: http://purl.org/dc/elements/1.1/identifier
-        Enlace2:
-          Texto: ELDA
-          url: http://opendata.aragon.es/elda/municipio/%s
-          CampoUrl: http://purl.org/dc/elements/1.1/identifier
-        Enlace3:
-          Texto: Presupuesto
-          url: http://opendata.aragon.es/presupuesto/municipio/%s
-          CampoUrl: http://purl.org/dc/elements/1.1/identifier
-        Enlace4:
-          Texto: Datos en Aragón Open data
-          url: http://opendata.aragon.es/opendata/municipio/%s
-          CampoUrl: http://purl.org/dc/elements/1.1/identifier
-    ListaEnlace2:
-      Titulo: Enlaces de interes 
-      #gadget-iconos gadget-enlaces gadget-masinfo
-      Tipo: gadget-enlaces
-      Enlaces:
-        Enlace1:
-          Texto: Ver ordenanzas municipales de %s
-          CampoTexto: http://opendata.aragon.es/def/ei2a#organizationName
-          url: http://opendata.aragon.es/ordenanzas/municipio/%s
-          CampoUrl: http://purl.org/dc/elements/1.1/identifier
-        Enlace2:
-          Texto: Ver información turística de %s
-          CampoTexto: http://opendata.aragon.es/def/ei2a#organizationName
-          url: http://opendata.aragon.es/turismo/municipio/%s
-          CampoUrl: http://purl.org/dc/elements/1.1/identifier
-        Enlace3:
-          Texto: Ver información de agricultura de %s
-          CampoTexto: http://opendata.aragon.es/def/ei2a#organizationName
-          url: http://opendata.aragon.es/agricultura/municipio/%s
-          CampoUrl: http://purl.org/dc/elements/1.1/identifier
-        Enlace4:
-          Texto: Ver datos del instituto aragoñés del agua de %s
-          CampoTexto: http://opendata.aragon.es/def/ei2a#organizationName
-          url: http://opendata.aragon.es/instituto-agua/municipio/%s
-          CampoUrl: http://purl.org/dc/elements/1.1/identifier
-        Enlace5:
-          Texto: Ver rutas de autobús de %s
-          CampoTexto: http://opendata.aragon.es/def/ei2a#organizationName   
-          url: http://opendata.aragon.es/rutas-autobus/municipio/%s
-          CampoUrl: http://purl.org/dc/elements/1.1/identifier', true, '2018-06-18');
-INSERT INTO public.configuracionweb (code, slug, name, configuracion, active, created) VALUES (4, 'AlojamientoHotelero', 'http://opendata.aragon.es/def/ei2a#alojamiento_hotelero', 'BodyClass: fichaComunidad fichaHotel
-PanelCentral:
-  #titulo del panel
-  Titulo: http://opendata.aragon.es/def/ei2a#organizationName
-  Votos:
-        Query: select ?body where {?s <http://protege.stanford.edu/rdf/HTOv4002#award> ?award. ?award <http://protege.stanford.edu/rdf/HTOv4002#awardingBody> ?body. filter(?s = <%s>)}
-        Campo: uri
-  Texto:
-        Tipo: HTML
-        Query: none
-        Campo: none
-        Html: <h3>Texto Libre</h2><br/><p class=''dato''><strong>Dirección</strong><span>Camino de la estación, 27</span></p><p class=''dato''><strong>CIF</strong><span>P-2200100-B</span></p>
-PanelLateral:
-  Texto:
-        Tipo: HTML
-        Query: none
-        Campo: none
-        Html: <h3>Texto Libre</h2><br/><p class=''dato''><strong>Dirección</strong><span>Camino de la estación, 27</span></p><p class=''dato''><strong>CIF</strong><span>P-2200100-B</span></p>', true, '2018-06-28');
-
-
-
-
-
---
--- TOC entry 2276 (class 0 OID 25397)
--- Dependencies: 190
+-- TOC entry 2272 (class 0 OID 24940)
+-- Dependencies: 194
 -- Data for Name: entidades; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (36, 'bloque-persona', 'Personas', 'Person', '', '', 'http://www.w3.org/ns/person#Person', 'http://opendata.aragon.es/def/ei2a#person', 0, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (145, 'point', 'Point', 'Point', '', '', 'Point', 'http://opendata.aragon.es/def/ei2a#point', 0, B'0', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (141, 'turismo', 'Turismo', 'Turismo', '', '', 'Line', 'http://opendata.aragon.es/def/ei2a#turismo', 140, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (142, 'sendero', 'Sendero', 'Sendero', '', '', 'Line', 'http://opendata.aragon.es/def/ei2a#sendero', 141, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (143, 'transporte', 'Transporte', 'Transporte', '', '', 'Line', 'http://opendata.aragon.es/def/ei2a#transporte', 140, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (146, 'transporte', 'Transporte', 'Transporte', '', '', 'Point', 'http://opendata.aragon.es/def/ei2a#transporte', 145, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (103, 'superficies_agrarias_cultivadas_por_municipios_cultivatedsurface', 'Superficies agrarias cultivadas por municipios (CultivatedSurface)', 'Superficies agrarias cultivadas por municipios (CultivatedSurface)', '', '', 'PAC', 'http://opendata.aragon.es/def/ei2a#superficies_agrarias_cultivadas_por_municipios_cultivatedsurface', 93, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (104, 'bloque-agua', 'Agua', 'Agua', '', '', 'http://opendata.aragon.es/def/ei2a/categorization#WaterAndHealth', 'http://opendata.aragon.es/def/ei2a#agua', 0, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (105, 'sumidero', 'Sumidero', 'Sumidero', '', '', 'http://opendata.aragon.es/def/ei2a/categorization#WaterAndHealth', 'http://opendata.aragon.es/def/ei2a#sumidero', 104, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (106, 'ramal', 'Ramal', 'Ramal', '', '', 'http://opendata.aragon.es/def/ei2a/categorization#WaterAndHealth', 'http://opendata.aragon.es/def/ei2a#ramal', 104, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (107, 'pozo', 'Pozo', 'Pozo', '', '', 'http://opendata.aragon.es/def/ei2a/categorization#WaterAndHealth', 'http://opendata.aragon.es/def/ei2a#pozo', 104, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (108, 'potabilizadora', 'Potabilizadora', 'Potabilizadora', '', '', 'http://opendata.aragon.es/def/ei2a/categorization#WaterAndHealth', 'http://opendata.aragon.es/def/ei2a#potabilizadora', 104, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (109, 'llave_corte', 'Llave corte', 'Llave corte', '', '', 'http://opendata.aragon.es/def/ei2a/categorization#WaterAndHealth', 'http://opendata.aragon.es/def/ei2a#llave_corte', 104, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (110, 'hidrante', 'Hidrante', 'Hidrante', '', '', 'http://opendata.aragon.es/def/ei2a/categorization#WaterAndHealth', 'http://opendata.aragon.es/def/ei2a#hidrante', 104, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (111, 'emisario', 'Emisario', 'Emisario', '', '', 'http://opendata.aragon.es/def/ei2a/categorization#WaterAndHealth', 'http://opendata.aragon.es/def/ei2a#emisario', 104, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (112, 'edar', 'Edar', 'Edar', '', '', 'http://opendata.aragon.es/def/ei2a/categorization#WaterAndHealth', 'http://opendata.aragon.es/def/ei2a#edar', 104, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (94, 'solicitud_pac', 'Solicitud PAC', 'Solicitud PAC', '', '', 'PAC', 'http://opendata.aragon.es/def/ei2a#solicitud_pac', 93, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (114, 'depuradora', 'Depuradora', 'Depuradora', '', '', 'http://opendata.aragon.es/def/ei2a/categorization#WaterAndHealth', 'http://opendata.aragon.es/def/ei2a#depuradora', 104, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (117, 'colector', 'Colector', 'Colector', '', '', 'http://opendata.aragon.es/def/ei2a/categorization#WaterAndHealth', 'http://opendata.aragon.es/def/ei2a#colector', 104, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (119, 'cámara_limpia', 'Cámara limpia', 'Cámara limpia', '', '', 'http://opendata.aragon.es/def/ei2a/categorization#WaterAndHealth', 'http://opendata.aragon.es/def/ei2a#camara_limpia', 104, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (120, 'boca_de_riego', 'Boca de riego', 'Boca de riego', '', '', 'http://opendata.aragon.es/def/ei2a/categorization#WaterAndHealth', 'http://opendata.aragon.es/def/ei2a#boca_riego', 104, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (46, 'bloque-documento', 'Documentos', 'Document', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#document', 0, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (98, 'códigos_de_cultivos_herbáceos_pac', 'Códigos de cultivos herbáceos PAC', 'Códigos de cultivos herbáceos PAC', '', '', 'PAC', 'http://opendata.aragon.es/def/ei2a#codigos_cultivos_herbaceos_pac', 93, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (132, 'transporte', 'Transporte', 'Transporte', '', '', 'http://vocab.gtfs.org/terms#Route', 'http://opendata.aragon.es/def/ei2a#transporte', 121, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (102, 'clases_de_cultivos', 'Clases de cultivos', 'Clases de cultivos', '', '', 'PAC', 'http://opendata.aragon.es/def/ei2a#clase_cultivo', 93, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (86, 'bloque-evento', 'Eventos', 'Evento', '', '', 'http://opendata.aragon.es/def/ei2a#EventAgenda', 'http://opendata.aragon.es/def/ei2a#evento', 0, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (91, 'relaciones_institucionales,_procesos_electorales', 'Relaciones Institucionales, Procesos Electorales', 'Relaciones Institucionales, Procesos Electorales', '', '', 'http://opendata.aragon.es/def/ei2a#EventAgenda', 'http://opendata.aragon.es/def/ei2a#relaciones_institucionales,_procesos_electorales', 86, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (93, 'bloque-pac', 'PAC', 'PAC', '', '', 'PAC ', 'http://opendata.aragon.es/def/ei2a#pac', 0, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (129, 'cra_datos_de_itinerarios_de_las_rutas_trip', 'CRA - Datos de itinerarios de las rutas (Trip)', 'CRA - Datos de itinerarios de las rutas (Trip)', '', '', 'http://opendata.aragon.es/def/ei2a/categorization#TerritoryAndTransport', 'http://opendata.aragon.es/def/ei2a#itinerario_ruta', 128, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (135, 'expedicion_parada_horario_stoptime', 'Expedicion Parada Horario (StopTime)', 'Expedicion Parada Horario (StopTime)', '', '', 'http://opendata.aragon.es/def/ei2a/categorization#TerritoryAndTransport', 'http://opendata.aragon.es/def/ei2a#expedicion_parada_y_horario', 132, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (121, 'bloque-transporte', 'Transportes', 'Transporte', '', '', 'http://vocab.gtfs.org/terms#Route', 'http://opendata.aragon.es/def/ei2a#transporte', 0, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (122, 'arabus', 'Arabus', 'Arabus', '', '', 'http://vocab.gtfs.org/terms#Route', 'http://opendata.aragon.es/def/ei2a#arabus', 121, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (128, 'cra', 'CRA', 'CRA', '', '', 'http://vocab.gtfs.org/terms#Route', 'http://opendata.aragon.es/def/ei2a#cra', 121, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (131, 'cra_datos_de_las_rutas_route', 'CRA – Datos de las rutas (Route)', 'CRA – Datos de las rutas (Route)', '', '', 'http://vocab.gtfs.org/terms#Route', 'http://opendata.aragon.es/def/ei2a#cra_datos_ruta', 128, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (113, 'distribución', 'Distribución', 'Distribución', '', '', 'http://opendata.aragon.es/def/ei2a/categorization#WaterAndHealth', 'http://opendata.aragon.es/def/ei2a#distribucion', 104, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (115, 'depósito', 'Depósito', 'Depósito', '', '', 'http://opendata.aragon.es/def/ei2a/categorization#WaterAndHealth', 'http://opendata.aragon.es/def/ei2a#deposito', 104, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (100, 'códigos_de_cultivos_lenosos_pac', 'Códigos de cultivos lenosos PAC', 'Códigos de cultivos lenosos PAC', '', '', 'PAC', 'http://opendata.aragon.es/def/ei2a#codigos_cultivos_lenosos_pac', 93, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (101, 'códigos_de_variedades_lenosas_pac', 'Códigos de variedades lenosas PAC', 'Códigos de variedades lenosas PAC', '', '', 'PAC', 'http://opendata.aragon.es/def/ei2a#codigos_variedades_lenosas_pac', 93, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (116, 'conducción', 'Conducción', 'Conducción', '', '', 'http://opendata.aragon.es/def/ei2a/categorization#WaterAndHealth', 'http://opendata.aragon.es/def/ei2a#conduccion', 104, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (118, 'captación', 'Captación', 'Captación', '', '', 'http://opendata.aragon.es/def/ei2a/categorization#WaterAndHealth', 'http://opendata.aragon.es/def/ei2a#captacion', 104, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (124, 'expediciones_paradas_horarios_stoptime', 'Expediciones, Paradas y Horarios (StopTime)', 'Expediciones, Paradas y Horarios (StopTime)', '', '', 'http://opendata.aragon.es/def/ei2a/categorization#TerritoryAndTransport', 'http://opendata.aragon.es/def/ei2a#expediciones_paradas_horarios_stoptime', 122, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (125, 'paradas_stop', 'Paradas (Stop)', 'Paradas (Stop)', '', '', 'http://opendata.aragon.es/def/ei2a/categorization#TerritoryAndTransport', 'http://opendata.aragon.es/def/ei2a#paradas_stop', 122, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (126, 'rutas_route', 'Rutas (Route)', 'Rutas (Route)', '', '', 'http://vocab.gtfs.org/terms#Route', 'http://opendata.aragon.es/def/ei2a#rutas_route', 122, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (144, 'arabus_rutas', 'ARABUS - Rutas', 'ARABUS - Rutas', '', '', 'Line', 'http://opendata.aragon.es/def/ei2a#arabus_rutas', 143, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (48, 'ordenanza_general', 'Ordenanza General', 'Ordenanza General', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#ordenanza_general', 46, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (30, 'oficinas_comarcales', 'Oficinas comarcales', 'Oficinas comarcales', '', '', 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#oficinas_comarcales', 28, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (31, 'transporte', 'Transporte', 'Transporte', '', '', 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#transporte', 1, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (58, 'ordenanza_fiscal', 'Ordenanza Fiscal', 'Ordenanza Fiscal', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#ordenanza_fiscal', 46, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (4, 'agrupación_secretarial', 'Agrupación secretarial', 'Agrupación secretarial', '', '', 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#agrupacion_secretarial', 1, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (137, 'location', 'Location', 'Location', '', '', 'http://opendata.aragon.es/def/ei2a/categorization#TerritoryAndTransport', 'http://opendata.aragon.es/def/ei2a#location', 0, B'0', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (97, 'códigos_catastrales_sigpac_parcelas_pac', 'Códigos catastrales y SIGPAC, parcelas PAC', 'Códigos catastrales y SIGPAC, parcelas PAC', '', '', 'PAC', 'http://opendata.aragon.es/def/ei2a#codigos_catastrales_sigpac_parcelas_pac', 93, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (69, 'modificaciones_de_planeamiento_de_desarrollo', 'Modificaciones de Planeamiento de Desarrollo', 'Modificaciones de Planeamiento de Desarrollo', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#modificaciones_planeamiento_desarrollo', 67, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (70, 'modificaciones_de_planeamiento_general', 'Modificaciones de Planeamiento General', 'Modificaciones de Planeamiento General', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#modificaciones_planeamiento_general', 67, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (71, 'planeamiento_de_desarrollo', 'Planeamiento de Desarrollo', 'Planeamiento de Desarrollo', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#planeamiento_desarrollo', 67, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (72, 'planeamiento_general', 'Planeamiento General', 'Planeamiento General', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#planeamiento_general', 67, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (78, 'transporte', 'Transporte', 'Transporte', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#transporte', 46, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (81, 'iaa', 'IAA', 'IAA', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#iaa', 46, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (83, 'iaa_contratos_gastos_anuales', 'IAA – Contratos gastos anuales', 'IAA – Contratos gastos anuales', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#iaa_contratos_gastos_anuales', 81, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (17, 'turismo', 'Turismo', 'Turismo', '', '', 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#turismo', 1, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (1, 'bloque-organizacion', 'Organizaciones', 'Organization', '', '', 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#organization', 0, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (140, 'line', 'Line', 'Line', '', '', 'Line', 'http://opendata.aragon.es/def/ei2a#line', 0, B'0', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (11, 'mancomunidad', 'Mancomunidad', 'Mancomunidad', '', '', 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#mancomunidad', 1, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (20, 'alojamientos_hoteleros', 'Alojamientos hoteleros', 'Alojamientos hoteleros', '', '', 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#alojamiento_hotelero', 17, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (28, 'agricultura', 'Agricultura', 'Agricultura', '', '', 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#agricultura', 1, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (19, 'albergues_refugios', 'Albergues y refugios', 'Albergues y refugios', '', '', 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#albergue_refugio', 17, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (22, 'cafeterías_restaurantes', 'Cafeterías y Restaurantes', 'Cafeterías y Restaurantes', '', '', 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#cafeteria_restaurante', 17, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (23, 'campings_turísticos', 'Campings Turísticos', 'Campings Turísticos', '', '', 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#camping_turistico', 17, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (27, 'alojamientos_de_turismo_rural', 'Alojamientos de Turismo Rural', 'Alojamientos de Turismo Rural', '', '', 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#alojamiento_rural', 17, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (85, 'dara_archivos_de_aragón', 'DARA – Archivos de Aragón', 'DARA – Archivos de Aragón', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#dara_archivos_aragon', 46, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (99, 'códigos_de_variedades_herbáceas_pac', 'Códigos de variedades herbáceas PAC', 'Códigos de variedades herbáceas PAC', '', '', 'PAC', 'http://opendata.aragon.es/def/ei2a#codigos_variedades_herbaceas_pac', 93, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (18, 'agencias_de_viaje', 'Agencias de viaje', 'Agencias de viaje', '', '', 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#agencia_viaje', 17, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (21, 'apartamentos_turísticos', 'Apartamentos turísticos', 'Apartamentos turísticos', '', '', 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#apartamento_turistico', 17, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (79, 'arabus_concesiones', 'ARABUS - Concesiones', 'ARABUS - Concesiones', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#arabus_concesion', 78, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (32, 'arabus_operadores', 'ARABUS - Operadores', 'ARABUS - Operadores', '', '', 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#operador', 31, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (147, 'arabus_paradas', 'ARABUS - Paradas', 'ARABUS - Paradas', '', '', 'Point', 'http://opendata.aragon.es/def/ei2a#arabus_parada', 146, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (33, 'arabus_transportistas', 'ARABUS – Transportistas', 'ARABUS – Transportistas', '', '', 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#transportista', 31, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (45, 'cargos', 'Cargos', 'Cargos', '', '', 'http://www.w3.org/ns/person#Person', 'http://opendata.aragon.es/def/ei2a#cargo', 36, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (77, 'colecciones_de_museos_de_aragon', 'Colecciones de Museos de Aragon', 'Colecciones de Museos de Aragon', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#colecciones_museos_aragon', 46, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (2, 'comarca', 'Comarca', 'Comarca', '', '', 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#comarca', 1, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (29, 'comarcas_agrarias', 'Comarcas agrarias', 'Comarcas agrarias', '', '', 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#comarca_agraria', 28, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (5, 'consorcio', 'Consorcio', 'Consorcio', '', '', 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#consorcio', 1, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (34, 'cra_centros', 'CRA – Centros', 'CRA – Centros', '', '', 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#cra_centro', 1, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (6, 'diputación', 'Diputación', 'Diputación', '', '', 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#diputacion', 1, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (7, 'dirección_de_interés', 'Dirección de interés', 'Dirección de interés', '', '', 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#direccion_de_interes', 1, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (26, 'empresas_de_turismo_activo', 'Empresas de Turismo Activo', 'Empresas de Turismo Activo', '', '', 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#empresa_turismo_activo', 17, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (8, 'entidad_menor', 'Entidad menor', 'Entidad menor', '', '', 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#entidad_menor', 1, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (9, 'entidad_singular', 'Entidad singular', 'Entidad singular', '', '', 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#entidad_singular', 1, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (35, 'entidades', 'Entidades', 'Entidades', '', '', 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#entidad', 1, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (10, 'fundación', 'Fundación', 'Fundación', '', '', 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#fundacion', 1, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (44, 'guías_de_turismo', 'Guías de Turismo', 'Guías de Turismo', '', '', 'http://www.w3.org/ns/person#Person', 'http://opendata.aragon.es/def/ei2a#guia_turismo', 36, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (82, 'iaa_contratos', 'IAA - Contratos', 'IAA - Contratos', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#iaa_contrato', 81, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (84, 'iaa_contratos_depuradoras_incluidas', 'IAA – Contratos depuradoras incluidas', 'IAA – Contratos depuradoras incluidas', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#iaa_contrato_depuradora', 81, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (38, 'miembro_de_pleno_comarcal', 'Miembro de Pleno Comarcal', 'Miembro de Pleno Comarcal', '', '', 'http://www.w3.org/ns/person#Person', 'http://opendata.aragon.es/def/ei2a#miembro_pleno_comarcal', 36, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (39, 'miembro_de_pleno_consorcio', 'Miembro de Pleno Consorcio', 'Miembro de Pleno Consorcio', '', '', 'http://www.w3.org/ns/person#Person', 'http://opendata.aragon.es/def/ei2a#miembro_pleno_consorcio', 36, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (40, 'miembro_de_pleno_entidad_menor', 'Miembro de Pleno Entidad menor', 'Miembro de Pleno Entidad menor', '', '', 'http://www.w3.org/ns/person#Person', 'http://opendata.aragon.es/def/ei2a#miembro_pleno_entidad_menor', 36, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (41, 'miembro_de_pleno_mancomunidad', 'Miembro de Pleno Mancomunidad', 'Miembro de Pleno Mancomunidad', '', '', 'http://www.w3.org/ns/person#Person', 'http://opendata.aragon.es/def/ei2a#miembro_pleno_mancomunidad', 36, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (37, 'miembro_de_pleno_municipal', 'Miembro de Pleno Municipal', 'Miembro de Pleno Municipal', '', '', 'http://www.w3.org/ns/person#Person', 'http://opendata.aragon.es/def/ei2a#miembro_pleno_municipal', 36, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (42, 'miembro_de_pleno_organismo_autónomo', 'Miembro de Pleno Organismo autónomo', 'Miembro de Pleno Organismo autónomo', '', '', 'http://www.w3.org/ns/person#Person', 'http://opendata.aragon.es/def/ei2a#miembro_pleno_organismo_autonomo', 36, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (43, 'miembro_de_pleno_villas_tierras', 'Miembro de Pleno Villas y tierras', 'Miembro de Pleno Villas y tierras', '', '', 'http://www.w3.org/ns/person#Person', 'http://opendata.aragon.es/def/ei2a#miembro_pleno_villas_y_tierras', 36, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (3, 'municipio', 'Municipio', 'Municipio', '', '', 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#municipio', 1, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (73, 'noticia', 'Noticia', 'Noticia', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#noticia', 46, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (12, 'núcleo', 'Núcleo', 'Núcleo', '', '', 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#nucleo', 1, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (24, 'oficinas_de_turismo', 'Oficinas de Turismo', 'Oficinas de Turismo', '', '', 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#oficina_turismo', 17, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (60, 'ordenanza_fiscal_comarca', 'Ordenanza Fiscal Comarca', 'Ordenanza Fiscal Comarca', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#ordenanza_fiscal_comarca', 58, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (61, 'ordenanza_fiscal_de_consorcio', 'Ordenanza fiscal de consorcio', 'Ordenanza fiscal de consorcio', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#ordenanza_fiscal_consorcio', 58, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (62, 'ordenanza_fiscal_de_diputación', 'Ordenanza fiscal de diputación', 'Ordenanza fiscal de diputación', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#ordenanza_fiscal_diputacion', 58, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (63, 'ordenanza_fiscal_de_entidad_menor', 'Ordenanza fiscal de entidad menor', 'Ordenanza fiscal de entidad menor', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#ordenanza_fiscal_entidad_menor', 58, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (64, 'ordenanza_fiscal_de_mancomunidad', 'Ordenanza fiscal de mancomunidad', 'Ordenanza fiscal de mancomunidad', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#ordenanza_fiscal_mancomunidad', 58, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (59, 'ordenanza_fiscal_municipio', 'Ordenanza Fiscal Municipio', 'Ordenanza Fiscal Municipio', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#ordenanza_fiscal_municipio', 58, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (134, 'expediciones_trip', 'Expediciones (Trip)', 'Expediciones (Trip)', '', '', 'http://opendata.aragon.es/def/ei2a/categorization#TerritoryAndTransport', 'http://opendata.aragon.es/def/ei2a#expedicion', 132, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (130, 'cra_paradas_stop', 'CRA - Paradas (Stop)', 'CRA - Paradas (Stop)', '', '', 'http://opendata.aragon.es/def/ei2a/categorization#TerritoryAndTransport', 'http://opendata.aragon.es/def/ei2a#cra_parada', 128, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (139, 'cra_localidades', 'CRA - Localidades', 'CRA - Localidades', '', '', 'http://opendata.aragon.es/def/ei2a/categorization#TerritoryAndTransport', 'http://opendata.aragon.es/def/ei2a#cra_localidad', 137, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (138, 'iaf_polígonos_industriales', 'IAF polígonos industriales', 'IAF polígonos industriales', '', '', 'http://opendata.aragon.es/def/ei2a/categorization#TerritoryAndTransport', 'http://opendata.aragon.es/def/ei2a#iaf_poligono_industrial', 137, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (87, 'dato_elección', 'Dato Elección', 'Dato Elección', '', '', 'http://opendata.aragon.es/def/ei2a#EventAgenda', 'http://opendata.aragon.es/def/ei2a#eleccion', 86, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (88, 'curso', 'Curso', 'Curso', '', '', 'http://opendata.aragon.es/def/ei2a#EventAgenda', 'http://opendata.aragon.es/def/ei2a#curso', 86, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (123, 'expediciones_trip', 'Expediciones (Trip)', 'Expediciones (Trip)', '', '', 'http://opendata.aragon.es/def/ei2a/categorization#TerritoryAndTransport', 'http://opendata.aragon.es/def/ei2a#transporte_expedicion', 122, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (65, 'ordenanza_fiscal_de_organismo_autónomo', 'Ordenanza fiscal de organismo autónomo', 'Ordenanza fiscal de organismo autónomo', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#ordenanza_fiscal_organismo_autonomo', 58, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (66, 'ordenanza_fiscal_de_villas_tierras', 'Ordenanza fiscal de villas y tierras', 'Ordenanza fiscal de villas y tierras', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#ordenanza_fiscal_villas_y_tierras', 58, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (50, 'ordenanza_general_comarca', 'Ordenanza General Comarca', 'Ordenanza General Comarca', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#ordenanza_general_comarca', 48, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (51, 'ordenanza_general_de_consorcio', 'Ordenanza General de consorcio', 'Ordenanza General de consorcio', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#ordenanza_general_consorcio', 48, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (52, 'ordenanza_general_de_diputación', 'Ordenanza General de diputación', 'Ordenanza General de diputación', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#ordenanza_general_diputacion', 48, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (53, 'ordenanza_general_de_entidad_menor', 'Ordenanza General de entidad menor', 'Ordenanza General de entidad menor', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#ordenanza_general_entidad_menor', 48, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (54, 'ordenanza_general_de_mancomunidad', 'Ordenanza General de mancomunidad', 'Ordenanza General de mancomunidad', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#ordenanza_general_mancomunidad', 48, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (49, 'ordenanza_general_municipio', 'Ordenanza General Municipio', 'Ordenanza General Municipio', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#ordenanza_general_municipio', 48, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (55, 'ordenanza_general_de_núcleo', 'Ordenanza General de núcleo', 'Ordenanza General de núcleo', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#ordenanza_general_nucleo', 48, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (56, 'ordenanza_general_de_organismo_autónomo', 'Ordenanza General de organismo autónomo', 'Ordenanza General de organismo autónomo', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#ordenanza_general_organismo_autonomo', 48, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (57, 'ordenanza_general_de_villas_tierras', 'Ordenanza General de villas y tierras', 'Ordenanza General de villas y tierras', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#ordenanza_general_villas_y_tierras', 48, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (13, 'organismo_autónomo', 'Organismo autónomo', 'Organismo autónomo', '', '', 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#organismo_autonomo', 1, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (14, 'organización_complementaria', 'Organización complementaria', 'Organización complementaria', '', '', 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#organizacion_complementaria', 1, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (95, 'parcelas_pac_cultivos_herbáceos', 'Parcelas PAC, cultivos herbáceos', 'Parcelas PAC, cultivos herbáceos', '', '', 'PAC', 'http://opendata.aragon.es/def/ei2a#parcela_pac_cultivo_herbace', 93, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (96, 'parcelas_pac_cultivos_lenosos', 'Parcelas PAC, cultivos lenosos', 'Parcelas PAC, cultivos lenosos', '', '', 'PAC', 'http://opendata.aragon.es/def/ei2a#parcela_pac_cultivos_lenosos', 93, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (67, 'planeamiento', 'Planeamiento', 'Planeamiento', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#planeamiento', 46, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (68, 'planeamiento', 'Planeamiento', 'Planeamiento', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#planeamiento', 67, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (74, 'plantilla', 'Plantilla', 'Plantilla', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#plantilla', 46, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (75, 'presupuesto', 'Presupuesto', 'Presupuesto', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#presupuesto', 46, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (25, 'puntos_de_información_turística', 'Puntos de Información Turística', 'Puntos de Información Turística', '', '', 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#punto_informacion_turistica', 17, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (47, 'símbolo', 'Símbolo', 'Símbolo', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#simbolo', 46, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (15, 'sociedad_mercantil', 'Sociedad mercantil', 'Sociedad mercantil', '', '', 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#sociedad_mercantil', 1, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (80, 'transporte_concesiones', 'Transporte - Concesiones', 'Transporte - Concesiones', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#transporte_concesion', 78, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (148, 'transporte_paradas', 'TRANSPORTE - Paradas', 'TRANSPORTE - Paradas', '', '', 'Point', 'http://opendata.aragon.es/def/ei2ia#transporte_parada', 146, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (16, 'villas_tierras', 'Villas y tierras', 'Villas y tierras', '', '', 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#villas_y_tierras', 1, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (76, 'vivienda_rehabilitación_fianzas_datos_anuales', 'Vivienda y rehabilitación, Fianzas Datos Anuales', 'Vivienda y rehabilitación, Fianzas Datos Anuales', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#fianzas_datos_anuales_vivienda_y_rehabilitacion', 46, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (136, 'paradas_stop', 'Paradas (Stop)', 'Paradas (Stop)', '', '', 'http://opendata.aragon.es/def/ei2a/categorization#TerritoryAndTransport', 'http://opendata.aragon.es/def/ei2a#parada', 132, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (133, 'rutas_route', 'Rutas (Route)', 'Rutas (Route)', '', '', 'http://vocab.gtfs.org/terms#Route', 'http://opendata.aragon.es/def/ei2a#ruta', 132, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (89, 'postgrado', 'Postgrado', 'Postgrado', '', '', 'http://opendata.aragon.es/def/ei2a#EventAgenda', 'http://opendata.aragon.es/def/ei2a#postgrado', 86, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (90, 'registro_de_llamadas', 'Registro de llamadas', 'Registro de llamadas', '', '', 'http://opendata.aragon.es/def/ei2a#EventAgenda', 'http://opendata.aragon.es/def/ei2a#registro_llamada', 86, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (92, 'periodo_de_legislatura', 'Periodo de legislatura', 'Periodo de legislatura', '', '', 'http://opendata.aragon.es/def/ei2a#EventAgenda', 'http://opendata.aragon.es/def/ei2a#periodo_legislatura', 86, B'1', '2018-05-15');
-INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (127, 'servicios_service', 'Servicios (Service)', 'Servicios (Service)', '', '', 'http://opendata.aragon.es/def/ei2a/categorization#TerritoryAndTransport', 'http://opendata.aragon.es/def/ei2a#servicio', 122, B'1', '2018-05-15');
-
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (36, 'person', 'Person', 'Person', '', '', 'http://www.w3.org/ns/person#Person', 'person', 0, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (132, 'transporte', 'Transporte', 'Transporte', '', '', 'Transporte', 'transporte', 121, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (137, 'location', 'Location', 'Location', '', '', 'Location', 'location', 0, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (138, 'iaf_polígonos_industriales', 'IAF polígonos industriales', 'IAF polígonos industriales', '', '', 'Location', 'iaf_polígonos_industriales', 137, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (140, 'line', 'Line', 'Line', '', '', 'Line', 'line', 0, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (141, 'turismo', 'Turismo', 'Turismo', '', '', 'Line', 'turismo', 140, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (142, 'sendero', 'Sendero', 'Sendero', '', '', 'Line', 'sendero', 141, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (143, 'transporte', 'Transporte', 'Transporte', '', '', 'Line', 'transporte', 140, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (145, 'point', 'Point', 'Point', '', '', 'Point', 'point', 0, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (146, 'transporte', 'Transporte', 'Transporte', '', '', 'Point', 'transporte', 145, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (103, 'superficies_agrarias_cultivadas_por_municipios_cultivatedsurface', 'Superficies agrarias cultivadas por municipios (CultivatedSurface)', 'Superficies agrarias cultivadas por municipios (CultivatedSurface)', '', '', 'Agua', 'superficies_agrarias_cultivadas_por_municipios_cultivatedsurface', 93, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (133, 'rutas_route', 'Rutas (Route)', 'Rutas (Route)', '', '', 'Transporte', 'rutas_route', 132, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (1, 'organization', 'Organization', 'Organization', '', '', 'http://www.w3.org/ns/org#Organization', 'organization', 0, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (2, 'comarca', 'Comarca', 'Comarca', '', '', 'http://www.w3.org/ns/org#Organization', 'comarca', 1, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (3, 'municipio', 'Municipio', 'Municipio', '', '', 'http://www.w3.org/ns/org#Organization', 'municipio', 1, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (4, 'agrupación_secretarial', 'Agrupación secretarial', 'Agrupación secretarial', '', '', 'http://www.w3.org/ns/org#Organization', 'agrupación_secretarial', 1, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (5, 'consorcio', 'Consorcio', 'Consorcio', '', '', 'http://www.w3.org/ns/org#Organization', 'consorcio', 1, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (6, 'diputación', 'Diputación', 'Diputación', '', '', 'http://www.w3.org/ns/org#Organization', 'diputación', 1, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (7, 'dirección_de_interés', 'Dirección de interés', 'Dirección de interés', '', '', 'http://www.w3.org/ns/org#Organization', 'dirección_de_interés', 1, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (8, 'entidad_menor', 'Entidad menor', 'Entidad menor', '', '', 'http://www.w3.org/ns/org#Organization', 'entidad_menor', 1, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (43, 'miembro_de_pleno_villas_tierras', 'Miembro de Pleno Villas y tierras', 'Miembro de Pleno Villas y tierras', '', '', 'http://www.w3.org/ns/person#Person', 'miembro_de_pleno_villas_tierras', 36, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (86, 'evento', 'Evento', 'Evento', '', '', 'Evento', 'evento', 0, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (87, 'dato_elección', 'Dato Elección', 'Dato Elección', '', '', 'Evento', 'dato_elección', 86, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (88, 'curso', 'Curso', 'Curso', '', '', 'Evento', 'curso', 86, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (89, 'postgrado', 'Postgrado', 'Postgrado', '', '', 'Evento', 'postgrado', 86, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (90, 'registro_de_llamadas', 'Registro de llamadas', 'Registro de llamadas', '', '', 'Evento', 'registro_de_llamadas', 86, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (91, 'relaciones_institucionales,_procesos_electorales', 'Relaciones Institucionales, Procesos Electorales', 'Relaciones Institucionales, Procesos Electorales', '', '', 'Evento', 'relaciones_institucionales,_procesos_electorales', 86, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (92, 'periodo_de_legislatura', 'Periodo de legislatura', 'Periodo de legislatura', '', '', 'Evento', 'periodo_de_legislatura', 86, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (93, 'pac', 'PAC', 'PAC', '', '', 'PAC', 'pac', 0, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (94, 'solicitud_pac', 'Solicitud PAC', 'Solicitud PAC', '', '', 'PAC', 'solicitud_pac', 93, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (98, 'códigos_de_cultivos_herbáceos_pac', 'Códigos de cultivos herbáceos PAC', 'Códigos de cultivos herbáceos PAC', '', '', 'PAC', 'códigos_de_cultivos_herbáceos_pac', 93, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (99, 'códigos_de_variedades_herbáceas_pac', 'Códigos de variedades herbáceas PAC', 'Códigos de variedades herbáceas PAC', '', '', 'PAC', 'códigos_de_variedades_herbáceas_pac', 93, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (100, 'códigos_de_cultivos_lenosos_pac', 'Códigos de cultivos lenosos PAC', 'Códigos de cultivos lenosos PAC', '', '', 'PAC', 'códigos_de_cultivos_lenosos_pac', 93, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (101, 'códigos_de_variedades_lenosas_pac', 'Códigos de variedades lenosas PAC', 'Códigos de variedades lenosas PAC', '', '', 'PAC', 'códigos_de_variedades_lenosas_pac', 93, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (102, 'clases_de_cultivos', 'Clases de cultivos', 'Clases de cultivos', '', '', 'PAC', 'clases_de_cultivos', 93, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (104, 'agua', 'Agua', 'Agua', '', '', 'Agua', 'agua', 0, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (105, 'sumidero', 'Sumidero', 'Sumidero', '', '', 'Agua', 'sumidero', 104, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (106, 'ramal', 'Ramal', 'Ramal', '', '', 'Agua', 'ramal', 104, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (107, 'pozo', 'Pozo', 'Pozo', '', '', 'Agua', 'pozo', 104, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (108, 'potabilizadora', 'Potabilizadora', 'Potabilizadora', '', '', 'Agua', 'potabilizadora', 104, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (109, 'llave_corte', 'Llave corte', 'Llave corte', '', '', 'Agua', 'llave_corte', 104, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (110, 'hidrante', 'Hidrante', 'Hidrante', '', '', 'Agua', 'hidrante', 104, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (111, 'emisario', 'Emisario', 'Emisario', '', '', 'Agua', 'emisario', 104, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (112, 'edar', 'Edar', 'Edar', '', '', 'Agua', 'edar', 104, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (33, 'arabus_transportistas', 'ARABUS – Transportistas', 'ARABUS – Transportistas', '', '', 'http://www.w3.org/ns/org#Organization', 'arabus_transportistas', 31, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (34, 'cra_centros', 'CRA – Centros', 'CRA – Centros', '', '', 'http://www.w3.org/ns/org#Organization', 'cra_centros', 1, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (22, 'cafeterías_restaurantes', 'Cafeterías y Restaurantes', 'Cafeterías y Restaurantes', '', '', 'http://www.w3.org/ns/org#Organization', 'cafeterías_restaurantes', 17, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (16, 'villas_tierras', 'Villas y tierras', 'Villas y tierras', '', '', 'http://www.w3.org/ns/org#Organization', 'villas_tierras', 1, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (19, 'albergues_refugios', 'Albergues y refugios', 'Albergues y refugios', '', '', 'http://www.w3.org/ns/org#Organization', 'albergues_refugios', 17, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (113, 'distribución', 'Distribución', 'Distribución', '', '', 'Agua', 'distribución', 104, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (114, 'depuradora', 'Depuradora', 'Depuradora', '', '', 'Agua', 'depuradora', 104, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (115, 'depósito', 'Depósito', 'Depósito', '', '', 'Agua', 'depósito', 104, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (116, 'conducción', 'Conducción', 'Conducción', '', '', 'Agua', 'conducción', 104, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (117, 'colector', 'Colector', 'Colector', '', '', 'Agua', 'colector', 104, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (118, 'captación', 'Captación', 'Captación', '', '', 'Agua', 'captación', 104, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (119, 'cámara_limpia', 'Cámara limpia', 'Cámara limpia', '', '', 'Agua', 'cámara_limpia', 104, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (120, 'boca_de_riego', 'Boca de riego', 'Boca de riego', '', '', 'Agua', 'boca_de_riego', 104, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (121, 'transporte', 'Transporte', 'Transporte', '', '', 'Transporte', 'transporte', 0, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (122, 'arabus', 'Arabus', 'Arabus', '', '', 'Transporte', 'arabus', 121, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (128, 'cra', 'CRA', 'CRA', '', '', 'Transporte', 'cra', 121, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (37, 'miembro_de_pleno_municipal', 'Miembro de Pleno Municipal', 'Miembro de Pleno Municipal', '', '', 'http://www.w3.org/ns/person#Person', 'miembro_de_pleno_municipal', 36, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (95, 'parcelas_pac_cultivos_herbáceos', 'Parcelas PAC, cultivos herbáceos', 'Parcelas PAC, cultivos herbáceos', '', '', 'PAC', 'parcelas_pac_cultivos_herbáceos', 93, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (96, 'parcelas_pac_cultivos_lenosos', 'Parcelas PAC, cultivos lenosos', 'Parcelas PAC, cultivos lenosos', '', '', 'PAC', 'parcelas_pac_cultivos_lenosos', 93, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (123, 'expediciones_trip', 'Expediciones (Trip)', 'Expediciones (Trip)', '', '', 'Transporte', 'expediciones_trip', 122, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (97, 'códigos_catastrales_sigpac_parcelas_pac', 'Códigos catastrales y SIGPAC, parcelas PAC', 'Códigos catastrales y SIGPAC, parcelas PAC', '', '', 'PAC', 'códigos_catastrales_sigpac_parcelas_pac', 93, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (125, 'paradas_stop', 'Paradas (Stop)', 'Paradas (Stop)', '', '', 'Transporte', 'paradas_stop', 122, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (124, 'expediciones_paradas_horarios_stoptime', 'Expediciones, Paradas y Horarios (StopTime)', 'Expediciones, Paradas y Horarios (StopTime)', '', '', 'Transporte', 'expediciones_paradas_horarios_stoptime', 122, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (126, 'rutas_route', 'Rutas (Route)', 'Rutas (Route)', '', '', 'Transporte', 'rutas_route', 122, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (127, 'servicios_service', 'Servicios (Service)', 'Servicios (Service)', '', '', 'Transporte', 'servicios_service', 122, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (129, 'cra_datos_de_itinerarios_de_las_rutas_trip', 'CRA - Datos de itinerarios de las rutas (Trip)', 'CRA - Datos de itinerarios de las rutas (Trip)', '', '', 'Transporte', 'cra_datos_de_itinerarios_de_las_rutas_trip', 128, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (131, 'cra_datos_de_las_rutas_route', 'CRA – Datos de las rutas (Route)', 'CRA – Datos de las rutas (Route)', '', '', 'Transporte', 'cra_datos_de_las_rutas_route', 128, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (134, 'expediciones_trip', 'Expediciones (Trip)', 'Expediciones (Trip)', '', '', 'Transporte', 'expediciones_trip', 132, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (135, 'expedicion_parada_horario_stoptime', 'Expedicion Parada Horario (StopTime)', 'Expedicion Parada Horario (StopTime)', '', '', 'Transporte', 'expedicion_parada_horario_stoptime', 132, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (136, 'paradas_stop', 'Paradas (Stop)', 'Paradas (Stop)', '', '', 'Transporte', 'paradas_stop', 132, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (139, 'cra_localidades', 'CRA - Localidades', 'CRA - Localidades', '', '', 'Location', 'cra_localidades', 137, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (144, 'arabus_rutas', 'ARABUS - Rutas', 'ARABUS - Rutas', '', '', 'Line', 'arabus_rutas', 143, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (147, 'arabus_paradas', 'ARABUS - Paradas', 'ARABUS - Paradas', '', '', 'Point', 'arabus_paradas', 146, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (148, 'transporte_paradas', 'TRANSPORTE - Paradas', 'TRANSPORTE - Paradas', '', '', 'Point', 'transporte_paradas', 146, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (130, 'cra_paradas_stop', 'CRA - Paradas (Stop)', 'CRA - Paradas (Stop)', '', '', 'Transporte', 'cra_paradas_stop', 128, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (63, 'ordenanza_fiscal_de_entidad_menor', 'Ordenanza fiscal de entidad menor', 'Ordenanza fiscal de entidad menor', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'ordenanza_fiscal_de_entidad_menor', 58, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (64, 'ordenanza_fiscal_de_mancomunidad', 'Ordenanza fiscal de mancomunidad', 'Ordenanza fiscal de mancomunidad', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'ordenanza_fiscal_de_mancomunidad', 58, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (76, 'vivienda_rehabilitación_fianzas_datos_anuales', 'Vivienda y rehabilitación, Fianzas Datos Anuales', 'Vivienda y rehabilitación, Fianzas Datos Anuales', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'vivienda_rehabilitación_fianzas_datos_anuales', 46, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (46, 'document', 'Document', 'Document', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'document', 0, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (47, 'símbolo', 'Símbolo', 'Símbolo', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'símbolo', 46, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (48, 'ordenanza_general', 'Ordenanza General', 'Ordenanza General', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'ordenanza_general', 46, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (49, 'ordenanza_general_municipio', 'Ordenanza General Municipio', 'Ordenanza General Municipio', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'ordenanza_general_municipio', 48, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (50, 'ordenanza_general_comarca', 'Ordenanza General Comarca', 'Ordenanza General Comarca', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'ordenanza_general_comarca', 48, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (51, 'ordenanza_general_de_consorcio', 'Ordenanza General de consorcio', 'Ordenanza General de consorcio', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'ordenanza_general_de_consorcio', 48, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (52, 'ordenanza_general_de_diputación', 'Ordenanza General de diputación', 'Ordenanza General de diputación', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'ordenanza_general_de_diputación', 48, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (53, 'ordenanza_general_de_entidad_menor', 'Ordenanza General de entidad menor', 'Ordenanza General de entidad menor', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'ordenanza_general_de_entidad_menor', 48, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (54, 'ordenanza_general_de_mancomunidad', 'Ordenanza General de mancomunidad', 'Ordenanza General de mancomunidad', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'ordenanza_general_de_mancomunidad', 48, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (55, 'ordenanza_general_de_núcleo', 'Ordenanza General de núcleo', 'Ordenanza General de núcleo', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'ordenanza_general_de_núcleo', 48, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (79, 'arabus_concesiones', 'ARABUS - Concesiones', 'ARABUS - Concesiones', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'arabus_concesiones', 78, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (32, 'arabus_operadores', 'ARABUS - Operadores', 'ARABUS - Operadores', '', '', 'http://www.w3.org/ns/org#Organization', 'arabus_operadores', 31, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (29, 'comarcas_agrarias', 'Comarcas agrarias', 'Comarcas agrarias', '', '', 'http://www.w3.org/ns/org#Organization', 'comarcas_agrarias', 28, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (30, 'oficinas_comarcales', 'Oficinas comarcales', 'Oficinas comarcales', '', '', 'http://www.w3.org/ns/org#Organization', 'oficinas_comarcales', 28, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (31, 'transporte', 'Transporte', 'Transporte', '', '', 'http://www.w3.org/ns/org#Organization', 'transporte', 1, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (35, 'entidades', 'Entidades', 'Entidades', '', '', 'http://www.w3.org/ns/org#Organization', 'entidades', 1, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (56, 'ordenanza_general_de_organismo_autónomo', 'Ordenanza General de organismo autónomo', 'Ordenanza General de organismo autónomo', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'ordenanza_general_de_organismo_autónomo', 48, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (58, 'ordenanza_fiscal', 'Ordenanza Fiscal', 'Ordenanza Fiscal', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'ordenanza_fiscal', 46, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (59, 'ordenanza_fiscal_municipio', 'Ordenanza Fiscal Municipio', 'Ordenanza Fiscal Municipio', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'ordenanza_fiscal_municipio', 58, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (60, 'ordenanza_fiscal_comarca', 'Ordenanza Fiscal Comarca', 'Ordenanza Fiscal Comarca', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'ordenanza_fiscal_comarca', 58, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (61, 'ordenanza_fiscal_de_consorcio', 'Ordenanza fiscal de consorcio', 'Ordenanza fiscal de consorcio', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'ordenanza_fiscal_de_consorcio', 58, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (62, 'ordenanza_fiscal_de_diputación', 'Ordenanza fiscal de diputación', 'Ordenanza fiscal de diputación', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'ordenanza_fiscal_de_diputación', 58, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (57, 'ordenanza_general_de_villas_tierras', 'Ordenanza General de villas y tierras', 'Ordenanza General de villas y tierras', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'ordenanza_general_de_villas_tierras', 48, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (65, 'ordenanza_fiscal_de_organismo_autónomo', 'Ordenanza fiscal de organismo autónomo', 'Ordenanza fiscal de organismo autónomo', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'ordenanza_fiscal_de_organismo_autónomo', 58, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (67, 'planeamiento', 'Planeamiento', 'Planeamiento', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'planeamiento', 46, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (68, 'planeamiento', 'Planeamiento', 'Planeamiento', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'planeamiento', 67, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (69, 'modificaciones_de_planeamiento_de_desarrollo', 'Modificaciones de Planeamiento de Desarrollo', 'Modificaciones de Planeamiento de Desarrollo', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'modificaciones_de_planeamiento_de_desarrollo', 67, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (70, 'modificaciones_de_planeamiento_general', 'Modificaciones de Planeamiento General', 'Modificaciones de Planeamiento General', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'modificaciones_de_planeamiento_general', 67, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (71, 'planeamiento_de_desarrollo', 'Planeamiento de Desarrollo', 'Planeamiento de Desarrollo', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'planeamiento_de_desarrollo', 67, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (72, 'planeamiento_general', 'Planeamiento General', 'Planeamiento General', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'planeamiento_general', 67, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (73, 'noticia', 'Noticia', 'Noticia', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'noticia', 46, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (74, 'plantilla', 'Plantilla', 'Plantilla', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'plantilla', 46, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (75, 'presupuesto', 'Presupuesto', 'Presupuesto', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'presupuesto', 46, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (77, 'colecciones_de_museos_de_aragon', 'Colecciones de Museos de Aragon', 'Colecciones de Museos de Aragon', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'colecciones_de_museos_de_aragon', 46, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (78, 'transporte', 'Transporte', 'Transporte', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'transporte', 46, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (81, 'iaa', 'IAA', 'IAA', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'iaa', 46, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (80, 'transporte_concesiones', 'Transporte - Concesiones', 'Transporte - Concesiones', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'transporte_concesiones', 78, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (82, 'iaa_contratos', 'IAA - Contratos', 'IAA - Contratos', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'iaa_contratos', 81, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (83, 'iaa_contratos_gastos_anuales', 'IAA – Contratos gastos anuales', 'IAA – Contratos gastos anuales', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'iaa_contratos_gastos_anuales', 81, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (84, 'iaa_contratos_depuradoras_incluidas', 'IAA – Contratos depuradoras incluidas', 'IAA – Contratos depuradoras incluidas', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'iaa_contratos_depuradoras_incluidas', 81, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (85, 'dara_archivos_de_aragón', 'DARA – Archivos de Aragón', 'DARA – Archivos de Aragón', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'dara_archivos_de_aragón', 46, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (66, 'ordenanza_fiscal_de_villas_tierras', 'Ordenanza fiscal de villas y tierras', 'Ordenanza fiscal de villas y tierras', '', '', 'http://opendata.aragon.es/def/ei2a#Document', 'ordenanza_fiscal_de_villas_tierras', 58, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (9, 'entidad_singular', 'Entidad singular', 'Entidad singular', '', '', 'http://www.w3.org/ns/org#Organization', 'entidad_singular', 1, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (10, 'fundación', 'Fundación', 'Fundación', '', '', 'http://www.w3.org/ns/org#Organization', 'fundación', 1, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (11, 'mancomunidad', 'Mancomunidad', 'Mancomunidad', '', '', 'http://www.w3.org/ns/org#Organization', 'mancomunidad', 1, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (12, 'núcleo', 'Núcleo', 'Núcleo', '', '', 'http://www.w3.org/ns/org#Organization', 'núcleo', 1, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (13, 'organismo_autónomo', 'Organismo autónomo', 'Organismo autónomo', '', '', 'http://www.w3.org/ns/org#Organization', 'organismo_autónomo', 1, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (14, 'organización_complementaria', 'Organización complementaria', 'Organización complementaria', '', '', 'http://www.w3.org/ns/org#Organization', 'organización_complementaria', 1, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (15, 'sociedad_mercantil', 'Sociedad mercantil', 'Sociedad mercantil', '', '', 'http://www.w3.org/ns/org#Organization', 'sociedad_mercantil', 1, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (17, 'turismo', 'Turismo', 'Turismo', '', '', 'http://www.w3.org/ns/org#Organization', 'turismo', 1, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (18, 'agencias_de_viaje', 'Agencias de viaje', 'Agencias de viaje', '', '', 'http://www.w3.org/ns/org#Organization', 'agencias_de_viaje', 17, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (20, 'alojamientos_hoteleros', 'Alojamientos hoteleros', 'Alojamientos hoteleros', '', '', 'http://www.w3.org/ns/org#Organization', 'alojamientos_hoteleros', 17, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (21, 'apartamentos_turísticos', 'Apartamentos turísticos', 'Apartamentos turísticos', '', '', 'http://www.w3.org/ns/org#Organization', 'apartamentos_turísticos', 17, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (23, 'campings_turísticos', 'Campings Turísticos', 'Campings Turísticos', '', '', 'http://www.w3.org/ns/org#Organization', 'campings_turísticos', 17, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (24, 'oficinas_de_turismo', 'Oficinas de Turismo', 'Oficinas de Turismo', '', '', 'http://www.w3.org/ns/org#Organization', 'oficinas_de_turismo', 17, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (25, 'puntos_de_información_turística', 'Puntos de Información Turística', 'Puntos de Información Turística', '', '', 'http://www.w3.org/ns/org#Organization', 'puntos_de_información_turística', 17, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (26, 'empresas_de_turismo_activo', 'Empresas de Turismo Activo', 'Empresas de Turismo Activo', '', '', 'http://www.w3.org/ns/org#Organization', 'empresas_de_turismo_activo', 17, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (27, 'alojamientos_de_turismo_rural', 'Alojamientos de Turismo Rural', 'Alojamientos de Turismo Rural', '', '', 'http://www.w3.org/ns/org#Organization', 'alojamientos_de_turismo_rural', 17, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (28, 'agricultura', 'Agricultura', 'Agricultura', '', '', 'http://www.w3.org/ns/org#Organization', 'agricultura', 1, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (38, 'miembro_de_pleno_comarcal', 'Miembro de Pleno Comarcal', 'Miembro de Pleno Comarcal', '', '', 'http://www.w3.org/ns/person#Person', 'miembro_de_pleno_comarcal', 36, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (39, 'miembro_de_pleno_consorcio', 'Miembro de Pleno Consorcio', 'Miembro de Pleno Consorcio', '', '', 'http://www.w3.org/ns/person#Person', 'miembro_de_pleno_consorcio', 36, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (40, 'miembro_de_pleno_entidad_menor', 'Miembro de Pleno Entidad menor', 'Miembro de Pleno Entidad menor', '', '', 'http://www.w3.org/ns/person#Person', 'miembro_de_pleno_entidad_menor', 36, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (41, 'miembro_de_pleno_mancomunidad', 'Miembro de Pleno Mancomunidad', 'Miembro de Pleno Mancomunidad', '', '', 'http://www.w3.org/ns/person#Person', 'miembro_de_pleno_mancomunidad', 36, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (42, 'miembro_de_pleno_organismo_autónomo', 'Miembro de Pleno Organismo autónomo', 'Miembro de Pleno Organismo autónomo', '', '', 'http://www.w3.org/ns/person#Person', 'miembro_de_pleno_organismo_autónomo', 36, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (44, 'guías_de_turismo', 'Guías de Turismo', 'Guías de Turismo', '', '', 'http://www.w3.org/ns/person#Person', 'guías_de_turismo', 36, B'1', '2018-05-15');
+INSERT INTO public.entidades (code, slug, name_es, name_en, comment_es, comment_en, rdf_type, dc_type, parent_code, active, created) VALUES (45, 'cargos', 'Cargos', 'Cargos', '', '', 'http://www.w3.org/ns/person#Person', 'cargos', 36, B'1', '2018-05-15');
 
 
 --
--- TOC entry 2278 (class 0 OID 25406)
--- Dependencies: 192
+-- TOC entry 2285 (class 0 OID 0)
+-- Dependencies: 186
+-- Name: entidades_code_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.entidades_code_seq', 1, false);
+
+
+--
+-- TOC entry 2274 (class 0 OID 24957)
+-- Dependencies: 196
 -- Data for Name: facetas; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (3, 'Default', '', 'rdf:type', '', 'Temas', '', 1, true, '2018-05-22');
 INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (4, 'Default', '', 'dc:type', '', 'Tipos', '', 2, true, '2018-05-22');
 INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (6, 'http://opendata.aragon.es/def/ei2a#Document', '', 'dc:type', '', 'Tipos', '', 2, true, '2018-05-22');
+INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (12, 'http://www.w3.org/ns/org#Organization', '', 'ei2a:publicEntityType', '', 'Tipo de entidad pública', '', 1, true, '2018-05-22');
+INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (13, 'http://www.w3.org/ns/org#Organization', '', 'ei2a:organizationType', '', 'Tipo de organización', '', 2, true, '2018-05-22');
 INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (14, 'http://www.w3.org/ns/org#Organization', '', 'ei2a:AdministraciónLocal', '', 'Nivel administrativo', '', 3, true, '2018-05-22');
+INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (15, 'http://www.w3.org/ns/org#Organization', '', 'org:hasSite@org:siteAddress@vcard:hasAddress@vcard:locality', '', 'Sede', '', 4, true, '2018-05-22');
+INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (5, 'http://opendata.aragon.es/def/ei2a#Document', '', 'rdf:type', '', 'Temas', '', 1, true, '2018-05-22');
 INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (7, 'http://opendata.aragon.es/def/ei2a#Document', '', 'ei2a:documentType', '', 'Document Type', '', 3, true, '2018-05-22');
+INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (8, 'http://opendata.aragon.es/def/ei2a#Document', 'ordenanza_general_municipio', 'wgs84_pos:location@ei2a:organizationName', '', 'Municipios', '', 4, true, '2018-05-22');
+INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (9, 'http://opendata.aragon.es/def/ei2a#Document', 'ordenanza_fiscal_municipio', 'wgs84_pos:location@ei2a:organizationName', '', 'Municipios', '', 5, true, '2018-05-22');
+INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (10, 'http://opendata.aragon.es/def/ei2a#Document', 'ordenanza_general_comarca', 'wgs84_pos:location@org:subOrganizationOf@ei2a:organizationName', '', 'Comarcas', '', 4, true, '2018-05-22');
+INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (11, 'http://opendata.aragon.es/def/ei2a#Document', 'ordenanza_fiscal_comarca', 'wgs84_pos:location@org:subOrganizationOf@ei2a:organizationName', '', 'Comarcas', '', 5, true, '2018-05-22');
 INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (1, 'Default', '', 'wgs84_pos:location@ei2a:organizationName', '', 'Municipios', '', 3, true, '2018-05-22');
 INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (2, 'Default', '', 'wgs84_pos:location@org:subOrganizationOf@ei2a:organizationName', '', 'Comarcas', '', 4, true, '2018-05-22');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (3, 'Default', '', 'dc:type@rdf:type', '', 'Temas', '', 1, true, '2018-05-22');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (5, 'http://opendata.aragon.es/def/ei2a#Document', '', 'dc:type@rdf:type', '', 'Temas', '', 1, true, '2018-05-22');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (27, 'http://opendata.aragon.es/def/ei2a#EventAgenda', 'http://opendata.aragon.es/def/ei2a#eleccion', 'event:place@dc:identifier', 'PREFIX event:<http://purl.org/NET/c4dm/event.owl#>', 'Municipio', '', 1, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (15, 'http://www.w3.org/ns/org#Organization', '', 'wgs84_pos:location@ei2a:organizationName', 'PREFIX vcard:<http://www.w3.org/2006/vcard/ns#>
-', 'Municipio', 'wgs84_pos:location@ei2a:publicEntityType=ei2a:Ayuntamiento', 4, true, '2018-05-22');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (8, 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#ordenanza_general_municipio', 'wgs84_pos:location@ei2a:organizationName', '', 'Municipios', '', 4, true, '2018-05-22');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (9, 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#ordenanza_fiscal_municipio', 'wgs84_pos:location@ei2a:organizationName', '', 'Municipios', '', 5, true, '2018-05-22');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (10, 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#ordenanza_general_comarca', 'wgs84_pos:location@ei2a:organizationName', '', 'Comarcas', '', 4, true, '2018-05-22');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (11, 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#ordenanza_fiscal_comarca', 'wgs84_pos:location@ei2a:organizationName', '', 'Comarcas', '', 5, true, '2018-05-22');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (16, 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#municipio', 'org:subOrganizationOf@ei2a:organizationName', '', 'Comarcas', 'org:subOrganizationOf@ei2a:publicEntityType=ei2a:Comarca', 5, true, '2018-05-22');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (17, 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#municipio', 'org:subOrganizationOf@rdfs:label', '', 'Provincias', 'org:subOrganizationOf@rdf:type=<http://dbpedia.org/ontology/Province>', 6, true, '2018-05-22');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (13, 'http://www.w3.org/ns/org#Organization', '', 'ei2a:organizationType@rdfs:label', '', 'Tipo de organización', '', 2, true, '2018-05-22');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (18, 'http://www.w3.org/ns/person#Person', '', 'person:memberOf@ei2a:organizationName', 'PREFIX person:<http://www.w3.org/ns/person#>', 'Partido', '', 1, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (32, 'http://protege.stanford.edu/rdf/HTOv4002#Accommodation', '', 'harmonise:accommodationType@harmonise:refencedValue@harmonise:domainValue', 'PREFIX harmonise:<http://protege.stanford.edu/rdf/HTOv4002#>', 'Categoria', '', 1, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (33, 'http://protege.stanford.edu/rdf/HTOv4002#Attraction', '', 'harmonise:schedule@harmonise:season', 'PREFIX harmonise:<http://protege.stanford.edu/rdf/HTOv4002#>', 'Periodo abierto', '', 2, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (30, 'http://vocab.gtfs.org/terms#Route', '', 'gtfs:originStop@wgs84_location@dc:identifier', 'PREFIX gtfs:<http://vocab.gtfs.org/terms#>', 'Origen', '', 1, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (31, 'http://vocab.gtfs.org/terms#Route', '', 'gtfs:destinationStop@wgs84_location@dc:identifier', 'PREFIX gtfs:<http://vocab.gtfs.org/terms#>', 'Destino', '', 2, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (12, 'http://www.w3.org/ns/org#Organization', '', 'ei2a:publicEntityType@rdfs:label', '', 'Tipo de entidad pública', '', 1, true, '2018-05-22');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (19, 'http://www.w3.org/ns/person#Person', '', 'org:hasMembership@org:role@ei2a:roleName', '', 'Cargo', '', 2, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (20, 'http://www.w3.org/ns/person#Person', 'http://opendata.aragon.es/def/ei2a#miembro_pleno_municipal', 'wgs84_pos:location@dc:identifier', '', 'Municipio', '', 3, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (21, 'http://www.w3.org/ns/person#Person', 'http://opendata.aragon.es/def/ei2a#miembro_pleno_comarcal', 'wgs84_pos:location@dc:identifier', '', 'Comarca', '', 4, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (22, 'http://www.w3.org/ns/person#Person', 'http://opendata.aragon.es/def/ei2a#miembro_pleno_consorcio', 'wgs84_pos:location@dc:identifier', '', 'Consorcio', '', 5, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (23, 'http://www.w3.org/ns/person#Person', 'http://opendata.aragon.es/def/ei2a#miembro_pleno_entidad_menor', 'wgs84_pos:location@dc:identifier', '', 'Etidad menor', '', 6, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (24, 'http://www.w3.org/ns/person#Person', 'http://opendata.aragon.es/def/ei2a#miembro_pleno_mancomunidad', 'wgs84_pos:location@dc:identifier', '', 'Mancomidad', '', 7, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (25, 'http://www.w3.org/ns/person#Person', 'http://opendata.aragon.es/def/ei2a#miembro_pleno_organismo_autonomo', 'wgs84_pos:location@dc:identifier', '', 'Organismo autonomo', '', 8, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (26, 'http://www.w3.org/ns/person#Person', 'http://opendata.aragon.es/def/ei2a#miembro_pleno_villas_y_tierras', 'wgs84_pos:location@dc:identifier', '', 'Villas y tierras', '', 9, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (28, 'http://opendata.aragon.es/def/ei2a#EventAgenda', '', 'dc:date', '', 'Año', '', 2, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (29, 'http://opendata.aragon.es/def/ei2a#EventHistory', '', 'dc:date', '', 'Año', '', 3, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (35, 'http://protege.stanford.edu/rdf/HTOv4002#Accommodation', '', 'wgs84_pos:location@dc:identifier', '', 'Municipio', '', 4, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (36, 'http://protege.stanford.edu/rdf/HTOv4002#Attraction', '', 'wgs84_pos:location@dc:identifier', '', 'Municipio', '', 5, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (37, 'http://protege.stanford.edu/rdf/HTOv4002#Gastro', '', 'wgs84_pos:location@dc:identifier', '', 'Municipio', '', 6, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (42, 'http://opendata.aragon.es/def/ei2a#Line', 'http://opendata.aragon.es/def/ei2a#sendero', 'dc:format', '', 'Tipo', '', 11, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (43, 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#municipio', 'org:subOrganizationOf@ei2a:organizationName', '', 'Comarca', '', 4, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (44, 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#municipio', 'org:subOrganizationOf@rdfs:label', '', 'Provincia', '', 5, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (45, 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#agrupacion_secretarial', 'wgs84_pos:location@dc:identifier', '', 'Municipios', '', 6, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (46, 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#entidad_singular', 'wgs84_pos:location@dc:identifier', '', 'Municipios', '', 7, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (47, 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#fundacion', 'wgs84_pos:location@dc:identifier', '', 'Lugar', '', 8, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (48, 'http://www.w3.org/ns/org#Organization', 'http://opendata.aragon.es/def/ei2a#organizacion_complementaria', 'ei2a:subOrganizationOf@dc:identifier', '', 'Lugar', '', 9, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (49, 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#ordenanza_fiscal_consorcio', 'wgs84_pos:location@dc:identifier', '', 'Consorcio', '', 6, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (50, 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#ordenanza_general_consorcio', 'wgs84_pos:location@dc:identifier', '', 'Consorcio', '', 7, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (51, 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#ordenanza_fiscal_diputacion', 'wgs84_pos:location@dc:identifier', '', 'Diputacion', '', 8, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (52, 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#ordenanza_general_diputacion', 'wgs84_pos:location@dc:identifier', '', 'Diputacion', '', 9, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (53, 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#ordenanza_fiscal_entidad_menor', 'wgs84_pos:location@dc:identifier', '', 'Enitdad menor', '', 10, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (54, 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#ordenanza_general_entidad_menor', 'wgs84_pos:location@dc:identifier', '', 'Enitdad menor', '', 11, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (55, 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#ordenanza_fiscal_mancomunidad', 'wgs84_pos:location@dc:identifier', '', 'Mancomidad', '', 12, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (56, 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#ordenanza_general_mancomunidad', 'wgs84_pos:location@dc:identifier', '', 'Mancomidad', '', 13, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (57, 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#ordenanza_fiscal_organismo_autonomo', 'wgs84_pos:location@dc:identifier', '', 'Organismo autonomo', '', 14, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (58, 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#ordenanza_general_organismo_autonomo', 'wgs84_pos:location@dc:identifier', '', 'Organismo autonomo', '', 15, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (59, 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#ordenanza_fiscal_villas_y_tierras', 'wgs84_pos:location@dc:identifier', '', 'Villas y tierras', '', 16, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (60, 'http://opendata.aragon.es/def/ei2a#Document', 'http://opendata.aragon.es/def/ei2a#ordenanza_general_villas_y_tierras', 'wgs84_pos:location@dc:identifier', '', 'Villas y tierras', '', 17, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (61, 'http://www.w3.org/ns/org#Organization', '', 'wgs84_pos:location@ei2a:organizationName', '', 'Comarca', 'wgs84_pos:location@ei2a:publicEntityType=ei2a:Comarca', 10, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (34, 'http://protege.stanford.edu/rdf/HTOv4002#Accommodation', '', 'harmonise:schedule@harmonise:season', 'PREFIX harmonise:<http://protege.stanford.edu/rdf/HTOv4002#>', 'Periodo abierto', '', 3, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (38, 'http://protege.stanford.edu/rdf/HTOv4002#Accommodation', 'http://opendata.aragon.es/def/ei2a#alojamiento_hotelero', 'harmonise:award@harmonise:awardingBody', 'PREFIX harmonise:<http://protege.stanford.edu/rdf/HTOv4002#>', 'Estrellas', '', 7, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (39, 'http://protege.stanford.edu/rdf/HTOv4002#Gastro', 'http://opendata.aragon.es/def/ei2a#cafeteria_restaurante', 'harmonise:award@harmonise:awardingBody', 'PREFIX harmonise:<http://protege.stanford.edu/rdf/HTOv4002#>', 'Tenedores', '', 8, true, '2018-06-25');
-INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (40, 'http://protege.stanford.edu/rdf/HTOv4002#Accommodation', 'http://opendata.aragon.es/def/ei2a#camping_turistico', 'harmonise:award@harmonise:awardingBody', 'PREFIX harmonise:<http://protege.stanford.edu/rdf/HTOv4002#>', 'Categoria', '', 9, true, '2018-06-25');
-
-
+INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (16, 'http://www.w3.org/ns/org#Organization', 'municipio', 'wgs84_pos:location@org:subOrganizationOf@ei2a:organizationName', '', 'Comarcas', 'org:subOrganizationOf@ei2a:publicEntityType=ei2a:Comarca', 5, true, '2018-05-22');
+INSERT INTO public.facetas (code, rdf_type, dc_type, faceta, prefijo_faceta, name_head, condition, orden, active, created) VALUES (17, 'http://www.w3.org/ns/org#Organization', 'municipio', 'wgs84_pos:location@org:subOrganizationOf@org:subOrganizationOf@ei2a:organizationName', '', 'Provincias', 'org:subOrganizationOf@rdf:type=<http://dbpedia.org/ontology/Province>', 6, true, '2018-05-22');
 
 
 --
--- TOC entry 2280 (class 0 OID 25421)
--- Dependencies: 194
+-- TOC entry 2286 (class 0 OID 0)
+-- Dependencies: 191
+-- Name: facetas_code_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.facetas_code_seq', 1, false);
+
+
+--
+-- TOC entry 2263 (class 0 OID 16431)
+-- Dependencies: 185
 -- Data for Name: lugares; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -691,12 +516,15 @@ INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (50266, 'trasobares', 'Trasobares', 'M', 14, 7823, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (1, 'lajacetania', 'La Jacetania', 'C', 1, 0, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (10, 'losmonegros', 'Los Monegros', 'C', 10, 0, '2018-04-15');
+INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (11, 'bajocinca_baixcinca', 'Bajo Cinca / Baix Cinca', 'C', 11, 0, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (12, 'tarazonayelmoncayo', 'Tarazona y el Moncayo', 'C', 12, 0, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (13, 'campodeborja', 'Campo de Borja', 'C', 13, 0, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (14, 'aranda', 'Aranda', 'C', 14, 0, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (15, 'riberaaltadelebro', 'Ribera Alta del Ebro', 'C', 15, 0, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (16, 'valdejalon', 'Valdejalón', 'C', 16, 0, '2018-04-15');
+INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (17, 'd.c.zaragoza', 'D.C. Zaragoza', 'C', 17, 0, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (18, 'riberabajadelebro', 'Ribera Baja del Ebro', 'C', 18, 0, '2018-04-15');
+INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (19, 'bajoaragon_caspe_baixarago_casp', 'Bajo Aragón-Caspe / Baix Aragó-Casp', 'C', 19, 0, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (2, 'altogallego', 'Alto Gállego', 'C', 2, 0, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (20, 'comunidaddecalatayud', 'Comunidad de Calatayud', 'C', 20, 0, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (21, 'campodecarinena', 'Campo de Cariñena', 'C', 21, 0, '2018-04-15');
@@ -705,15 +533,20 @@ INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (24, 'campodedaroca', 'Campo de Daroca', 'C', 24, 0, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (25, 'jiloca', 'Jiloca', 'C', 25, 0, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (26, 'cuencasmineras', 'Cuencas Mineras', 'C', 26, 0, '2018-04-15');
+INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (27, 'andorra_sierradearcos', 'Andorra-Sierra de Arcos', 'C', 27, 0, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (28, 'bajoaragon', 'Bajo Aragón', 'C', 28, 0, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (29, 'comunidaddeteruel', 'Comunidad de Teruel', 'C', 29, 0, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (3, 'sobrarbe', 'Sobrarbe', 'C', 3, 0, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (30, 'maestrazgo', 'Maestrazgo', 'C', 30, 0, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (31, 'sierradealbarracin', 'Sierra de Albarracín', 'C', 31, 0, '2018-04-15');
+INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (32, 'gudar_javalambre', 'Gúdar-Javalambre', 'C', 32, 0, '2018-04-15');
+INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (33, 'matarrana_matarranya', 'Matarraña / Matarranya', 'C', 33, 0, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (4, 'laribagorza', 'La Ribagorza', 'C', 4, 0, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (5, 'cincovillas', 'Cinco Villas', 'C', 5, 0, '2018-04-15');
+INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (6, 'hoyadehuesca_planadeuesca', 'Hoya de Huesca / Plana de Uesca', 'C', 6, 0, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (7, 'somontanodebarbastro', 'Somontano de Barbastro', 'C', 7, 0, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (8, 'cincamedio', 'Cinca Medio', 'C', 8, 0, '2018-04-15');
+INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (9, 'lalitera_lallitera', 'La Litera / La Llitera', 'C', 9, 0, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (50008, 'alagon', 'Alagón', 'M', 15, 7823, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (50013, 'alcaladeebro', 'Alcalá de Ebro', 'M', 15, 7823, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (50043, 'barboles', 'Bárboles', 'M', 15, 7823, '2018-04-15');
@@ -766,16 +599,6 @@ INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22059, 'biescas', 'Biescas', 'M', 2, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22057, 'bielsa', 'Bielsa', 'M', 3, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (50231, 'salillasdejalon', 'Salillas de Jalón', 'M', 16, 7823, '2018-04-15');
-INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (17, 'dczaragoza', 'D.C. Zaragoza', 'C', 17, 0, '2018-04-15');
-INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (6, 'hoyadehuescaplanadeuesca', 'Hoya de Huesca / Plana de Uesca', 'C', 6, 0, '2018-04-15');
-INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (9, 'laliteralallitera', 'La Litera / La Llitera', 'C', 9, 0, '2018-04-15');
-INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (19, 'bajoaragoncaspebaixaragocasp', 'Bajo Aragón-Caspe / Baix Aragó-Casp', 'C', 19, 0, '2018-04-15');
-INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (27, 'andorrasierradearcos', 'Andorra-Sierra de Arcos', 'C', 27, 0, '2018-04-15');
-INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (32, 'gudarjavalambre', 'Gúdar-Javalambre', 'C', 32, 0, '2018-04-15');
-INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (11, 'bajocincabaixcinca', 'Bajo Cinca / Baix Cinca', 'C', 11, 0, '2018-04-15');
-INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (33, 'matarranamatarranya', 'Matarraña / Matarranya', 'C', 33, 0, '2018-04-15');
-INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (44107, 'fozcalanda', 'Foz-Calanda', 'M', 28, 7825, '2018-04-15');
-INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22141, 'lascellasponzano', 'Lascellas-Ponzano', 'M', 7, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (50033, 'ardisa', 'Ardisa', 'M', 5, 7823, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (50036, 'asin', 'Asín', 'M', 5, 7823, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (50041, 'bagues', 'Bagüés', 'M', 5, 7823, '2018-04-15');
@@ -1021,11 +844,6 @@ INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (50292, 'villarrealdehuerva', 'Villarreal de Huerva', 'M', 24, 7823, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (50294, 'villarroyadelcampo', 'Villarroya del Campo', 'M', 24, 7823, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (44076, 'cella', 'Cella', 'M', 29, 7825, '2018-04-15');
-INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22156, 'monfloritelascasas', 'Monflorite-Lascasas', 'M', 6, 7824, '2018-04-15');
-INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22036, 'argavieso', 'Argavieso', 'M', 6, 7824, '2018-04-15');
-INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22227, 'tellasin', 'Tella-Sin', 'M', 3, 7824, '2018-04-15');
-INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22907, 'ainsasobrarbe', 'Aínsa-Sobrarbe', 'M', 3, 7824, '2018-04-15');
-INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22905, 'lupinenortilla', 'Lupiñén-Ortilla', 'M', 6, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22072, 'caldearenas', 'Caldearenas', 'M', 2, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22122, 'hozdejaca', 'Hoz de Jaca', 'M', 2, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22170, 'panticosa', 'Panticosa', 'M', 2, 7824, '2018-04-15');
@@ -1034,6 +852,7 @@ INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22252, 'yebradebasa', 'Yebra de Basa', 'M', 2, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22253, 'yesero', 'Yésero', 'M', 2, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22002, 'abizanda', 'Abizanda', 'M', 3, 7824, '2018-04-15');
+INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22907, 'ainsa_sobrarbe', 'Aínsa-Sobrarbe', 'M', 3, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22051, 'barcabo', 'Bárcabo', 'M', 3, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22066, 'boltana', 'Boltaña', 'M', 3, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22069, 'broto', 'Broto', 'M', 3, 7824, '2018-04-15');
@@ -1048,6 +867,8 @@ INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22189, 'puertolas', 'Puértolas', 'M', 3, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22190, 'pueyodearaguasel', 'Pueyo de Araguás (El)', 'M', 3, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22207, 'sanjuandeplan', 'San Juan de Plan', 'M', 3, 7824, '2018-04-15');
+INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22227, 'tella_sin', 'Tella-Sin', 'M', 3, 7824, '2018-04-15');
+INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22230, 'torla_ordesa', 'Torla-Ordesa', 'M', 3, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22035, 'aren', 'Arén', 'M', 4, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22053, 'benabarre', 'Benabarre', 'M', 4, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22054, 'benasque', 'Benasque', 'M', 4, 7824, '2018-04-15');
@@ -1089,6 +910,7 @@ INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22021, 'almudevar', 'Almudévar', 'M', 6, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22027, 'angues', 'Angüés', 'M', 6, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22029, 'antillon', 'Antillón', 'M', 6, 7824, '2018-04-15');
+INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22036, 'argavieso', 'Argavieso', 'M', 6, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22037, 'arguis', 'Arguis', 'M', 6, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22039, 'ayerbe', 'Ayerbe', 'M', 6, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22047, 'banastas', 'Banastás', 'M', 6, 7824, '2018-04-15');
@@ -1103,6 +925,8 @@ INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22149, 'loarre', 'Loarre', 'M', 6, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22150, 'loporzano', 'Loporzano', 'M', 6, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22151, 'loscorrales', 'Loscorrales', 'M', 6, 7824, '2018-04-15');
+INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22905, 'lupinen_ortilla', 'Lupiñén-Ortilla', 'M', 6, 7824, '2018-04-15');
+INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22156, 'monflorite_lascasas', 'Monflorite-Lascasas', 'M', 6, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22162, 'novales', 'Novales', 'M', 6, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22163, 'nueno', 'Nueno', 'M', 6, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22173, 'penasderigloslas', 'Peñas de Riglos (Las)', 'M', 6, 7824, '2018-04-15');
@@ -1129,13 +953,13 @@ INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22088, 'castillazuelo', 'Castillazuelo', 'M', 7, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22090, 'colungo', 'Colungo', 'M', 7, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22102, 'estada', 'Estada', 'M', 7, 7824, '2018-04-15');
-INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22230, 'torlaordesa', 'Torla-Ordesa', 'M', 3, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22103, 'estadilla', 'Estadilla', 'M', 7, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22115, 'gradoel', 'Grado (El)', 'M', 7, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22908, 'hozycostean', 'Hoz y Costeán', 'M', 7, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22128, 'ilche', 'Ilche', 'M', 7, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22135, 'laluenga', 'Laluenga', 'M', 7, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22139, 'laperdiguera', 'Laperdiguera', 'M', 7, 7824, '2018-04-15');
+INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22141, 'lascellas_ponzano', 'Lascellas-Ponzano', 'M', 7, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22160, 'naval', 'Naval', 'M', 7, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22164, 'olvena', 'Olvena', 'M', 7, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22174, 'peraltadealcofea', 'Peralta de Alcofea', 'M', 7, 7824, '2018-04-15');
@@ -1157,6 +981,7 @@ INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22009, 'albelda', 'Albelda', 'M', 9, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22016, 'alcampell', 'Alcampell', 'M', 9, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22025, 'altorricon', 'Altorricón', 'M', 9, 7824, '2018-04-15');
+INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22040, 'azanuy_alins', 'Azanuy-Alins', 'M', 9, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22043, 'baells', 'Baells', 'M', 9, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22045, 'baldellou', 'Baldellou', 'M', 9, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22061, 'binefar', 'Binéfar', 'M', 9, 7824, '2018-04-15');
@@ -1240,7 +1065,6 @@ INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (44180, 'peracense', 'Peracense', 'M', 25, 7825, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (44190, 'pozueldelcampo', 'Pozuel del Campo', 'M', 25, 7825, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (44200, 'rubielosdelacerida', 'Rubielos de la Cérida', 'M', 25, 7825, '2018-04-15');
-INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (22040, 'azanuyalins', 'Azanuy-Alins', 'M', 9, 7824, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (44207, 'sanmartindelrio', 'San Martín del Río', 'M', 25, 7825, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (44208, 'santacruzdenogueras', 'Santa Cruz de Nogueras', 'M', 25, 7825, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (44213, 'singra', 'Singra', 'M', 25, 7825, '2018-04-15');
@@ -1301,6 +1125,7 @@ INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (44068, 'castelseras', 'Castelserás', 'M', 28, 7825, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (44077, 'cerollerala', 'Cerollera (La)', 'M', 28, 7825, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (44080, 'codonerala', 'Codoñera (La)', 'M', 28, 7825, '2018-04-15');
+INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (44107, 'foz_calanda', 'Foz-Calanda', 'M', 28, 7825, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (44118, 'ginebrosala', 'Ginebrosa (La)', 'M', 28, 7825, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (44145, 'masdelasmatas', 'Mas de las Matas', 'M', 28, 7825, '2018-04-15');
 INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code, created) VALUES (44146, 'matadelosolmosla', 'Mata de los Olmos (La)', 'M', 28, 7825, '2018-04-15');
@@ -1440,7 +1265,175 @@ INSERT INTO public.lugares (code, slug, name, type, comarca_code, provincia_code
 
 
 --
--- TOC entry 2281 (class 0 OID 25425)
+-- TOC entry 2287 (class 0 OID 0)
+-- Dependencies: 187
+-- Name: lugares_code_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.lugares_code_seq', 1, false);
+
+
+--
+-- TOC entry 2268 (class 0 OID 16584)
+-- Dependencies: 190
+-- Data for Name: rfdconfiguracion; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.rfdconfiguracion (code, slug, name, configuracion, active) VALUES (20, 'organization', 'Organization', 'PanelCentral:
+  #titulo del panel
+  Titulo: http://opendata.aragon.es/def/ei2a#organizationName
+  Mapa:
+    Tipo: idearagon
+    Valor: http://idearagon.aragon.es/visor/index.html?ACTIVELAYER=Localidad&amp;QUERY=c_muni_ine=%s&amp;HERRAMIENTAS=NO
+    Campo: http://purl.org/dc/elements/1.1/identifier
+    Marcadores: [Campo donde estan los marcadores]
+    Latitud:
+    Logitud:
+  Texto: 
+    Tipo: Virtuoso
+    Query:
+    Valor: campo
+  CampoValores:
+    CampoValor1:
+      Tipo: Virtuoso
+      Query: PREFIX ei2a:<http://opendata.aragon.es/def/ei2a#> PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>  PREFIX org:<http://www.w3.org/ns/org#> PREFIX foaf:<http://xmlns.com/foaf/0.1/> PREFIX vcard:<http://www.w3.org/2006/vcard/ns#> select ?cif ?telefono ?email ?fax ?direccion ?nombreComarca ?nombreAlcalde ?nombreDiputacion ?nombreProvincia where { <%s> ei2a:CIF ?cif . optional {<%s> foaf:phone ?telefono .} optional {<%s> foaf:mbox ?email .} optional {<%s> org:hasSite ?site .} optional {?site org:siteAddress ?siteAddress . ?siteAddress vcard:Fax ?fax . ?siteAddress vcard:hasAddress ?address . ?address vcard:street-address ?direccion . } optional {<%s> org:subOrganizationOf ?comarca . ?comarca ei2a:publicEntityType ei2a:Comarca . ?comarca ei2a:organizationName ?nombreComarca .} optional {?membership org:organization <%s> . ?membership org:member ?member. ?membership org:role ?role . ?member foaf:name ?nombreAlcalde . ?role <http://opendata.aragon.es/def/ei2ia#roleName> ''A'' .} optional {<%s> org:subOrganizationOf ?diputacion . ?diputacion ei2a:publicEntityType ei2a:DiputaciónProvincialForal . ?diputacion foaf:organizationName ?nombreDiputacion .} optional {<%s> org:subOrganizationOf ?provincia . ?provincia rdf:type <http://dbpedia.org/ontology/Province> . ?provincia <http://www.w3.org/2000/01/rdf-schema#label> ?nombreProvincia .}}
+      Campo: uri
+      Campos:
+        Campo1:
+          Nombre: Dirección
+          Valor: direccion
+        Campo2:
+          Nombre: CIF
+          Valor: cif
+        Campo3:
+          Nombre: Comarca
+          Valor: nombreComarca
+        Campo4:
+          Nombre: Telefono
+          Valor: telefono
+        Campo6:
+          Nombre: Fax
+          Valor: fax
+        Campo7:
+          Nombre: Email
+          Valor: email
+        Campo8:
+          Nombre: Alcalde
+          Valor: nombreAlcalde
+        Campo10:
+          Nombre: Provincia        
+          Valor: nombreProvincia
+        Campo11:
+          Nombre: Diputacion        
+          Valor: nombreDiputacion
+    CampoValor2:
+      Tipo: Api
+      Query: select ?source where  {<%s> <http://purl.org/dc/elements/1.1/source> ?source}
+      Campo: uri
+      Campos:
+        Campo1:
+          Nombre: Habitantes        
+          Valor: HABITANTES
+        Campo2:
+          Nombre: Superficie        
+          Valor: SUPERFICIE
+  Tablas:     
+    Tabla1:
+      Tipo: Virtuoso
+      Titulo: Padrón 
+      Descripcion: Habitantes según el padrón municipal, datos anuales 
+      Query: select ?year ?population where { ?obs <http://purl.org/linked-data/cube#dataSet> <http://opendata.aragon.es/recurso/DataSet/PadronMunicipal> . ?obs ?x ?y  .{?obs <http://purl.org/linked-data/sdmx/2009/dimension#refArea> <http://opendata.aragon.es/recurso/territorio/Municipio/%s> .} UNION {<http://opendata.aragon.es/recurso/territorio/Municipio/%s> <http://opendata.aragon.es/def/Aragopedia#hasObservation> ?obs} ?obs <http://opendata.aragon.es/def/Aragopedia#year> ?year. ?obs <http://opendata.aragon.es/def/Aragopedia#population> ?population.  } ORDER BY ?year
+      Campo: http://opendata.aragon.es/def/ei2a#organizationName
+      Columnas:
+        Columna1:
+          Nombre: Año
+          Valor: year
+          ClassTitulo: w25     
+          ClassValor:  mays
+        Columna2:
+          Nombre: Habitantes
+          Valor: population
+    Tabla2:
+      Titulo: Pleno del municipio 
+      Tipo: Virtuoso
+      Query: select ?nombrePersona ?cargo where  {?membership <http://www.w3.org/ns/org#organization> <%s> . ?membership <http://www.w3.org/ns/org#member> ?member. ?membership  <http://www.w3.org/ns/org#role> ?role . ?member <http://opendata.aragon.es/def/ei2a#fullName> ?nombrePersona . ?role <http://opendata.aragon.es/def/ei2a#roleName> ?roleName .?member <http://www.w3.org/ns/person#memberOf> ?partido .	?partido <http://opendata.aragon.es/def/ei2a#organizationName> ?nombrePartido. bind(concat(?roleName, '' '', ?nombrePartido) as ?cargo)}
+      Campo: uri
+      Columnas:
+        Columna1:
+          Nombre: Persona
+          Valor: nombrePersona
+        Columna2:
+          Nombre: Cargo
+          Valor: cargo  
+          ClassTitulo: w25     
+          ClassValor:  mays
+PanelLateral:
+  ListaEnlaces:
+    ListaEnlace1:
+      Titulo: Más información
+      Tipo: gadget-masinfo
+      Enlaces:
+        Enlace1:
+          Texto: Aragopedia
+          url: http://opendata.aragon.es/aragopedia/municipio/%s
+          CampoUrl: http://purl.org/dc/elements/1.1/identifier
+        Enlace2:
+          Texto: ELDA
+          url: http://opendata.aragon.es/elda/municipio/%s
+          CampoUrl: http://purl.org/dc/elements/1.1/identifier
+        Enlace3:
+          Texto: Presupuesto
+          url: http://opendata.aragon.es/presupuesto/municipio/%s
+          CampoUrl: http://purl.org/dc/elements/1.1/identifier
+        Enlace4:
+          Texto: Datos en Aragón Open data
+          url: http://opendata.aragon.es/opendata/municipio/%s
+          CampoUrl: http://purl.org/dc/elements/1.1/identifier
+    ListaEnlace2:
+      Titulo: Enlaces de interes 
+      #gadget-iconos gadget-enlaces gadget-masinfo
+      Tipo: gadget-enlaces
+      Enlaces:
+        Enlace1:
+          Texto: Ver ordenanzas municipales de %s
+          CampoTexto: http://opendata.aragon.es/def/ei2a#organizationName
+          url: http://opendata.aragon.es/ordenanzas/municipio/%s
+          CampoUrl: http://purl.org/dc/elements/1.1/identifier
+        Enlace2:
+          Texto: Ver información turística de %s
+          CampoTexto: http://opendata.aragon.es/def/ei2a#organizationName
+          url: http://opendata.aragon.es/turismo/municipio/%s
+          CampoUrl: http://purl.org/dc/elements/1.1/identifier
+        Enlace3:
+          Texto: Ver información de agricultura de %s
+          CampoTexto: http://opendata.aragon.es/def/ei2a#organizationName
+          url: http://opendata.aragon.es/agricultura/municipio/%s
+          CampoUrl: http://purl.org/dc/elements/1.1/identifier
+        Enlace4:
+          Texto: Ver datos del instituto aragoñés del agua de %s
+          CampoTexto: http://opendata.aragon.es/def/ei2a#organizationName
+          url: http://opendata.aragon.es/instituto-agua/municipio/%s
+          CampoUrl: http://purl.org/dc/elements/1.1/identifier
+        Enlace5:
+          Texto: Ver rutas de autobús de %s
+          CampoTexto: http://opendata.aragon.es/def/ei2a#organizationName   
+          url: http://opendata.aragon.es/rutas-autobus/municipio/%s
+          CampoUrl: http://purl.org/dc/elements/1.1/identifier
+          CampoUrl: http://purl.org/dc/elements/1.1/identifier
+        ', true);
+
+
+--
+-- TOC entry 2288 (class 0 OID 0)
+-- Dependencies: 189
+-- Name: rfdconfiguracion_code_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.rfdconfiguracion_code_seq', 20, true);
+
+
+--
+-- TOC entry 2273 (class 0 OID 24949)
 -- Dependencies: 195
 -- Data for Name: temas; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1526,9 +1519,10 @@ INSERT INTO public.temas (code, slug, name_es, name_en, comment_es, comment_en, 
 INSERT INTO public.temas (code, slug, name_es, name_en, comment_es, comment_en, parent_code, rdf_type, active, created) VALUES (79, 'WaterAndHealth', 'Agua y salud', 'Water and health', '', '', 13, 'http://opendata.aragon.es/def/ei2a/categorization#WaterAndHealth', B'1', '2018-04-13');
 INSERT INTO public.temas (code, slug, name_es, name_en, comment_es, comment_en, parent_code, rdf_type, active, created) VALUES (80, 'WorkInPublicOrganisms', 'Trabajo en organismos públicos', 'Work in public organisms', '', '', 8, 'http://opendata.aragon.es/def/ei2a/categorization#WorkInPublicOrganisms', B'1', '2018-04-13');
 
+
 --
--- TOC entry 2297 (class 0 OID 0)
--- Dependencies: 196
+-- TOC entry 2289 (class 0 OID 0)
+-- Dependencies: 188
 -- Name: temas_code_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1536,7 +1530,7 @@ SELECT pg_catalog.setval('public.temas_code_seq', 1, false);
 
 
 --
--- TOC entry 2144 (class 2606 OID 25436)
+-- TOC entry 2139 (class 2606 OID 24923)
 -- Name: camposresultados camposresultados_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1545,16 +1539,7 @@ ALTER TABLE ONLY public.camposresultados
 
 
 --
--- TOC entry 2146 (class 2606 OID 25438)
--- Name: configuracionweb configuracionweb_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.configuracionweb
-    ADD CONSTRAINT configuracionweb_pkey PRIMARY KEY (code);
-
-
---
--- TOC entry 2148 (class 2606 OID 25440)
+-- TOC entry 2141 (class 2606 OID 24947)
 -- Name: entidades entidades_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1563,7 +1548,7 @@ ALTER TABLE ONLY public.entidades
 
 
 --
--- TOC entry 2150 (class 2606 OID 25442)
+-- TOC entry 2145 (class 2606 OID 24970)
 -- Name: facetas facetas_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1572,7 +1557,7 @@ ALTER TABLE ONLY public.facetas
 
 
 --
--- TOC entry 2152 (class 2606 OID 25444)
+-- TOC entry 2135 (class 2606 OID 16436)
 -- Name: lugares lugares_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1581,7 +1566,16 @@ ALTER TABLE ONLY public.lugares
 
 
 --
--- TOC entry 2154 (class 2606 OID 25446)
+-- TOC entry 2137 (class 2606 OID 16593)
+-- Name: rfdconfiguracion rfdconfiguracion_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.rfdconfiguracion
+    ADD CONSTRAINT rfdconfiguracion_pkey PRIMARY KEY (code);
+
+
+--
+-- TOC entry 2143 (class 2606 OID 24956)
 -- Name: temas temas_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1590,15 +1584,15 @@ ALTER TABLE ONLY public.temas
 
 
 --
--- TOC entry 2290 (class 0 OID 0)
--- Dependencies: 8
+-- TOC entry 2282 (class 0 OID 0)
+-- Dependencies: 7
 -- Name: SCHEMA public; Type: ACL; Schema: -; Owner: postgres
 --
 
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
--- Completed on 2018-07-02 07:29:47 CEST
+-- Completed on 2018-05-23 18:25:26 CEST
 
 --
 -- PostgreSQL database dump complete

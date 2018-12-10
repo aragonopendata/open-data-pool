@@ -2,6 +2,7 @@
     $vista=3;
     define ("CLAVE_URI", "NOMBRE");
     define ("CLAVE_CARGO", "CARGO");
+    define ("CLAVE_PARTIDO", "PARTIDO");
     include 'comun.php';   
     
     $cargos = array ();
@@ -24,6 +25,13 @@
                     
                     if ($key == CLAVE_URL) {
                         $elemento = obtenerUrlVinculacion($xml, $x, $vista, CLAVE_URI);
+                    }
+                    
+                    if ($key == CLAVE_PARTIDO) {
+                        $elemento = str_replace ("´", "", $elemento);
+                        $elemento = str_replace ("'", "", $elemento);
+                        $elemento = str_replace ("`", "", $elemento);
+                        $elemento = str_replace ("C,s", "Cs", $elemento);
                     }
                     
                     if ($key == CLAVE_CARGO) {

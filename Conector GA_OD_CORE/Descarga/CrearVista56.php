@@ -5,6 +5,7 @@
     define ("URL_VISTA_NECESITA", "../VistasXml/Vista61/vista_61_1.xml"); //Ruta a la vista 61, para poder obtener el codgio del municipio al cual pertenece.
     define("CLAVE_NECESITA", "CODIGO_MUN");  //La clave que pusimos en el mapeo
     define("CLAVE_TIENE", "CVT_ID");  //La clave que pusimos en el mapeo
+    define ("CLAVE_PARTIDO", "PARTIDO");
     
     $claveVillaTierra = "AGRUPANTE_ID"; //La clave que tiene en comun de las dos vistas
     $root = "root"; //El directorio raiz para la consulta xpath
@@ -41,6 +42,13 @@
                     
                     if ($key == CLAVE_CARGO) {
                         $elemento = $cargos[$elemento->__toString ()];
+                    }
+                    
+                    if ($key == CLAVE_PARTIDO) {
+                        $elemento = str_replace ("´", "", $elemento);
+                        $elemento = str_replace ("'", "", $elemento);
+                        $elemento = str_replace ("`", "", $elemento);
+                        $elemento = str_replace ("C,s", "Cs", $elemento);
                     }
                     
                     if ($key == CLAVE_NECESITA) {

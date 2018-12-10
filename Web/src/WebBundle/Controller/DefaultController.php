@@ -325,7 +325,7 @@ class DefaultController extends Controller
         }  
         $this->trazas->LineaDebug("temasentidadesAction","Recojo la localidad de la navegación"); 
         //recojo la localidad 
-        $localidad = $navegacion->getLocalidad();
+        $localidad = $navegacion->getLocalidadCorto();
         $this->trazas->LineaDebug("lugaresAction","Recojo las los los temas de progress"); 
         //instancia del objeto Topic a la base de datos donde saco el array de los temas y subtemas 
         $dalTemas = $this->get('Repository_Topics');

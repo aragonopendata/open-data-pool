@@ -20,12 +20,12 @@ define("FILTRODFTYPE","?s dc:type <%s> . ");
 define("PREFIJOSDEFECTO","PREFIX ei2a:<http://opendata.aragon.es/def/ei2a#>  PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>  PREFIX org:<http://www.w3.org/ns/org#> PREFIX foaf:<http://xmlns.com/foaf/0.1/> PREFIX dc:<http://purl.org/dc/elements/1.1/> PREFIX wgs84_pos:<http://www.w3.org/2003/01/geo/wgs84_pos#>");
 
 
-define("QUERYRDFCUANTOSFACETAS","%s select ?type count(?s) as ?contador from <%s> where { ?s rdf:type ?type . %s } group by ?type");
+define("QUERYRDFCUANTOSFACETAS","%s select ?type count(distinct ?s) as ?contador from <%s> where { ?s rdf:type ?type . %s } group by ?type");
 define("QUERYRDFCUANTOSRESULADOSHTML","%s %s");
 
 
 define("SUBQUERYFACETA","{ select distinct ?s from <%s> where { %s %s }}");
-define("QUERYFACETA","%s select ?nombre count(?s) as  ?contador from <%s> where {%s %s } order by ?nombre");
+define("QUERYFACETA","%s select ?nombre count(distinct ?s) as  ?contador from <%s> where {%s %s } order by ?nombre");
 define("SUBQUERYFACETABUSQUEDAABIERTA","{?s rdf:type <%s> . ?s %s ?name .?name bif:contains \"'%s'\"  . } UNION ");
 
 define("QUERYRESULTADOS","%s select ?s max(?type2) as ?type ?date ?name uri(min(str(?dctype2))) as ?dctype %s ?downloadUri from <%s> where { ?s rdf:type ?type2 . ?s dc:type ?dctype2 %s {%s} OPTIONAL {?s ei2a:URIDocument ?downloadUri} } order by %s(%s) LIMIT 10 OFFSET %s ");

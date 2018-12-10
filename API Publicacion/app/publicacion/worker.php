@@ -135,14 +135,14 @@ function Procesa($id,$carpeta,
   }
 
   //Envia correo con la información al adminsitrador
-  $trazas->LineaInfo("Procesa","Envía correo con la información al adminsitrador"); 
-  if ($trazas->SinError()) {
-    EnviaEmial($pathNoporcesados,TRUE, $trazas,
-               $email_protocol,$email_host,$email_port,$email_username,$email_password,$email_from,$email_to);
-  }  else {
-    EnviaEmial($pathError, FALSE, $trazas,
-               $email_protocol,$email_host,$email_port,$email_username,$email_password,$email_from,$email_to);
-  }
+  $trazas->LineaInfo("Procesa","No Envía correo con la información al adminsitrador"); 
+//  if ($trazas->SinError()) {
+//    EnviaEmial($pathNoporcesados,TRUE, $trazas,
+ //              $email_protocol,$email_host,$email_port,$email_username,$email_password,$email_from,$email_to);
+ // }  else {
+ //   EnviaEmial($pathError, FALSE, $trazas,
+ //              $email_protocol,$email_host,$email_port,$email_username,$email_password,$email_from,$email_to);
+//  }
 
   //Si hay errores mueve la carpeta a la capeta raiz de erroes
   //Si no hay errores mueve la carpeta a la capeta raiz de Procesados 

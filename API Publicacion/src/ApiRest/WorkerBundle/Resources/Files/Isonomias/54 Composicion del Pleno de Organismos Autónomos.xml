@@ -4,7 +4,6 @@
     <Property field="{FUENTE}" attribute="dc:source" type="string"/>
     <Property field="{NOMBRE}" attribute="dc:identifier" type="string"/>
 	<Property link="ei2a:miembro_pleno_organismo_autonomo" attribute="dc:type" />
-	<Property link="ei2a:miembro_pleno" attribute="dc:type" />
     <Property field="{NOMBRE}" attribute="ei2a:fullName" type="string"/>
 	<Property fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" attribute="wgs84_pos:location"/>
     <Property fieldLink="http://opendata.aragon.es/def/ei2a#organizacion-{PARTIDO}" attribute="org:memberOf">

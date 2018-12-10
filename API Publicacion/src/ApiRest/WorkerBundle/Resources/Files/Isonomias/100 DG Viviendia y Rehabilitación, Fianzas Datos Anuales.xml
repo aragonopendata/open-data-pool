@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#" id="100">
+  <Entity rdf:type="ei2a:Document" URI="http://opendata.aragon.es/def/ei2a#finanzas-datos-anuales-rehabilitacion-{ANYO}-{CODIGO_PROVINCIA}-{CLAVE_CALLE}">
+    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+    <Property field="{ANYO}-{CODIGO_PROVINCIA}-{CLAVE_CALLE}" attribute="dc:identifier" type="string"/>
+    <Property link="ei2a:fianzas_datos_anuales_vivienda_y_rehabilitacion" attribute="dc:type"/>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" attribute="wgs84_pos:location"/>
+    <Property field="{NOMBRE_CALLE}" attribute="ei2a:nameDocument" type="string"/>
+    <Property field="{ANYO}" attribute="ei2a:registrationDate" type="datetime"/>
+    <Property field="{ANYO_DEVOLUCION}" attribute="ei2a:endDate" type="datetime"/>
+    <Property value="Fianzas Datos Anuales" attribute="ei2a:documentType" type="string"/>
+    <Property field="{TIPO}" attribute="ei2a:observations" type="string"/>
+    <Property fieldLink="{UrlProvincia}" attribute="ei2a:isOfInterestTo"/>	 
+  </Entity>
+</Mapping>

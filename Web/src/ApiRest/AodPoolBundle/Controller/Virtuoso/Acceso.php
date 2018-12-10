@@ -318,8 +318,11 @@ class Acceso{
 			//$sql ="select <%s> ?p ?o from <%s> where { <%s> ?p ?o . }";
 			//$query = sprintf($sql, $uri, $this->isqlDb, $uri);
 			
-			$sql ="prefix dc: <http://purl.org/dc/elements/1.1/> select ?s ?p ?o from <%s> where {<%s> dc:source ?source. ?s ?p ?o. ?s dc:source  ?source}";
-			$query = sprintf($sql, $this->isqlDb, $uri);
+			//$sql ="prefix dc: <http://purl.org/dc/elements/1.1/> select ?s ?p ?o from <%s> where {<%s> dc:source ?source. ?s ?p ?o. ?s dc:source  ?source}"
+			//$query = sprintf($sql, $this->isqlDb, $uri);
+			
+			$sql ="select <%s> ?p ?o from <%s> where {<%s> ?p ?o. }";			
+			$query = sprintf($sql, $uri, $this->isqlDb, $uri);
 			$this->trazas->LineaDebug("DameRdf", sprintf("lanzo sparql: %s",$query));	
 			//lanzo la consulta a vituoso		
 			$resupuesta = $this->LanzaConsulta($this->isqlHost,$query,"TRIPLES");

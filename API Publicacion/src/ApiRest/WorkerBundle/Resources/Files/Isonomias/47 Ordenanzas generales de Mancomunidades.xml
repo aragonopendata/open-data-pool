@@ -10,6 +10,7 @@
     <Property field="{AMPLIACION}" attribute="ei2a:observations" type="string"/>
     <Property fieldLink="http://opendata.aragon.es/def/ei2a#mancomunidad-{MANCO_ID}" attribute="ei2a:isOfInterestTo"/>
 	<Property fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" attribute="wgs84_pos:location" />
+	<Property fieldLink="http://servicios.aragon.es/portalAALL/document.do?clobId={CLOB_ID}" attribute="ei2a:URIDocument" />
 	<Property fieldLink="http://opendata.aragon.es/def/ei2a#ordenanza-general-mancomunidad-{CLOB_ID}" attribute="owl:sameAs" >
 		<Entity rdf:type="ei2a:Document" URI="http://opendata.aragon.es/def/ei2a#ordenanza-general-mancomunidad-{CLOB_ID}">
 			<Property field="{FUENTE}" attribute="dc:source" type="string" />
