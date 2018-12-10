@@ -48,12 +48,12 @@
                         $id_municipio = $xml->item[$x]->{CLAVE_MUN}->__toString();                        
                         $elemento = @$arrayClaves [$id_municipio];
                         
-                        if(filter_var($elemento, FILTER_VALIDATE_URL) === FALSE)
+                        /*if(filter_var($elemento, FILTER_VALIDATE_URL) === FALSE)
                         {
                             $nombre = substr ($elemento, strrpos ($elemento, "/", -1) + 1);
                             $nombreUrl = urlencode($nombre);
                             $elemento = str_replace($nombre, $nombreUrl, $elemento);
-                        }
+                        }*/
                     }
                     
                     if ($key == CLAVE_URL_PRO) {
@@ -100,8 +100,8 @@
         {
             $corde = array ();
             
-            $corde [CLAVE_LAT] = $datos[1];
-            $corde [CLAVE_LOG] = $datos[2];
+            $corde [CLAVE_LOG] = $datos[1];
+            $corde [CLAVE_LAT] = $datos[2];
             
             $array [$datos[0]] = $corde;
             
