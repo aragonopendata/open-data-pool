@@ -5,7 +5,8 @@ require_once './lib/pgsql.php'; // Contiene las funciones relacionadas con Postg
 require_once './lib/filesystem.php'; // Contiene las funciones relacionadas con el manejo de archivos.
 require_once './lib/aod.php'; // Contiene funciones relacionadas con el Api de Aragon.
 iniciarEstructuraDirectorios(); // 
-$ConsultaSQLVistasActualizar = "SELECT code,nombre,criterio,periodicidad,fecha,hora,estado,logs,archivos,active,created FROM public.cargavistas where periodicidad in ('semanal','diaria','mensual')";
+// $ConsultaSQLVistasActualizar = "SELECT code,nombre,criterio,periodicidad,fecha,hora,estado,logs,archivos,active,created FROM public.cargavistas where periodicidad in ('semanal','diaria','mensual')";
+$ConsultaSQLVistasActualizar = "SELECT code,nombre,criterio,periodicidad,fecha,hora,estado,logs,archivos,active,created FROM public.cargavistas where nombre in ('11 Datos Municipio')";
 
 $conexionSQL      = conectarPosgreSQL($host, $puerto, $bbdd, $usuario, $clave);
 $VistasActualizar = ConsultarPostgreSQL($conexionSQL, $ConsultaSQLVistasActualizar);
