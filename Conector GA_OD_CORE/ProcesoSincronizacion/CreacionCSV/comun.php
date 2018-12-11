@@ -1,8 +1,5 @@
 <?php    
-	date_default_timezone_set('Europe/Madrid'); // Configura la zona horaria por si no esta configurada.
-	ini_set('max_execution_time', 86400); // Aumenta el tiempo maximo de ejecucio para evitar ejecuciones intermedias.n:  http://php.net/manual/en/info.configuration.php#ini.max-execution-time
-	ini_set('memory_limit', '-1'); // No quitar el  limite de uso de memoria, para evitar ejecuciones intermedias.
-	define ("RUTA_XML", "../VistasXml/Vista".$vista."/");        //La ruta al los xml de la 137
+    define ("RUTA_XML", "../VistasXml/Vista".$vista."/");        //La ruta al los xml de la 137
     define ("RUTA_CSV", "../VistasCsv/Vista".$vista."/");        //La ruta dode se guardara el csv
     define ("ARCHIVO_CSV", "Vista_".$vista.".csv");              //El nombre del archivo csv
     define ("CLAVES_XML", "Vista_".$vista."_1.xml");             //El archivo de donde se sacan las claves
@@ -13,15 +10,14 @@
     $keys = array ();    
     
     if (!file_exists (RUTA_CSV)) {
-        mkdir('../VistasCsv/');
         mkdir(RUTA_CSV);
     }
     
     $archivoCSV = @fopen (RUTA_CSV.ARCHIVO_CSV, "w");
-
+    
 	//Lee un archivo xml y tranforma las etiquetas en las claves del csv
     if ((file_exists (RUTA_XML.CLAVES_XML) && ($archivoCSV !== false))) {
-	$carpeta = new FilesystemIterator(RUTA_XML, FilesystemIterator::SKIP_DOTS); //Obtiene la carpeta de los xml para saber cunatos tiene
+        $carpeta = new FilesystemIterator(RUTA_XML, FilesystemIterator::SKIP_DOTS); //Obtiene la carpeta de los xml para saber cunatos tiene
         $numeroArchivos = iterator_count($carpeta);
         
         //Cargar el XML de los datos
@@ -42,7 +38,7 @@
     else {
         $log = fopen ("../Log/log".date("Ymd").".txt", "a+");
         fwrite ($log, date(DATE_W3C)." Se ha producido un error en la creacion del csv de la vista ". $GLOBALS["vista"]."\r\n");
-        echo "Error debido a que , el fichero ".RUTA_XML.CLAVES_XML." no se encuentra o porque no se puede escribir en el fichero ".RUTA_CSV.ARCHIVO_CSV;
+        echo "error";
         fclose ($log);
     }
     

@@ -43,19 +43,21 @@
                     $elemento = $xml->item[$x]->$key;
                     
                     if ($key == CLAVE_URL) {
-                        $elemento = obtenerUrlVinculacion($xml, $x, $vista, $claveURI);
+                        $elemento = obtenerUrlVinculacion($xml, $x, $vista, CLAVE_URI);
                     }
                     
                     if ($key == CLAVE_NECESITA1) {
                         $claveOrigen = $xml->item[$x]->{CLAVE_ORIGEN}->__toString();
                         $id_parada = $xmlDepende->xpath ("/".$root."/".$item."[".$claveNucleo."= '".$claveOrigen."']/".$claveParada);
                         $elemento = $id_parada[0];
+                        $elemento = quitarDecimales ($elemento);
                     }
                     
                     if ($key == CLAVE_NECESITA2) {
                         $claveDestino = $xml->item[$x]->{CLAVE_DESTINO}->__toString();
                         $id_parada = $xmlDepende->xpath ("/".$root."/".$item."[".$claveNucleo."= '".$claveDestino."']/".$claveParada);
                         $elemento = $id_parada[0];
+                        $elemento = quitarDecimales ($elemento);
                     }
                     
                     if ($key == CLAVE_MUN_ORIGEN) {

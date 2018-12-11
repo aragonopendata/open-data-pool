@@ -3,6 +3,7 @@
     define ("CLAVE_URI", "ORDENANZA_ID");
     define ("CLAVE_NECESITA", "CODIGO_MUN");
     define ("CLAVE_TIENE", "DENOMINACION");
+    define ("CLAVE_MODIFICAR","SUBTIPO");
     include 'comun.php';
     
     $codigosMunicipio = array ();
@@ -25,6 +26,13 @@
                     
                     if ($key == CLAVE_URL) {
                         $elemento = obtenerUrlVinculacion($xml, $x, $vista, CLAVE_URI);
+                    }
+                    
+                    if($key == CLAVE_MODIFICAR){ //Si es el elemento termina en BLICOS
+                        $pos = strpos($elemento, "BLICOS");
+                        if($pos !== false){
+                            $elemento = 'PRECIOS PUBLICOS';
+                        }
                     }
                     
                     if ($key == CLAVE_NECESITA) {
