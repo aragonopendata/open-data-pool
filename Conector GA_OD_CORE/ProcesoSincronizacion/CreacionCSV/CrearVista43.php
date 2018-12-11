@@ -4,7 +4,7 @@
     define ("URL_VISTA_NECESITA", "../VistasXml/Vista61/vista_61_1.xml"); //Ruta a la vista 61, para poder obtener el codgio del municipio al cual pertenece.
     define("CLAVE_NECESITA", "CODIGO_MUN");  //La clave que pusimos en el mapeo
     define("CLAVE_TIENE", "CVT_ID");  //La clave que pusimos en el mapeo
-    
+    define ("CLAVE_MODIFICAR","SUBTIPO");
     $claveVista61 = "AGRUPANTE_ID"; //La clave que tiene en comun de las dos vistas
     $root = "root"; //El directorio raiz para la consulta xpath
     $item = "item"; //El nombre de cada elemento item del xml.
@@ -30,6 +30,13 @@
                     
                     if ($key == CLAVE_URL) {
                         $elemento = obtenerUrlVinculacion($xml, $x, $vista, CLAVE_URI);
+                    }
+                    
+                    if($key == CLAVE_MODIFICAR){ //Si es el elemento termina en BLICOS
+                        $pos = strpos($elemento, "BLICOS");
+                        if($pos !== false){
+                            $elemento = 'PRECIOS PUBLICOS';
+                        }
                     }
                     
                     if ($key == CLAVE_NECESITA) {

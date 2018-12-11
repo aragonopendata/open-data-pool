@@ -3,6 +3,7 @@
     define ("CLAVE_URI", "NOMBRE");
     define ("CLAVE_CARGO", "CARGO");
     define ("URL_VISTA_NECESITA", "../VistasXml/Vista19/vista_19_1.xml"); //Ruta a la vista 19, para poder obtener el codgio del municipio al cual pertenece.
+    define ("CLAVE_PARTIDO", "PARTIDO");
     define("CLAVE_NECESITA", "CODIGO_MUN");  //La clave que pusimos en el mapeo
     
     $claveComun = "ELM_ID"; //La clave que tiene en comun de las dos vistas
@@ -33,6 +34,13 @@
                     
                     if ($key == CLAVE_URL) {
                         $elemento = obtenerUrlVinculacion($xml, $x, $vista, CLAVE_URI);
+                    }
+                    
+                    if ($key == CLAVE_PARTIDO) {
+                        $elemento = str_replace ("´", "", $elemento);
+                        $elemento = str_replace ("'", "", $elemento);
+                        $elemento = str_replace ("`", "", $elemento);
+                        $elemento = str_replace ("C,s", "Cs", $elemento);
                     }
                     
                     if ($key == CLAVE_CARGO) { 

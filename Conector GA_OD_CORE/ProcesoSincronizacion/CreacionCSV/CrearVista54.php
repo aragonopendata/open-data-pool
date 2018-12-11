@@ -6,6 +6,7 @@
     define ("CLAVE_VISTA_11", "DENOMINACION");
     define ("CLAVE_TENGO", "ORGAUTO_ID");
     define ("CLAVE_NECESITA", "CODIGO_MUN");
+    define ("CLAVE_PARTIDO", "PARTIDO");
     include 'comun.php';
     
     $xmlVista27 = simplexml_load_file ("../VistasXml/Vista27/vista_27_1.xml");
@@ -35,6 +36,13 @@
                     
                     if ($key == CLAVE_URL) {
                         $elemento = obtenerUrlVinculacion($xml, $x, $vista, CLAVE_URI);
+                    }
+                    
+                    if ($key == CLAVE_PARTIDO) {
+                        $elemento = str_replace ("´", "", $elemento);
+                        $elemento = str_replace ("'", "", $elemento);
+                        $elemento = str_replace ("`", "", $elemento);
+                        $elemento = str_replace ("C,s", "Cs", $elemento);
                     }
                     
                     if ($key == CLAVE_CARGO) {
