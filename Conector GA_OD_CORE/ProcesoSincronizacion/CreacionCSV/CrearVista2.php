@@ -20,37 +20,39 @@
     fwrite ($archivoCSV, "\n");
     for ($i = 1; $i <= $numeroArchivos; $i ++) {
         $datosArchivo = file_get_contents (RUTA_XML."Vista_".$vista."_$i.xml");
-        $xml = simplexml_load_string($datosArchivo); //Creamos un xml con los datos del fichero
-        
-        for ($x = 0; $x < ($xml->count()); $x++) {
-            foreach ($keys as $key) {
-                $elemento = $xml->item[$x]->$key;
-                if ($key == "ANO") { //Cambiamos los datos para añadir el dia y el mes
-                    $elemento = $elemento."-01-01";
-                }
-                
-                if ($key == "F_APROBACION" or $key == "F_PUBLICACION")  {
-                    $elemento = cambiarFecha ($elemento);
-                }
-                
-                if ($key == CLAVE_NECESITA) {
-                    $entidad = $xml->item[$x]->{CLAVE_URI1}->__toString  ();
-                    $codigoMun = $xml11->xpath ("/".$root."/".$item."[".CLAVE_BUSCAR."='".$entidad."']"."/".CLAVE_NECESITA);
-                    $elemento = $codigoMun [0]; //La cunsulta xpath devuelve un array
-                }
-                
-                if ($key == CLAVE_URL) { //Creamos los datos para hacer poner la url de la fuente
-                    $valor1 = $xml->item[$x]->{CLAVE_URI1}->__toString();
-                    $valor2 = $xml->item[$x]->{CLAVE_URI2}->__toString();
-                    $elemento = obtenerUrlVinculacionVariasClaves($xml, $x, $vista, CLAVE_URI1, CLAVE_URI2);
-                }
-                
-                $elemento = preg_replace("/\r|\n/", "", $elemento); //Quitamos los saltos de linea
-                $elemento = str_replace ("\"", "\"\"", $elemento); //cambiamos el caracter " por ""
-                fwrite ($archivoCSV, "\"$elemento\";");
-            }
-            fwrite ($archivoCSV, "\n");
-        }
+		if (is_string ($datosArchivo) ) {
+				$xml = simplexml_load_string($datosArchivo); //Creamos un xml con los datos del fichero
+				
+				for ($x = 0; $x < ($xml->count()); $x++) {
+					foreach ($keys as $key) {
+						$elemento = $xml->item[$x]->$key;
+						if ($key == "ANO") { //Cambiamos los datos para añadir el dia y el mes
+							$elemento = $elemento."-01-01";
+						}
+						
+						if ($key == "F_APROBACION" or $key == "F_PUBLICACION")  {
+							$elemento = cambiarFecha ($elemento);
+						}
+						
+						if ($key == CLAVE_NECESITA) {
+							$entidad = $xml->item[$x]->{CLAVE_URI1}->__toString  ();
+							$codigoMun = $xml11->xpath ("/".$root."/".$item."[".CLAVE_BUSCAR."='".$entidad."']"."/".CLAVE_NECESITA);
+							$elemento = $codigoMun [0]; //La cunsulta xpath devuelve un array
+						}
+						
+						if ($key == CLAVE_URL) { //Creamos los datos para hacer poner la url de la fuente
+							$valor1 = $xml->item[$x]->{CLAVE_URI1}->__toString();
+							$valor2 = $xml->item[$x]->{CLAVE_URI2}->__toString();
+							$elemento = obtenerUrlVinculacionVariasClaves($xml, $x, $vista, CLAVE_URI1, CLAVE_URI2);
+						}
+						
+						$elemento = preg_replace("/\r|\n/", "", $elemento); //Quitamos los saltos de linea
+						$elemento = str_replace ("\"", "\"\"", $elemento); //cambiamos el caracter " por ""
+						fwrite ($archivoCSV, "\"$elemento\";");
+					}
+					fwrite ($archivoCSV, "\n");
+				}
+				}
     }
     
     fclose ($archivoCSV);

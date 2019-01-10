@@ -23,8 +23,14 @@ function CrearCarpeta($carpeta)
 
 function logErrores($Mensaje)
 {
-    echo  'TPAOD: ' . date("Y-m-d H:i:s") . ' ' . $Mensaje;
+    global $ficheroLog;
+    
+    $LineaLog='TPAOD: ' . date("Y-m-d H:i:s") . ' ' . $Mensaje;
+    error_log("$LineaLog", 3, $ficheroLog);
+    syslog ( LOG_INFO ,  $LineaLog );
+	echo  $LineaLog;
     echo "\r\n";	    
+    
 }
 
 ?>

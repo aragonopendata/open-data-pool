@@ -59,6 +59,7 @@
         //se leen los archivos xml de la vista de los datos y se crea el archivo csv correspondientes a la vista
         for ($i = 1; $i <= $numeroArchivos; $i++) {
             $datosXml2 = file_get_contents (RUTA_XML."vista_".$vista."_$i.xml");
+			if (is_string ($datosXml2) ) {
             $xml2 = simplexml_load_string($datosXml2);
             
             for ($z = 0; $z < ($xml2->count ()); $z++) {
@@ -96,7 +97,7 @@
                 fwrite($GLOBALS["archivoCSV"], "\n");
             }
         }
-        
+        }
         fclose ($GLOBALS["archivoCSV"]);
     }
 ?>

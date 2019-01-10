@@ -20,6 +20,7 @@
 	    
 		for ($i=1; $i <= $numeroArchivos; $i++){
 		    $datosArchivo = file_get_contents (RUTA_XML."vista_".$vista."_$i.xml");
+			if (is_string ($datosArchivo) ) {
 			$xml = simplexml_load_string($datosArchivo);
 			for ($x = 0; $x < ($xml->count ()); $x++) {			
 				foreach ($keys as $key) {
@@ -48,7 +49,7 @@
 				fwrite($archivoCSV, "\n");
 			}
 		}	
-		
+		}
 		fclose ($archivoCSV);
 	}
 ?>

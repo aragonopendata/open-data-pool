@@ -84,7 +84,7 @@ if ($archivoCSV !== false) {
     for ($i = 1; $i <= $numeroArchivos; $i ++) {
         $datosArchivo = file_get_contents (RUTA_XML."Vista_".$vista."_$i.xml");
         $xml = simplexml_load_string($datosArchivo);
-        
+        if (is_string ($datosArchivo) ) {
         for ($x = 0; $x < ($xml->count()); $x++) {
             foreach ($keys as $key) {
                 
@@ -172,7 +172,7 @@ if ($archivoCSV !== false) {
             fwrite ($archivoCSV, "\n");
         }
     }
-    
+    }
     fclose ($archivoCSV);
 }
 

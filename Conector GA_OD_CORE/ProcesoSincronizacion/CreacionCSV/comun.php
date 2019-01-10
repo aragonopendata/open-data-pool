@@ -22,6 +22,7 @@
         
         //Cargar el XML de los datos
         $datosArchivo = file_get_contents (RUTA_XML.CLAVES_XML);
+		if (is_string ($datosArchivo) ) {
         $xml = simplexml_load_string($datosArchivo);
         
         $elementoItem = $xml->children();
@@ -35,6 +36,7 @@
         array_push ($GLOBALS["keys"], CLAVE_URL);
         fwrite ($GLOBALS["archivoCSV"], "\"".CLAVE_URL."\";");
     }
+	}
     else {
         $log = fopen ("../Log/log".date("Ymd").".txt", "a+");
         fwrite ($log, date(DATE_W3C)." Se ha producido un error en la creacion del csv de la vista ". $GLOBALS["vista"]."\r\n");
@@ -52,6 +54,7 @@
         fwrite ($GLOBALS["archivoCSV"], "\n");
         for ($i = 1; $i <= $GLOBALS["numeroArchivos"]; $i ++) {
             $datosArchivo = file_get_contents (RUTA_XML."Vista_".$GLOBALS["vista"]."_$i.xml");
+			if (is_string ($datosArchivo) ) {
             $xml = simplexml_load_string($datosArchivo);
             
             for ($x = 0; $x < ($xml->count ()); $x++) {
@@ -68,7 +71,7 @@
                 fwrite ($GLOBALS["archivoCSV"], "\n");
             }
         }
-        
+        }
         fclose ($GLOBALS["archivoCSV"]);
     }
     
@@ -77,6 +80,7 @@
         fwrite ($GLOBALS["archivoCSV"], "\n");
         for ($i = 1; $i <= $GLOBALS["numeroArchivos"]; $i ++) {
             $datosArchivo = file_get_contents (RUTA_XML."Vista_".$GLOBALS["vista"]."_$i.xml");
+			if (is_string ($datosArchivo) ) {
             $xml = simplexml_load_string($datosArchivo);
             
             for ($x = 0; $x < ($xml->count ()); $x++) {
@@ -93,7 +97,7 @@
                 fwrite ($GLOBALS["archivoCSV"], "\n");
             }
         }
-        
+        }
         fclose ($GLOBALS["archivoCSV"]);
     }
     
@@ -102,6 +106,7 @@
         fwrite ($GLOBALS["archivoCSV"], "\n");
         for ($i = 1; $i <= $GLOBALS["numeroArchivos"]; $i ++) {
             $datosArchivo = file_get_contents (RUTA_XML."Vista_".$GLOBALS["vista"]."_$i.xml");
+			if (is_string ($datosArchivo) ) {
             $xml = simplexml_load_string($datosArchivo);
             
             for ($x = 0; $x < ($xml->count ()); $x++) {
@@ -118,7 +123,7 @@
                 fwrite ($GLOBALS["archivoCSV"], "\n");
             }
         }
-        
+        }
         fclose ($GLOBALS["archivoCSV"]);
     }
     
@@ -157,14 +162,17 @@
         $numeroArchivos = iterator_count($carpetaRelacionar);
 		for($x = 1; $x <= $numeroArchivos; $x++){
 		    $prueba = RUTA_XML_DEPENDE."vista_".VISTA_NECESITA."_$x.xml";
+			
 			$datosArchivo = file_get_contents (RUTA_XML_DEPENDE."vista_".VISTA_NECESITA."_$x.xml");
-            $xmlDepende = simplexml_load_string($datosArchivo);
-			for ($i = 0; $i < ($xmlDepende->count ()); $i++) {
-					$claveTiene = $xmlDepende->item[$i]->{CLAVE_TIENE}->__toString();
-					$claveNecesita = $xmlDepende->item[$i]->{CLAVE_NECESITA}->__toString();
-					$claveTieneSinSaltos = preg_replace("/\r|\n/", "", $claveTiene);
-					$claveNecesitaSinSaltos = preg_replace("/\r|\n/", "", $claveNecesita);
-					$codigosVistaNecesita [$claveTieneSinSaltos] = [$claveNecesitaSinSaltos]; //Guardamos los minicipios id con sus codigos de provincia
+			if (is_string ($datosArchivo) ) {
+				$xmlDepende = simplexml_load_string($datosArchivo);	
+				for ($i = 0; $i < ($xmlDepende->count ()); $i++) {
+						$claveTiene = $xmlDepende->item[$i]->{CLAVE_TIENE}->__toString();
+						$claveNecesita = $xmlDepende->item[$i]->{CLAVE_NECESITA}->__toString();
+						$claveTieneSinSaltos = preg_replace("/\r|\n/", "", $claveTiene);
+						$claveNecesitaSinSaltos = preg_replace("/\r|\n/", "", $claveNecesita);
+						$codigosVistaNecesita [$claveTieneSinSaltos] = [$claveNecesitaSinSaltos]; //Guardamos los minicipios id con sus codigos de provincia
+				}
 			}
 		}
 		
@@ -192,6 +200,7 @@
         //se leen los archivos xml de la vista de los datos y se crea el archivo csv correspondientes a la vista
         for ($i = 1; $i <= $GLOBALS["numeroArchivos"]; $i++) {
             $datosXml2 = file_get_contents (RUTA_XML."vista_".$GLOBALS["vista"]."_$i.xml");
+			if (is_string ($datosXml2) ) {
             $xml2 = simplexml_load_string($datosXml2);
             
             for ($z = 0; $z < ($xml2->count ()); $z++) {
@@ -217,7 +226,7 @@
                 fwrite($GLOBALS["archivoCSV"], "\n");
             }
         }
-        
+        }
         fclose ($GLOBALS["archivoCSV"]);
     }
     
@@ -229,6 +238,7 @@
         if (file_exists (RUTA_XML_DEPENDE)) {
             
             $datosArchivo = file_get_contents (RUTA_XML_DEPENDE.XML_DEPENDE);
+			if (is_string ($datosArchivo) ) {
             $xmlDepende = simplexml_load_string($datosArchivo);
             
             
@@ -248,7 +258,7 @@
             
             
         }
-        
+        }
         array_push ($GLOBALS["keys"],CLAVE_NECESITA); //Le añadimos la clave que necesita y no la tiene el xml
         fwrite ($GLOBALS["archivoCSV"], "\"".CLAVE_NECESITA."\";"); //y la añadidomos al csv
         
@@ -257,6 +267,7 @@
         //se leen los archivos xml de la vista de los datos y se crea el archivo csv correspondientes a la vista
         for ($i = 1; $i <= $GLOBALS["numeroArchivos"]; $i++) {
             $datosXml2 = file_get_contents (RUTA_XML."vista_".$GLOBALS["vista"]."_$i.xml");
+			if (is_string ($datosXml2) ) {
             $xml2 = simplexml_load_string($datosXml2);
             
             for ($z = 0; $z < ($xml2->count ()); $z++) {
@@ -285,7 +296,7 @@
                 fwrite($GLOBALS["archivoCSV"], "\n");
             }
         }
-        
+        }
         fclose ($GLOBALS["archivoCSV"]);
     }
     
@@ -295,6 +306,7 @@
         if (file_exists (RUTA_XML_DEPENDE)) {
             
             $datosArchivo = file_get_contents (RUTA_XML_DEPENDE.XML_DEPENDE);
+			if (is_string ($datosArchivo) ) {
             $xmlDepende = simplexml_load_string($datosArchivo);
             
             
@@ -310,7 +322,7 @@
                 
                 $codigosVistaNecesita [$claveTieneSinSaltos] = [$claveNecesitaSinSaltos];
             }
-            
+            }
             
             
         }
@@ -323,9 +335,11 @@
         //se leen los archivos xml de la vista de los datos y se crea el archivo csv correspondientes a la vista
         for ($i = 1; $i <= $GLOBALS["numeroArchivos"]; $i++) {
             $datosXml2 = file_get_contents (RUTA_XML."vista_".$GLOBALS["vista"]."_$i.xml");
+			if (is_string ($datosXml2) ) {
             $xml2 = simplexml_load_string($datosXml2);
             
             for ($z = 0; $z < ($xml2->count ()); $z++) {
+				
                 foreach ($GLOBALS["keys"] as $key) {
                     $elemento = $xml2->item[$z]->$key;
                     
@@ -349,7 +363,7 @@
                 fwrite($GLOBALS["archivoCSV"], "\n");
             }
         }
-        
+        }
         fclose ($GLOBALS["archivoCSV"]);
     }    
     

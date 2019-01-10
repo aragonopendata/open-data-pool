@@ -10,7 +10,7 @@
     define ("COD_MUN","CODIGO_MUN");
     include 'comun.php';
     
-    $xmlDepende = simplexml_load_file("../VistasXml/VistasCompletas/Vista136_Completa.xml"); //La ruta al archivo con todos los datos de la vista 136
+    $xmlDepende = simplexml_load_file("../VistasXml/VistasCompletas/Vista136_completa.xml"); //La ruta al archivo con todos los datos de la vista 136
     $xml11 = simplexml_load_file("../VistasXml/Vista11/vista_11_1.xml"); //El xml de la vista 11 Datos Municipio
     
     $claveNucleo = "NUCLEO"; //La clave que tiene en comun todas la vista
@@ -36,6 +36,7 @@
         fwrite ($archivoCSV, "\n");
         for ($i = 1; $i <= $numeroArchivos; $i ++) {
             $datosArchivo = file_get_contents (RUTA_XML."Vista_".$vista."_$i.xml");
+			if (is_string ($datosArchivo) ) {
             $xml = simplexml_load_string($datosArchivo);
             
             for ($x = 0; $x < ($xml->count ()); $x++) {
@@ -80,7 +81,7 @@
                 fwrite ($archivoCSV, "\n");
             }
         }
-        
+        }
         fclose ($archivoCSV);
     }
 ?>

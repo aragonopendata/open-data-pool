@@ -4,8 +4,33 @@ require_once './config/dcTypes.php'; // Incluimos los dcTypes que tiene cada vis
 require_once './lib/pgsql.php'; // Contiene las funciones relacionadas con PostgreSQL
 require_once './lib/filesystem.php'; // Contiene las funciones relacionadas con el manejo de archivos.
 require_once './lib/aod.php'; // Contiene funciones relacionadas con el Api de Aragon.
+require_once('./lib/sparqllib.php'); // Contiene las funciones para acceder al EndPoint de virtuoso.
+require_once('./lib/PHPMailer/src/PHPMailer.php'); // Contiene las funciones y metodos para enviar correos.
+require_once('./lib/PHPMailer/src/Exception.php'); // Contiene el control de excepciones para enviar correos.
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 iniciarEstructuraDirectorios(); // 
-$ConsultaSQLVistasActualizar = "SELECT code,nombre,criterio,periodicidad,fecha,hora,estado,logs,archivos,active,created FROM public.cargavistas where periodicidad in ('semanal','diaria','mensual')";
+
+
+if (empty($VistasActualizar)) {
+    $ConsultaSQLVistasActualizar = "SELECT distinct code,nombre,criterio,periodicidad,fecha,hora,estado,logs,archivos,active,created FROM public.cargavistas where periodicidad in ('semanal','diaria','mensual') and active is true";
+} else {
+    //Generamos el string para usar la funcion IN de SQL Server.
+    $ArrayVistasActualizar  = explode(',', $VistasActualizar); // Convertimos los parametros a Array para poder tratar los datos.
+    // Inicializamos variables vacias para prevenir errores de codigo.
+    $ListaVistasActualizar  = '';
+    $ParametrosCondicionSQL = '';
+    // Recorremos el array y generamos un string para añadir a la funcion IN de SQL.
+    foreach ($ArrayVistasActualizar as $numArray => $ListaVistasActualizar) {
+        // Nos aseguramos que el valor es numerico para evitar SQLi y preparamos la condición.
+        $ParametrosCondicionSQL = $ParametrosCondicionSQL . 'nombre like \'' . filter_var($ListaVistasActualizar, FILTER_SANITIZE_NUMBER_INT) . ' %\' or ';
+    }
+    $ParametrosCondicionSQL      = substr_replace($ParametrosCondicionSQL, "", -3); // Eliminamos la última coma del string generado.
+    $ConsultaSQLVistasActualizar = "SELECT distinct code,nombre,criterio,periodicidad,fecha,hora,estado,logs,archivos,active,created FROM public.cargavistas where " . $ParametrosCondicionSQL;
+    
+}
+
 
 $conexionSQL      = conectarPosgreSQL($host, $puerto, $bbdd, $usuario, $clave);
 $VistasActualizar = ConsultarPostgreSQL($conexionSQL, $ConsultaSQLVistasActualizar);
@@ -23,14 +48,19 @@ while ($fila = pg_fetch_array($VistasActualizar, $Numfila, PGSQL_NUM)) {
     
     
     // Condicion para actualizar la vista, si es mensual mas de 6 dias sin refrescar, si es diaria todos los dias y si es Mensual cada 27 dias para no agregar complejidad y que actulize en febrero.
-    if (($periocidad = 'semanal' and $DiasDiferenciaEntreFechas > 6) or $periocidad = 'diaria' or ($periocidad = 'mensual' and $DiasDiferenciaEntreFechas > 27)) {
+    if (($periocidad = 'semanal' and $DiasDiferenciaEntreFechas > 6) or $periocidad = 'diaria' or ($periocidad = 'mensual' and $DiasDiferenciaEntreFechas > 27) or !empty($VistasActualizar) ) {
         $NumeroVista = (int) filter_var($nombreVista, FILTER_SANITIZE_NUMBER_INT);
         logErrores("Leida desde base de datos la vista numero $NumeroVista con nombre $nombreVista , periocidad $periocidad y ultima actualizacion $ultimaActualizacion");
         $ResultadoDescarga = DescargarVistaCompleta($NumeroVista);
+        logErrores("Descargada la vista ahora verificaremos los datos de la vista");
         if ($ResultadoDescarga === 'FIN') {
             // Solo al terminar de descargar bien la vista procedemos con la conversion del CSV.
             GenerarCSVDesdeXMLVista($NumeroVista);
-            actualizarCsv($NumeroVista, $nombreVista, $dcTypes, $URLApi);
+            if (VerificarDatosVista($NumeroVista)) {
+                VerificarEspacioEnDisco();
+                actualizarCsv($NumeroVista, $nombreVista, $dcTypes, $URLApi);
+            }
+            
         }
     }
     $Numfila++;
