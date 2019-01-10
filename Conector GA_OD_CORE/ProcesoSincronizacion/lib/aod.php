@@ -1,4 +1,6 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
 /*
  * Esta funcion descarga el XML correspondiente a una vista, si la descarga es exitosa
@@ -29,26 +31,31 @@ function DescargarVistaAOD($idVista, $numPagina)
     curl_setopt($ch, CURLOPT_ENCODING, 'UTF-8');
     
     
-    // Intentamos la descarga, si falla reintamos 3 veces.    
-    while ((empty($datosXMLDescargadosCorrecto) || strpos($datosXMLDescargados, "<TITLE>P&aacute;gina en mantenimiento</TITLE>")) and $ContadorReintentosDescarga != 4) {
+    // Intentamos la descarga, si falla reintamos n veces.    
+    while ((empty($datosXMLDescargadosCorrecto) || strpos($datosXMLDescargados, "<TITLE>P&aacute;gina en mantenimiento</TITLE>") || strpos($datosXMLDescargados, "<ERROR>") ) and $ContadorReintentosDescarga != 4) {
         logErrores("TPAOD:  Inicio descarga de la vista $idVista y la pagina $numPagina intento: $ContadorReintentosDescarga ");
         $datosXMLDescargados         = curl_exec($ch);
         $datosXMLDescargadosCorrecto = preg_replace('/[\x00-\x1F\x7F]/u', '', $datosXMLDescargados); //se quitan todos los caracteres especiales
-        if (empty($datosXMLDescargadosCorrecto) || strpos($datosXMLDescargadosCorrecto, "<TITLE>P&aacute;gina en mantenimiento</TITLE>")) {
+        if (empty($datosXMLDescargadosCorrecto) || strpos($datosXMLDescargadosCorrecto, "<TITLE>P&aacute;gina en mantenimiento</TITLE>") || strpos($datosXMLDescargados, "<ERROR>") ) {
             logErrores("TPAOD: Error descargando la pagina $numPagina de la vista $idVista, página en mantenimiento, intento Nº: " . "$ContadorReintentosDescarga ");
-            sleep(10);
+            sleep(3);
         }
         $ContadorReintentosDescarga++;
     }
     $xml = simplexml_load_string($datosXMLDescargadosCorrecto);
     libxml_clear_errors();
-    if ($xml->count() < 1) {
+	if(!is_object($xml) )
+	{
+	logErrores('TPAOD: Error al crear el objeto desde el xml de la página $numPagina de la vista $idVista probablemente el GA_OD_CORE API, esta respondiendo con XML incorrecto o incompleto.');
+	 return 'FIN';
+	}
+    if ($xml->count() < 1 || strpos($datosXMLDescargados, "<ERROR>"))  {
         logErrores("TPAOD: Se ha terminado la descarga de la vista $idVista");
         return 'FIN';
     }
     if ($datosXMLDescargadosCorrecto === false) {
-        logErrores('TPAOD: Error al leer el xml de la página $numPagina de la vista $idVista ');
-        return FALSE;
+        logErrores("TPAOD: Error al leer el xml de la página $numPagina de la vista $idVista ");
+        return 'FIN';
     } else {
         logErrores("TPAOD: Se ha descargado exitosamente la pagina $numPagina de la vista $idVista");
         return $datosXMLDescargadosCorrecto;
@@ -92,24 +99,27 @@ function DescargarVistaAODaFichero($idVista, $numPagina)
         logErrores("TPAOD: Se ha descargado exitosamente la pagina $numPagina de la vista $idVista en $FicheroDestino");
         return $FicheroDestino;
     }
+    return FALSE;
     
 }
 
 function DescargarVistaCompleta($idVista)
 {
     
-    for ($i = 1; $i <= 160; $i++) {
+    for ($i = 1; $i <= 1000; $i++) {
         $RutaFichero = DescargarVistaAODaFichero($idVista, $i);
+        VerificarEspacioEnDisco(); //Por si acaso, comprobamos el espacio disponible en cada descarga, no vaya a ser, que se ocupe todo el espacio al descargar :(.
         if ($RutaFichero === 'FIN') {
             return 'FIN';
         }
     }
-    
+    return FALSE;
 }
 
 function GenerarCSVDesdeXMLVista($idVista)
 {
     // Limpiamos la variable idVista, dejando solo numeros.
+    VerificarEspacioEnDisco(); //Por si acaso, comprobamos el espacio disponible antes de generar el fichero CSV.
     $NumeroVista         = (int) filter_var($idVista, FILTER_SANITIZE_NUMBER_INT);
     $RutaDeTrabajo       = getcwd();
     $ResultadoComandoCMD = shell_exec("cd $RutaDeTrabajo/CreacionCSV && " . PHP_BINARY . ' ./CrearVista' . $NumeroVista . '.php');
@@ -158,6 +168,7 @@ function actualizarCsv($idVista, $nombreVista, $dcTypes, $URLApi)
     logErrores("TPAOD: Se ha mandado la peticion de actualizacion del csv de la vista: $nombreVista Estado: $httpcode y respuesta: $RespuestaHTTP");
     
     switch ($idVista) {
+    	
         case 10:
             subirRelacion("57 Relaciones de Comarca", $nombreVista, 57, $URLApi);
             break;
@@ -224,11 +235,11 @@ function subirArchivoAdicinal($nombre, $vistaActualizar, $ruta, $ipPublicacion)
  * $id Es el Numero Identificativo de la Vista en el Api CORE.
  * $ipPublicacion es la URL del Api-docs de Aragon Open Data Pool.
  * $nombre es el nombre del Esquema
- * 
+ *  subirRelacion("57 Relaciones de Comarca", $nombreVista, 57, $URLApi);
  */
 function subirRelacion($nombre, $vistaActualizar, $id, $ipPublicacion)
 {
-    $ipServidor = $ipPublicacion; //Ip para puiblicar las relaciones  
+    $ipServidor = str_replace('/publicacion/update/view.json', '/publicacion/insert.json',$ipPublicacion);  
     
     
     $ficheroCSV = "./VistasCsv/Vista$idVista/vista_$idVista.csv";
@@ -263,6 +274,99 @@ function subirRelacion($nombre, $vistaActualizar, $id, $ipPublicacion)
     logErrores("TPAOD: Se ha mandado la peticion de actualizacion las relaciones de la vista: $vistaActualizar. Estado: $httpcode");
 }
 
+/*
+ * Funcion que obtiene el numero de triples de virtuoso que corresponden a una vista.
+ */
+function ObtenerNumeroSujetosVirtuoso($idVista)
+{
+    global $URLEndpointVirtuoso;
+    global $dcTypes;
+    $dctypeParaConsulta = $dcTypes[$idVista]; // Obtenemos el dctype que corresponde a la vista.
+    $db                 = sparql_connect($URLEndpointVirtuoso); //Iniciamos conexion a virtuoso.
+    $FiltroSQL=str_replace ('ei2a:','http://opendata.aragon.es/def/ei2a#',$dctypeParaConsulta); // Creamos el dc:type correcto.
+    $ConsultaSPARQL          = 'select count(distinct(?s)) As ?total from <http://opendata.aragon.es/def/ei2a> where { ?s ?p ?o.  ?s dc:type  <' . $FiltroSQL . '>}'; // Preparamos la consulta SPARQL.
+    $resultadoConsultaSPARQL = sparql_query($ConsultaSPARQL); // Consultamos a virtuoso.
+    if (!$resultadoConsultaSPARQL) { //Controlamos errores de conexion, si no funciona virtuoso detenemos la carga.
+        $errorSPARQL = sparql_errno() . ": " . sparql_error(); // Capturamos el error de virtuoso.
+        logErrores($errorSPARQL); // Lo guardamos en el log.
+        EnviarMail('Notificacion AOD Pool',"Tenemos un problema en virtuoso. \n $errorSPARQL \n ",NULL);
+        die("\n" . $errorSPARQL . "\n"); // Lo mostramos por pantalla y acabamos el programa.
+    }
+    $ArrayResultado=sparql_fetch_array($resultadoConsultaSPARQL); //Obtenemos la columna fila del resultado como un array.
+    $ValorResultado=$ArrayResultado["total"]; // Nos quedamos con el valor total de la consulta.
+    //Si no hay ningun error, obtenemos el numero de filas y lo devolvemos.
+    return $ValorResultado;
+}
+
+function VerificarDatosVista($idVista) {
+logErrores("Verificamos los datos de la vista");
+$ficheroCSV = "./VistasCsv/Vista$idVista/vista_$idVista.csv";
+    if (!file_exists($ficheroCSV)) {
+        $ficheroCSV = "./VistasCsv/Vista$idVista/Vista_$idVista.csv";
+        if (!file_exists($ficheroCSV)) {
+            logErrores("TPAOD: Error al leer el fichero $ficheroCSV");
+            return FALSE;
+        }
+    }
+$LineasTotalesFicheroCSV = count(file($ficheroCSV, FILE_SKIP_EMPTY_LINES));
+$LineasTotalesVirtuoso=ObtenerNumeroSujetosVirtuoso($idVista);
+// Nos aseguramos que la actualizacion contiene los mismos datos o mas.
+logErrores("Verificamos la vista numero $idVista con $LineasTotalesFicheroCSV en el CSV y $LineasTotalesVirtuoso en virtuoso.");
+if ($LineasTotalesFicheroCSV >= $LineasTotalesVirtuoso  ) {
+	return TRUE; 
+} else {
+logErrores("No se actualiza la vista porque contiene menos datos que virtuoso"); 
+return FALSE;
+}
+
+	
+}
+
+function VerificarEspacioEnDisco() {
+logErrores("Verificamos el espacio en disco");
+global $RutaTrabajo;
+global $ProcentajeEspacioMinimoEnDisco;
+$EspacioLibreEnBytes=disk_free_space($RutaTrabajo);
+$EspacioTotalEnBytes=disk_total_space($RutaTrabajo);
+$EspacioUsadoEnBytes= $EspacioTotalEnBytes - $EspacioLibreEnBytes;
+$PorcentajeDeUsoDeDisco = sprintf('%.2f',($EspacioUsadoEnBytes / $EspacioTotalEnBytes) * 100);
+$PorcentajeEspacioLibre=round(100 - $PorcentajeDeUsoDeDisco);
+if ($PorcentajeEspacioLibre <= $ProcentajeEspacioMinimoEnDisco) {
+	logErrores('Espacio de disco insuficiente, se detiene el proceso de carga.');
+	EnviarMail('Notificacion AOD Pool','Espacio de disco insuficiente, se detiene el proceso de carga.',NULL);
+	die('Espacio de disco insuficiente, se detiene el proceso de carga.');
+}
+}
+
+function EnviarMail($asunto='Notificacion AOD Pool',$mensaje,$RutaFicheroadjunto=NULL) {
+global $EmailResponsable;
+global $EmailOrigen; 
+global $ficheroLog;
+if (!file_exists($RutaFicheroadjunto)) {
+	$RutaFicheroadjunto=$ficheroLog;
+}
+$mail = new PHPMailer(true);                              // Passing `true` enables exceptions
+try {
+	// Cabecera del Correo.
+    $mail->setFrom($EmailOrigen, 'AOD Pool');
+    $mail->addAddress($EmailResponsable, 'Responsable AOD Pool');     // Add a recipient
+
+    //Adjuntos  
+	if (file_exists($RutaFicheroadjunto)) {
+   		$mail->addAttachment($RutaFicheroadjunto);         // Agregamos el adjunto.
+	}
 
 
+    //Content
+    $mail->isHTML(true);                                  // Set email format to HTML
+    $mail->Subject = $asunto;
+    $mail->Body    = "<p>$mensaje</p>"; //contenido del Email en HTML.
+    $mail->AltBody = $mensaje; //Contenido del email en Text Plano
+
+    $mail->send(); 
+    logErrores('Notificacion de correo enviada al email: '.$EmailResponsable);
+} catch (Exception $e) {
+    logErrores('Error al enviar la notificacion de correo: '. $mail->ErrorInfo);
+}
+}
 ?>

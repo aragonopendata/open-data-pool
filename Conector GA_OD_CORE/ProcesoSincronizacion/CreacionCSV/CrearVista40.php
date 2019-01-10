@@ -21,6 +21,7 @@
         fwrite ($archivoCSV, "\n");
         
         for ($i = 1; $i <= $numeroArchivos; $i ++) {
+			if (is_string ($datosArchivo) ) {
             $datosArchivo = file_get_contents (RUTA_XML."Vista_".$vista."_$i.xml");
             $xml = simplexml_load_string($datosArchivo);
             
@@ -52,7 +53,7 @@
                 fwrite ($archivoCSV, "\n");
             }
         }
-        
+        }
         fclose ($archivoCSV);        
     }
 ?>
