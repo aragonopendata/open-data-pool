@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:org="http://www.w3.org/ns/org#" id="147">
+  <Entity rdf:type="ei2a:Document" URI="http://opendata.aragon.es/def/ei2a#transporte_concesion-{COD_CONCE}">
+    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+    <Property field="{COD_CONCE}" attribute="dc:identifier" type="string"/>
+    <Property link="ei2a:transporte_concesion" attribute="dc:type" />
+    <Property field="{NOMCONCE}" attribute="ei2a:nameDocument" type="string"/>
+    <Property value="Transporte-Concesiones" attribute="ei2a:nameDocument" type="string"/>
+    <Property field="{FECADJUDICACIÓN}" attribute="ei2a:startDate" type="datetime"/>
+    <Property field="{FECVENCIMIENTO}" attribute="ei2a:deadlineDate" type="datetime"/>
+    <Property field="{ORGANISMO}" attribute="ei2a:observations" type="string"/>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#organizacion-{COD_CONCE}" attribute="ei2a:isOfInterestTo">
+      <Entity rdf:type="org:Organization" URI="http://opendata.aragon.es/def/ei2a#organizacion-{COD_CONCE}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+		<Property link="ei2a:organizacion_auxiliar" attribute="dc:type" />
+        <Property field="{EMPRESA}" attribute="ei2a:organizationName" type="string"/>
+      </Entity>
+    </Property>
+  </Entity>
+</Mapping>

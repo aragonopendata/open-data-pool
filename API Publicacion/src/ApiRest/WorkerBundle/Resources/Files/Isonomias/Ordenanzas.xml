@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Mapping id="5" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ei2a="http://opendata.aragon.es/def/EI2A#" xmlns:org="http://www.w3.org/ns/org#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:vcard="http://www.w3.org/2006/vcard/ns#" >
+	<Entity rdf:type="ei2a:Document" view="5" URI="http://opendatapool.aragon.es/ordenanza-general-municipio/{ORDYREG_ID}">
+		<Property field="TEXTO" attribute="ei2a:nameDocument" type="string" /> 
+		<Property field="F_PUBLICACION_APRO_INI" attribute="ei2a:registrationDate" type="string" />
+		<Property field="F_ACUERDO_APRO_INI" attribute="ei2a:startDate" type="string" />
+		<Property field="TIPO" attribute="ei2a:documentType" type="string" />
+		<Property field="AMPLIACION" attribute="ei2a:observations" type="string" />
+		<Property fieldLink="http://opendatapool.aragon.es/municipio/{CODIGO_MUN}" attribute="ei2a:documentLocation" type="string" />
+		<Property fieldLink="http://opendatapool.aragon.es/municipio/{CODIGO_MUN}" attribute="ei2a:isOfInterestTo" type="string" />
+	</Entity>	
+</Mapping>

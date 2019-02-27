@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping id="73" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:org="http://www.w3.org/ns/org#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:vcard="http://www.w3.org/2006/vcard/ns#" xmlns:harmonise="http://protege.stanford.edu/rdf/HTOv4002#" xmlns:aodpool="http://opendata.aragon.es/def/ei2a#season-list-value-" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#">
+	<Entity rdf:type="harmonise:Accommodation" URI="http://opendata.aragon.es/def/ei2a#alojamiento-rural-{SIGNATURA}">
+		<Property link="org:Organization" attribute="rdf:type"/>
+		<Property field="{FUENTE}" attribute="dc:source" type="string" />
+		<Property field="{SIGNATURA}" attribute="dc:identifier" type="string"/>
+		<Property link="ei2a:alojamiento_rural" attribute="dc:type" />
+		<Property field="{NOMBRE_DE_LA_VIVIENDA}" attribute="ei2a:organizationName" type="string" />
+		<Property fieldLink="http://opendata.aragon.es/def/ei2a#name-alojamiento-rural-{SIGNATURA}" attribute="harmonise:name" >
+			<Entity rdf:type="harmonise:MultiLanguageText" URI="http://opendata.aragon.es/def/ei2a#name-alojamiento-rural-{SIGNATURA}">
+				<Property field="{FUENTE}" attribute="dc:source" type="string" />
+				<Property fieldLink="http://opendata.aragon.es/def/ei2a#language-text-alojamiento-rural-{SIGNATURA}" attribute="harmonise:languageText">
+					<Entity rdf:type="harmonise:LanguageText" URI="http://opendata.aragon.es/def/ei2a#language-text-alojamiento-rural-{SIGNATURA}">
+						<Property field="{FUENTE}" attribute="dc:source" type="string" />
+						<Property field="{NOMBRE_DE_LA_VIVIENDA}" attribute="harmonise:text" type="string" />
+					</Entity>
+				</Property>
+			</Entity>
+		</Property>
+		<Property fieldLink="http://opendata.aragon.es/def/ei2a#accommodation-type-alojamiento-rural-{SIGNATURA}" attribute="harmonise:accommodationType">
+			<Entity rdf:type="harmonise:ListValue" URI="http://opendata.aragon.es/def/ei2a#accommodation-type-alojamiento-rural-{SIGNATURA}">
+				<Property field="{FUENTE}" attribute="dc:source" type="string" />
+				<Property fieldLink="http://opendata.aragon.es/def/ei2a#refenced-value-alojamiento-rural-{SIGNATURA}" attribute="harmonise:refencedValue">
+					<Entity rdf:type="harmonise:ReferencedValue" URI="http://opendata.aragon.es/def/ei2a#refenced-value-alojamiento-rural-{SIGNATURA}">
+						<Property field="{FUENTE}" attribute="dc:source" type="string" />
+						<Property field="{TIPO_VIVIENDA}" attribute="harmonise:domainValue" type="string" />
+					</Entity>
+				</Property>
+			</Entity>
+		</Property>
+		<Property fieldLink="http://opendata.aragon.es/def/ei2a#award-alojamiento-rural-{SIGNATURA}" attribute="harmonise:award">
+			<Entity rdf:type="harmonise:Award" URI="http://opendata.aragon.es/def/ei2a#award-alojamiento-rural-{SIGNATURA}">
+				<Property field="{FUENTE}" attribute="dc:source" type="string" />
+				<Property field="{CATEGORIA_VIVIENDA}" attribute="harmonise:awardingBody" type="string" />
+			</Entity>
+		</Property>	
+		<Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-alta-alojamiento-rural-{SIGNATURA}" attribute="harmonise:schedule">
+			<Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-alta-alojamiento-rural-{SIGNATURA}">
+				<Property field="{FUENTE}" attribute="dc:source" type="string" />
+				<Property link="aodpool:temporada_alta" attribute="harmonise:ListValue"/>
+				<Property fieldLink="http://opendata.aragon.es/def/ei2a#date-range-alta-alojamiento-rural-{SIGNATURA}" attribute="harmonise:dateRange">
+					<Entity rdf:type="harmonise:DateRange" URI="http://opendata.aragon.es/def/ei2a#date-range-alta-alojamiento-rural-{SIGNATURA}">
+						<Property field="{FUENTE}" attribute="dc:source" type="string" />
+						<Property field="{FECHA_DESDE_TEMP_ALTA}" attribute="harmonise:startDate" type="string" />
+						<Property field="{FECHA_HASTA_TEMP_ALTA}" attribute="harmonise:endDate" type="string" />									
+					</Entity>
+				</Property>
+			</Entity>
+		</Property>
+		<Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-media-alojamiento-rural-{SIGNATURA}" attribute="harmonise:schedule">
+			<Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-media-alojamiento-rural-{SIGNATURA}">
+				<Property field="{FUENTE}" attribute="dc:source" type="string" />
+				<Property link="aodpool:temporada_media" attribute="harmonise:ListValue"/>
+				<Property fieldLink="http://opendata.aragon.es/def/ei2a#date-range-media-alojamiento-rural-{SIGNATURA}" attribute="harmonise:dateRange">
+					<Entity rdf:type="harmonise:DateRange" URI="http://opendata.aragon.es/def/ei2a#date-range-media-alojamiento-rural-{SIGNATURA}">
+						<Property field="{FUENTE}" attribute="dc:source" type="string" />
+						<Property field="{FECHA_DESDE_TEMP_MEDIA}" attribute="harmonise:startDate" type="string" />
+						<Property field="{FECHA_HASTATEMP_MEDIA}" attribute="harmonise:endDate" type="string" />									
+					</Entity>
+				</Property>
+			</Entity>
+		</Property>
+		<Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-baja-alojamiento-rural-{SIGNATURA}" attribute="harmonise:schedule">
+			<Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-baja-alojamiento-rural-{SIGNATURA}">
+				<Property field="{FUENTE}" attribute="dc:source" type="string" />
+				<Property link="aodpool:temporada_baja" attribute="harmonise:season"/>
+				<Property fieldLink="http://opendata.aragon.es/def/ei2a#date-range-baja-alojamiento-rural-{SIGNATURA}" attribute="harmonise:dateRange">
+					<Entity rdf:type="harmonise:DateRange" URI="http://opendata.aragon.es/def/ei2a#date-range-baja-alojamiento-rural-{SIGNATURA}">
+						<Property field="{FUENTE}" attribute="dc:source" type="string" />
+						<Property field="{FECHA_DESDE_TEMP_BAJA}" attribute="harmonise:startDate" type="string" />
+						<Property field="{FECHA_HASTA_TEMP_BAJA}" attribute="harmonise:endDate" type="string" />									
+					</Entity>
+				</Property>
+			</Entity>
+		</Property>			
+		<Property fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" attribute="wgs84_pos:location" />
+		<Property fieldLink="http://opendata.aragon.es/def/ei2a#location-alojamiento-rural-{SIGNATURA}" attribute="harmonise:location">
+			<Entity rdf:type="harmonise:Location" URI="http://opendata.aragon.es/def/ei2a#location-alojamiento-rural-{SIGNATURA}">
+				<Property field="{FUENTE}" attribute="dc:source" type="string" />
+				<Property fieldLink="http://opendata.aragon.es/def/ei2a#telecoms-alojamiento-rural-{SIGNATURA}" attribute="harmonise:telecoms">
+					<Entity rdf:type="harmonise:Telecoms" URI="http://opendata.aragon.es/def/ei2a#telecoms-alojamiento-rural-{SIGNATURA}">
+						<Property field="{FUENTE}" attribute="dc:source" type="string" />
+						<Property fieldLink="http://opendata.aragon.es/def/ei2a#telephone-alojamiento-rural-{SIGNATURA}" attribute="harmonise:telephone">
+							<Entity rdf:type="harmonise:TelecomNumber" URI="http://opendata.aragon.es/def/ei2a#telephone-alojamiento-rural-{SIGNATURA}">
+								<Property field="{FUENTE}" attribute="dc:source" type="string" />
+								<Property field="{TELEFONO_ESTABLECIMIENTO}" attribute="harmonise:number" type="string"/>
+							</Entity>
+						</Property>
+						<Property field="{E_MAIL}" attribute="harmonise:email" type="string" />
+						<Property fieldLink="http://opendata.aragon.es/def/ei2a#url-alojamiento-rural-{SIGNATURA}" attribute="harmonise:url">
+							<Entity rdf:type="harmonise:MultiLanguageText" URI="http://opendata.aragon.es/def/ei2a#url-alojamiento-rural-{SIGNATURA}">
+								<Property field="{FUENTE}" attribute="dc:source" type="string" />
+								<Property fieldLink="http://opendata.aragon.es/def/ei2a#url-alojamiento-rural-languageText-{SIGNATURA}" attribute="harmonise:languageText">
+									<Entity rdf:type="harmonise:LanguageText" URI="http://opendata.aragon.es/def/ei2a#url-alojamiento-rural-languageText-{SIGNATURA}">
+										<Property field="{FUENTE}" attribute="dc:source" type="string" />
+										<Property field="{DIRECCION_WEB}" attribute="harmonise:text" type="string" />
+									</Entity>
+								</Property>
+							</Entity>
+						</Property>
+						<Property fieldLink="http://opendata.aragon.es/def/ei2a#fax-alojamiento-rural-{SIGNATURA}" attribute="harmonise:fax">
+							<Entity rdf:type="harmonise:TelecomNumber" URI="http://opendata.aragon.es/def/ei2a#fax-alojamiento-rural-{SIGNATURA}">
+								<Property field="{FUENTE}" attribute="dc:source" type="string" />
+								<Property field="{FAX_ESTABLECIMIENTO}" attribute="harmonise:number" type="string" />								
+							</Entity>
+						</Property>
+					</Entity>
+				</Property>
+				<Property fieldLink="http://opendata.aragon.es/def/ei2a#address-alojamiento-rural-{SIGNATURA}" attribute="harmonise:address">
+					<Entity rdf:type="harmonise:Address" URI="http://opendata.aragon.es/def/ei2a#address-alojamiento-rural-{SIGNATURA}">
+						<Property field="{FUENTE}" attribute="dc:source" type="string" />
+						<Property fieldLink="http://opendata.aragon.es/def/ei2a#streetAddress-alojamiento-rural-{SIGNATURA}" attribute="harmonise:streetAddress">
+							<Entity rdf:type="harmonise:StreetAddress" URI="http://opendata.aragon.es/def/ei2a#streetAddress-alojamiento-rural-{SIGNATURA}">
+								<Property field="{FUENTE}" attribute="dc:source" type="string" />
+								<Property field="{DIRECCION_ESTABLECIMIENTO}" attribute="harmonise:streetName" type="string" />						
+							</Entity>
+						</Property>
+						<Property fieldLink="http://opendata.aragon.es/def/ei2a#city-alojamiento-rural-{SIGNATURA}" attribute="harmonise:city">
+							<Entity rdf:type="harmonise:MultiLanguageText" URI="http://opendata.aragon.es/def/ei2a#city-alojamiento-rural-{SIGNATURA}">
+								<Property field="{FUENTE}" attribute="dc:source" type="string" />
+								<Property fieldLink="http://opendata.aragon.es/def/ei2a#city-alojamiento-rural-language-text-{SIGNATURA}" attribute="harmonise:languageText">
+									<Entity rdf:type="harmonise:LanguageText" URI="http://opendata.aragon.es/def/ei2a#city-alojamiento-rural-language-text-{SIGNATURA}">
+										<Property field="{FUENTE}" attribute="dc:source" type="string" />
+										<Property field="{LOCALIDAD_ESTABLECIMIENTO}" attribute="harmonise:text" type="string"/>
+									</Entity>
+								</Property>
+							</Entity>
+						</Property>
+						<Property fieldLink="http://opendata.aragon.es/def/ei2a#region-alojamiento-rural-{SIGNATURA}" attribute="harmonise:region">
+							<Entity rdf:type="harmonise:MultiLanguageText" URI="http://opendata.aragon.es/def/ei2a#region-alojamiento-rural-{SIGNATURA}">
+								<Property field="{FUENTE}" attribute="dc:source" type="string" />
+								<Property fieldLink="http://opendata.aragon.es/def/ei2a#region-alojamiento-rural-language-{SIGNATURA}" attribute="harmonise:languageText">
+									<Entity rdf:type="harmonise:LanguageText" URI="http://opendata.aragon.es/def/ei2a#region-alojamiento-rural-language-{SIGNATURA}">
+										<Property field="{FUENTE}" attribute="dc:source" type="string" />
+										<Property field="{NOMBRE_COMARCA}" attribute="harmonise:text" type="string" />								
+									</Entity>
+								</Property>
+							</Entity>
+						</Property>
+						<Property fieldLink="http://opendata.aragon.es/def/ei2a#province-alojamiento-rural-{SIGNATURA}" attribute="harmonise:province">
+							<Entity rdf:type="harmonise:MultiLanguageText" URI="http://opendata.aragon.es/def/ei2a#province-alojamiento-rural-{SIGNATURA}">
+								<Property field="{FUENTE}" attribute="dc:source" type="string" />
+								<Property fieldLink="http://opendata.aragon.es/def/ei2a#province-alojamiento-rural-language-text-{SIGNATURA}" attribute="harmonise:languageText">
+									<Entity rdf:type="harmonise:LanguageText" URI="http://opendata.aragon.es/def/ei2a#province-alojamiento-rural-language-text-{SIGNATURA}">
+										<Property field="{FUENTE}" attribute="dc:source" type="string" />
+										<Property field="{PROVINCIA_ESTABLECIMIENTO}" attribute="harmonise:text" type="string" />
+									</Entity>
+								</Property>
+							</Entity>
+						</Property>
+						<Property field="{CODIGO_POSTAL_ESTABLECIMIENTO}" attribute="harmonise:postCode" type="string" />
+						<Property field="{NACIONALIDAD}" attribute="harmonise:country" type="string" />
+					</Entity>
+				</Property>
+			</Entity>
+		</Property>			
+		<Property fieldLink="http://opendata.aragon.es/def/ei2a#profile-alojamiento-rural-{SIGNATURA}" attribute="harmonise:profile">
+			<Entity rdf:type="harmonise:Profile" URI="http://opendata.aragon.es/def/ei2a#profile-alojamiento-rural-{SIGNATURA}">
+				<Property field="{FUENTE}" attribute="dc:source" type="string" />
+				<Property fieldLink="http://opendata.aragon.es/def/ei2a#habitaciones-senciallas-alojamiento-rural-{SIGNATURA}" attribute="harmonise:profileField">
+					<Entity rdf:type="harmonise:ProfileField" URI="http://opendata.aragon.es/def/ei2a#habitaciones-senciallas-alojamiento-rural-{SIGNATURA}">
+						<Property field="{FUENTE}" attribute="dc:source" type="string" />
+						<Property value="Número de habitaciones sencillas" attribute="harmonise:fieldName" type="string" />
+						<Property field="{NUMERO_HAB_SENCILLAS}" attribute="harmonise:fieldValue" type="string" />						
+					</Entity>
+				</Property>
+				<Property fieldLink="http://opendata.aragon.es/def/ei2a#habitaciones-dobles-alojamiento-rural-{SIGNATURA}" attribute="harmonise:profileField">
+					<Entity rdf:type="harmonise:ProfileField" URI="http://opendata.aragon.es/def/ei2a#habitaciones-dobles-alojamiento-rural-{SIGNATURA}">
+						<Property field="{FUENTE}" attribute="dc:source" type="string" />
+						<Property value="Número de habitaciones dobles" attribute="harmonise:fieldName" type="string" />
+						<Property field="{NUMERO_HAB_DOBLES}" attribute="harmonise:fieldValue" type="string" />						
+					</Entity>
+				</Property>
+				<Property fieldLink="http://opendata.aragon.es/def/ei2a#apartamentos-alojamiento-rural-{SIGNATURA}" attribute="harmonise:profileField">
+					<Entity rdf:type="harmonise:ProfileField" URI="http://opendata.aragon.es/def/ei2a#apartamentos-alojamiento-rural-{SIGNATURA}">
+						<Property field="{FUENTE}" attribute="dc:source" type="string" />
+						<Property value="Número de apartamentos" attribute="harmonise:fieldName" type="string" />
+						<Property field="{NUMERO_APARTAMENTOS}" attribute="harmonise:fieldValue" type="string" />						
+					</Entity>
+				</Property>
+				<Property fieldLink="http://opendata.aragon.es/def/ei2a#plazas-apartamentos-alojamiento-rural-{SIGNATURA}" attribute="harmonise:profileField">
+					<Entity rdf:type="harmonise:ProfileField" URI="http://opendata.aragon.es/def/ei2a#plazas-apartamentos-rural-{SIGNATURA}">
+						<Property field="{FUENTE}" attribute="dc:source" type="string" />
+						<Property value="Número de plazas apartamentos" attribute="harmonise:fieldName" type="string" />
+						<Property field="{NUMERO_PLAZAS_APARTAMENTOS}" attribute="harmonise:fieldValue" type="string" />						
+					</Entity>
+				</Property>
+				<Property fieldLink="http://opendata.aragon.es/def/ei2a#viviendas-alojamiento-rural-{SIGNATURA}" attribute="harmonise:profileField">
+					<Entity rdf:type="harmonise:ProfileField" URI="http://opendata.aragon.es/def/ei2a#viviendas-alojamiento-rural-{SIGNATURA}">
+						<Property field="{FUENTE}" attribute="dc:source" type="string" />
+						<Property value="Número de viviendas" attribute="harmonise:fieldName" type="string" />
+						<Property field="{NUMERO_VIVIENDAS}" attribute="harmonise:fieldValue" type="string" />						
+					</Entity>
+				</Property>
+				<Property fieldLink="http://opendata.aragon.es/def/ei2a#plazas-totales-alojamiento-rural-{SIGNATURA}" attribute="harmonise:profileField">
+					<Entity rdf:type="harmonise:ProfileField" URI="http://opendata.aragon.es/def/ei2a#plazas-totales-alojamiento-rural-{SIGNATURA}">
+						<Property field="{FUENTE}" attribute="dc:source" type="string" />
+						<Property value="Número de plazas totales" attribute="harmonise:fieldName" type="string" />
+						<Property field="{NUMERO_TOTAL_PLAZAS}" attribute="harmonise:fieldValue" type="string" />						
+					</Entity>
+				</Property>
+				<Property fieldLink="http://opendata.aragon.es/def/ei2a#camas-supletorias-alojamiento-rural-{SIGNATURA}" attribute="harmonise:profileField">
+					<Entity rdf:type="harmonise:ProfileField" URI="http://opendata.aragon.es/def/ei2a#camas-supletorias-alojamiento-rural-{SIGNATURA}">
+						<Property field="{FUENTE}" attribute="dc:source" type="string" />
+						<Property value="Número de camas supletorias" attribute="harmonise:fieldName" type="string" />
+						<Property field="{NUMERO_CAMAS_SUPLETORIAS}" attribute="harmonise:fieldValue" type="string" />						
+					</Entity>
+				</Property>
+			</Entity>
+		</Property>
+		<Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-todo-ano-alojamiento-rural-{SIGNATURA}" attribute="harmonise:schedule" condition="{ABIERTO_TODO_ANO}">
+			<Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-todo-ano-alojamiento-rural-{SIGNATURA}">	
+				<Property field="{FUENTE}" attribute="dc:source" type="string" />
+				<Property link="aodpool:todo_ano" attribute="harmonise:season" />
+			</Entity>
+		</Property>
+		<Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-navidad-alojamiento-rural-{SIGNATURA}" attribute="harmonise:schedule" condition="{ABIERTO_NAVIDAD}">
+			<Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-navidad-alojamiento-rural-{SIGNATURA}">
+				<Property field="{FUENTE}" attribute="dc:source" type="string" />
+				<Property link="aodpool:navidad" attribute="harmonise:season" />
+			</Entity>
+		</Property>
+		<Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-semana-santa-alojamiento-rural-{SIGNATURA}" attribute="harmonise:schedule" condition="{ABIERTO_SEMANA_SANTA}">
+			<Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-semana-santa-alojamiento-rural-{SIGNATURA}">
+				<Property field="{FUENTE}" attribute="dc:source" type="string" />
+				<Property link="aodpool:semana_santa" attribute="harmonise:season" />
+			</Entity>
+		</Property>
+		<Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-fiestas-locales-alojamiento-rural-{SIGNATURA}" attribute="harmonise:schedule" condition="{ABIERTO_FIESTAS_LOCALES}">
+			<Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-fiestas-locales-alojamiento-rural-{SIGNATURA}">
+				<Property field="{FUENTE}" attribute="dc:source" type="string" />
+				<Property link="aodpool:fiestas_locales" attribute="harmonise:season" />
+			</Entity>
+		</Property>
+		<Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-periodos-multiples-alojamiento-rural-{SIGNATURA}" attribute="harmonise:schedule" condition="{ABIERTO_PERIODOS_MULTIPLES}">
+			<Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-periodos-multiples-alojamiento-rural-{SIGNATURA}">
+				<Property field="{FUENTE}" attribute="dc:source" type="string" />
+				<Property link="aodpool:preiodos_multiples" attribute="harmonise:season" />
+			</Entity>
+		</Property>		
+	</Entity>
+</Mapping>

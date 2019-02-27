@@ -1,0 +1,188 @@
+[2018-06-14 9:07:47.671509] [debug] [AodPoolController:getRdfConfiguracionActiones] llamada a Función
+[2018-06-14 9:08:15.615144] [info] [AodPoolController:getRdfConfiguracionAction] llamada a Función
+[2018-06-14 9:09:03.612679] [info] [AodPoolController:postRdfConfiguracionAction] llamada a Función
+[2018-06-14 9:09:03.612735] [debug] [AodPoolController:postRdfConfiguracionAction] Creo un objeto rdf
+[2018-06-14 9:09:03.612816] [debug] [AodPoolController:postRdfConfiguracionAction] Creo el formulario de validación
+[2018-06-14 9:09:03.665963] [debug] [AodPoolController:postRdfConfiguracionAction] Recojo el archivo YML
+[2018-06-14 9:09:03.691570] [info] [AodPoolController:postRdfConfiguracionAction] Archivo yml de configuracion rdfType guardado con éxito en Base de datos
+[2018-06-14 9:09:03.691637] [info] [AodPoolController:postRdfConfiguracionAction] Fin proceso rest
+[2018-06-14 9:10:39.570056] [info] [AodPoolController:getRdfConfiguracionAction] llamada a Función
+[2018-06-14 9:10:43.093818] [info] [AodPoolController:postRdfConfiguracionAction] llamada a Función
+[2018-06-14 9:10:43.093880] [debug] [AodPoolController:postRdfConfiguracionAction] Creo un objeto rdf
+[2018-06-14 9:10:43.093951] [debug] [AodPoolController:postRdfConfiguracionAction] Creo el formulario de validación
+[2018-06-14 9:10:43.116132] [debug] [AodPoolController:postRdfConfiguracionAction] Recojo el archivo YML
+[2018-06-14 9:10:43.131419] [info] [AodPoolController:postRdfConfiguracionAction] Archivo yml de configuracion rdfType guardado con éxito en Base de datos
+[2018-06-14 9:10:43.131468] [info] [AodPoolController:postRdfConfiguracionAction] Fin proceso rest
+[2018-06-14 10:46:22.703036] [debug] [AodPoolController:getRdfConfiguracionActiones] llamada a Función
+[2018-06-14 10:46:35.698049] [info] [AodPoolController:getRdfConfiguracionAction] llamada a Función
+[2018-06-14 10:47:11.366764] [info] [AodPoolController:postRdfConfiguracionAction] llamada a Función
+[2018-06-14 10:47:11.366822] [debug] [AodPoolController:postRdfConfiguracionAction] Creo un objeto rdf
+[2018-06-14 10:47:11.366878] [debug] [AodPoolController:postRdfConfiguracionAction] Creo el formulario de validación
+[2018-06-14 10:47:11.420488] [debug] [AodPoolController:postRdfConfiguracionAction] Recojo el archivo YML
+[2018-06-14 10:47:11.446558] [info] [AodPoolController:postRdfConfiguracionAction] Archivo yml de configuracion rdfType guardado con éxito en Base de datos
+[2018-06-14 10:47:11.446610] [info] [AodPoolController:postRdfConfiguracionAction] Fin proceso rest
+[2018-06-14 10:48:18.175148] [info] [AodPoolController:getRdfConfiguracionAction] llamada a Función
+[2018-06-14 10:48:32.438102] [info] [AodPoolController:postRdfConfiguracionAction] llamada a Función
+[2018-06-14 10:48:32.438158] [debug] [AodPoolController:postRdfConfiguracionAction] Creo un objeto rdf
+[2018-06-14 10:48:32.438229] [debug] [AodPoolController:postRdfConfiguracionAction] Creo el formulario de validación
+[2018-06-14 10:48:32.458127] [debug] [AodPoolController:postRdfConfiguracionAction] Recojo el archivo YML
+[2018-06-14 10:48:32.477180] [info] [AodPoolController:postRdfConfiguracionAction] Archivo yml de configuracion rdfType guardado con éxito en Base de datos
+[2018-06-14 10:48:32.477231] [info] [AodPoolController:postRdfConfiguracionAction] Fin proceso rest
+[2018-06-14 10:49:40.278611] [info] [AodPoolController:getRdfAction] Inicio
+[2018-06-14 10:49:40.278669] [info] [AodPoolController:getRdfAction] Creo un objeto entidad Rdf
+[2018-06-14 10:49:40.278779] [debug] [Acceso:Configura] Llamada a Función
+[2018-06-14 10:49:40.278820] [debug] [Acceso:Configura] Inicializo la clase: http://82.223.53.83:8890/sparql, http://opendata.aragon.es/graph/pool, 1
+[2018-06-14 10:49:40.278851] [debug] [Acceso:DameRdf] http://opendata.aragon.es/def/ei2a#municipio-22001
+[2018-06-14 10:49:40.278882] [debug] [Acceso:DameRdf] Url validada con exito: http://opendata.aragon.es/def/ei2a#municipio-22001
+[2018-06-14 10:49:40.278908] [debug] [Acceso:DameRdf] lanzo sparql: prefix dc: <http://purl.org/dc/elements/1.1/> select ?s ?p ?o from <http://opendata.aragon.es/graph/pool> where {<http://opendata.aragon.es/def/ei2a#municipio-22001> dc:source ?source. ?s ?p ?o. ?s dc:source  ?source}
+[2018-06-14 10:49:40.278944] [debug] [Acceso:LanzaConsulta] Inicio: url:http://82.223.53.83:8890/sparql , query:prefix dc: <http://purl.org/dc/elements/1.1/> select ?s ?p ?o from <http://opendata.aragon.es/graph/pool> where {<http://opendata.aragon.es/def/ei2a#municipio-22001> dc:source ?source. ?s ?p ?o. ?s dc:source  ?source}
+[2018-06-14 10:49:40.278979] [debug] [Acceso:LanzaConsulta] SPARQL>>>: prefix dc: <http://purl.org/dc/elements/1.1/> select ?s ?p ?o from <http://opendata.aragon.es/graph/pool> where {<http://opendata.aragon.es/def/ei2a#municipio-22001> dc:source ?source. ?s ?p ?o. ?s dc:source  ?source}
+[2018-06-14 10:49:40.335664] [debug] [Acceso:LanzaConsulta] Se ha realizado la consulta correctamente
+[2018-06-14 10:49:40.336232] [info] [Triples:__construct] Llamada a Función
+[2018-06-14 10:49:40.336365] [debug] [Triples:DameTriples] Entro en función
+[2018-06-14 10:49:40.336481] [debug] [Triples:DameTriples] Parámetro entrada correcto
+[2018-06-14 10:49:40.336581] [debug] [Triples:DameTriples] Recojo header: S:s, V:p, P:o 
+[2018-06-14 10:49:40.336668] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#municipio-22001","http://www.w3.org/1999/02/22-rdf-syntax-ns#type","http://www.w3.org/ns/org#Organization"
+[2018-06-14 10:49:40.336761] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#municipio-22001
+[2018-06-14 10:49:40.336847] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+[2018-06-14 10:49:40.336925] [debug] [Triples:DameTripe] Proceso Predicado: http://www.w3.org/ns/org#Organization
+[2018-06-14 10:49:40.337013] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#sede-22001","http://www.w3.org/1999/02/22-rdf-syntax-ns#type","http://www.w3.org/ns/org#Site"
+[2018-06-14 10:49:40.337104] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#sede-22001
+[2018-06-14 10:49:40.337183] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+[2018-06-14 10:49:40.337260] [debug] [Triples:DameTripe] Proceso Predicado: http://www.w3.org/ns/org#Site
+[2018-06-14 10:49:40.337347] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#vCardMunicipio-22001","http://www.w3.org/1999/02/22-rdf-syntax-ns#type","http://www.w3.org/2006/vcard/ns#VCard"
+[2018-06-14 10:49:40.337435] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#vCardMunicipio-22001
+[2018-06-14 10:49:40.337516] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+[2018-06-14 10:49:40.337593] [debug] [Triples:DameTripe] Proceso Predicado: http://www.w3.org/2006/vcard/ns#VCard
+[2018-06-14 10:49:40.337676] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#adrMunicipio-22001","http://www.w3.org/1999/02/22-rdf-syntax-ns#type","http://www.w3.org/2006/vcard/ns#ADR"
+[2018-06-14 10:49:40.337763] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#adrMunicipio-22001
+[2018-06-14 10:49:40.337841] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+[2018-06-14 10:49:40.337918] [debug] [Triples:DameTripe] Proceso Predicado: http://www.w3.org/2006/vcard/ns#ADR
+[2018-06-14 10:49:40.338001] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#municipio-22001","http://opendata.aragon.es/def/ei2a#phone","974 317 203"
+[2018-06-14 10:49:40.338088] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#municipio-22001
+[2018-06-14 10:49:40.338166] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#phone
+[2018-06-14 10:49:40.338244] [debug] [Triples:DameTripe] Proceso Predicado: 974 317 203
+[2018-06-14 10:49:40.338359] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#municipio-22001","http://www.w3.org/2002/07/owl#sameAs","http://opendata.aragon.es/recurso/territorio/Municipio/Abiego"
+[2018-06-14 10:49:40.338478] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#municipio-22001
+[2018-06-14 10:49:40.338560] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/2002/07/owl#sameAs
+[2018-06-14 10:49:40.338638] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/recurso/territorio/Municipio/Abiego
+[2018-06-14 10:49:40.338721] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#adrMunicipio-22001","http://www.w3.org/2006/vcard/ns#locality","ABIEGO"
+[2018-06-14 10:49:40.338805] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#adrMunicipio-22001
+[2018-06-14 10:49:40.338886] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/2006/vcard/ns#locality
+[2018-06-14 10:49:40.338963] [debug] [Triples:DameTripe] Proceso Predicado: ABIEGO
+[2018-06-14 10:49:40.339046] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#municipio-22001","http://www.w3.org/ns/org#hasSite","http://opendata.aragon.es/def/ei2a#sede-22001"
+[2018-06-14 10:49:40.339133] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#municipio-22001
+[2018-06-14 10:49:40.339221] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/ns/org#hasSite
+[2018-06-14 10:49:40.339301] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/def/ei2a#sede-22001
+[2018-06-14 10:49:40.339382] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#vCardMunicipio-22001","http://www.w3.org/2006/vcard/ns#Fax","974 317 203"
+[2018-06-14 10:49:40.339468] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#vCardMunicipio-22001
+[2018-06-14 10:49:40.339548] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/2006/vcard/ns#Fax
+[2018-06-14 10:49:40.339624] [debug] [Triples:DameTripe] Proceso Predicado: 974 317 203
+[2018-06-14 10:49:40.339708] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#vCardMunicipio-22001","http://www.w3.org/2006/vcard/ns#hasAddress","http://opendata.aragon.es/def/ei2a#adrMunicipio-22001"
+[2018-06-14 10:49:40.339795] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#vCardMunicipio-22001
+[2018-06-14 10:49:40.339873] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/2006/vcard/ns#hasAddress
+[2018-06-14 10:49:40.339951] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/def/ei2a#adrMunicipio-22001
+[2018-06-14 10:49:40.340032] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#adrMunicipio-22001","http://www.w3.org/2006/vcard/ns#postal-code","22143"
+[2018-06-14 10:49:40.340117] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#adrMunicipio-22001
+[2018-06-14 10:49:40.340198] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/2006/vcard/ns#postal-code
+[2018-06-14 10:49:40.340274] [debug] [Triples:DameTripe] Proceso Predicado: 22143
+[2018-06-14 10:49:40.340343] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#adrMunicipio-22001","http://www.w3.org/2006/vcard/ns#region","HUESCA"
+[2018-06-14 10:49:40.340370] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#adrMunicipio-22001
+[2018-06-14 10:49:40.340394] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/2006/vcard/ns#region
+[2018-06-14 10:49:40.340418] [debug] [Triples:DameTripe] Proceso Predicado: HUESCA
+[2018-06-14 10:49:40.340442] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#adrMunicipio-22001","http://www.w3.org/2006/vcard/ns#street-address","C/ UCHALLO, 5"
+[2018-06-14 10:49:40.340470] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#adrMunicipio-22001
+[2018-06-14 10:49:40.340493] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/2006/vcard/ns#street-address
+[2018-06-14 10:49:40.340522] [debug] [Triples:DameTripe] Proceso Predicado: C/ UCHALLO
+[2018-06-14 10:49:40.340548] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#sede-22001","http://www.w3.org/ns/org#siteAddress","http://opendata.aragon.es/def/ei2a#vCardMunicipio-22001"
+[2018-06-14 10:49:40.340574] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#sede-22001
+[2018-06-14 10:49:40.340599] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/ns/org#siteAddress
+[2018-06-14 10:49:40.340622] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/def/ei2a#vCardMunicipio-22001
+[2018-06-14 10:49:40.340647] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#municipio-22001","http://www.w3.org/ns/org#subOrganizationOf","http://opendata.aragon.es/recurso/territorio/Provincia/Huesca"
+[2018-06-14 10:49:40.340673] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#municipio-22001
+[2018-06-14 10:49:40.340698] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/ns/org#subOrganizationOf
+[2018-06-14 10:49:40.340722] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/recurso/territorio/Provincia/Huesca
+[2018-06-14 10:49:40.340748] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#municipio-22001","http://www.w3.org/ns/org#subOrganizationOf","http://opendata.aragon.es/def/ei2a#comarca-07"
+[2018-06-14 10:49:40.340774] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#municipio-22001
+[2018-06-14 10:49:40.340797] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/ns/org#subOrganizationOf
+[2018-06-14 10:49:40.340821] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/def/ei2a#comarca-07
+[2018-06-14 10:49:40.340847] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#municipio-22001","http://www.w3.org/ns/org#subOrganizationOf","http://opendata.aragon.es/def/ei2a#diputacion-7824"
+[2018-06-14 10:49:40.340873] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#municipio-22001
+[2018-06-14 10:49:40.340898] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/ns/org#subOrganizationOf
+[2018-06-14 10:49:40.340922] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/def/ei2a#diputacion-7824
+[2018-06-14 10:49:40.340946] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#municipio-22001","http://xmlns.com/foaf/0.1/mbox","abiego@somontano.org"
+[2018-06-14 10:49:40.340974] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#municipio-22001
+[2018-06-14 10:49:40.340997] [debug] [Triples:DameTripe] Proceso Verbo: http://xmlns.com/foaf/0.1/mbox
+[2018-06-14 10:49:40.341022] [debug] [Triples:DameTripe] Proceso Predicado: abiego@somontano.org
+[2018-06-14 10:49:40.341047] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#municipio-22001","http://purl.org/dc/elements/1.1/type","http://opendata.aragon.es/def/ei2a#municipio"
+[2018-06-14 10:49:40.341073] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#municipio-22001
+[2018-06-14 10:49:40.341097] [debug] [Triples:DameTripe] Proceso Verbo: http://purl.org/dc/elements/1.1/type
+[2018-06-14 10:49:40.341120] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/def/ei2a#municipio
+[2018-06-14 10:49:40.341145] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#municipio-22001","http://opendata.aragon.es/def/ei2a#CIF","P-2200100-B"
+[2018-06-14 10:49:40.341171] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#municipio-22001
+[2018-06-14 10:49:40.341197] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#CIF
+[2018-06-14 10:49:40.341219] [debug] [Triples:DameTripe] Proceso Predicado: P-2200100-B
+[2018-06-14 10:49:40.341244] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#municipio-22001","http://opendata.aragon.es/def/ei2a#publicEntityType","http://opendata.aragon.es/def/ei2a#Ayuntamiento"
+[2018-06-14 10:49:40.341274] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#municipio-22001
+[2018-06-14 10:49:40.341300] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#publicEntityType
+[2018-06-14 10:49:40.341324] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/def/ei2a#Ayuntamiento
+[2018-06-14 10:49:40.341348] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#municipio-22001","http://opendata.aragon.es/def/ei2a#organizationType","http://opendata.aragon.es/def/ei2a#órganoAdministrativo"
+[2018-06-14 10:49:40.341375] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#municipio-22001
+[2018-06-14 10:49:40.341398] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#organizationType
+[2018-06-14 10:49:40.341423] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/def/ei2a#órganoAdministrativo
+[2018-06-14 10:49:40.341448] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#municipio-22001","http://purl.org/dc/elements/1.1/identifier","22001"
+[2018-06-14 10:49:40.341474] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#municipio-22001
+[2018-06-14 10:49:40.341499] [debug] [Triples:DameTripe] Proceso Verbo: http://purl.org/dc/elements/1.1/identifier
+[2018-06-14 10:49:40.341521] [debug] [Triples:DameTripe] Proceso Predicado: 22001
+[2018-06-14 10:49:40.341547] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#municipio-22001","http://opendata.aragon.es/def/ei2a#administrativeLevel","http://opendata.aragon.es/def/ei2a#AdministraciónLocal"
+[2018-06-14 10:49:40.341573] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#municipio-22001
+[2018-06-14 10:49:40.341598] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#administrativeLevel
+[2018-06-14 10:49:40.341620] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/def/ei2a#AdministraciónLocal
+[2018-06-14 10:49:40.341646] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#municipio-22001","http://www.w3.org/2003/01/geo/wgs84_pos#location","http://opendata.aragon.es/def/ei2a#comarca-07"
+[2018-06-14 10:49:40.341672] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#municipio-22001
+[2018-06-14 10:49:40.341696] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/2003/01/geo/wgs84_pos#location
+[2018-06-14 10:49:40.341721] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/def/ei2a#comarca-07
+[2018-06-14 10:49:40.341746] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#municipio-22001","http://www.w3.org/2003/01/geo/wgs84_pos#location","http://opendata.aragon.es/def/ei2a#diputacion-7824"
+[2018-06-14 10:49:40.341773] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#municipio-22001
+[2018-06-14 10:49:40.341797] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/2003/01/geo/wgs84_pos#location
+[2018-06-14 10:49:40.341820] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/def/ei2a#diputacion-7824
+[2018-06-14 10:49:40.341845] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#municipio-22001","http://www.w3.org/2003/01/geo/wgs84_pos#location","http://opendata.aragon.es/def/ei2a#geoposicion-municipio-22001"
+[2018-06-14 10:49:40.341871] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#municipio-22001
+[2018-06-14 10:49:40.341896] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/2003/01/geo/wgs84_pos#location
+[2018-06-14 10:49:40.341919] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/def/ei2a#geoposicion-municipio-22001
+[2018-06-14 10:49:40.341948] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#municipio-22001","http://purl.org/dc/elements/1.1/source","https://opendata.aragon.es/GA_OD_Core/preview?view_id=11&filter_sql=CODIGO_MUN='22001'&_pageSize=1&_page=1"
+[2018-06-14 10:49:40.341975] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#municipio-22001
+[2018-06-14 10:49:40.342000] [debug] [Triples:DameTripe] Proceso Verbo: http://purl.org/dc/elements/1.1/source
+[2018-06-14 10:49:40.342024] [debug] [Triples:DameTripe] Proceso Predicado: https://opendata.aragon.es/GA_OD_Core/preview?view_id=11&filter_sql=CODIGO_MUN='22001'&_pageSize=1&_page=1
+[2018-06-14 10:49:40.342048] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#sede-22001","http://purl.org/dc/elements/1.1/source","https://opendata.aragon.es/GA_OD_Core/preview?view_id=11&filter_sql=CODIGO_MUN='22001'&_pageSize=1&_page=1"
+[2018-06-14 10:49:40.342075] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#sede-22001
+[2018-06-14 10:49:40.342098] [debug] [Triples:DameTripe] Proceso Verbo: http://purl.org/dc/elements/1.1/source
+[2018-06-14 10:49:40.342123] [debug] [Triples:DameTripe] Proceso Predicado: https://opendata.aragon.es/GA_OD_Core/preview?view_id=11&filter_sql=CODIGO_MUN='22001'&_pageSize=1&_page=1
+[2018-06-14 10:49:40.342148] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#vCardMunicipio-22001","http://purl.org/dc/elements/1.1/source","https://opendata.aragon.es/GA_OD_Core/preview?view_id=11&filter_sql=CODIGO_MUN='22001'&_pageSize=1&_page=1"
+[2018-06-14 10:49:40.342175] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#vCardMunicipio-22001
+[2018-06-14 10:49:40.342199] [debug] [Triples:DameTripe] Proceso Verbo: http://purl.org/dc/elements/1.1/source
+[2018-06-14 10:49:40.342222] [debug] [Triples:DameTripe] Proceso Predicado: https://opendata.aragon.es/GA_OD_Core/preview?view_id=11&filter_sql=CODIGO_MUN='22001'&_pageSize=1&_page=1
+[2018-06-14 10:49:40.342247] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#adrMunicipio-22001","http://purl.org/dc/elements/1.1/source","https://opendata.aragon.es/GA_OD_Core/preview?view_id=11&filter_sql=CODIGO_MUN='22001'&_pageSize=1&_page=1"
+[2018-06-14 10:49:40.342273] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#adrMunicipio-22001
+[2018-06-14 10:49:40.342298] [debug] [Triples:DameTripe] Proceso Verbo: http://purl.org/dc/elements/1.1/source
+[2018-06-14 10:49:40.342322] [debug] [Triples:DameTripe] Proceso Predicado: https://opendata.aragon.es/GA_OD_Core/preview?view_id=11&filter_sql=CODIGO_MUN='22001'&_pageSize=1&_page=1
+[2018-06-14 10:49:40.342355] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#municipio-22001","http://opendata.aragon.es/def/ei2a#organizationName","ABIEGO"
+[2018-06-14 10:49:40.342381] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#municipio-22001
+[2018-06-14 10:49:40.342406] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#organizationName
+[2018-06-14 10:49:40.342430] [debug] [Triples:DameTripe] Proceso Predicado: ABIEGO
+[2018-06-14 10:49:40.342475] [info] [AodPoolController:getRdfAction] Fin proceso rest
+[2018-06-14 13:28:09.216945] [info] [AodPoolController:getRdfConfiguracionAction] llamada a Función
+[2018-06-14 13:28:40.598702] [info] [AodPoolController:postRdfConfiguracionAction] llamada a Función
+[2018-06-14 13:28:40.598753] [debug] [AodPoolController:postRdfConfiguracionAction] Creo un objeto rdf
+[2018-06-14 13:28:40.598803] [debug] [AodPoolController:postRdfConfiguracionAction] Creo el formulario de validación
+[2018-06-14 13:28:40.643754] [debug] [AodPoolController:postRdfConfiguracionAction] Recojo el archivo YML
+[2018-06-14 13:28:40.657434] [info] [AodPoolController:postRdfConfiguracionAction] Archivo yml de configuracion rdfType guardado con éxito en Base de datos
+[2018-06-14 13:28:40.657531] [info] [AodPoolController:postRdfConfiguracionAction] Fin proceso rest
+[2018-06-14 16:23:28.015053] [debug] [AodPoolController:getRdfConfiguracionActiones] llamada a Función
+[2018-06-14 16:23:38.204030] [info] [AodPoolController:getRdfConfiguracionAction] llamada a Función
+[2018-06-14 16:24:08.135584] [info] [AodPoolController:postRdfConfiguracionAction] llamada a Función
+[2018-06-14 16:24:08.135642] [debug] [AodPoolController:postRdfConfiguracionAction] Creo un objeto rdf
+[2018-06-14 16:24:08.135704] [debug] [AodPoolController:postRdfConfiguracionAction] Creo el formulario de validación
+[2018-06-14 16:24:08.184927] [debug] [AodPoolController:postRdfConfiguracionAction] Recojo el archivo YML
+[2018-06-14 16:24:08.204921] [info] [AodPoolController:postRdfConfiguracionAction] Archivo yml de configuracion rdfType guardado con éxito en Base de datos
+[2018-06-14 16:24:08.204992] [info] [AodPoolController:postRdfConfiguracionAction] Fin proceso rest

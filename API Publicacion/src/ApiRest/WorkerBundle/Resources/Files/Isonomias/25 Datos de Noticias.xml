@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:dc="http://purl.org/dc/elements/1.1/" id="25">
+  <Entity rdf:type="ei2a:Document" URI="http://opendata.aragon.es/pool/datos-noticias/{WNOV_ID}">
+    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+    <Property field="{WNOV_ID}" attribute="dc:identifier" type="string"/>
+    <Property field="{TITULO}" attribute="ei2a:nameDocument" type="string"/>
+    <Property field="{F_GRABACION}" attribute="ei2a:registrationDate" type="dateTime"/>
+    <Property field="{F_VIGENCIA}" attribute="ei2a:startDate" type="dateTime"/>
+    <Property field="{F_FINVIGENCIA}" attribute="ei2a:endDate" type="dateTime"/>
+    <Property field="{NOTICIA}" attribute="ei2a:observations" type="string"/>
+    <Property value="Noticia" attribute="ei2a:documentType" type="string"/>
+    <Property field="{URL}" attribute="ei2a:URIDocument" type="string"/>
+  </Entity>
+</Mapping>

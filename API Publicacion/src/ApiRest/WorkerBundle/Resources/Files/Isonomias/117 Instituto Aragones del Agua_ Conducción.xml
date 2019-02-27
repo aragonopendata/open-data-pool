@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:wisdom="http://www.semanticwater.com/WISDOM#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" id="117">
+  <Entity rdf:type="wisdom:WaterPipe" URI="http://opendata.aragon.es/def/ei2a#conduccion-{OBJECTID}">
+    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+    <Property field="{OBJECTID}" attribute="dc:identifier" type="string"/>
+    <Property link="ei2a:conduccion" attribute="dc:type"/>
+    <Property field="{FECHA}" attribute="dc:date" type="string"/>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" attribute="wgs84_pos:location"/>
+    <Property field="{LONCON}" attribute="wisdom:hasLength" type="double"/>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#meterial-{MATCON}" attribute="wisdom:hasMaterial">
+      <Entity rdf:type="wisdom:Material" URI="http://opendata.aragon.es/def/ei2a#meterial-{MATCON}">        
+        <Property field="{MATCON}" attribute="rdfs:label" type="string"/>
+      </Entity>
+    </Property>
+    <Property field="{TAMCON}" attribute="wisdom:hasNominalDiameter" type="double"/>
+  </Entity>
+</Mapping>

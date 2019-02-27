@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:time="http://www.w3.org/2006/time#" xmlns:event="http://purl.org/NET/c4dm/event.owl#"   id="15">
+  <Entity rdf:type="ei2a:EventAgenda" URI="http://opendata.aragon.es/def/ei2a#curso-{ID}">
+    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+    <Property field="{ID}" attribute="dc:identifier" type="string"/>
+	<Property link="ei2a:prueba" attribute="dc:type" />
+	<Property field="{NOMBRE}" attribute="dc:title" type="string" />
+  </Entity>
+</Mapping>

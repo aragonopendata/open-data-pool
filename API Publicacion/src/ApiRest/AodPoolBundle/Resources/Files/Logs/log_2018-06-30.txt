@@ -1,0 +1,5 @@
+[2018-06-30 8:47:45.359384] [debug] [AodPoolController:getListadoDcTypeAction] llamada a Función
+[2018-06-30 8:47:45.359574] [debug] [AodPoolController:LanzaConsultaRespuesta] Inicio: url:http://localhost:8890/sparql , query:select distinct ?dctype from <http://opendata.aragon.es/graph/pool>  where {?s dc:type ?dctype .} order by ?dctype 
+[2018-06-30 8:47:45.359707] [debug] [AodPoolController:LanzaConsultaRespuesta] SPARQL>>>: select distinct ?dctype from <http://opendata.aragon.es/graph/pool>  where {?s dc:type ?dctype .} order by ?dctype 
+[2018-06-30 8:47:45.386131] [debug] [AodPoolController:LanzaConsultaRespuesta] Se ha realizado la consulta correctamente
+[2018-06-30 8:47:45.387883] [error] [AodPoolController:getListadoDcTypeAction] Fin proceso rest

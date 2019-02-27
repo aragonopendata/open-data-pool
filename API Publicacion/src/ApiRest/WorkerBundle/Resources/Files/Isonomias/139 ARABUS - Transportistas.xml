@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:org="http://www.w3.org/ns/org#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:vcard="http://www.w3.org/2006/vcard/ns#" id="139">
+  <Entity rdf:type="org:Organization" URI="http://opendata.aragon.es/def/ei2a#transportista-{EMPRESA}">
+    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+    <Property field="{EMPRESA}" attribute="dc:identifier" type="string"/>
+    <Property link="ei2a:transportista" attribute="dc:type" />
+    <Property field="{EMPRESA}" attribute="ei2a:organizationName" type="string"/>
+    <Property field="{TELEFONO_1}" attribute="foaf:phone" type="string"/>
+    <Property field="{NIF_CIF}" attribute="ei2a:CIF" type="string"/>
+    <Property field="{MAIL}" attribute="ei2a:email" type="string"/>
+    <Property field="{URL}" attribute="foaf:homepage" type="string"/>
+    <Property link="ei2a:empresa" attribute="ei2a:organizationType"/>
+	<Property fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" attribute="wgs84_pos:location" />
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#sedeTransportista-{EMPRESA}" attribute="org:hasSite">
+      <Entity rdf:type="org:Site" URI="http://opendata.aragon.es/def/ei2a#sedeTransportista-{EMPRESA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#vCardOperador-{EMPRESA}" attribute="org:siteAddress">
+          <Entity rdf:type="vcard:VCard" URI="http://opendata.aragon.es/def/ei2a#vCardOperador-{EMPRESA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property fieldLink="http://opendata.aragon.es/def/ei2a#ardOperador-{EMPRESA}" attribute="vcard:hasAddress">
+              <Entity rdf:type="vcard:ADR" URI="http://opendata.aragon.es/def/ei2a#ardOperador-{EMPRESA}">
+                <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                <Property field="{DIRECCION}" attribute="vcard:street-address" type="string"/>
+                <Property field="{LOCALIDAD}" attribute="vcard:locality" type="string"/>
+                <Property field="{PROVINCIA}" attribute="vcard:region" type="string"/>
+                <Property field="{CP}" attribute="vcard:postal-code" type="string"/>
+              </Entity>
+            </Property>
+          </Entity>
+        </Property>
+      </Entity>
+    </Property>
+  </Entity>
+</Mapping>

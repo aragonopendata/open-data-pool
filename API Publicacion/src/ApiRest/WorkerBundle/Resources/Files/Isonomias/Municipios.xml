@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping id="11" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ei2a="http://opendata.aragon.es/def/EI2A#" xmlns:org="http://www.w3.org/ns/org#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:vcard="http://www.w3.org/2006/vcard/ns#" >
+	<Entity rdf:type="org:Organization" view="11" URI="http://opendatapool.aragon.es/municipio/{CODIGO_MUN}">
+		<Property field="DENOMINACION" attribute="foaf:organizationName" type="string" />
+		<Property field="TELEFONO" attribute="foaf:phone" type="string" /> 
+		<Property field="EMAIL" attribute="foaf:mbox" type="string" />
+		<Property field="NIF" attribute="ei2a:CIF" type="string" />
+		<Property link="ei2a:Ayuntamiento" attribute="ei2a:publicEntityType" />
+		<Property link="ei2a:órganoAdministrativo" attribute="ei2a:organizationType" />
+		<Property link="ei2a:AdministraciónLocal" attribute="ei2a:administrative" />
+		<Property fieldLink="http://opendatapool.aragon.es/comarca/{CODIGO_COMARC}" attribute="org:subOrganizationOf" />
+		<Property fieldLink="http://opendatapool.aragon.es/provincia/{COD_PROVINCIA}" attribute="org:subOrganizationOf" />
+		<Property fieldLink="http://opendatapool.aragon.es/diputacion/{DIPUTACION_ID}" attribute="org:subOrganizationOf" />
+		<Property fieldLink="http://opendatapool.aragon.es/siteMunicipio/{CODIGO_MUN}" attribute="org:hasSite">
+			<Entity rdf:type="org:Site" URI="http://opendatapool.aragon.es/siteMunicipio/{CODIGO_MUN}">
+				<Property fieldLink="http://opendatapool.aragon.es/vCardMunicipio/{CODIGO_MUN}" attribute="org:siteAddress">
+					<Entity rdf:type="vcard:VCard" URI="http://opendatapool.aragon.es/vCardMunicipio/{CODIGO_MUN}">
+						<Property field="FAX" attribute="vcard:Fax" type="string" />
+						<Property fieldLink="http://opendatapool.aragon.es/adrMunicipio/{CODIGO_MUN}" attribute="vcard:hasAddress">
+							<Entity rdf:type="vcard:ADR" URI="http://opendatapool.aragon.es/adrMunicipio/{CODIGO_MUN}">
+								<Property field="DIRECCION" attribute="vcard:street-address" type="string" />
+								<Property field="DENOMINACION" attribute="vcard:locality" type="string" />
+								<Property field="CP" attribute="vcard:postal-code" type="string" />
+								<Property field="PROVINCIA" attribute="vcard:region" type="string" />
+							</Entity>
+						</Property>
+					</Entity>
+				</Property>
+			</Entity>
+		</Property>
+	</Entity>	
+</Mapping>

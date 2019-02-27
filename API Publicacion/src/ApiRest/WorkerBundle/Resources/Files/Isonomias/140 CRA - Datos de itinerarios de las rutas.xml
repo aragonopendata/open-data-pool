@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:gtfs="http://vocab.gtfs.org/terms#" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:dc="http://purl.org/dc/elements/1.1/" id="140">
+  <Entity rdf:type="gtfs:Trip" URI="http://opendata.aragon.es/def/ei2a#cra-itinerario-ruta-{GRT_ID_RUTA}-{GRT_ID_ITINERARIO}">
+    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+    <Property field="{GRT_ID_RUTA}-{GRT_ID_ITINERARIO}" attribute="dc:identifier" type="string"/>
+    <Property link="ei2a:itinerario_ruta" attribute="dc:type" />
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#cra-datos-ruta-{GRT_ID_RUTA}" attribute="gtfs:route"/>
+    <Property field="{GRT_FECHA_INICIO}" attribute="dc:date" type="string"/>
+    <Property field="{GRT_ID_TIPO}" attribute="dc:format" type="string"/>
+  </Entity>
+</Mapping>

@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:harmonise="http://protege.stanford.edu/rdf/HTOv4002#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:aodpool="http://opendata.aragon.es/def/ei2a#season-list-value-" xmlns:org="http://www.w3.org/ns/org#" xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#" id="64">
+  <Entity rdf:type="harmonise:Accommodation" URI="http://opendata.aragon.es/def/ei2a#albergue-refugio-{SIGNATURA}">
+	<Property link="org:Organization" attribute="rdf:type"/>
+    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+    <Property field="{SIGNATURA}" attribute="dc:identifier" type="string"/>
+	<Property link="ei2a:albergue_refugio" attribute="dc:type" />
+	<Property field="{NOMBRE_EMPRESA}" attribute="ei2a:organizationName" type="string" />
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#name-albergue-refugio-{SIGNATURA}" attribute="harmonise:name">
+      <Entity rdf:type="harmonise:MultiLanguageText" URI="http://opendata.aragon.es/def/ei2a#name-albergue-refugio-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#laguageText-albergue-refugio-{SIGNATURA}" attribute="harmonise:languageText">
+          <Entity rdf:type="harmonise:LanguageText" URI="http://opendata.aragon.es/def/ei2a#laguageText-albergue-refugio-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property field="{NOMBRE_EMPRESA}" attribute="harmonise:text" type="string"/>
+          </Entity>
+        </Property>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#accommodationType-albergue-refugio-{SIGNATURA}" attribute="harmonise:accommodationType">
+      <Entity rdf:type="harmonise:ListValue" URI="http://opendata.aragon.es/def/ei2a#accommodationType-albergue-refugio-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#refenced-value-albergue-refugio-{SIGNATURA}" attribute="harmonise:refencedValue">
+          <Entity rdf:type="harmonise:ReferencedValue" URI="http://opendata.aragon.es/def/ei2a#refenced-value-albergue-refugio-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property field="{TIPO_ESTABLECIMIENTO_CATEGORIA}" attribute="harmonise:domainValue" type="string"/>
+          </Entity>
+        </Property>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#legalIdentifier-albergue-refugio-{SIGNATURA}" attribute="harmonise:legalIdentifier">
+      <Entity rdf:type="harmonise:LegalIdentifier" URI="http://opendata.aragon.es/def/ei2a#legalIdentifier-albergue-refugio-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property field="{CIF_EMPRESA}" attribute="harmonise:identifierValue" type="string"/>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-alta-albergue-refugio-{SIGNATURA}" attribute="harmonise:schedule">
+      <Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-alta-albergue-refugio-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property link="aodpool:temporada_alta" attribute="harmonise:season"/>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#date-range-alta-albergue-refugio-{SIGNATURA}" attribute="harmonise:dateRange">
+          <Entity rdf:type="harmonise:DateRange" URI="http://opendata.aragon.es/def/ei2a#date-range-alta-albergue-refugio-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property field="{FECHA_DESDE_TEMP_ALTA}" attribute="harmonise:startDate" type="string"/>
+            <Property field="{FECHA_HASTA_TEMP_ALTA}" attribute="harmonise:endDate" type="string"/>
+          </Entity>
+        </Property>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-media-albergue-refugio-{SIGNATURA}" attribute="harmonise:schedule">
+      <Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-media-albergue-refugio-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property link="aodpool:temporada_media" attribute="harmonise:season"/>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#date-range-media-albergue-refugio-{SIGNATURA}" attribute="harmonise:dateRange">
+          <Entity rdf:type="harmonise:DateRange" URI="http://opendata.aragon.es/def/ei2a#date-range-media-albergue-refugio-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property field="{FECHA_DESDE_TEMP_MEDIA}" attribute="harmonise:startDate" type="string"/>
+            <Property field="{FECHA_HASTA_TEMP_MEDIA}" attribute="harmonise:endDate" type="string"/>
+          </Entity>
+        </Property>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-baja-albergue-refugio-{SIGNATURA}" attribute="harmonise:schedule">
+      <Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-baja-albergue-refugio-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property link="aodpool:temporada_baja" attribute="harmonise:season"/>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#date-range-baja-albergue-refugio-{SIGNATURA}" attribute="harmonise:dateRange">
+          <Entity rdf:type="harmonise:DateRange" URI="http://opendata.aragon.es/def/ei2a#date-range-baja-albergue-refugio-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property field="{FECHA_DESDE_TEMP_BAJA}" attribute="harmonise:startDate" type="string"/>
+            <Property field="{FECHA_HASTA_TEMP_BAJA}" attribute="harmonise:endDate" type="string"/>
+          </Entity>
+        </Property>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-todo-ano-albergue-refugio-{SIGNATURA}" attribute="harmonise:schedule" condition="{ABIERTO_TODO_ANO}">
+      <Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-todo-ano-albergue-refugio-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property link="aodpool:todo_ano" attribute="harmonise:season"/>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-navidad-albergue-refugio-{SIGNATURA}" attribute="harmonise:schedule" condition="{ABIERTO_NAVIDAD}">
+      <Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-navidad-albergue-refugio-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property link="aodpool:navidad" attribute="harmonise:season"/>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-semana-santa-albergue-refugio-{SIGNATURA}" attribute="harmonise:schedule" condition="{ABIERTO_SEMANA_SANTA}">
+      <Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-semana-santa-albergue-refugio-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property link="aodpool:semana_santa" attribute="harmonise:season"/>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-fiestas-locales-albergue-refugio-{SIGNATURA}" attribute="harmonise:schedule" condition="{ABIERTO_FIESTAS_LOCALES}">
+      <Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-fiestas-locales-albergue-refugio-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property link="aodpool:fiestas_locales" attribute="harmonise:season"/>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-periodos-multiples-albergue-refugio-{SIGNATURA}" attribute="harmonise:schedule" condition="{ABIERTO_PERIODOS_MULTIPLES}">
+      <Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-periodos-multiples-albergue-refugio-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property link="aodpool:preiodos_multiples" attribute="harmonise:season"/>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" attribute="wgs84_pos:location"/>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#locate-albergue-refugio-{SIGNATURA}" attribute="harmonise:location">
+      <Entity rdf:type="harmonise:Location" URI="http://opendata.aragon.es/def/ei2a#locate-albergue-refugio-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#telecoms-albergue-refugio-{SIGNATURA}" attribute="harmonise:telecoms">
+          <Entity rdf:type="harmonise:Telecoms" URI="http://opendata.aragon.es/def/ei2a#telecoms-albergue-refugio-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property fieldLink="http://opendata.aragon.es/def/ei2a#telephone-albergue-refugio-{SIGNATURA}" attribute="harmonise:telephone">
+              <Entity rdf:type="harmonise:TelecomNumber" URI="http://opendata.aragon.es/def/ei2a#telephone-albergue-refugio-{SIGNATURA}">
+                <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                <Property field="{TELEFONO_ESTABLECIMIENTO}" attribute="harmonise:number" type="string"/>
+              </Entity>
+            </Property>
+            <Property field="{E_MAIL}" attribute="harmonise:email" type="string"/>
+            <Property fieldLink="http://opendata.aragon.es/def/ei2a#url-albergue-refugio-{SIGNATURA}" attribute="harmonise:url">
+              <Entity rdf:type="harmonise:MultiLanguageText" URI="http://opendata.aragon.es/def/ei2a#url-albergue-refugio-{SIGNATURA}">
+                <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                <Property fieldLink="http://opendata.aragon.es/def/ei2a#url-albergue-refugio-languageText-{SIGNATURA}" attribute="harmonise:languageText">
+                  <Entity rdf:type="harmonise:LanguageText" URI="http://opendata.aragon.es/def/ei2a#url-albergue-refugio-languageText-{SIGNATURA}">
+                    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                    <Property field="{DIRECCION_WEB}" attribute="harmonise:text" type="string"/>
+                  </Entity>
+                </Property>
+              </Entity>
+            </Property>
+            <Property fieldLink="http://opendata.aragon.es/def/ei2a#fax-albergue-refugio-{SIGNATURA}" attribute="harmonise:fax">
+              <Entity rdf:type="harmonise:TelecomNumber" URI="http://opendata.aragon.es/def/ei2a#fax-albergue-refugio-{SIGNATURA}">
+                <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                <Property field="{FAX_ESTABLECIMIENTO}" attribute="harmonise:number" type="string"/>
+              </Entity>
+            </Property>
+          </Entity>
+        </Property>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#address-albergue-refugio-{SIGNATURA}" attribute="harmonise:address">
+          <Entity rdf:type="harmonise:Address" URI="http://opendata.aragon.es/def/ei2a#address-albergue-refugio-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property fieldLink="http://opendata.aragon.es/def/ei2a#street-address-albergue-refugio-{SIGNATURA}" attribute="harmonise:streetAddress">
+              <Entity rdf:type="harmonise:StreetAddress" URI="http://opendata.aragon.es/def/ei2a#street-address-albergue-refugio-{SIGNATURA}">
+                <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                <Property field="{DIRECCION_ESTABLECIMIENTO}" attribute="harmonise:streetName" type="string"/>
+              </Entity>
+            </Property>
+            <Property fieldLink="http://opendata.aragon.es/def/ei2a#city-albergue-refugio-{SIGNATURA}" attribute="harmonise:city">
+              <Entity rdf:type="harmonise:MultiLanguageText" URI="http://opendata.aragon.es/def/ei2a#city-albergue-refugio-{SIGNATURA}">
+                <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                <Property fieldLink="http://opendata.aragon.es/def/ei2a#city-albergue-refugio-languageText-{SIGNATURA}" attribute="harmonise:languageText">
+                  <Entity rdf:type="harmonise:LanguageText" URI="http://opendata.aragon.es/def/ei2a#city-albergue-refugio-languageText-{SIGNATURA}">
+                    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                    <Property field="{LOCALIDAD_ESTABLECIMIENTO}" attribute="harmonise:text" type="string"/>
+                  </Entity>
+                </Property>
+              </Entity>
+            </Property>
+            <Property fieldLink="http://opendata.aragon.es/def/ei2a#region-albergue-refugio-{SIGNATURA}" attribute="harmonise:region">
+              <Entity rdf:type="harmonise:MultiLanguageText" URI="http://opendata.aragon.es/def/ei2a#region-albergue-refugio-{SIGNATURA}">
+                <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                <Property fieldLink="http://opendata.aragon.es/def/ei2a#region-albergue-refugio-languageText-{SIGNATURA}" attribute="harmonise:languageText">
+                  <Entity rdf:type="harmonise:LanguageText" URI="http://opendata.aragon.es/def/ei2a#region-albergue-refugio-languageText-{SIGNATURA}">
+                    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                    <Property field="{NOMBRE_COMARCA}" attribute="harmonise:text" type="string"/>
+                  </Entity>
+                </Property>
+              </Entity>
+            </Property>
+            <Property fieldLink="http://opendata.aragon.es/def/ei2a#province-albergue-refugio-{SIGNATURA}" attribute="harmonise:province">
+              <Entity rdf:type="harmonise:MultiLanguageText" URI="http://opendata.aragon.es/def/ei2a#province-albergue-refugio-{SIGNATURA}">
+                <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                <Property fieldLink="http://opendata.aragon.es/def/ei2a#province-albergue-refugio-languageText-{SIGNATURA}" attribute="harmonise:languageText">
+                  <Entity rdf:type="harmonise:LanguageText" URI="http://opendata.aragon.es/def/ei2a#province-albergue-refugio-languageText-{SIGNATURA}">
+                    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                    <Property field="{PROVINCIA_ESTABLECIMIENTO}" attribute="harmonise:text" type="string"/>
+                  </Entity>
+                </Property>
+              </Entity>
+            </Property>
+            <Property field="{CODIGO_POSTAL_ESTABLECIMIENTO}" attribute="harmonise:postCode" type="string"/>
+            <Property field="{NACIONALIDAD}" attribute="harmonise:country" type="string"/>
+          </Entity>
+        </Property>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#profile-albergue-refugio-{SIGNATURA}" attribute="harmonise:profile">
+      <Entity rdf:type="harmonise:Profile" URI="http://opendata.aragon.es/def/ei2a#profile-albergue-refugio-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#habitaciones-albergue-refugio/{SIGNATURA}" attribute="harmonise:profileField">
+          <Entity rdf:type="harmonise:ProfileField" URI="http://opendata.aragon.es/def/ei2a#habitaciones-albergue-refugio-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property value="Número de habitaciones" attribute="harmonise:fieldName" type="string"/>
+            <Property field="{NUMERO_HABITACIONES}" attribute="harmonise:fieldValue" type="string"/>
+          </Entity>
+        </Property>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#places-albergue-refugio-{SIGNATURA}" attribute="harmonise:profileField">
+          <Entity rdf:type="harmonise:ProfileField" URI="http://opendata.aragon.es/def/ei2a#places-albergue-refugio-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property value="Número de plazas" attribute="harmonise:fieldName" type="string"/>
+            <Property field="{NUMERO_PLAZAS}" attribute="harmonise:fieldValue" type="string"/>
+          </Entity>
+        </Property>
+      </Entity>
+    </Property>
+  </Entity>
+</Mapping>

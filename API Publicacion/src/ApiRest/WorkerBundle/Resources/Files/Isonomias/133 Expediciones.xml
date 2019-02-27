@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping id="133" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:org="http://www.w3.org/ns/org#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:vcard="http://www.w3.org/2006/vcard/ns#" xmlns:harmonise="http://protege.stanford.edu/rdf/HTOv4002#" xmlns:gtfs="http://vocab.gtfs.org/terms#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+	<Entity rdf:type="gtfs:Trip" URI="http://opendata.aragon.es/def/ei2a#expedicion-{COD_EXP}">
+		<Property field="{FUENTE}" attribute="dc:source" type="string" />
+		<Property field="{COD_EXP}" attribute="dc:identifier" type="string"/>
+		<Property link="ei2a:expedicion" attribute="dc:type" />
+		<Property field="{FRECUENCIA}" attribute="dc:description" type="string" />
+		<Property fieldLink="http://opendata.aragon.es/def/ei2a#arbus_parada-{COD_RUTA}" attribute="gtfs:route" />		
+		<Property fieldLink="http://opendata.aragon.es/def/ei2a#service-expediciones-{COD_EXP}" attribute="gtfs:service">
+			<Entity rdf:type="gtfs:Service" URI="http://opendata.aragon.es/def/ei2a#service-expediciones-{COD_EXP}">
+				<Property field="{FUENTE}" attribute="dc:source" type="string" />
+				<Property fieldLink="http://opendata.aragon.es/def/ei2a#serviceRule-{COD_EXP}" attribute="gtfs:serviceRule">
+					<Entity rdf:type="gtfs:CalendarRule" URI="http://opendata.aragon.es/def/ei2a#serviceRule-{COD_EXP}">
+						<Property field="{FUENTE}" attribute="dc:source" type="string" />
+						<Property field="{L}" attribute="org:monday" type="boolean"/>						 
+						<Property field="{M}" attribute="org:tuesday" type="boolean"/>						 
+						<Property field="{X}" attribute="org:wednesday" type="boolean"/>						 
+						<Property field="{J}" attribute="org:thursday" type="boolean"/>						 
+						<Property field="{V}" attribute="org:friday" type="boolean"/>						 
+						<Property field="{S}" attribute="org:saturday" type="boolean"/>						 
+						<Property field="{D}" attribute="org:sunday" type="boolean"/>						 
+					</Entity>
+				</Property>
+			</Entity>
+		</Property>
+	</Entity>
+</Mapping>

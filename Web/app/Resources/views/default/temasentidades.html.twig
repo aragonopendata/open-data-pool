@@ -1,0 +1,46 @@
+{% extends 'base.web.html.twig' %}
+{% import 'default/utilidades.html.twig' as utilidades %}
+{% block extra_css %}{% endblock extra_css %}
+{% block main %}
+    <div class="container" role="main">
+
+        {{ utilidades.navegaoculto("path", "path", path('filtros')) }}
+        {{ utilidades.campooculto("pro", "pro", navegacion.Provincia) }}
+        {{ utilidades.campooculto("com", "com", navegacion.Comarca) }}
+        {{ utilidades.campooculto("mun", "mun", navegacion.Municipio) }}
+
+        <div class="breadcrumb enlinea">
+            <div class="wrap">
+                <ul>
+					<li class="seccion"><a href="/pool/">INICIO</a></li>
+					<li class="flecha"><span class="material-icons">keyboard_arrow_right</span></li>
+                    <li class="seccion"><a href="{{path('lugares')}}?from=Lugares">Lugares</a></li>
+                    <li class="flecha"><span class="material-icons">keyboard_arrow_right</span></li>
+                    <li class="titulo">{{ localidad }}</li>
+                </ul>
+            </div>
+        </div>
+
+        
+        {% if temas|length > 0 %}
+			<h3>Temas</h3>
+			<div class="row row-bloques-min">
+                {{ utilidades.pintabloque("bloque-temas", temas ,"Temas", "enviaEntidadTema") }}
+            </div>
+		{% endif %}
+		
+		
+        {% if entidades|length > 0 %}  
+			<h3>Entidades</h3>
+			<div class="row row-bloques-min">
+                {{ utilidades.pintabloque("bloque-entidades", entidades ,"Entidades", "enviaEntidadEntidad") }}
+            </div>
+		{% endif %}
+        
+    </div>
+</div>
+{% endblock main %}
+
+{% block extra_javascript %}
+   <script type="text/javascript" src="{{ asset('js/aodpool.navegacion.js') }}" ></script>
+{% endblock extra_javascript %}

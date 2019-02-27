@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:event="http://purl.org/NET/c4dm/event.owl#" xmlns:time="http://www.w3.org/2006/time#" id="158">
+  <Entity rdf:type="ei2a:EventAgenda" URI="http://opendata.aragon.es/def/ei2a#periodo-legislatura-{ID_LEGISLATURA}">
+    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+    <Property field="{ID_LEGISLATURA}" attribute="dc:identifier" type="string"/>
+    <Property link="ei2a:periodo_legislatura" attribute="dc:type" />
+	 <Property field="{FECHA_INI}" attribute="dc:date" type="date"/>
+    <Property field="{NOMBRE}" attribute="event:literal_factor" type="string"/>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#timeIni-periodo-legislatura-{ID_LEGISLATURA}" attribute="event:time">
+      <Entity rdf:type="time:TemporalEntity" URI="http://opendata.aragon.es/def/ei2a#timeIni-periodo-legislatura-{ID_LEGISLATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#hasBeginning-periodo-legislatura-{ID_LEGISLATURA}" attribute="time:hasBeginning">
+          <Entity rdf:type="time:Instant" URI="http://opendata.aragon.es/def/ei2a#hasBeginning-periodo-legislatura-{ID_LEGISLATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property field="{FECHA_INI}" attribute="time:inXSDDate" type="date"/>
+          </Entity>
+        </Property>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#timeEnd-periodo-legislatura-{ID_LEGISLATURA}" attribute="event:time">
+      <Entity rdf:type="time:TemporalEntity" URI="http://opendata.aragon.es/def/ei2a#timeEnd-periodo-legislatura-{ID_LEGISLATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#hasEnd-periodo-legislatura-{ID_LEGISLATURA}" attribute="time:hasEnd">
+          <Entity rdf:type="time:Instant" URI="http://opendata.aragon.es/def/ei2a#hasEnd-periodo-legislatura-{ID_LEGISLATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property field="{FECHA_FIN}" attribute="time:inXSDDate" type="date"/>
+          </Entity>
+        </Property>
+      </Entity>
+    </Property>
+  </Entity>
+</Mapping>

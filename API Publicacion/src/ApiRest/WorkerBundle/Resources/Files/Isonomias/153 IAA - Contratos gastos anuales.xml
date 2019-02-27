@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#" id="153">
+  <Entity rdf:type="ei2a:Document" URI="http://opendata.aragon.es/def/ei2a#iaa-contrato-gastos-anuales-{CONTRATO}">
+    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+    <Property field="{CONTRATO}" attribute="dc:identifier" type="string"/>
+    <Property link="ei2a:iaa_contratos_gastos_anuales" attribute="dc:type"/>
+    <Property field="{TITULO}" attribute="ei2a:nameDocument" type="string"/>
+    <Property fieldLink="{UrlEntidad}" attribute="wgs84_pos:location"/>
+    <Property field="{TIPO_CONTRATO}" attribute="ei2a:documentType" type="string"/>
+    <Property field="{ANIO}" attribute="ei2a:registrationDate" type="datetime"/>
+    <Property field="{TOTAL}" attribute="ei2a:observations" type="datetime"/>
+  </Entity>
+</Mapping>

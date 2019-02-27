@@ -1,0 +1,17 @@
+BodyClass: fichaComunidad fichaDocuemnto
+PanelCentral:
+  #titulo del panel
+  Titulo: http://opendata.aragon.es/def/ei2a#nameDocument
+  CampoValores:
+    CampoValor1:
+      Tipo: Virtuoso
+      Oculto: False
+      Query: PREFIX ei2a:<http://opendata.aragon.es/def/ei2a#> PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>  PREFIX org:<http://www.w3.org/ns/org#> PREFIX person:<http://www.w3.org/ns/person#> select ?fechaPubli ?fechaApro where { <%s> ei2a:nameDocument ?nombre . optional {<%s> ei2a:registrationDate ?fechaPubli .} optional {<%s> ei2a:startDate ?fechaApro .}}
+      Campo: uri
+      Campos:
+        Campo1:
+          Nombre: Fecha de publicación
+          Valor: fechaPubli
+        Campo2:
+          Nombre: Fecha de aprobación
+          Valor: fechaApro

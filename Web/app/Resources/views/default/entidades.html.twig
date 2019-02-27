@@ -1,0 +1,51 @@
+{% extends 'base.web.html.twig' %}
+{% import 'default/utilidades.html.twig' as utilidades %}
+
+{% block extra_css %}
+{% endblock extra_css %}
+
+{% block main %}
+    <div class="container" role="main">
+        <div class="breadcrumb enlinea">
+            <div class="wrap">
+                <ul>
+					<li class="seccion"><a href="/pool/">INICIO</a></li>
+					<li class="flecha"><span class="material-icons">keyboard_arrow_right</span></li>
+                    <li class="seccion"><a href="{{path('entidades')}}?from=Entidades">Entidades</a></li>
+                    <li class="flecha"><span class="material-icons">keyboard_arrow_right</span></li>
+                    <li class="titulo">Seleccione una Entidad</li>
+                </ul>
+            </div>
+        </div>
+      
+        {% if navegacion.Provincia|length == 0 and navegacion.Comarca|length == 0 and  navegacion.Municipio|length == 0 %}
+            {{ utilidades.navegaoculto("path", "path", path('lugares')) }}
+        {% else %}   
+            {{ utilidades.navegaoculto("path", "path", path('temas')) }}
+        {% endif %}
+        {{ utilidades.campooculto("pro", "pro", navegacion.Provincia) }}
+        {{ utilidades.campooculto("com", "com", navegacion.Comarca) }}
+        {{ utilidades.campooculto("mun", "mun", navegacion.Municipio) }}
+        {{ utilidades.campooculto("tem", "tem", navegacion.Tema) }}
+        {{ utilidades.campooculto("stem", "stem", navegacion.SubTema) }}
+
+        <div class="row row-bloques-min"> 
+            {% for entidad in entidades %}
+                {{ utilidades.pintaentidad(entidad.Type.code, entidad.Type.slug, entidad.Type.nameES, entidad.SubTypeTexto) }}
+            {% endfor %}   
+			<div class="col bloque-min  bloque-pac">
+				<div class="wrap">
+					<div class="imagen"></div>
+					  <div class="titulo"  title='PAC'>
+						<a id="93" href="pac.php"><h3 >PAC</h3></a>
+					</div>
+				</div>
+			</div>
+        </div>
+    </div>
+{% endblock main %}
+
+{% block extra_javascript %}
+   <script type="text/javascript" src="{{ asset('js/aodpool.navegacion.js') }}" ></script>
+{% endblock extra_javascript %}
+

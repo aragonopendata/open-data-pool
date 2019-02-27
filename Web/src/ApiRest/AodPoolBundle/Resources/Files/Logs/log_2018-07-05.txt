@@ -1,0 +1,47 @@
+[2018-07-05 8:51:09.543986] [info] [AodPoolController:getRdfAction] Inicio
+[2018-07-05 8:51:09.544040] [info] [AodPoolController:getRdfAction] Creo un objeto entidad Rdf
+[2018-07-05 8:51:09.544169] [debug] [Acceso:Configura] Llamada a Función
+[2018-07-05 8:51:09.544209] [debug] [Acceso:Configura] Inicializo la clase: http://82.223.53.83:8890/sparql, http://opendata.aragon.es/graph/pool, 1
+[2018-07-05 8:51:09.544238] [debug] [Acceso:DameRdf] http://opendata.aragon.es/def/ei2a#persona-ADOLFO_PUENTE_OLIVEROS_(IND)
+[2018-07-05 8:51:09.544270] [debug] [Acceso:DameRdf] Url validada con exito: http://opendata.aragon.es/def/ei2a#persona-ADOLFO_PUENTE_OLIVEROS_(IND)
+[2018-07-05 8:51:09.544296] [debug] [Acceso:DameRdf] lanzo sparql: prefix dc: <http://purl.org/dc/elements/1.1/> select ?s ?p ?o from <http://opendata.aragon.es/graph/pool> where {<http://opendata.aragon.es/def/ei2a#persona-ADOLFO_PUENTE_OLIVEROS_(IND)> dc:source ?source. ?s ?p ?o. ?s dc:source  ?source}
+[2018-07-05 8:51:09.544321] [debug] [Acceso:LanzaConsulta] Inicio: url:http://82.223.53.83:8890/sparql , query:prefix dc: <http://purl.org/dc/elements/1.1/> select ?s ?p ?o from <http://opendata.aragon.es/graph/pool> where {<http://opendata.aragon.es/def/ei2a#persona-ADOLFO_PUENTE_OLIVEROS_(IND)> dc:source ?source. ?s ?p ?o. ?s dc:source  ?source}
+[2018-07-05 8:51:09.544358] [debug] [Acceso:LanzaConsulta] SPARQL>>>: prefix dc: <http://purl.org/dc/elements/1.1/> select ?s ?p ?o from <http://opendata.aragon.es/graph/pool> where {<http://opendata.aragon.es/def/ei2a#persona-ADOLFO_PUENTE_OLIVEROS_(IND)> dc:source ?source. ?s ?p ?o. ?s dc:source  ?source}
+[2018-07-05 8:51:09.594122] [debug] [Acceso:LanzaConsulta] Se ha realizado la consulta correctamente
+[2018-07-05 8:51:09.594676] [info] [Triples:__construct] Llamada a Función
+[2018-07-05 8:51:09.594808] [debug] [Triples:DameTriples] Entro en función
+[2018-07-05 8:51:09.594906] [debug] [Triples:DameTriples] Parámetro entrada correcto
+[2018-07-05 8:51:09.595005] [debug] [Triples:DameTriples] Recojo header: S:s, V:p, P:o 
+[2018-07-05 8:51:09.595136] [info] [AodPoolController:getRdfAction] Fin proceso rest
+[2018-07-05 8:52:18.967117] [info] [AodPoolController:getRdfAction] Inicio
+[2018-07-05 8:52:18.967175] [info] [AodPoolController:getRdfAction] Creo un objeto entidad Rdf
+[2018-07-05 8:52:18.967288] [debug] [Acceso:Configura] Llamada a Función
+[2018-07-05 8:52:18.967330] [debug] [Acceso:Configura] Inicializo la clase: http://82.223.53.83:8890/sparql, http://opendata.aragon.es/graph/pool, 1
+[2018-07-05 8:52:18.967360] [debug] [Acceso:DameRdf] http%3A%2F%2Fopendata.aragon.es%2Fdef%2Fei2a%23persona-ADOLFO_PUENTE_OLIVEROS_%28IND%29
+[2018-07-05 8:52:18.967391] [error] [Acceso:DameRdf] Url no validada: http%3A%2F%2Fopendata.aragon.es%2Fdef%2Fei2a%23persona-ADOLFO_PUENTE_OLIVEROS_%28IND%29
+[2018-07-05 8:52:18.968023] [error] [AodPoolController:getRdfAction] Url no validada: http%3A%2F%2Fopendata.aragon.es%2Fdef%2Fei2a%23persona-ADOLFO_PUENTE_OLIVEROS_%28IND%29
+[2018-07-05 8:52:18.968063] [info] [AodPoolController:getRdfAction] Fin proceso rest
+[2018-07-05 8:53:22.981838] [info] [AodPoolController:getRdfAction] Inicio
+[2018-07-05 8:53:22.981904] [info] [AodPoolController:getRdfAction] Creo un objeto entidad Rdf
+[2018-07-05 8:53:22.982031] [debug] [Acceso:Configura] Llamada a Función
+[2018-07-05 8:53:22.982076] [debug] [Acceso:Configura] Inicializo la clase: http://82.223.53.83:8890/sparql, http://opendata.aragon.es/graph/pool, 1
+[2018-07-05 8:53:22.982115] [debug] [Acceso:DameRdf] http://opendata.aragon.es%2Fdef%2Fei2a%23persona-ADOLFO_PUENTE_OLIVEROS_%28IND%29
+[2018-07-05 8:53:22.982151] [error] [Acceso:DameRdf] Url no validada: http://opendata.aragon.es%2Fdef%2Fei2a%23persona-ADOLFO_PUENTE_OLIVEROS_%28IND%29
+[2018-07-05 8:53:22.982330] [error] [AodPoolController:getRdfAction] Url no validada: http://opendata.aragon.es%2Fdef%2Fei2a%23persona-ADOLFO_PUENTE_OLIVEROS_%28IND%29
+[2018-07-05 8:53:22.982367] [info] [AodPoolController:getRdfAction] Fin proceso rest
+[2018-07-05 8:54:09.171066] [info] [AodPoolController:getRdfAction] Inicio
+[2018-07-05 8:54:09.171129] [info] [AodPoolController:getRdfAction] Creo un objeto entidad Rdf
+[2018-07-05 8:54:09.171241] [debug] [Acceso:Configura] Llamada a Función
+[2018-07-05 8:54:09.171278] [debug] [Acceso:Configura] Inicializo la clase: http://82.223.53.83:8890/sparql, http://opendata.aragon.es/graph/pool, 1
+[2018-07-05 8:54:09.171304] [debug] [Acceso:DameRdf] http://opendata.aragon.es/def/ei2a#persona-ADOLFO_PUENTE_OLIVEROS_(IND)
+[2018-07-05 8:54:09.171334] [debug] [Acceso:DameRdf] Url validada con exito: http://opendata.aragon.es/def/ei2a#persona-ADOLFO_PUENTE_OLIVEROS_(IND)
+[2018-07-05 8:54:09.171359] [debug] [Acceso:DameRdf] lanzo sparql: prefix dc: <http://purl.org/dc/elements/1.1/> select ?s ?p ?o from <http://opendata.aragon.es/graph/pool> where {<http://opendata.aragon.es/def/ei2a#persona-ADOLFO_PUENTE_OLIVEROS_(IND)> dc:source ?source. ?s ?p ?o. ?s dc:source  ?source}
+[2018-07-05 8:54:09.171386] [debug] [Acceso:LanzaConsulta] Inicio: url:http://82.223.53.83:8890/sparql , query:prefix dc: <http://purl.org/dc/elements/1.1/> select ?s ?p ?o from <http://opendata.aragon.es/graph/pool> where {<http://opendata.aragon.es/def/ei2a#persona-ADOLFO_PUENTE_OLIVEROS_(IND)> dc:source ?source. ?s ?p ?o. ?s dc:source  ?source}
+[2018-07-05 8:54:09.171420] [debug] [Acceso:LanzaConsulta] SPARQL>>>: prefix dc: <http://purl.org/dc/elements/1.1/> select ?s ?p ?o from <http://opendata.aragon.es/graph/pool> where {<http://opendata.aragon.es/def/ei2a#persona-ADOLFO_PUENTE_OLIVEROS_(IND)> dc:source ?source. ?s ?p ?o. ?s dc:source  ?source}
+[2018-07-05 8:54:09.219881] [debug] [Acceso:LanzaConsulta] Se ha realizado la consulta correctamente
+[2018-07-05 8:54:09.220217] [info] [Triples:__construct] Llamada a Función
+[2018-07-05 8:54:09.220299] [debug] [Triples:DameTriples] Entro en función
+[2018-07-05 8:54:09.220369] [debug] [Triples:DameTriples] Parámetro entrada correcto
+[2018-07-05 8:54:09.220436] [debug] [Triples:DameTriples] Recojo header: S:s, V:p, P:o 
+[2018-07-05 8:54:09.220532] [info] [AodPoolController:getRdfAction] Fin proceso rest
+[2018-07-05 8:54:18.433206] [info] [AodPoolController:getTopicsAction] llamada a Función

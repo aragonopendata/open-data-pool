@@ -1,0 +1,438 @@
+[2018-06-13 11:23:30.040462] [info] [AodPoolController:postRdfConfiguracionAction] llamada a Función
+[2018-06-13 11:23:30.040518] [debug] [AodPoolController:postRdfConfiguracionAction] Creo un objeto rdf
+[2018-06-13 11:23:30.040582] [debug] [AodPoolController:postRdfConfiguracionAction] Creo el formulario de validación
+[2018-06-13 11:23:30.094408] [debug] [AodPoolController:postRdfConfiguracionAction] Recojo el archivo YML
+[2018-06-13 11:25:16.952119] [info] [AodPoolController:postRdfConfiguracionAction] llamada a Función
+[2018-06-13 11:25:16.952203] [debug] [AodPoolController:postRdfConfiguracionAction] Creo un objeto rdf
+[2018-06-13 11:25:16.952301] [debug] [AodPoolController:postRdfConfiguracionAction] Creo el formulario de validación
+[2018-06-13 11:25:16.973532] [debug] [AodPoolController:postRdfConfiguracionAction] Recojo el archivo YML
+[2018-06-13 11:25:18.981055] [info] [AodPoolController:postRdfConfiguracionAction] llamada a Función
+[2018-06-13 11:25:18.981115] [debug] [AodPoolController:postRdfConfiguracionAction] Creo un objeto rdf
+[2018-06-13 11:25:18.981174] [debug] [AodPoolController:postRdfConfiguracionAction] Creo el formulario de validación
+[2018-06-13 11:25:19.001204] [debug] [AodPoolController:postRdfConfiguracionAction] Recojo el archivo YML
+[2018-06-13 11:26:24.957370] [info] [AodPoolController:postRdfConfiguracionAction] llamada a Función
+[2018-06-13 11:26:24.957427] [debug] [AodPoolController:postRdfConfiguracionAction] Creo un objeto rdf
+[2018-06-13 11:26:24.957489] [debug] [AodPoolController:postRdfConfiguracionAction] Creo el formulario de validación
+[2018-06-13 11:26:24.978009] [debug] [AodPoolController:postRdfConfiguracionAction] Recojo el archivo YML
+[2018-06-13 11:27:19.590904] [info] [AodPoolController:postRdfConfiguracionAction] llamada a Función
+[2018-06-13 11:27:19.933489] [debug] [AodPoolController:postRdfConfiguracionAction] Creo un objeto rdf
+[2018-06-13 11:27:20.536711] [debug] [AodPoolController:postRdfConfiguracionAction] Creo el formulario de validación
+[2018-06-13 11:27:29.578413] [debug] [AodPoolController:postRdfConfiguracionAction] Recojo el archivo YML
+[2018-06-13 11:30:34.568564] [info] [AodPoolController:postRdfConfiguracionAction] llamada a Función
+[2018-06-13 11:30:34.568622] [debug] [AodPoolController:postRdfConfiguracionAction] Creo un objeto rdf
+[2018-06-13 11:30:34.568681] [debug] [AodPoolController:postRdfConfiguracionAction] Creo el formulario de validación
+[2018-06-13 11:30:34.588705] [error] [AodPoolController:postRdfConfiguracionAction] El fichero fue sólo parcialmente subido.
+[2018-06-13 11:30:34.589396] [error] [AodPoolController:postRdfConfiguracionAction] Fin proceso rest
+[2018-06-13 11:30:46.606296] [info] [AodPoolController:postRdfConfiguracionAction] llamada a Función
+[2018-06-13 11:30:46.606360] [debug] [AodPoolController:postRdfConfiguracionAction] Creo un objeto rdf
+[2018-06-13 11:30:46.606440] [debug] [AodPoolController:postRdfConfiguracionAction] Creo el formulario de validación
+[2018-06-13 11:30:46.627105] [error] [AodPoolController:postRdfConfiguracionAction] El fichero fue sólo parcialmente subido.
+[2018-06-13 11:30:46.627288] [error] [AodPoolController:postRdfConfiguracionAction] Fin proceso rest
+[2018-06-13 11:30:58.239590] [debug] [AodPoolController:getRdfConfiguracionActiones] llamada a Función
+[2018-06-13 11:31:09.928950] [info] [AodPoolController:postRdfConfiguracionAction] llamada a Función
+[2018-06-13 11:31:09.929008] [debug] [AodPoolController:postRdfConfiguracionAction] Creo un objeto rdf
+[2018-06-13 11:31:09.929078] [debug] [AodPoolController:postRdfConfiguracionAction] Creo el formulario de validación
+[2018-06-13 11:31:09.949028] [debug] [AodPoolController:postRdfConfiguracionAction] Recojo el archivo YML
+[2018-06-13 11:31:54.478566] [info] [AodPoolController:postRdfConfiguracionAction] llamada a Función
+[2018-06-13 11:31:54.779778] [debug] [AodPoolController:postRdfConfiguracionAction] Creo un objeto rdf
+[2018-06-13 11:31:55.289869] [debug] [AodPoolController:postRdfConfiguracionAction] Creo el formulario de validación
+[2018-06-13 11:32:00.641999] [debug] [AodPoolController:postRdfConfiguracionAction] Recojo el archivo YML
+[2018-06-13 11:34:23.578530] [info] [AodPoolController:postRdfConfiguracionAction] llamada a Función
+[2018-06-13 11:34:23.578659] [debug] [AodPoolController:postRdfConfiguracionAction] Creo un objeto rdf
+[2018-06-13 11:34:23.578805] [debug] [AodPoolController:postRdfConfiguracionAction] Creo el formulario de validación
+[2018-06-13 11:34:23.623107] [debug] [AodPoolController:postRdfConfiguracionAction] Recojo el archivo YML
+[2018-06-13 11:35:31.414284] [debug] [AodPoolController:getRdfConfiguracionActiones] llamada a Función
+[2018-06-13 11:35:34.145004] [info] [AodPoolController:postRdfConfiguracionAction] llamada a Función
+[2018-06-13 11:35:34.145056] [debug] [AodPoolController:postRdfConfiguracionAction] Creo un objeto rdf
+[2018-06-13 11:35:34.145109] [debug] [AodPoolController:postRdfConfiguracionAction] Creo el formulario de validación
+[2018-06-13 11:35:34.165098] [debug] [AodPoolController:postRdfConfiguracionAction] Recojo el archivo YML
+[2018-06-13 11:35:34.188566] [info] [AodPoolController:postRdfConfiguracionAction] Archivo yml de configuracion rdfType guardado con éxito en Base de datos
+[2018-06-13 11:35:34.188626] [info] [AodPoolController:postRdfConfiguracionAction] Fin proceso rest
+[2018-06-13 11:38:49.177254] [info] [AodPoolController:postRdfConfiguracionAction] llamada a Función
+[2018-06-13 11:38:49.177323] [debug] [AodPoolController:postRdfConfiguracionAction] Creo un objeto rdf
+[2018-06-13 11:38:49.177407] [debug] [AodPoolController:postRdfConfiguracionAction] Creo el formulario de validación
+[2018-06-13 11:38:49.220278] [debug] [AodPoolController:postRdfConfiguracionAction] Recojo el archivo YML
+[2018-06-13 11:39:41.259044] [info] [AodPoolController:postRdfConfiguracionAction] llamada a Función
+[2018-06-13 11:39:41.259099] [debug] [AodPoolController:postRdfConfiguracionAction] Creo un objeto rdf
+[2018-06-13 11:39:41.259166] [debug] [AodPoolController:postRdfConfiguracionAction] Creo el formulario de validación
+[2018-06-13 11:39:41.300318] [debug] [AodPoolController:postRdfConfiguracionAction] Recojo el archivo YML
+[2018-06-13 11:39:56.489994] [info] [AodPoolController:postRdfConfiguracionAction] llamada a Función
+[2018-06-13 11:39:56.490297] [debug] [AodPoolController:postRdfConfiguracionAction] Creo un objeto rdf
+[2018-06-13 11:39:56.490744] [debug] [AodPoolController:postRdfConfiguracionAction] Creo el formulario de validación
+[2018-06-13 11:39:56.558027] [debug] [AodPoolController:postRdfConfiguracionAction] Recojo el archivo YML
+[2018-06-13 11:43:10.611301] [info] [AodPoolController:postRdfConfiguracionAction] llamada a Función
+[2018-06-13 11:43:10.611351] [debug] [AodPoolController:postRdfConfiguracionAction] Creo un objeto rdf
+[2018-06-13 11:43:10.611402] [debug] [AodPoolController:postRdfConfiguracionAction] Creo el formulario de validación
+[2018-06-13 11:43:10.651417] [debug] [AodPoolController:postRdfConfiguracionAction] Recojo el archivo YML
+[2018-06-13 11:43:10.653696] [error] [AodPoolController:postRdfConfiguracionAction] Caught exception: Unable to parse at line 11 (near "  Campo1:").
+[2018-06-13 11:43:10.653822] [error] [AodPoolController:postRdfConfiguracionAction] Fin proceso rest
+[2018-06-13 11:58:08.292326] [info] [AodPoolController:getRdfAction] Inicio
+[2018-06-13 11:58:08.292383] [info] [AodPoolController:getRdfAction] Creo un objeto entidad Rdf
+[2018-06-13 11:58:08.292488] [debug] [Acceso:Configura] Llamada a Función
+[2018-06-13 11:58:08.292526] [debug] [Acceso:Configura] Inicializo la clase: http://82.223.53.83:8890/sparql, http://opendata.aragon.es/graph/pool, 1
+[2018-06-13 11:58:08.292557] [debug] [Acceso:DameRdf] https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 11:58:08.292586] [debug] [Acceso:DameRdf] Url validada con exito: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 11:58:08.292612] [debug] [Acceso:DameRdf] lanzo sparql: prefix dc: <http://purl.org/dc/elements/1.1/> select ?s ?p ?o from <http://opendata.aragon.es/graph/pool> where {<https://opendata.aragon.es/pool/ordenanza-general-municipio/58570> dc:source ?source. ?s ?p ?o. ?s dc:source  ?source}
+[2018-06-13 11:58:08.292644] [debug] [Acceso:LanzaConsulta] Inicio: url:http://82.223.53.83:8890/sparql , query:prefix dc: <http://purl.org/dc/elements/1.1/> select ?s ?p ?o from <http://opendata.aragon.es/graph/pool> where {<https://opendata.aragon.es/pool/ordenanza-general-municipio/58570> dc:source ?source. ?s ?p ?o. ?s dc:source  ?source}
+[2018-06-13 11:58:08.292680] [debug] [Acceso:LanzaConsulta] SPARQL>>>: prefix dc: <http://purl.org/dc/elements/1.1/> select ?s ?p ?o from <http://opendata.aragon.es/graph/pool> where {<https://opendata.aragon.es/pool/ordenanza-general-municipio/58570> dc:source ?source. ?s ?p ?o. ?s dc:source  ?source}
+[2018-06-13 11:58:08.340087] [debug] [Acceso:LanzaConsulta] Se ha realizado la consulta correctamente
+[2018-06-13 11:58:08.340666] [info] [Triples:__construct] Llamada a Función
+[2018-06-13 11:58:08.340795] [debug] [Triples:DameTriples] Entro en función
+[2018-06-13 11:58:08.340919] [debug] [Triples:DameTriples] Parámetro entrada correcto
+[2018-06-13 11:58:08.341031] [debug] [Triples:DameTriples] Recojo header: S:s, V:p, P:o 
+[2018-06-13 11:58:08.341128] [debug] [Triples:DameTriples] Proceso Linea: "https://opendata.aragon.es/pool/ordenanza-general-municipio/58570","http://www.w3.org/1999/02/22-rdf-syntax-ns#type","http://opendata.aragon.es/def/ei2a#Document"
+[2018-06-13 11:58:08.341234] [debug] [Triples:DameTripe] Proceso Sujeto: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 11:58:08.341329] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+[2018-06-13 11:58:08.341418] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/def/ei2a#Document
+[2018-06-13 11:58:08.341517] [debug] [Triples:DameTriples] Proceso Linea: "https://opendata.aragon.es/pool/ordenanza-general-municipio/58570","http://purl.org/dc/elements/1.1/type","ordenanza_general_municipio"
+[2018-06-13 11:58:08.341619] [debug] [Triples:DameTripe] Proceso Sujeto: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 11:58:08.341710] [debug] [Triples:DameTripe] Proceso Verbo: http://purl.org/dc/elements/1.1/type
+[2018-06-13 11:58:08.341798] [debug] [Triples:DameTripe] Proceso Predicado: ordenanza_general_municipio
+[2018-06-13 11:58:08.341895] [debug] [Triples:DameTriples] Proceso Linea: "https://opendata.aragon.es/pool/ordenanza-general-municipio/58570","http://purl.org/dc/elements/1.1/identifier","58570"
+[2018-06-13 11:58:08.341993] [debug] [Triples:DameTripe] Proceso Sujeto: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 11:58:08.342082] [debug] [Triples:DameTripe] Proceso Verbo: http://purl.org/dc/elements/1.1/identifier
+[2018-06-13 11:58:08.342173] [debug] [Triples:DameTripe] Proceso Predicado: 58570
+[2018-06-13 11:58:08.342267] [debug] [Triples:DameTriples] Proceso Linea: "https://opendata.aragon.es/pool/ordenanza-general-municipio/58570","http://www.w3.org/2003/01/geo/wgs84_pos#location","https://opendata.aragon.es/pool/municipio/22001"
+[2018-06-13 11:58:08.342366] [debug] [Triples:DameTripe] Proceso Sujeto: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 11:58:08.342458] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/2003/01/geo/wgs84_pos#location
+[2018-06-13 11:58:08.342546] [debug] [Triples:DameTripe] Proceso Predicado: https://opendata.aragon.es/pool/municipio/22001
+[2018-06-13 11:58:08.342674] [debug] [Triples:DameTriples] Proceso Linea: "https://opendata.aragon.es/pool/ordenanza-general-municipio/58570","http://purl.org/dc/elements/1.1/source","https://opendata.aragon.es/GA_OD_Core/preview?view_id=5&filter_sql=ORDYREG_ID='58570'&_pageSize=1&_page=1"
+[2018-06-13 11:58:08.342782] [debug] [Triples:DameTripe] Proceso Sujeto: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 11:58:08.342875] [debug] [Triples:DameTripe] Proceso Verbo: http://purl.org/dc/elements/1.1/source
+[2018-06-13 11:58:08.342988] [debug] [Triples:DameTripe] Proceso Predicado: https://opendata.aragon.es/GA_OD_Core/preview?view_id=5&filter_sql=ORDYREG_ID='58570'&_pageSize=1&_page=1
+[2018-06-13 11:58:08.343085] [debug] [Triples:DameTriples] Proceso Linea: "https://opendata.aragon.es/pool/ordenanza-general-municipio/58570","http://opendata.aragon.es/def/ei2a#nameDocument","DE ADMINISTRACION ELECTRONICA"
+[2018-06-13 11:58:08.343183] [debug] [Triples:DameTripe] Proceso Sujeto: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 11:58:08.343272] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#nameDocument
+[2018-06-13 11:58:08.343360] [debug] [Triples:DameTripe] Proceso Predicado: DE ADMINISTRACION ELECTRONICA
+[2018-06-13 11:58:08.343455] [debug] [Triples:DameTriples] Proceso Linea: "https://opendata.aragon.es/pool/ordenanza-general-municipio/58570","http://opendata.aragon.es/def/ei2a#registrationDate","15-12-2014"
+[2018-06-13 11:58:08.343552] [debug] [Triples:DameTripe] Proceso Sujeto: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 11:58:08.343641] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#registrationDate
+[2018-06-13 11:58:08.343730] [debug] [Triples:DameTripe] Proceso Predicado: 15-12-2014
+[2018-06-13 11:58:08.343827] [debug] [Triples:DameTriples] Proceso Linea: "https://opendata.aragon.es/pool/ordenanza-general-municipio/58570","http://opendata.aragon.es/def/ei2a#startDate","10-12-2014"
+[2018-06-13 11:58:08.343925] [debug] [Triples:DameTripe] Proceso Sujeto: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 11:58:08.344014] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#startDate
+[2018-06-13 11:58:08.344101] [debug] [Triples:DameTripe] Proceso Predicado: 10-12-2014
+[2018-06-13 11:58:08.344197] [debug] [Triples:DameTriples] Proceso Linea: "https://opendata.aragon.es/pool/ordenanza-general-municipio/58570","http://opendata.aragon.es/def/ei2a#documentType","REGLAMENTO"
+[2018-06-13 11:58:08.344295] [debug] [Triples:DameTripe] Proceso Sujeto: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 11:58:08.344386] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#documentType
+[2018-06-13 11:58:08.344474] [debug] [Triples:DameTripe] Proceso Predicado: REGLAMENTO
+[2018-06-13 11:58:08.344568] [debug] [Triples:DameTriples] Proceso Linea: "https://opendata.aragon.es/pool/ordenanza-general-municipio/58570","http://opendata.aragon.es/def/ei2a#isOfInterestTo","https://opendata.aragon.es/pool/municipio/22001"
+[2018-06-13 11:58:08.344667] [debug] [Triples:DameTripe] Proceso Sujeto: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 11:58:08.344758] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#isOfInterestTo
+[2018-06-13 11:58:08.344846] [debug] [Triples:DameTripe] Proceso Predicado: https://opendata.aragon.es/pool/municipio/22001
+[2018-06-13 11:58:08.344996] [info] [AodPoolController:getRdfAction] Fin proceso rest
+[2018-06-13 13:59:35.631596] [info] [AodPoolController:getRdfAction] Inicio
+[2018-06-13 13:59:35.631658] [info] [AodPoolController:getRdfAction] Creo un objeto entidad Rdf
+[2018-06-13 13:59:35.631772] [debug] [Acceso:Configura] Llamada a Función
+[2018-06-13 13:59:35.631815] [debug] [Acceso:Configura] Inicializo la clase: http://82.223.53.83:8890/sparql, http://opendata.aragon.es/graph/pool, 1
+[2018-06-13 13:59:35.631850] [debug] [Acceso:DameRdf] https://opendata.aragon.es/pool/municipio/22001
+[2018-06-13 13:59:35.631882] [debug] [Acceso:DameRdf] Url validada con exito: https://opendata.aragon.es/pool/municipio/22001
+[2018-06-13 13:59:35.631911] [debug] [Acceso:DameRdf] lanzo sparql: prefix dc: <http://purl.org/dc/elements/1.1/> select ?s ?p ?o from <http://opendata.aragon.es/graph/pool> where {<https://opendata.aragon.es/pool/municipio/22001> dc:source ?source. ?s ?p ?o. ?s dc:source  ?source}
+[2018-06-13 13:59:35.631939] [debug] [Acceso:LanzaConsulta] Inicio: url:http://82.223.53.83:8890/sparql , query:prefix dc: <http://purl.org/dc/elements/1.1/> select ?s ?p ?o from <http://opendata.aragon.es/graph/pool> where {<https://opendata.aragon.es/pool/municipio/22001> dc:source ?source. ?s ?p ?o. ?s dc:source  ?source}
+[2018-06-13 13:59:35.631989] [debug] [Acceso:LanzaConsulta] SPARQL>>>: prefix dc: <http://purl.org/dc/elements/1.1/> select ?s ?p ?o from <http://opendata.aragon.es/graph/pool> where {<https://opendata.aragon.es/pool/municipio/22001> dc:source ?source. ?s ?p ?o. ?s dc:source  ?source}
+[2018-06-13 13:59:35.685532] [debug] [Acceso:LanzaConsulta] Se ha realizado la consulta correctamente
+[2018-06-13 13:59:35.686048] [info] [Triples:__construct] Llamada a Función
+[2018-06-13 13:59:35.686187] [debug] [Triples:DameTriples] Entro en función
+[2018-06-13 13:59:35.686304] [debug] [Triples:DameTriples] Parámetro entrada correcto
+[2018-06-13 13:59:35.686424] [debug] [Triples:DameTriples] Recojo header: S:s, V:p, P:o 
+[2018-06-13 13:59:35.686589] [info] [AodPoolController:getRdfAction] Fin proceso rest
+[2018-06-13 14:39:20.732686] [info] [AodPoolController:getRdfAction] Inicio
+[2018-06-13 14:39:20.732749] [info] [AodPoolController:getRdfAction] Creo un objeto entidad Rdf
+[2018-06-13 14:39:20.732870] [debug] [Acceso:Configura] Llamada a Función
+[2018-06-13 14:39:20.732913] [debug] [Acceso:Configura] Inicializo la clase: http://82.223.53.83:8890/sparql, http://opendata.aragon.es/graph/pool, 1
+[2018-06-13 14:39:20.732947] [debug] [Acceso:DameRdf] https://opendata.aragon.es/pool/municipio/22001
+[2018-06-13 14:39:20.732979] [debug] [Acceso:DameRdf] Url validada con exito: https://opendata.aragon.es/pool/municipio/22001
+[2018-06-13 14:39:20.733009] [debug] [Acceso:DameRdf] lanzo sparql: prefix dc: <http://purl.org/dc/elements/1.1/> select ?s ?p ?o from <http://opendata.aragon.es/graph/pool> where {<https://opendata.aragon.es/pool/municipio/22001> dc:source ?source. ?s ?p ?o. ?s dc:source  ?source}
+[2018-06-13 14:39:20.733037] [debug] [Acceso:LanzaConsulta] Inicio: url:http://82.223.53.83:8890/sparql , query:prefix dc: <http://purl.org/dc/elements/1.1/> select ?s ?p ?o from <http://opendata.aragon.es/graph/pool> where {<https://opendata.aragon.es/pool/municipio/22001> dc:source ?source. ?s ?p ?o. ?s dc:source  ?source}
+[2018-06-13 14:39:20.733077] [debug] [Acceso:LanzaConsulta] SPARQL>>>: prefix dc: <http://purl.org/dc/elements/1.1/> select ?s ?p ?o from <http://opendata.aragon.es/graph/pool> where {<https://opendata.aragon.es/pool/municipio/22001> dc:source ?source. ?s ?p ?o. ?s dc:source  ?source}
+[2018-06-13 14:39:20.788042] [debug] [Acceso:LanzaConsulta] Se ha realizado la consulta correctamente
+[2018-06-13 14:39:20.788671] [info] [Triples:__construct] Llamada a Función
+[2018-06-13 14:39:20.788814] [debug] [Triples:DameTriples] Entro en función
+[2018-06-13 14:39:20.788913] [debug] [Triples:DameTriples] Parámetro entrada correcto
+[2018-06-13 14:39:20.789011] [debug] [Triples:DameTriples] Recojo header: S:s, V:p, P:o 
+[2018-06-13 14:39:20.789149] [info] [AodPoolController:getRdfAction] Fin proceso rest
+[2018-06-13 14:39:46.163017] [debug] [AodPoolController:getRdfConfiguracionActiones] llamada a Función
+[2018-06-13 14:40:16.769562] [info] [AodPoolController:getRdfConfiguracionAction] llamada a Función
+[2018-06-13 14:40:26.866739] [debug] [AodPoolController:getRdfConfiguracionActiones] llamada a Función
+[2018-06-13 14:41:20.753473] [info] [AodPoolController:postRdfConfiguracionAction] llamada a Función
+[2018-06-13 14:41:20.753534] [debug] [AodPoolController:postRdfConfiguracionAction] Creo un objeto rdf
+[2018-06-13 14:41:20.753607] [debug] [AodPoolController:postRdfConfiguracionAction] Creo el formulario de validación
+[2018-06-13 14:41:20.774169] [debug] [AodPoolController:postRdfConfiguracionAction] Recojo el archivo YML
+[2018-06-13 14:41:20.789530] [info] [AodPoolController:postRdfConfiguracionAction] Archivo yml de configuracion rdfType guardado con éxito en Base de datos
+[2018-06-13 14:41:20.789604] [info] [AodPoolController:postRdfConfiguracionAction] Fin proceso rest
+[2018-06-13 15:32:43.592714] [info] [AodPoolController:getRdfAction] Inicio
+[2018-06-13 15:32:43.592773] [info] [AodPoolController:getRdfAction] Creo un objeto entidad Rdf
+[2018-06-13 15:32:43.592881] [debug] [Acceso:Configura] Llamada a Función
+[2018-06-13 15:32:43.592921] [debug] [Acceso:Configura] Inicializo la clase: http://82.223.53.83:8890/sparql, http://opendata.aragon.es/graph/pool, 1
+[2018-06-13 15:32:43.592951] [debug] [Acceso:DameRdf] https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 15:32:43.592979] [debug] [Acceso:DameRdf] Url validada con exito: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 15:32:43.593005] [debug] [Acceso:DameRdf] lanzo sparql: prefix dc: <http://purl.org/dc/elements/1.1/> select ?s ?p ?o from <http://opendata.aragon.es/graph/pool> where {<https://opendata.aragon.es/pool/ordenanza-general-municipio/58570> dc:source ?source. ?s ?p ?o. ?s dc:source  ?source}
+[2018-06-13 15:32:43.593030] [debug] [Acceso:LanzaConsulta] Inicio: url:http://82.223.53.83:8890/sparql , query:prefix dc: <http://purl.org/dc/elements/1.1/> select ?s ?p ?o from <http://opendata.aragon.es/graph/pool> where {<https://opendata.aragon.es/pool/ordenanza-general-municipio/58570> dc:source ?source. ?s ?p ?o. ?s dc:source  ?source}
+[2018-06-13 15:32:43.593065] [debug] [Acceso:LanzaConsulta] SPARQL>>>: prefix dc: <http://purl.org/dc/elements/1.1/> select ?s ?p ?o from <http://opendata.aragon.es/graph/pool> where {<https://opendata.aragon.es/pool/ordenanza-general-municipio/58570> dc:source ?source. ?s ?p ?o. ?s dc:source  ?source}
+[2018-06-13 15:32:43.645078] [debug] [Acceso:LanzaConsulta] Se ha realizado la consulta correctamente
+[2018-06-13 15:32:43.645555] [info] [Triples:__construct] Llamada a Función
+[2018-06-13 15:32:43.645684] [debug] [Triples:DameTriples] Entro en función
+[2018-06-13 15:32:43.645785] [debug] [Triples:DameTriples] Parámetro entrada correcto
+[2018-06-13 15:32:43.645874] [debug] [Triples:DameTriples] Recojo header: S:s, V:p, P:o 
+[2018-06-13 15:32:43.645951] [debug] [Triples:DameTriples] Proceso Linea: "https://opendata.aragon.es/pool/ordenanza-general-municipio/58570","http://www.w3.org/1999/02/22-rdf-syntax-ns#type","http://opendata.aragon.es/def/ei2a#Document"
+[2018-06-13 15:32:43.646090] [debug] [Triples:DameTripe] Proceso Sujeto: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 15:32:43.646167] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+[2018-06-13 15:32:43.646239] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/def/ei2a#Document
+[2018-06-13 15:32:43.646318] [debug] [Triples:DameTriples] Proceso Linea: "https://opendata.aragon.es/pool/ordenanza-general-municipio/58570","http://purl.org/dc/elements/1.1/type","ordenanza_general_municipio"
+[2018-06-13 15:32:43.646399] [debug] [Triples:DameTripe] Proceso Sujeto: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 15:32:43.646471] [debug] [Triples:DameTripe] Proceso Verbo: http://purl.org/dc/elements/1.1/type
+[2018-06-13 15:32:43.646542] [debug] [Triples:DameTripe] Proceso Predicado: ordenanza_general_municipio
+[2018-06-13 15:32:43.646619] [debug] [Triples:DameTriples] Proceso Linea: "https://opendata.aragon.es/pool/ordenanza-general-municipio/58570","http://purl.org/dc/elements/1.1/identifier","58570"
+[2018-06-13 15:32:43.646699] [debug] [Triples:DameTripe] Proceso Sujeto: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 15:32:43.646770] [debug] [Triples:DameTripe] Proceso Verbo: http://purl.org/dc/elements/1.1/identifier
+[2018-06-13 15:32:43.646840] [debug] [Triples:DameTripe] Proceso Predicado: 58570
+[2018-06-13 15:32:43.646914] [debug] [Triples:DameTriples] Proceso Linea: "https://opendata.aragon.es/pool/ordenanza-general-municipio/58570","http://www.w3.org/2003/01/geo/wgs84_pos#location","https://opendata.aragon.es/pool/municipio/22001"
+[2018-06-13 15:32:43.646994] [debug] [Triples:DameTripe] Proceso Sujeto: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 15:32:43.647088] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/2003/01/geo/wgs84_pos#location
+[2018-06-13 15:32:43.647159] [debug] [Triples:DameTripe] Proceso Predicado: https://opendata.aragon.es/pool/municipio/22001
+[2018-06-13 15:32:43.647234] [debug] [Triples:DameTriples] Proceso Linea: "https://opendata.aragon.es/pool/ordenanza-general-municipio/58570","http://purl.org/dc/elements/1.1/source","https://opendata.aragon.es/GA_OD_Core/preview?view_id=5&filter_sql=ORDYREG_ID='58570'&_pageSize=1&_page=1"
+[2018-06-13 15:32:43.647313] [debug] [Triples:DameTripe] Proceso Sujeto: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 15:32:43.647382] [debug] [Triples:DameTripe] Proceso Verbo: http://purl.org/dc/elements/1.1/source
+[2018-06-13 15:32:43.647474] [debug] [Triples:DameTripe] Proceso Predicado: https://opendata.aragon.es/GA_OD_Core/preview?view_id=5&filter_sql=ORDYREG_ID='58570'&_pageSize=1&_page=1
+[2018-06-13 15:32:43.647556] [debug] [Triples:DameTriples] Proceso Linea: "https://opendata.aragon.es/pool/ordenanza-general-municipio/58570","http://opendata.aragon.es/def/ei2a#nameDocument","DE ADMINISTRACION ELECTRONICA"
+[2018-06-13 15:32:43.647641] [debug] [Triples:DameTripe] Proceso Sujeto: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 15:32:43.647721] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#nameDocument
+[2018-06-13 15:32:43.647798] [debug] [Triples:DameTripe] Proceso Predicado: DE ADMINISTRACION ELECTRONICA
+[2018-06-13 15:32:43.647880] [debug] [Triples:DameTriples] Proceso Linea: "https://opendata.aragon.es/pool/ordenanza-general-municipio/58570","http://opendata.aragon.es/def/ei2a#registrationDate","15-12-2014"
+[2018-06-13 15:32:43.647964] [debug] [Triples:DameTripe] Proceso Sujeto: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 15:32:43.648056] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#registrationDate
+[2018-06-13 15:32:43.648156] [debug] [Triples:DameTripe] Proceso Predicado: 15-12-2014
+[2018-06-13 15:32:43.648241] [debug] [Triples:DameTriples] Proceso Linea: "https://opendata.aragon.es/pool/ordenanza-general-municipio/58570","http://opendata.aragon.es/def/ei2a#startDate","10-12-2014"
+[2018-06-13 15:32:43.648327] [debug] [Triples:DameTripe] Proceso Sujeto: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 15:32:43.648405] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#startDate
+[2018-06-13 15:32:43.648480] [debug] [Triples:DameTripe] Proceso Predicado: 10-12-2014
+[2018-06-13 15:32:43.648561] [debug] [Triples:DameTriples] Proceso Linea: "https://opendata.aragon.es/pool/ordenanza-general-municipio/58570","http://opendata.aragon.es/def/ei2a#documentType","REGLAMENTO"
+[2018-06-13 15:32:43.648646] [debug] [Triples:DameTripe] Proceso Sujeto: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 15:32:43.648722] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#documentType
+[2018-06-13 15:32:43.648798] [debug] [Triples:DameTripe] Proceso Predicado: REGLAMENTO
+[2018-06-13 15:32:43.648881] [debug] [Triples:DameTriples] Proceso Linea: "https://opendata.aragon.es/pool/ordenanza-general-municipio/58570","http://opendata.aragon.es/def/ei2a#isOfInterestTo","https://opendata.aragon.es/pool/municipio/22001"
+[2018-06-13 15:32:43.648968] [debug] [Triples:DameTripe] Proceso Sujeto: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 15:32:43.649045] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#isOfInterestTo
+[2018-06-13 15:32:43.649122] [debug] [Triples:DameTripe] Proceso Predicado: https://opendata.aragon.es/pool/municipio/22001
+[2018-06-13 15:32:43.649260] [info] [AodPoolController:getRdfAction] Fin proceso rest
+[2018-06-13 15:48:38.870547] [info] [AodPoolController:getRdfConfiguracionAction] llamada a Función
+[2018-06-13 15:48:50.230724] [info] [AodPoolController:postRdfConfiguracionAction] llamada a Función
+[2018-06-13 15:48:50.230802] [debug] [AodPoolController:postRdfConfiguracionAction] Creo un objeto rdf
+[2018-06-13 15:48:50.231076] [debug] [AodPoolController:postRdfConfiguracionAction] Creo el formulario de validación
+[2018-06-13 15:48:50.303239] [debug] [AodPoolController:postRdfConfiguracionAction] Recojo el archivo YML
+[2018-06-13 15:48:50.322475] [info] [AodPoolController:postRdfConfiguracionAction] Archivo yml de configuracion rdfType guardado con éxito en Base de datos
+[2018-06-13 15:48:50.322526] [info] [AodPoolController:postRdfConfiguracionAction] Fin proceso rest
+[2018-06-13 15:51:23.157325] [info] [AodPoolController:getRdfConfiguracionAction] llamada a Función
+[2018-06-13 15:51:32.750047] [info] [AodPoolController:postRdfConfiguracionAction] llamada a Función
+[2018-06-13 15:51:32.750102] [debug] [AodPoolController:postRdfConfiguracionAction] Creo un objeto rdf
+[2018-06-13 15:51:32.750159] [debug] [AodPoolController:postRdfConfiguracionAction] Creo el formulario de validación
+[2018-06-13 15:51:32.792558] [debug] [AodPoolController:postRdfConfiguracionAction] Recojo el archivo YML
+[2018-06-13 15:51:32.809401] [info] [AodPoolController:postRdfConfiguracionAction] Archivo yml de configuracion rdfType guardado con éxito en Base de datos
+[2018-06-13 15:51:32.809453] [info] [AodPoolController:postRdfConfiguracionAction] Fin proceso rest
+[2018-06-13 17:20:08.467655] [debug] [AodPoolController:getRdfConfiguracionActiones] llamada a Función
+[2018-06-13 17:20:26.782223] [info] [AodPoolController:getRdfConfiguracionAction] llamada a Función
+[2018-06-13 17:21:03.774202] [info] [AodPoolController:postRdfConfiguracionAction] llamada a Función
+[2018-06-13 17:21:03.774264] [debug] [AodPoolController:postRdfConfiguracionAction] Creo un objeto rdf
+[2018-06-13 17:21:03.774338] [debug] [AodPoolController:postRdfConfiguracionAction] Creo el formulario de validación
+[2018-06-13 17:21:03.819410] [debug] [AodPoolController:postRdfConfiguracionAction] Recojo el archivo YML
+[2018-06-13 17:21:03.841079] [info] [AodPoolController:postRdfConfiguracionAction] Archivo yml de configuracion rdfType guardado con éxito en Base de datos
+[2018-06-13 17:21:03.841130] [info] [AodPoolController:postRdfConfiguracionAction] Fin proceso rest
+[2018-06-13 17:25:14.762284] [info] [AodPoolController:getRdfAction] Inicio
+[2018-06-13 17:25:14.762362] [info] [AodPoolController:getRdfAction] Creo un objeto entidad Rdf
+[2018-06-13 17:25:14.762540] [debug] [Acceso:Configura] Llamada a Función
+[2018-06-13 17:25:14.762598] [debug] [Acceso:Configura] Inicializo la clase: http://82.223.53.83:8890/sparql, http://opendata.aragon.es/graph/pool, 1
+[2018-06-13 17:25:14.762640] [debug] [Acceso:DameRdf] http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570
+[2018-06-13 17:25:14.762681] [debug] [Acceso:DameRdf] Url validada con exito: http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570
+[2018-06-13 17:25:14.762717] [debug] [Acceso:DameRdf] lanzo sparql: prefix dc: <http://purl.org/dc/elements/1.1/> select ?s ?p ?o from <http://opendata.aragon.es/graph/pool> where {<http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570> dc:source ?source. ?s ?p ?o. ?s dc:source  ?source}
+[2018-06-13 17:25:14.762751] [debug] [Acceso:LanzaConsulta] Inicio: url:http://82.223.53.83:8890/sparql , query:prefix dc: <http://purl.org/dc/elements/1.1/> select ?s ?p ?o from <http://opendata.aragon.es/graph/pool> where {<http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570> dc:source ?source. ?s ?p ?o. ?s dc:source  ?source}
+[2018-06-13 17:25:14.762799] [debug] [Acceso:LanzaConsulta] SPARQL>>>: prefix dc: <http://purl.org/dc/elements/1.1/> select ?s ?p ?o from <http://opendata.aragon.es/graph/pool> where {<http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570> dc:source ?source. ?s ?p ?o. ?s dc:source  ?source}
+[2018-06-13 17:25:14.815537] [debug] [Acceso:LanzaConsulta] Se ha realizado la consulta correctamente
+[2018-06-13 17:25:14.816070] [info] [Triples:__construct] Llamada a Función
+[2018-06-13 17:25:14.816181] [debug] [Triples:DameTriples] Entro en función
+[2018-06-13 17:25:14.816309] [debug] [Triples:DameTriples] Parámetro entrada correcto
+[2018-06-13 17:25:14.816410] [debug] [Triples:DameTriples] Recojo header: S:s, V:p, P:o 
+[2018-06-13 17:25:14.816495] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570","http://www.w3.org/1999/02/22-rdf-syntax-ns#type","http://opendata.aragon.es/def/ei2a#Document"
+[2018-06-13 17:25:14.816592] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570
+[2018-06-13 17:25:14.816674] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+[2018-06-13 17:25:14.816752] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/def/ei2a#Document
+[2018-06-13 17:25:14.816838] [debug] [Triples:DameTriples] Proceso Linea: "https://opendata.aragon.es/pool/ordenanza-general-municipio/58570","http://www.w3.org/1999/02/22-rdf-syntax-ns#type","http://opendata.aragon.es/def/ei2a#Document"
+[2018-06-13 17:25:14.816927] [debug] [Triples:DameTripe] Proceso Sujeto: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 17:25:14.817007] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+[2018-06-13 17:25:14.817084] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/def/ei2a#Document
+[2018-06-13 17:25:14.817167] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570","http://purl.org/dc/elements/1.1/type","http://opendata.aragon.es/def/ei2a#ordenanza_general_municipio"
+[2018-06-13 17:25:14.817264] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570
+[2018-06-13 17:25:14.817333] [debug] [Triples:DameTripe] Proceso Verbo: http://purl.org/dc/elements/1.1/type
+[2018-06-13 17:25:14.817401] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/def/ei2a#ordenanza_general_municipio
+[2018-06-13 17:25:14.817475] [debug] [Triples:DameTriples] Proceso Linea: "https://opendata.aragon.es/pool/ordenanza-general-municipio/58570","http://purl.org/dc/elements/1.1/type","ordenanza_general_municipio"
+[2018-06-13 17:25:14.817559] [debug] [Triples:DameTripe] Proceso Sujeto: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 17:25:14.817630] [debug] [Triples:DameTripe] Proceso Verbo: http://purl.org/dc/elements/1.1/type
+[2018-06-13 17:25:14.817698] [debug] [Triples:DameTripe] Proceso Predicado: ordenanza_general_municipio
+[2018-06-13 17:25:14.817770] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570","http://purl.org/dc/elements/1.1/identifier","58570"
+[2018-06-13 17:25:14.817846] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570
+[2018-06-13 17:25:14.817914] [debug] [Triples:DameTripe] Proceso Verbo: http://purl.org/dc/elements/1.1/identifier
+[2018-06-13 17:25:14.817994] [debug] [Triples:DameTripe] Proceso Predicado: 58570
+[2018-06-13 17:25:14.818069] [debug] [Triples:DameTriples] Proceso Linea: "https://opendata.aragon.es/pool/ordenanza-general-municipio/58570","http://purl.org/dc/elements/1.1/identifier","58570"
+[2018-06-13 17:25:14.818152] [debug] [Triples:DameTripe] Proceso Sujeto: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 17:25:14.818222] [debug] [Triples:DameTripe] Proceso Verbo: http://purl.org/dc/elements/1.1/identifier
+[2018-06-13 17:25:14.818289] [debug] [Triples:DameTripe] Proceso Predicado: 58570
+[2018-06-13 17:25:14.818361] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570","http://www.w3.org/2003/01/geo/wgs84_pos#location","http://opendata.aragon.es/def/ei2a#municipio-22001"
+[2018-06-13 17:25:14.818449] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570
+[2018-06-13 17:25:14.818538] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/2003/01/geo/wgs84_pos#location
+[2018-06-13 17:25:14.818612] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/def/ei2a#municipio-22001
+[2018-06-13 17:25:14.818685] [debug] [Triples:DameTriples] Proceso Linea: "https://opendata.aragon.es/pool/ordenanza-general-municipio/58570","http://www.w3.org/2003/01/geo/wgs84_pos#location","https://opendata.aragon.es/pool/municipio/22001"
+[2018-06-13 17:25:14.818759] [debug] [Triples:DameTripe] Proceso Sujeto: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 17:25:14.818829] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/2003/01/geo/wgs84_pos#location
+[2018-06-13 17:25:14.818896] [debug] [Triples:DameTripe] Proceso Predicado: https://opendata.aragon.es/pool/municipio/22001
+[2018-06-13 17:25:14.818975] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570","http://purl.org/dc/elements/1.1/source","https://opendata.aragon.es/GA_OD_Core/preview?view_id=5&filter_sql=ORDYREG_ID='58570'&_pageSize=1&_page=1"
+[2018-06-13 17:25:14.819052] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570
+[2018-06-13 17:25:14.819122] [debug] [Triples:DameTripe] Proceso Verbo: http://purl.org/dc/elements/1.1/source
+[2018-06-13 17:25:14.819189] [debug] [Triples:DameTripe] Proceso Predicado: https://opendata.aragon.es/GA_OD_Core/preview?view_id=5&filter_sql=ORDYREG_ID='58570'&_pageSize=1&_page=1
+[2018-06-13 17:25:14.819262] [debug] [Triples:DameTriples] Proceso Linea: "https://opendata.aragon.es/pool/ordenanza-general-municipio/58570","http://purl.org/dc/elements/1.1/source","https://opendata.aragon.es/GA_OD_Core/preview?view_id=5&filter_sql=ORDYREG_ID='58570'&_pageSize=1&_page=1"
+[2018-06-13 17:25:14.819339] [debug] [Triples:DameTripe] Proceso Sujeto: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 17:25:14.819415] [debug] [Triples:DameTripe] Proceso Verbo: http://purl.org/dc/elements/1.1/source
+[2018-06-13 17:25:14.819483] [debug] [Triples:DameTripe] Proceso Predicado: https://opendata.aragon.es/GA_OD_Core/preview?view_id=5&filter_sql=ORDYREG_ID='58570'&_pageSize=1&_page=1
+[2018-06-13 17:25:14.819554] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570","http://opendata.aragon.es/def/ei2a#nameDocument","DE ADMINISTRACION ELECTRONICA"
+[2018-06-13 17:25:14.819629] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570
+[2018-06-13 17:25:14.819698] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#nameDocument
+[2018-06-13 17:25:14.819766] [debug] [Triples:DameTripe] Proceso Predicado: DE ADMINISTRACION ELECTRONICA
+[2018-06-13 17:25:14.819838] [debug] [Triples:DameTriples] Proceso Linea: "https://opendata.aragon.es/pool/ordenanza-general-municipio/58570","http://opendata.aragon.es/def/ei2a#nameDocument","DE ADMINISTRACION ELECTRONICA"
+[2018-06-13 17:25:14.819912] [debug] [Triples:DameTripe] Proceso Sujeto: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 17:25:14.819981] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#nameDocument
+[2018-06-13 17:25:14.820054] [debug] [Triples:DameTripe] Proceso Predicado: DE ADMINISTRACION ELECTRONICA
+[2018-06-13 17:25:14.820125] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570","http://opendata.aragon.es/def/ei2a#registrationDate","15-12-2014"
+[2018-06-13 17:25:14.820200] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570
+[2018-06-13 17:25:14.820240] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#registrationDate
+[2018-06-13 17:25:14.820266] [debug] [Triples:DameTripe] Proceso Predicado: 15-12-2014
+[2018-06-13 17:25:14.820291] [debug] [Triples:DameTriples] Proceso Linea: "https://opendata.aragon.es/pool/ordenanza-general-municipio/58570","http://opendata.aragon.es/def/ei2a#registrationDate","15-12-2014"
+[2018-06-13 17:25:14.820317] [debug] [Triples:DameTripe] Proceso Sujeto: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 17:25:14.820339] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#registrationDate
+[2018-06-13 17:25:14.820362] [debug] [Triples:DameTripe] Proceso Predicado: 15-12-2014
+[2018-06-13 17:25:14.820385] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570","http://opendata.aragon.es/def/ei2a#startDate","10-12-2014"
+[2018-06-13 17:25:14.820413] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570
+[2018-06-13 17:25:14.820436] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#startDate
+[2018-06-13 17:25:14.820461] [debug] [Triples:DameTripe] Proceso Predicado: 10-12-2014
+[2018-06-13 17:25:14.820487] [debug] [Triples:DameTriples] Proceso Linea: "https://opendata.aragon.es/pool/ordenanza-general-municipio/58570","http://opendata.aragon.es/def/ei2a#startDate","10-12-2014"
+[2018-06-13 17:25:14.820511] [debug] [Triples:DameTripe] Proceso Sujeto: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 17:25:14.820533] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#startDate
+[2018-06-13 17:25:14.820557] [debug] [Triples:DameTripe] Proceso Predicado: 10-12-2014
+[2018-06-13 17:25:14.820581] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570","http://opendata.aragon.es/def/ei2a#documentType","REGLAMENTO"
+[2018-06-13 17:25:14.820619] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570
+[2018-06-13 17:25:14.820653] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#documentType
+[2018-06-13 17:25:14.820681] [debug] [Triples:DameTripe] Proceso Predicado: REGLAMENTO
+[2018-06-13 17:25:14.820704] [debug] [Triples:DameTriples] Proceso Linea: "https://opendata.aragon.es/pool/ordenanza-general-municipio/58570","http://opendata.aragon.es/def/ei2a#documentType","REGLAMENTO"
+[2018-06-13 17:25:14.820729] [debug] [Triples:DameTripe] Proceso Sujeto: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 17:25:14.820751] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#documentType
+[2018-06-13 17:25:14.820774] [debug] [Triples:DameTripe] Proceso Predicado: REGLAMENTO
+[2018-06-13 17:25:14.820797] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570","http://opendata.aragon.es/def/ei2a#isOfInterestTo","http://opendata.aragon.es/def/ei2a#municipio-22001"
+[2018-06-13 17:25:14.820822] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570
+[2018-06-13 17:25:14.820846] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#isOfInterestTo
+[2018-06-13 17:25:14.820868] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/def/ei2a#municipio-22001
+[2018-06-13 17:25:14.820892] [debug] [Triples:DameTriples] Proceso Linea: "https://opendata.aragon.es/pool/ordenanza-general-municipio/58570","http://opendata.aragon.es/def/ei2a#isOfInterestTo","https://opendata.aragon.es/pool/municipio/22001"
+[2018-06-13 17:25:14.820919] [debug] [Triples:DameTripe] Proceso Sujeto: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 17:25:14.820941] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#isOfInterestTo
+[2018-06-13 17:25:14.820964] [debug] [Triples:DameTripe] Proceso Predicado: https://opendata.aragon.es/pool/municipio/22001
+[2018-06-13 17:25:14.821012] [info] [AodPoolController:getRdfAction] Fin proceso rest
+[2018-06-13 18:31:56.621711] [debug] [AodPoolController:getRdfConfiguracionActiones] llamada a Función
+[2018-06-13 18:32:09.680701] [info] [AodPoolController:getRdfConfiguracionAction] llamada a Función
+[2018-06-13 18:35:38.856574] [info] [AodPoolController:getRdfConfiguracionAction] llamada a Función
+[2018-06-13 18:37:06.829309] [info] [AodPoolController:postRdfConfiguracionAction] llamada a Función
+[2018-06-13 18:37:06.829365] [debug] [AodPoolController:postRdfConfiguracionAction] Creo un objeto rdf
+[2018-06-13 18:37:06.829427] [debug] [AodPoolController:postRdfConfiguracionAction] Creo el formulario de validación
+[2018-06-13 18:37:06.870426] [debug] [AodPoolController:postRdfConfiguracionAction] Recojo el archivo YML
+[2018-06-13 18:37:06.886105] [info] [AodPoolController:postRdfConfiguracionAction] Archivo yml de configuracion rdfType guardado con éxito en Base de datos
+[2018-06-13 18:37:06.886194] [info] [AodPoolController:postRdfConfiguracionAction] Fin proceso rest
+[2018-06-13 18:42:09.750663] [info] [AodPoolController:getRdfAction] Inicio
+[2018-06-13 18:42:09.750724] [info] [AodPoolController:getRdfAction] Creo un objeto entidad Rdf
+[2018-06-13 18:42:09.750834] [debug] [Acceso:Configura] Llamada a Función
+[2018-06-13 18:42:09.750874] [debug] [Acceso:Configura] Inicializo la clase: http://82.223.53.83:8890/sparql, http://opendata.aragon.es/graph/pool, 1
+[2018-06-13 18:42:09.750904] [debug] [Acceso:DameRdf] http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570
+[2018-06-13 18:42:09.750935] [debug] [Acceso:DameRdf] Url validada con exito: http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570
+[2018-06-13 18:42:09.750961] [debug] [Acceso:DameRdf] lanzo sparql: prefix dc: <http://purl.org/dc/elements/1.1/> select ?s ?p ?o from <http://opendata.aragon.es/graph/pool> where {<http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570> dc:source ?source. ?s ?p ?o. ?s dc:source  ?source}
+[2018-06-13 18:42:09.750986] [debug] [Acceso:LanzaConsulta] Inicio: url:http://82.223.53.83:8890/sparql , query:prefix dc: <http://purl.org/dc/elements/1.1/> select ?s ?p ?o from <http://opendata.aragon.es/graph/pool> where {<http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570> dc:source ?source. ?s ?p ?o. ?s dc:source  ?source}
+[2018-06-13 18:42:09.751024] [debug] [Acceso:LanzaConsulta] SPARQL>>>: prefix dc: <http://purl.org/dc/elements/1.1/> select ?s ?p ?o from <http://opendata.aragon.es/graph/pool> where {<http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570> dc:source ?source. ?s ?p ?o. ?s dc:source  ?source}
+[2018-06-13 18:42:09.799649] [debug] [Acceso:LanzaConsulta] Se ha realizado la consulta correctamente
+[2018-06-13 18:42:09.800189] [info] [Triples:__construct] Llamada a Función
+[2018-06-13 18:42:09.800322] [debug] [Triples:DameTriples] Entro en función
+[2018-06-13 18:42:09.800432] [debug] [Triples:DameTriples] Parámetro entrada correcto
+[2018-06-13 18:42:09.800534] [debug] [Triples:DameTriples] Recojo header: S:s, V:p, P:o 
+[2018-06-13 18:42:09.800620] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570","http://www.w3.org/1999/02/22-rdf-syntax-ns#type","http://opendata.aragon.es/def/ei2a#Document"
+[2018-06-13 18:42:09.800718] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570
+[2018-06-13 18:42:09.800801] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+[2018-06-13 18:42:09.800883] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/def/ei2a#Document
+[2018-06-13 18:42:09.800977] [debug] [Triples:DameTriples] Proceso Linea: "https://opendata.aragon.es/pool/ordenanza-general-municipio/58570","http://www.w3.org/1999/02/22-rdf-syntax-ns#type","http://opendata.aragon.es/def/ei2a#Document"
+[2018-06-13 18:42:09.801068] [debug] [Triples:DameTripe] Proceso Sujeto: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 18:42:09.801171] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+[2018-06-13 18:42:09.801250] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/def/ei2a#Document
+[2018-06-13 18:42:09.801335] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570","http://purl.org/dc/elements/1.1/type","http://opendata.aragon.es/def/ei2a#ordenanza_general_municipio"
+[2018-06-13 18:42:09.801424] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570
+[2018-06-13 18:42:09.801502] [debug] [Triples:DameTripe] Proceso Verbo: http://purl.org/dc/elements/1.1/type
+[2018-06-13 18:42:09.801578] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/def/ei2a#ordenanza_general_municipio
+[2018-06-13 18:42:09.801661] [debug] [Triples:DameTriples] Proceso Linea: "https://opendata.aragon.es/pool/ordenanza-general-municipio/58570","http://purl.org/dc/elements/1.1/type","ordenanza_general_municipio"
+[2018-06-13 18:42:09.801758] [debug] [Triples:DameTripe] Proceso Sujeto: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 18:42:09.801836] [debug] [Triples:DameTripe] Proceso Verbo: http://purl.org/dc/elements/1.1/type
+[2018-06-13 18:42:09.801913] [debug] [Triples:DameTripe] Proceso Predicado: ordenanza_general_municipio
+[2018-06-13 18:42:09.801994] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570","http://purl.org/dc/elements/1.1/identifier","58570"
+[2018-06-13 18:42:09.802079] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570
+[2018-06-13 18:42:09.802160] [debug] [Triples:DameTripe] Proceso Verbo: http://purl.org/dc/elements/1.1/identifier
+[2018-06-13 18:42:09.802236] [debug] [Triples:DameTripe] Proceso Predicado: 58570
+[2018-06-13 18:42:09.802318] [debug] [Triples:DameTriples] Proceso Linea: "https://opendata.aragon.es/pool/ordenanza-general-municipio/58570","http://purl.org/dc/elements/1.1/identifier","58570"
+[2018-06-13 18:42:09.802412] [debug] [Triples:DameTripe] Proceso Sujeto: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 18:42:09.802525] [debug] [Triples:DameTripe] Proceso Verbo: http://purl.org/dc/elements/1.1/identifier
+[2018-06-13 18:42:09.802612] [debug] [Triples:DameTripe] Proceso Predicado: 58570
+[2018-06-13 18:42:09.802695] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570","http://www.w3.org/2003/01/geo/wgs84_pos#location","http://opendata.aragon.es/def/ei2a#municipio-22001"
+[2018-06-13 18:42:09.802782] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570
+[2018-06-13 18:42:09.802860] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/2003/01/geo/wgs84_pos#location
+[2018-06-13 18:42:09.802937] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/def/ei2a#municipio-22001
+[2018-06-13 18:42:09.803018] [debug] [Triples:DameTriples] Proceso Linea: "https://opendata.aragon.es/pool/ordenanza-general-municipio/58570","http://www.w3.org/2003/01/geo/wgs84_pos#location","https://opendata.aragon.es/pool/municipio/22001"
+[2018-06-13 18:42:09.803103] [debug] [Triples:DameTripe] Proceso Sujeto: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 18:42:09.803181] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/2003/01/geo/wgs84_pos#location
+[2018-06-13 18:42:09.803267] [debug] [Triples:DameTripe] Proceso Predicado: https://opendata.aragon.es/pool/municipio/22001
+[2018-06-13 18:42:09.803349] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570","http://purl.org/dc/elements/1.1/source","https://opendata.aragon.es/GA_OD_Core/preview?view_id=5&filter_sql=ORDYREG_ID='58570'&_pageSize=1&_page=1"
+[2018-06-13 18:42:09.803450] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570
+[2018-06-13 18:42:09.803530] [debug] [Triples:DameTripe] Proceso Verbo: http://purl.org/dc/elements/1.1/source
+[2018-06-13 18:42:09.803607] [debug] [Triples:DameTripe] Proceso Predicado: https://opendata.aragon.es/GA_OD_Core/preview?view_id=5&filter_sql=ORDYREG_ID='58570'&_pageSize=1&_page=1
+[2018-06-13 18:42:09.803690] [debug] [Triples:DameTriples] Proceso Linea: "https://opendata.aragon.es/pool/ordenanza-general-municipio/58570","http://purl.org/dc/elements/1.1/source","https://opendata.aragon.es/GA_OD_Core/preview?view_id=5&filter_sql=ORDYREG_ID='58570'&_pageSize=1&_page=1"
+[2018-06-13 18:42:09.803776] [debug] [Triples:DameTripe] Proceso Sujeto: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 18:42:09.803863] [debug] [Triples:DameTripe] Proceso Verbo: http://purl.org/dc/elements/1.1/source
+[2018-06-13 18:42:09.803941] [debug] [Triples:DameTripe] Proceso Predicado: https://opendata.aragon.es/GA_OD_Core/preview?view_id=5&filter_sql=ORDYREG_ID='58570'&_pageSize=1&_page=1
+[2018-06-13 18:42:09.804022] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570","http://opendata.aragon.es/def/ei2a#nameDocument","DE ADMINISTRACION ELECTRONICA"
+[2018-06-13 18:42:09.804107] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570
+[2018-06-13 18:42:09.804187] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#nameDocument
+[2018-06-13 18:42:09.804261] [debug] [Triples:DameTripe] Proceso Predicado: DE ADMINISTRACION ELECTRONICA
+[2018-06-13 18:42:09.804342] [debug] [Triples:DameTriples] Proceso Linea: "https://opendata.aragon.es/pool/ordenanza-general-municipio/58570","http://opendata.aragon.es/def/ei2a#nameDocument","DE ADMINISTRACION ELECTRONICA"
+[2018-06-13 18:42:09.804429] [debug] [Triples:DameTripe] Proceso Sujeto: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 18:42:09.804513] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#nameDocument
+[2018-06-13 18:42:09.804589] [debug] [Triples:DameTripe] Proceso Predicado: DE ADMINISTRACION ELECTRONICA
+[2018-06-13 18:42:09.804671] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570","http://opendata.aragon.es/def/ei2a#registrationDate","15-12-2014"
+[2018-06-13 18:42:09.804755] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570
+[2018-06-13 18:42:09.804833] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#registrationDate
+[2018-06-13 18:42:09.804910] [debug] [Triples:DameTripe] Proceso Predicado: 15-12-2014
+[2018-06-13 18:42:09.804992] [debug] [Triples:DameTriples] Proceso Linea: "https://opendata.aragon.es/pool/ordenanza-general-municipio/58570","http://opendata.aragon.es/def/ei2a#registrationDate","15-12-2014"
+[2018-06-13 18:42:09.805077] [debug] [Triples:DameTripe] Proceso Sujeto: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 18:42:09.805155] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#registrationDate
+[2018-06-13 18:42:09.805232] [debug] [Triples:DameTripe] Proceso Predicado: 15-12-2014
+[2018-06-13 18:42:09.805313] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570","http://opendata.aragon.es/def/ei2a#startDate","10-12-2014"
+[2018-06-13 18:42:09.805411] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570
+[2018-06-13 18:42:09.805488] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#startDate
+[2018-06-13 18:42:09.805563] [debug] [Triples:DameTripe] Proceso Predicado: 10-12-2014
+[2018-06-13 18:42:09.805658] [debug] [Triples:DameTriples] Proceso Linea: "https://opendata.aragon.es/pool/ordenanza-general-municipio/58570","http://opendata.aragon.es/def/ei2a#startDate","10-12-2014"
+[2018-06-13 18:42:09.805743] [debug] [Triples:DameTripe] Proceso Sujeto: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 18:42:09.805821] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#startDate
+[2018-06-13 18:42:09.805897] [debug] [Triples:DameTripe] Proceso Predicado: 10-12-2014
+[2018-06-13 18:42:09.805978] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570","http://opendata.aragon.es/def/ei2a#documentType","REGLAMENTO"
+[2018-06-13 18:42:09.806061] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570
+[2018-06-13 18:42:09.806139] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#documentType
+[2018-06-13 18:42:09.806224] [debug] [Triples:DameTripe] Proceso Predicado: REGLAMENTO
+[2018-06-13 18:42:09.806305] [debug] [Triples:DameTriples] Proceso Linea: "https://opendata.aragon.es/pool/ordenanza-general-municipio/58570","http://opendata.aragon.es/def/ei2a#documentType","REGLAMENTO"
+[2018-06-13 18:42:09.806391] [debug] [Triples:DameTripe] Proceso Sujeto: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 18:42:09.806471] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#documentType
+[2018-06-13 18:42:09.806567] [debug] [Triples:DameTripe] Proceso Predicado: REGLAMENTO
+[2018-06-13 18:42:09.806652] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570","http://opendata.aragon.es/def/ei2a#isOfInterestTo","http://opendata.aragon.es/def/ei2a#municipio-22001"
+[2018-06-13 18:42:09.806737] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#ordenanza-general-municipio-58570
+[2018-06-13 18:42:09.806816] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#isOfInterestTo
+[2018-06-13 18:42:09.806893] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/def/ei2a#municipio-22001
+[2018-06-13 18:42:09.806973] [debug] [Triples:DameTriples] Proceso Linea: "https://opendata.aragon.es/pool/ordenanza-general-municipio/58570","http://opendata.aragon.es/def/ei2a#isOfInterestTo","https://opendata.aragon.es/pool/municipio/22001"
+[2018-06-13 18:42:09.807066] [debug] [Triples:DameTripe] Proceso Sujeto: https://opendata.aragon.es/pool/ordenanza-general-municipio/58570
+[2018-06-13 18:42:09.807146] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#isOfInterestTo
+[2018-06-13 18:42:09.807221] [debug] [Triples:DameTripe] Proceso Predicado: https://opendata.aragon.es/pool/municipio/22001
+[2018-06-13 18:42:09.807358] [info] [AodPoolController:getRdfAction] Fin proceso rest

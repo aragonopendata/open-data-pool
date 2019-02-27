@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:locn="http://www.w3.org/ns/locn#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:org="http://www.w3.org/ns/org#" xmlns:vcard="http://www.w3.org/2006/vcard/ns#" id="104">
+  <Entity rdf:type="org:Organization" URI="http://opendata.aragon.es/def/ei2a#poligono-{id}">
+    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+    <Property field="{id}" attribute="dc:identifier" type="string"/>
+   <Property link="ei2a:iaf_poligono_industrial" attribute="dc:type" /> 
+    <Property field="{codigopoligono}" attribute="dc:identifier" type="string"/>
+    <Property field="{nombre}" attribute="ei2a:organizationName" type="string"/>    
+    <Property field="{documentos}" attribute="foaf:homepage" type="string"/>
+    <Property field="{telefono}" attribute="ei2a:phone" type="string"/>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#addr-poligono-{id}" attribute="org:hasSite">
+      <Entity rdf:type="org:Site" URI="http://opendata.aragon.es/def/ei2a#addr-poligono-{id}">
+		<Property field="{FUENTE}" attribute="dc:source" type="string" />
+	    <Property fieldLink="http://opendata.aragon.es/def/ei2a#vCardPoligono-{id}" attribute="org:siteAddress">
+			<Entity rdf:type="vcard:VCard" URI="http://opendata.aragon.es/def/ei2a#vCardPoligono-{id}">
+				<Property field="{FUENTE}" attribute="dc:source" type="string" />
+				<Property field="{fax}" attribute="vcard:Fax" type="string" />
+				<Property fieldLink="http://opendata.aragon.es/def/ei2a#adrPoligono-{id}" attribute="vcard:hasAddress">
+					<Entity rdf:type="vcard:ADR" URI="http://opendata.aragon.es/def/ei2a#adrPoligono-{id}">	
+						<Property field="{FUENTE}" attribute="dc:source" type="string" />
+						<Property field="{direccion}" attribute="vcard:street-address" type="string" />
+						<Property field="{nombremunicipio}" attribute="vcard:locality" type="string" />
+						<Property field="{nombreprovincia}" attribute="vcard:locality" type="string" />					
+					</Entity>
+				</Property>
+			</Entity>
+		</Property>       
+      </Entity>
+    </Property>
+	<Property fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{municipio}" attribute="wgs84_pos:location"/>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#geo-poligono-{id}" attribute="wgs84_pos:location">
+      <Entity rdf:type="wgs84_pos:Point" URI="http://opendata.aragon.es/def/ei2a#geo-poligono-{id}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property field="{gradoslongitud}" attribute="wgs84_pos:long" type="string"/>
+        <Property field="{gradoslatitud}" attribute="wgs84_pos:lat" type="string"/>
+      </Entity>
+    </Property>
+  </Entity>
+</Mapping>

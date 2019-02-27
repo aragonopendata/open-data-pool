@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:event="http://purl.org/NET/c4dm/event.owl#" xmlns:time="http://www.w3.org/2006/time#" id="90">
+  <Entity rdf:type="ei2a:EventAgenda" URI="http://opendata.aragon.es/def/ei2a#proceso-electoral-{COD_ELEC}">
+    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+    <Property field="{COD_ELEC}" attribute="dc:identifier" type="string"/>
+    <Property link="ei2a:proceso_electoral" attribute="dc:type" type="string"/>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#time-proceso-electoral-{COD_ELEC}" attribute="event:time">
+      <Entity rdf:type="time:Instant" URI="http://opendata.aragon.es/def/ei2a#time-proceso-electoral-{COD_ELEC}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+		<Property field="{FECHA}" attribute="time:inXSDDateTime" type="datetime"/>
+      </Entity>
+    </Property>
+    <Property field="{NOMBRE_ELEC}" attribute="event:literal_factor" type="string"/>
+  </Entity>
+</Mapping>

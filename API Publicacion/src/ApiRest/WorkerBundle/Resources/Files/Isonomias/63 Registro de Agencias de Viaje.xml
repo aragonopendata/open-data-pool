@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:org="http://www.w3.org/ns/org#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:vcard="http://www.w3.org/2006/vcard/ns#" id="63">
+  <Entity rdf:type="org:Organization" URI="http://opendata.aragon.es/def/ei2a#agencia-viaje-{COD_AGEN}">
+    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+    <Property field="{COD_AGEN}" attribute="dc:identifier" type="string"/>
+	<Property link="ei2a:agencia_viaje" attribute="dc:type" />
+    <Property field="{NOMBRE_COMERCIAL}" attribute="ei2a:organizationName" type="string"/>
+    <Property field="{TELEFONO}" attribute="ei2a:phone" type="string"/>
+    <Property field="{E_MAIL}" attribute="foaf:mbox" type="string"/>
+    <Property field="{FECHA_ALTA}" attribute="ei2a:officialCreationDate" type="datetime"/>
+    <Property field="{FECHA_BAJA}" attribute="ei2a:officialLeavingDate" type="datetime"/>
+    <Property field="{WEB}" attribute="foaf:homepage" type="string"/>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" attribute="wgs84_pos:location"/>
+    <Property link="ei2a:empresa" attribute="ei2a:organizationType"/>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#sites-registro-agencias-viaje-{COD_AGEN}" attribute="org:hasSite">
+      <Entity rdf:type="org:Site" URI="http://opendata.aragon.es/def/ei2a#sites-registro-agencias-viaje-{COD_AGEN}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#vCard-registro-agencias-viaje-{COD_AGEN}" attribute="org:siteAddress">
+          <Entity rdf:type="vcard:VCard" URI="http://opendata.aragon.es/def/ei2a#vCard-registro-agencias-viaje-{COD_AGEN}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property fieldLink="http://opendata.aragon.es/def/ei2a#adr-registro-agencias-viaje-{COD_AGEN}" attribute="vcard:hasAddress">
+              <Entity rdf:type="vcard:ADR" URI="http://opendata.aragon.es/def/ei2a#adr-registro-agencias-viaje-{COD_AGEN}">
+                <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                <Property field="{DOMICILIO}" attribute="vcard:street-address" type="string"/>
+                <Property field="{Nombre_Muni}" attribute="vcard:locality" type="string"/>
+                <Property field="{Nombre_Prov}" attribute="vcard:region" type="string"/>
+                <Property field="{CP}" attribute="vcard:postal-code" type="string"/>
+              </Entity>
+            </Property>
+          </Entity>
+        </Property>
+      </Entity>
+    </Property>
+  </Entity>
+</Mapping>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping id="138" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:org="http://www.w3.org/ns/org#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:vcard="http://www.w3.org/2006/vcard/ns#" xmlns:harmonise="http://protege.stanford.edu/rdf/HTOv4002#" xmlns:gtfs="http://vocab.gtfs.org/terms#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+	<Entity rdf:type="gtfs:Service" URI="http://opendata.aragon.es/def/ei2a#servicio-{COD_RUTA}">
+		<Property field="{FUENTE}" attribute="dc:source" type="string" />
+		<Property flield="{COD_RUTA}" attribute="dc:identifier" type="string" />
+		<Property link="ei2a:servicio" attribute="dc:type" />
+		<Property flield="{DENO_CONCESION}" attribute="dc:title" type="string" />
+		<Property field="{FRECUENCIA}" attribute="dc:description" type="string" />
+		<Property fieldLink="http://opendata.aragon.es/def/ei2a#agenci-{COD_RUTA}" attribute="gtfs:agenci">
+			<Entity rdf:type="gtfs:Agency" URI="http://opendata.aragon.es/def/ei2a#agenci-{COD_RUTA}">
+				<Property field="{FUENTE}" attribute="dc:source" type="string" />
+				<Property field="{PRESTADOR}" attribute="foaf:name" type="string"/>
+			</Entity>
+		</Property>
+	</Entity>
+</Mapping>

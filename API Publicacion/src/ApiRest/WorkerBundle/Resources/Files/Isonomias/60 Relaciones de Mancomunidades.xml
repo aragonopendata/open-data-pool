@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:org="http://www.w3.org/ns/org#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#" id="60">
+  <Entity rdf:type="org:Organization" URI="http://opendata.aragon.es/def/ei2a#mancomunidad-{ID_MAN}">
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" attribute="dc:relation"/>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" attribute="wgs84_pos:location"/>
+  </Entity>
+</Mapping>

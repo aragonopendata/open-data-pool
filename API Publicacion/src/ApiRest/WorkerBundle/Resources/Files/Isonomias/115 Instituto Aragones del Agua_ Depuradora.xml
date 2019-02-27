@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:wisdom="http://www.semanticwater.com/WISDOM#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#" id="115">
+  <Entity rdf:type="wisdom:WastePumpingStation" URI="http://opendata.aragon.es/def/ei2a#depuradora-{OBJECTID}">
+    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+    <Property field="{OBJECTID}" attribute="dc:identifier" type="string"/>
+    <Property link="ei2a:depuradora" attribute="dc:type"/>
+    <Property field="{FECHA}" attribute="dc:date" type="string"/>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" attribute="wgs84_pos:location"/>
+    <Property field="{PRODE1}" attribute="wisdom:hasProblem" type="string"/>
+    <Property field="{PRODE2}" attribute="wisdom:hasProblem" type="string"/>
+    <Property field="{PRODE3}" attribute="wisdom:hasProblem" type="string"/>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#pride1-depuradora-{OBJECTID}" attribute="wisdom:isControledBy">
+      <Entity rdf:type="wisdom:CleanTreatmentWorks" URI="http://opendata.aragon.es/def/ei2a#pride1-depuradora-{OBJECTID}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property field="{PRIDE1}" attribute="wisdom:hasValue" type="string"/>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#pride2-depuradora-{OBJECTID}" attribute="wisdom:isControledBy">
+      <Entity rdf:type="wisdom:CleanTreatmentWorks" URI="http://opendata.aragon.es/def/ei2a#pride2-depuradora-{OBJECTID}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property field="{PRIDE2}" attribute="wisdom:hasValue" type="string"/>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#pride3-depuradora-{OBJECTID}" attribute="wisdom:isControledBy">
+      <Entity rdf:type="wisdom:CleanTreatmentWorks" URI="http://opendata.aragon.es/def/ei2a#pride3-depuradora-{OBJECTID}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property field="{PRIDE3}" attribute="wisdom:hasValue" type="string"/>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#secde1-depuradora-{OBJECTID}" attribute="wisdom:isControledBy">
+      <Entity rdf:type="wisdom:CleanTreatmentWorks" URI="http://opendata.aragon.es/def/ei2a#secde1-depuradora-{OBJECTID}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property field="{SECDE1}" attribute="wisdom:hasValue" type="string"/>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#secde2-depuradora-{OBJECTID}" attribute="wisdom:isControledBy">
+      <Entity rdf:type="wisdom:CleanTreatmentWorks" URI="http://opendata.aragon.es/def/ei2a#secde2-depuradora-{OBJECTID}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property field="{SECDE2}" attribute="wisdom:hasValue" type="string"/>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#secde3-depuradora-{OBJECTID}" attribute="wisdom:isControledBy">
+      <Entity rdf:type="wisdom:CleanTreatmentWorks" URI="http://opendata.aragon.es/def/ei2a#secde3-depuradora-{OBJECTID}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property field="{SECDE3}" attribute="wisdom:hasValue" type="string"/>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#avade1-depuradora-{OBJECTID}" attribute="wisdom:isControledBy">
+      <Entity rdf:type="wisdom:CleanTreatmentWorks" URI="http://opendata.aragon.es/def/ei2a#avade1-depuradora-{OBJECTID}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property field="{AVADE1}" attribute="wisdom:hasValue" type="string"/>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#avade2-depuradora-{OBJECTID}" attribute="wisdom:isControledBy">
+      <Entity rdf:type="wisdom:CleanTreatmentWorks" URI="http://opendata.aragon.es/def/ei2a#avade2-depuradora-{OBJECTID}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property field="{AVADE2}" attribute="wisdom:hasValue" type="string"/>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#avade3-depuradora-{OBJECTID}" attribute="wisdom:isControledBy">
+      <Entity rdf:type="wisdom:CleanTreatmentWorks" URI="http://opendata.aragon.es/def/ei2a#avade3-depuradora-{OBJECTID}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property field="{AVADE3}" attribute="wisdom:hasValue" type="string"/>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#comde1-depuradora-{OBJECTID}" attribute="wisdom:isControledBy">
+      <Entity rdf:type="wisdom:CleanTreatmentWorks" URI="http://opendata.aragon.es/def/ei2a#comde1-depuradora-{OBJECTID}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property field="{COMDE1}" attribute="wisdom:hasValue" type="string"/>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#comde2-depuradora-{OBJECTID}" attribute="wisdom:isControledBy">
+      <Entity rdf:type="wisdom:CleanTreatmentWorks" URI="http://opendata.aragon.es/def/ei2a#comde2-depuradora-{OBJECTID}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property field="{COMDE2}" attribute="wisdom:hasValue" type="string"/>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#comde3-depuradora-{OBJECTID}" attribute="wisdom:isControledBy">
+      <Entity rdf:type="wisdom:CleanTreatmentWorks" URI="http://opendata.aragon.es/def/ei2a#comde3-depuradora-{OBJECTID}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property field="{COMDE3}" attribute="wisdom:hasValue" type="string"/>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#fande1-depuradora-{OBJECTID}" attribute="wisdom:isControledBy">
+      <Entity rdf:type="wisdom:CleanTreatmentWorks" URI="http://opendata.aragon.es/def/ei2a#fande1-depuradora-{OBJECTID}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property field="{FANDE1}" attribute="wisdom:hasValue" type="string"/>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#fande2-depuradora-{OBJECTID}" attribute="wisdom:isControledBy">
+      <Entity rdf:type="wisdom:CleanTreatmentWorks" URI="http://opendata.aragon.es/def/ei2a#fande2-depuradora-{OBJECTID}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property field="{FANDE2}" attribute="wisdom:hasValue" type="string"/>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#fande3-depuradora-{OBJECTID}" attribute="wisdom:isControledBy">
+      <Entity rdf:type="wisdom:CleanTreatmentWorks" URI="http://opendata.aragon.es/def/ei2a#fande3-depuradora-{OBJECTID}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property field="{FANDE3}" attribute="wisdom:hasValue" type="string"/>
+      </Entity>
+    </Property>
+  </Entity>
+</Mapping>

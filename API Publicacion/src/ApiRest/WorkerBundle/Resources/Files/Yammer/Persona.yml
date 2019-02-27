@@ -1,0 +1,17 @@
+BodyClass: fichaComunidad fichaPersona
+PanelCentral:
+  #titulo del panel
+  Titulo: http://opendata.aragon.es/def/ei2a#fullName
+  CampoValores:
+    CampoValor1:
+      Tipo: Virtuoso
+      Oculto: False
+      Query: PREFIX ei2a:<http://opendata.aragon.es/def/ei2a#> PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>  PREFIX org:<http://www.w3.org/ns/org#> PREFIX person:<http://www.w3.org/ns/person#> select ?cargo ?partido where { <%s> ei2a:fullName ?nombre . optional {<%s> org:hasMembership ?membership . ?membership org:role ?role . ?role ei2a:roleName ?cargo} . optional {<%s> person:memberOf ?memberOf . ?memberOf ei2a:organizationName ?partido .}}
+      Campo: uri
+      Campos:
+        Campo1:
+          Nombre: Cargo
+          Valor: cargo
+        Campo2:
+          Nombre: Partido
+          Valor: partido

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping id="145" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <Entity rdf:type="ei2a:Document" URI="http://opendata.aragon.es/def/ei2a#archivos-aragon-{IDITEM}">
+    <Property field="{IDITEM}" attribute="dc:identifier" type="string" />
+  </Entity>
+</Mapping>

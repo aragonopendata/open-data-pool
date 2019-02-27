@@ -1,0 +1,62 @@
+
+/* Breadcrumb */
+
+.breadcrumb .wrap { background-color: #DFECF1; border-radius: 15px; padding: 30px 20px; border: none; }
+.breadcrumb .wrap ul li.seccion { font-family: 'Roboto Medium', 'Roboto'; font-weight: 500; font-style: normal; font-size: 20px; color: #5EA2BA; text-transform: uppercase; }
+.breadcrumb .wrap ul li.flecha { color: #5EA2BA; }
+.breadcrumb .wrap ul li.flecha span { font-size: 40px; }
+.breadcrumb.enlinea .wrap ul li.titulo { font-family: 'Roboto Regular', 'Roboto'; font-weight: 400; font-style: normal; font-size: 20px; color: #999999; }
+
+
+/* Gadget */
+
+.fichaComunidad .votos { display: none; }
+
+.fichaComunidad .gadget { margin-bottom: 25px; }
+.fichaComunidad .gadget .titulo { padding: 30px 20px; font-family: 'Roboto Medium', 'Roboto'; font-weight: 500; font-style: normal; font-size: 18px; color: #5EA2BA; background-color: #DFECF1; border-top-left-radius: 5px; border-top-right-radius: 5px; margin-bottom: 0; }
+.fichaComunidad .gadget ul { border: 1px solid #ddd; padding: 30px 20px; }
+.fichaComunidad .gadget ul li { display: flex; align-items: center; margin-bottom: 30px; }
+.fichaComunidad .gadget ul li.verMas { display: flex; justify-content: flex-end; margin-bottom: 0; }
+.fichaComunidad .gadget ul li.verMas a { font-family: 'Roboto Medium', 'Roboto'; color: #5EA2BA; text-decoration: none; display: flex; align-items: center; }
+.fichaComunidad .gadget ul li.verMas span { font-size: 40px; color: #5EA2BA; }
+.fichaComunidad .gadget ul li .circulo { background-color: #5EA2BA; border-radius: 50%; width: 52px; height: 52px; }
+.fichaComunidad .gadget ul li h3 { text-transform: uppercase; }
+.fichaComunidad .gadget ul li a { color: #333333; font-family: 'Roboto Regular', 'Roboto'; font-weight: 400; font-style: normal; font-size: 18px; text-align: left; line-height: 20px; padding-left: 20px; }
+
+.fichaComunidad .gadget.gadget-infoadicional { padding: 30px 20px; background-color: #DFECF1; border-radius: 15px; border: none; }
+.fichaComunidad .gadget.gadget-infoadicional a { display: flex; align-items: center; text-decoration: none; }
+.fichaComunidad .gadget.gadget-infoadicional .titulo { flex: 1; margin-bottom: 0; font-family: 'Roboto Medium', 'Roboto'; font-weight: 500; font-style: normal; font-size: 18px; color: #5EA2BA; }
+.fichaComunidad .gadget.gadget-infoadicional span { color: #5EA2BA; font-size: 40px; }
+.fichaComunidad .gadget.gadget-infoadicional ul { display: none; }
+
+.fichaComunidad .gadget.gadget-otros,
+.fichaComunidad .gadget.gadget-iconos-hoteles { padding: 0; border: none; }
+.fichaComunidad .gadget.gadget-iconos-hoteles .titulo,
+.fichaComunidad .gadget.gadget-otros .titulo { padding: 30px 20px; font-family: 'Roboto Medium', 'Roboto'; font-weight: 500; font-style: normal; font-size: 18px; color: #5EA2BA; background-color: #DFECF1; border-top-left-radius: 5px; border-top-right-radius: 5px; margin-bottom: 0; }
+
+.row-cabecera-ficha .col.col-titulo .imagen { flex: 0 0 74px; height: 100%; max-height: 74px; align-self: flex-start; border-radius: 50%; height: 74px; width: 74px; background-color: #5EA2BA;}
+.row-cabecera-ficha .col.col-titulo .imagen { max-width: 74px; }
+.row-cabecera-ficha .col.col-titulo .titulo { margin-left: 20px; }
+.row-cabecera-ficha .col.col-titulo .titulo .tipo { font-family: 'Roboto Light', 'Roboto'; font-weight: 300; font-style: normal; font-size: 18px; color: #999999; text-align: left; }
+.row-cabecera-ficha .col.col-titulo .titulo .literal { font-family: 'Roboto Regular', 'Roboto'; font-weight: 400; font-style: normal; font-size: 24px; text-align: left; }
+
+.row-cabecera-ficha .col.col-acciones { display: none; }
+
+
+/* Datos */
+
+.row-contenido .col.col-datos .dato { margin-top: 10px; margin-bottom: 20px; }
+.row-contenido .col.col-datos .dato strong { font-family: 'Roboto Regular', 'Roboto'; font-weight: 400; font-style: normal; font-size: 16px; text-align: left; }
+.row-contenido .col.col-datos .dato span { font-family: 'Roboto Regular', 'Roboto'; font-weight: 400; font-style: normal; font-size: 18px; color: #999999; text-align: left; text-transform: uppercase; padding-left: 30px; }
+
+.row-contenido .col.col-datos.col-largo,
+.row-contenido .col.col-datos.col-enlaces { display: none; }
+
+.row-contenido .col.col-datos.col-tabla p:first-child { background-color: #E0E0E0; text-align: center; padding: 6px 20px; border-radius: 5px; margin-bottom: 10px; }
+.row-contenido .col.col-datos.col-tabla .dato { border-bottom: 1px solid #E0E0E0; padding-bottom: 10px; padding-left: 30px; }
+.row-contenido .col.col-datos.col-tabla .dato strong {}
+
+
+/* Ficha Ordenanza */
+
+.fichaOrdenanza .row-cabecera-ficha .col.col-titulo .imagen { height: 74px; }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:dc="http://purl.org/dc/elements/1.1/" id="102">
+  <Entity rdf:type="ei2a:Line" URI="http://opendata.aragon.es/def/ei2a#sendero-{name}">
+    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+    <Property field="{name}" attribute="dc:identifier" type="string"/>
+    <Property link="ei2a:sendero" attribute="dc:type" />
+    <Property field="{itinerary}" attribute="dc:title" type="string"/>
+    <Property field="{description}" attribute="dc:description" type="string"/>
+    <Property field="{route_type}" attribute="dc:format" type="string"/>
+  </Entity>
+</Mapping>

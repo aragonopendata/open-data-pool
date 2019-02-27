@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:vcard="http://www.w3.org/2006/vcard/ns#" xmlns:locn="http://www.w3.org/ns/locn#" xmlns:person="http://www.w3.org/ns/person#" id="78">
+  <Entity rdf:type="ei2a:PACAidsRequest" URI="http://opendata.aragon.es/def/ei2a#solicitud-pac-{CCORRE}-{CCOSEC}-{CODIGO_MUN}">
+    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+    <Property field="{CCORRE}" attribute="dc:identifier" type="string"/>
+    <Property field="{CCORRE}" attribute="ei2a:idPacRequest" type="string"/>
+    <Property link="ei2a:solicitudes-pac" attribute="dc:type"/>
+    <Property field="{CCOSEC}" attribute="dc:date" type="string"/>
+    <Property field="{FREGIS}" attribute="ei2a:requestDate" type="string"/>
+    <Property field="{FSOLIC}" attribute="ei2a:registrationDate" type="string"/>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" attribute="wgs84_pos:location"/>
+    <Property field="{ESTADO_STRING}" attribute="ei2a:civilStatus" type="string"/>
+	<Property fieldLink="{SEXO_ENTIDAD}" attribute="ei2a:personGender"/>
+	<Property field="{CANONAC}" attribute="ei2a:birthdate" type="string"/>
+  </Entity>
+</Mapping>

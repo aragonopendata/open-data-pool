@@ -1,0 +1,22 @@
+<http://opendatapool.aragon.es/municipio/22001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#> “https://www.w3.org/ns/org#Organization”
+<http://opendatapool.aragon.es/municipio/22001> <http://xmlns.com/foaf/0.1/organizationName> “Abiego”
+<http://opendatapool.aragon.es/municipio/22001> <http://xmlns.com/foaf/0.1/phone> “974 317 203”
+<http://opendatapool.aragon.es/municipio/22001> <http://xmlns.com/foaf/0.1/mbox> “abiego@somontano.org”
+<http://opendatapool.aragon.es/municipio/22001> <https://opendata.aragon.es/def/ei2a/ei2a.owl#CIF> “P-2200100”
+<http://opendatapool.aragon.es/municipio/22001> <https://opendata.aragon.es/def/ei2a/ei2a.owl#publicEntityType> <https://opendata.aragon.es/def/ei2a/ei2a.owl#Ayuntamiento>
+<http://opendatapool.aragon.es/municipio/22001> <https://opendata.aragon.es/def/ei2a/ei2a.owl#organizationType> <https://opendata.aragon.es/def/ei2a/ei2a.owl#órganoAdministrativo>
+<http://opendatapool.aragon.es/municipio/22001> <https://opendata.aragon.es/def/ei2a/ei2a.owl#administrativeLevel> <https://opendata.aragon.es/def/ei2a/ei2a.owl#AdministraciónLocal>
+<http://opendatapool.aragon.es/municipio/22001> <https://www.w3.org/ns/org#subOrganizationOf> <http://opendatapool.aragon.es/comarca/07>
+<http://opendatapool.aragon.es/municipio/22001> <https://www.w3.org/ns/org#subOrganizationOf> <http://opendatapool.aragon.es/provincia/22>
+<http://opendatapool.aragon.es/municipio/22001> <https://www.w3.org/ns/org#subOrganizationOf> <http://opendatapool.aragon.es/diputacion/7824>
+<http://opendatapool.aragon.es/municipio/22001> <https://www.w3.org/ns/org#hasSite> <http://opendatapool.aragon.es/siteMunicipio/22001>
+<http://opendatapool.aragon.es/siteMunicipio/22001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> “https://www.w3.org/ns/org#Site”
+<http://opendatapool.aragon.es/siteMunicipio/22001> <https://www.w3.org/ns/org#siteAddress> <http://opendatapool.aragon.es/vCardMunicipio/22001>
+<http://opendatapool.aragon.es/vCardMunicipio/22001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> “http://www.w3.org/2006/vcard/ns#VCard”
+<http://opendatapool.aragon.es/vCardMunicipio/22001> <http://www.w3.org/2006/vcard/ns#Fax> “974 317 203”
+<http://opendatapool.aragon.es/vCardMunicipio/22001> <http://www.w3.org/2006/vcard/ns#hasAddress> <http://opendatapool.aragon.es/adrMunicipio/22001>
+<http://opendatapool.aragon.es/adrMunicipio/22001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> “http://www.w3.org/2006/vcard/ns#ADR”
+<http://opendatapool.aragon.es/adrMunicipio/22001> <http://www.w3.org/2006/vcard/ns#street-address> “C/  UCHALLO, 5”
+<http://opendatapool.aragon.es/adrMunicipio/22001> <http://www.w3.org/2006/vcard/ns#locality > “Abiego”
+<http://opendatapool.aragon.es/adrMunicipio/22001> <http://www.w3.org/2006/vcard/ns#postal-code > “22143”
+<http://opendatapool.aragon.es/adrMunicipio/22001> <http://www.w3.org/2006/vcard/ns#region > “Huesca”

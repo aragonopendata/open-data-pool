@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping id="4" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:org="http://www.w3.org/ns/org#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:vcard="http://www.w3.org/2006/vcard/ns#" xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:harmonise="http://protege.stanford.edu/rdf/HTOv4002#" xmlns:gtfs="http://vocab.gtfs.org/terms#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:person="http://www.w3.org/ns/person#">
+	<Entity rdf:type="person:Person" URI="http://opendata.aragon.es/def/ei2a#persona-{NOMBRE}">
+		<Property field="{FUENTE}" attribute="dc:source" type="string" />
+		<Property link="ei2a:miembro_pleno_comarcal" attribute="dc:type" />	
+		<Property field="{NOMBRE}" attribute="dc:identifier" type="string"/>
+		<Property field="{NOMBRE}" attribute="ei2a:fullName" type="string"/>		
+		<Property fieldLink="http://opendata.aragon.es/def/ei2a#comarca-{CODIGO_COMARC}" attribute="wgs84_pos:location" />
+		<Property fieldLink="http://opendata.aragon.es/def/ei2a#organizacion-{PARTIDO}" attribute="person:memberOf">
+			<Entity rdf:type="org:Organization" URI="http://opendata.aragon.es/def/ei2a#organizacion-{PARTIDO}">
+				<Property field="{PARTIDO}" attribute="ei2a:organizationName" type="string"/>
+			</Entity>
+		</Property>
+		<Property fieldLink="http://opendata.aragon.es/def/ei2a#membership-{CODIGO_COMARC}-{NOMBRE}" attribute="org:hasMembership">
+			<Entity rdf:type="org:Membership" URI="http://opendata.aragon.es/def/ei2a#membership-{CODIGO_COMARC}-{NOMBRE}">
+				<Property field="{FUENTE}" attribute="dc:source" type="string" />
+				<Property fieldLink="http://opendata.aragon.es/def/ei2a#persona-{NOMBRE}" attribute="org:member"/>
+				<Property fieldLink="http://opendata.aragon.es/def/ei2a#comarca-{CODIGO_COMARC}" attribute="org:organization" />
+				<Property fieldLink="http://opendata.aragon.es/def/ei2a#role-{CODIGO_COMARC}-{NOMBRE}" attribute="org:role">
+					<Entity rdf:type="org:Role" URI="http://opendata.aragon.es/def/ei2a#role-{CODIGO_COMARC}-{NOMBRE}">
+						<Property field="{FUENTE}" attribute="dc:source" type="string" />
+						<Property field="{CARGO}" attribute="ei2a:roleName" type="string" />
+					</Entity>
+				</Property>
+			</Entity>
+		</Property>
+	</Entity>
+</Mapping>

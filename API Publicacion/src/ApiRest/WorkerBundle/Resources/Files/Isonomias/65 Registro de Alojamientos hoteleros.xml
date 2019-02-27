@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:harmonise="http://protege.stanford.edu/rdf/HTOv4002#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:aodpool="http://opendata.aragon.es/def/ei2a#season-list-value-" xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:org="http://www.w3.org/ns/org#" id="65">
+  <Entity rdf:type="harmonise:Accommodation" URI="http://opendata.aragon.es/def/ei2a#alojamientos-hotelero-{SIGNATURA}">	
+	<Property link="org:Organization" attribute="rdf:type"/>
+    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+    <Property field="{SIGNATURA}" attribute="dc:identifier" type="string"/>
+    <Property link="ei2a:alojamiento_hotelero" attribute="dc:type" type="string"/>
+	<Property field="{NOMBRE_COMPLETO}" attribute="ei2a:organizationName" type="string"/>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#name-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:name">
+      <Entity rdf:type="harmonise:MultiLanguageText" URI="http://opendata.aragon.es/def/ei2a#name-alojamientos-hotelero-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#laguageText-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:languageText">
+          <Entity rdf:type="harmonise:LanguageText" URI="http://opendata.aragon.es/def/ei2a#laguageText-alojamientos-hotelero-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property field="{NOMBRE_COMPLETO}" attribute="harmonise:text" type="string"/>
+          </Entity>
+        </Property>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#accommodationType-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:accommodationType">
+      <Entity rdf:type="harmonise:ListValue" URI="http://opendata.aragon.es/def/ei2a#accommodationType-alojamientos-hotelero-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#refenced-value-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:refencedValue">
+          <Entity rdf:type="harmonise:ReferencedValue" URI="http://opendata.aragon.es/def/ei2a#refenced-value-alojamientos-hotelero-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property field="{CATEGORIA}" attribute="harmonise:domainValue" type="string"/>
+          </Entity>
+        </Property>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#legalIdentifier-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:legalIdentifier">
+      <Entity rdf:type="harmonise:LegalIdentifier" URI="http://opendata.aragon.es/def/ei2a#legalIdentifier-alojamientos-hotelero-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property field="{CIF_EMPRESA}-{CIF_TITULAR_O_EXPLOTADOR}" attribute="harmonise:identifierValue" type="string"/>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#award-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:award">
+      <Entity rdf:type="harmonise:Award" URI="http://opendata.aragon.es/def/ei2a#award-alojamientos-hotelero-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property field="{CATEGORIA_ALOJAMIENTO}" attribute="harmonise:awardingBody" type="string"/>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#changed-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:changed">
+      <Entity rdf:type="harmonise:PointOfTime" URI="http://opendata.aragon.es/def/ei2a#changed-alojamientos-hotelero-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#date-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:date">
+          <Entity rdf:type="harmonise:Date" URI="http://opendata.aragon.es/def/ei2a#date-alojamientos-hotelero-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property field="{ANO_ULTIMA_RENOVACION}" attribute="harmonise:year" type="string"/>
+          </Entity>
+        </Property>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-alta-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:schedule">
+      <Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-alta-alojamientos-hotelero-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property link="aodpool:temporada_alta" attribute="harmonise:season"/>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#date-range-alta-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:dateRange">
+          <Entity rdf:type="harmonise:DateRange" URI="http://opendata.aragon.es/def/ei2a#date-range-alta-alojamientos-hotelero-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property field="{FECHA_DESDE_TEMP_ALTA}" attribute="harmonise:startDate" type="string"/>
+            <Property field="{FECHA_HASTA_TEMP_ALTA}" attribute="harmonise:endDate" type="string"/>
+          </Entity>
+        </Property>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-media-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:schedule">
+      <Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-media-alojamientos-hotelero-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property link="aodpool:temporada_media" attribute="harmonise:season"/>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#date-range-media-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:dateRange">
+          <Entity rdf:type="harmonise:DateRange" URI="http://opendata.aragon.es/def/ei2a#date-range-media-alojamientos-hotelero-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property field="{FECHA_DESDE_TEMP_MEDIA}" attribute="harmonise:startDate" type="string"/>
+            <Property field="{FECHA_HASTA_TEMP_MEDIA}" attribute="harmonise:endDate" type="string"/>
+          </Entity>
+        </Property>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-baja-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:schedule">
+      <Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-baja-alojamientos-hotelero-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property link="aodpool:temporada_baja" attribute="harmonise:season"/>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#date-range-baja-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:dateRange">
+          <Entity rdf:type="harmonise:DateRange" URI="http://opendata.aragon.es/def/ei2a#date-range-baja-alojamientos-hotelero-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property field="{FECHA_DESDE_TEMP_BAJA}" attribute="harmonise:startDate" type="string"/>
+            <Property field="{FECHA_HASTA_TEMP_BAJA}" attribute="harmonise:endDate" type="string"/>
+          </Entity>
+        </Property>
+      </Entity>
+    </Property>    
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#service-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:service" condition="{TIENE_RESTAURANTE}">
+      <Entity rdf:type="harmonise:Service" URI="http://opendata.aragon.es/def/ei2a#service-alojamientos-hotelero-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#service-name-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:serviceName">
+          <Entity rdf:type="harmonise:ListValue" URI="http://opendata.aragon.es/def/ei2a#service-name-alojamientos-hotelero-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property fieldLink="http://opendata.aragon.es/def/ei2a#service-alojamientos-hotelero-refencedValue-{SIGNATURA}" attribute="harmonise:refencedValue">
+              <Entity rdf:type="harmonise:ReferencedValue" URI="http://opendata.aragon.es/def/ei2a#service-alojamientos-hotelero-refencedValue-{SIGNATURA}">
+                <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                <Property value="Restaurante" attribute="harmonise:domainValue" type="string"/>
+              </Entity>
+            </Property>
+          </Entity>
+        </Property>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#facility-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:facility" condition="{TIENE_COMEDOR}">
+      <Entity rdf:type="harmonise:Facility" URI="http://opendata.aragon.es/def/ei2a#facility-alojamientos-hotelero-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#facility-name-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:facilityName">
+          <Entity rdf:type="harmonise:ListValue" URI="http://opendata.aragon.es/def/ei2a#facility-name-alojamientos-hotelero-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property fieldLink="http://opendata.aragon.es/def/ei2a#facility-name-alojamientos-hotelero-refencedValue-{SIGNATURA}" attribute="harmonise:refencedValue">
+              <Entity rdf:type="harmonise:ReferencedValue" URI="http://opendata.aragon.es/def/ei2a#facility-name-alojamientos-hotelero-refencedValue-{SIGNATURA}">
+                <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                <Property value="Restaurante" attribute="harmonise:domainValue" type="string"/>
+              </Entity>
+            </Property>
+          </Entity>
+        </Property>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" attribute="wgs84_pos:location"/>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#locate-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:location">
+      <Entity rdf:type="harmonise:Location" URI="http://opendata.aragon.es/def/ei2a#locate-alojamientos-hotelero-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#telecoms-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:telecoms">
+          <Entity rdf:type="harmonise:Telecoms" URI="http://opendata.aragon.es/def/ei2a#telecoms-alojamientos-hotelero-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property fieldLink="http://opendata.aragon.es/def/ei2a#telephone-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:telephone">
+              <Entity rdf:type="harmonise:TelecomNumber" URI="http://opendata.aragon.es/def/ei2a#telephone-alojamientos-hotelero-{SIGNATURA}">
+                <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                <Property field="{TELEFONO_ESTABLECIMIENTO}" attribute="harmonise:number" type="string"/>
+              </Entity>
+            </Property>
+            <Property field="{E_MAIL}" attribute="harmonise:email" type="string"/>
+            <Property fieldLink="http://opendata.aragon.es/def/ei2a#url-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:url">
+              <Entity rdf:type="harmonise:MultiLanguageText" URI="http://opendata.aragon.es/def/ei2a#url-alojamientos-hotelero-{SIGNATURA}">
+                <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                <Property fieldLink="http://opendata.aragon.es/def/ei2a#url-alojamientos-hotelero-languageText-{SIGNATURA}" attribute="harmonise:languageText">
+                  <Entity rdf:type="harmonise:LanguageText" URI="http://opendata.aragon.es/def/ei2a#url-alojamientos-hotelero-languageText-{SIGNATURA}">
+                    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                    <Property field="{DIRECCION_WEB}" attribute="harmonise:text" type="string"/>
+                  </Entity>
+                </Property>
+              </Entity>
+            </Property>
+            <Property fieldLink="http://opendata.aragon.es/def/ei2a#fax-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:fax">
+              <Entity rdf:type="harmonise:TelecomNumber" URI="http://opendata.aragon.es/def/ei2a#fax-alojamientos-hotelero-{SIGNATURA}">
+                <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                <Property field="{FAX_ESTABLECIMIENTO}" attribute="harmonise:number" type="string"/>
+              </Entity>
+            </Property>
+          </Entity>
+        </Property>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#address-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:address">
+          <Entity rdf:type="harmonise:Address" URI="http://opendata.aragon.es/def/ei2a#address-alojamientos-hotelero-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property fieldLink="http://opendata.aragon.es/def/ei2a#street-address-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:streetAddress">
+              <Entity rdf:type="harmonise:StreetAddress" URI="http://opendata.aragon.es/def/ei2a#street-address-alojamientos-hotelero-{SIGNATURA}">
+                <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                <Property field="{DIRECCION_ESTABLECIMIENTO}" attribute="harmonise:streetName" type="string"/>
+              </Entity>
+            </Property>
+            <Property fieldLink="http://opendata.aragon.es/def/ei2a#city-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:city">
+              <Entity rdf:type="harmonise:MultiLanguageText" URI="http://opendata.aragon.es/def/ei2a#city-alojamientos-hotelero-{SIGNATURA}">
+                <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                <Property fieldLink="http://opendata.aragon.es/def/ei2a#city-alojamientos-hotelero-languageText-{SIGNATURA}" attribute="harmonise:languageText">
+                  <Entity rdf:type="harmonise:LanguageText" URI="http://opendata.aragon.es/def/ei2a#city-alojamientos-hotelero-languageText-{SIGNATURA}">
+                    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                    <Property field="{LOCALIDAD_ESTABLECIMIENTO}" attribute="harmonise:text" type="string"/>
+                  </Entity>
+                </Property>
+              </Entity>
+            </Property>
+            <Property fieldLink="http://opendata.aragon.es/def/ei2a#region-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:region">
+              <Entity rdf:type="harmonise:MultiLanguageText" URI="http://opendata.aragon.es/def/ei2a#region-alojamientos-hotelero-{SIGNATURA}">
+                <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                <Property fieldLink="http://opendata.aragon.es/def/ei2a#region-alojamientos-hotelero-languageText-{SIGNATURA}" attribute="harmonise:languageText">
+                  <Entity rdf:type="harmonise:LanguageText" URI="http://opendata.aragon.es/def/ei2a#region-alojamientos-hotelero-languageText-{SIGNATURA}">
+                    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                    <Property field="{NOMBRE_COMARCA}" attribute="harmonise:text" type="string"/>
+                  </Entity>
+                </Property>
+              </Entity>
+            </Property>
+            <Property fieldLink="http://opendata.aragon.es/def/ei2a#province-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:province">
+              <Entity rdf:type="harmonise:MultiLanguageText" URI="http://opendata.aragon.es/def/ei2a#province-alojamientos-hotelero-{SIGNATURA}">
+                <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                <Property fieldLink="http://opendata.aragon.es/def/ei2a#province-alojamientos-hotelero-languageText-{SIGNATURA}" attribute="harmonise:languageText">
+                  <Entity rdf:type="harmonise:LanguageText" URI="http://opendata.aragon.es/def/ei2a#province-alojamientos-hotelero-languageText-{SIGNATURA}">
+                    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                    <Property field="{PROVINCIA_ESTABLECIMIENTO}" attribute="harmonise:text" type="string"/>
+                  </Entity>
+                </Property>
+              </Entity>
+            </Property>
+            <Property field="{CODIGO_POSTAL_ESTABLECIMIENTO}" attribute="harmonise:postCode" type="string"/>
+            <Property field="{NACIONALIDAD}" attribute="harmonise:country" type="string"/>
+          </Entity>
+        </Property>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#profile-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:profile">
+      <Entity rdf:type="harmonise:Profile" URI="http://opendata.aragon.es/def/ei2a#profile-alojamientos-hotelero-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#tot-hab-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:profileField">
+          <Entity rdf:type="harmonise:ProfileField" URI="http://opendata.aragon.es/def/ei2a#tot-hab-alojamientos-hotelero-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property value="Total de habitaciones" attribute="harmonise:fieldName" type="string"/>
+            <Property field="{TOT_HAB}" attribute="harmonise:fieldValue" type="string"/>
+          </Entity>
+        </Property>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#plazas-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:profileField">
+          <Entity rdf:type="harmonise:ProfileField" URI="http://opendata.aragon.es/def/ei2a#plazas-alojamientos-hotelero-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property value="Número de plazas" attribute="harmonise:fieldName" type="string"/>
+            <Property field="{NUMERO_PLAZAS}" attribute="harmonise:fieldValue" type="string"/>
+          </Entity>
+        </Property>        
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#plantas-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:profileField">
+          <Entity rdf:type="harmonise:ProfileField" URI="http://opendata.aragon.es/def/ei2a#plantas-alojamientos-hotelero-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property value="Número de plantas del edificio" attribute="harmonise:fieldName" type="string"/>
+            <Property field="{NUMERO_PLANTAS_EDIFICIO}" attribute="harmonise:fieldValue" type="string"/>
+          </Entity>
+        </Property>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#habitaciones-sencillas-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:profileField">
+          <Entity rdf:type="harmonise:ProfileField" URI="http://opendata.aragon.es/def/ei2a#habitaciones-sencillas-alojamientos-hotelero-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property value="Número de habitaciones sencillas" attribute="harmonise:fieldName" type="string"/>
+            <Property field="{NUMERO_HAB_SENCILLAS}" attribute="harmonise:fieldValue" type="string"/>
+          </Entity>
+        </Property>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#habitaciones-dobles-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:profileField">
+          <Entity rdf:type="harmonise:ProfileField" URI="http://opendata.aragon.es/def/ei2a#habitaciones-dobles-alojamientos-hotelero-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property value="Número de habitaciones dobles" attribute="harmonise:fieldName" type="string"/>
+            <Property field="{NUMERO_HAB_DOBLES}" attribute="harmonise:fieldValue" type="string"/>
+          </Entity>
+        </Property>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#habitaciones-triples-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:profileField">
+          <Entity rdf:type="harmonise:ProfileField" URI="http://opendata.aragon.es/def/ei2a#habitaciones-triples-alojamientos-hotelero-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property value="Número de habitaciones triples" attribute="harmonise:fieldName" type="string"/>
+            <Property field="{NUMERO_HAB_TRIPLES}" attribute="harmonise:fieldValue" type="string"/>
+          </Entity>
+        </Property>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#habitaciones-cuadruples-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:profileField">
+          <Entity rdf:type="harmonise:ProfileField" URI="http://opendata.aragon.es/def/ei2a#habitaciones-cuadruples-alojamientos-hotelero-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property value="Número de habitaciones cuadruples" attribute="harmonise:fieldName" type="string"/>
+            <Property field="{NUMERO_HAB_CUADRUPLES}" attribute="harmonise:fieldValue" type="string"/>
+          </Entity>
+        </Property>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#otras-habitaciones-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:profileField">
+          <Entity rdf:type="harmonise:ProfileField" URI="http://opendata.aragon.es/def/ei2a#otras-habitaciones-alojamientos-hotelero-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property value="Número de otras habitaciones" attribute="harmonise:fieldName" type="string"/>
+            <Property field="{NUMERO_OTRAS_HABITACIONES}" attribute="harmonise:fieldValue" type="string"/>
+          </Entity>
+        </Property>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#total-camas-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:profileField">
+          <Entity rdf:type="harmonise:ProfileField" URI="http://opendata.aragon.es/def/ei2a#total-camas-alojamientos-hotelero-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property value="Número total de camas" attribute="harmonise:fieldName" type="string"/>
+            <Property field="{NUMERO_TOTAL_CAMAS}" attribute="harmonise:fieldValue" type="string"/>
+          </Entity>
+        </Property>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#camas-supletorias-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:profileField">
+          <Entity rdf:type="harmonise:ProfileField" URI="http://opendata.aragon.es/def/ei2a#camas-supletorias-alojamientos-hotelero-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property value="Número de camas supletorias" attribute="harmonise:fieldName" type="string"/>
+            <Property field="{NUMERO_CAMAS_SUPLETORIAS}" attribute="harmonise:fieldValue" type="string"/>
+          </Entity>
+        </Property>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#habitaciones-salon-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:profileField">
+          <Entity rdf:type="harmonise:ProfileField" URI="http://opendata.aragon.es/def/ei2a#habitaciones-salon-alojamientos-hotelero-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property value="Número de habitaciones con salón" attribute="harmonise:fieldName" type="string"/>
+            <Property field="{NUMERO_HABITACIONES_CON_SALON}" attribute="harmonise:fieldValue" type="string"/>
+          </Entity>
+        </Property>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#suites-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:profileField">
+          <Entity rdf:type="harmonise:ProfileField" URI="http://opendata.aragon.es/def/ei2a#suites-alojamientos-hotelero-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property value="Número de suites" attribute="harmonise:fieldName" type="string"/>
+            <Property field="{NUMERO_SUITES}" attribute="harmonise:fieldValue" type="string"/>
+          </Entity>
+        </Property>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#habitacion-terraza-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:profileField">
+          <Entity rdf:type="harmonise:ProfileField" URI="http://opendata.aragon.es/def/ei2a#habitacion-terraza-alojamientos-hotelero-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property value="Número de habitaciones con terraza" attribute="harmonise:fieldName" type="string"/>
+            <Property field="{NUMERO_HABITACION_CON_TERRAZA}" attribute="harmonise:fieldValue" type="string"/>
+          </Entity>
+        </Property>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#habitacion-bano-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:profileField">
+          <Entity rdf:type="harmonise:ProfileField" URI="http://opendata.aragon.es/def/ei2a#habitacion-bano-alojamientos-hotelero-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property value="Número de habitaciones con baño" attribute="harmonise:fieldName" type="string"/>
+            <Property field="{NUMERO_HABITACION_CON_BANO}" attribute="harmonise:fieldValue" type="string"/>
+          </Entity>
+        </Property>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#habitacion-sin-bano-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:profileField">
+          <Entity rdf:type="harmonise:ProfileField" URI="http://opendata.aragon.es/def/ei2a#habitacion-sin-bano-alojamientos-hotelero-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property value="Número de habitaciones sin baño" attribute="harmonise:fieldName" type="string"/>
+            <Property field="{NUMERO_HABITACION_SIN_BANO}" attribute="harmonise:fieldValue" type="string"/>
+          </Entity>
+        </Property>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#habitacion-adaptado-minus-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:profileField">
+          <Entity rdf:type="harmonise:ProfileField" URI="http://opendata.aragon.es/def/ei2a#habitacion-adaptado-minus-minus-alojamientos-hotelero-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property value="Número de habitaciones adaptado a minusválidos" attribute="harmonise:fieldName" type="string"/>
+            <Property field="{NUM_HABIT_ADAPTADO_MINUS}" attribute="harmonise:fieldValue" type="string"/>
+          </Entity>
+        </Property>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#salones-sociales-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:profileField">
+          <Entity rdf:type="harmonise:ProfileField" URI="http://opendata.aragon.es/def/ei2a#salones-sociales-alojamientos-hotelero-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property value="Número de salones sociales" attribute="harmonise:fieldName" type="string"/>
+            <Property field="{NUMERO_SALONES_SOCIALES}" attribute="harmonise:fieldValue" type="string"/>
+          </Entity>
+        </Property>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#salones-convencionales-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:profileField">
+          <Entity rdf:type="harmonise:ProfileField" URI="http://opendata.aragon.es/def/ei2a#salones-convencionales-alojamientos-hotelero-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property value="Número de salones convencionales" attribute="harmonise:fieldName" type="string"/>
+            <Property field="{NUMERO_SALONES_CONVENCIONALES}" attribute="harmonise:fieldValue" type="string"/>
+          </Entity>
+        </Property>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#plazas-convencionales-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:profileField">
+          <Entity rdf:type="harmonise:ProfileField" URI="http://opendata.aragon.es/def/ei2a#plazas-convencionales-alojamientos-hotelero-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property value="Número de plazas convencionales" attribute="harmonise:fieldName" type="string"/>
+            <Property field="{NUMERO_PLAZAS_CONVENCIONES}" attribute="harmonise:fieldValue" type="string"/>
+          </Entity>
+        </Property>
+      </Entity>
+    </Property>
+	<Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-todo-ano-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:schedule" condition="{ABIERTO_TODO_ANO}">
+      <Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-todo-ano-alojamientos-hotelero-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property link="aodpool:todo_ano" attribute="harmonise:season"/>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-navidad-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:schedule" condition="{ABIERTO_NAVIDAD}">
+      <Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-navidad-alojamientos-hotelero-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property link="aodpool:navidad" attribute="harmonise:season"/>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-semana-santa-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:schedule" condition="{ABIERTO_SEMANA_SANTA}">
+      <Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-semana-santa-alojamientos-hotelero-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property link="aodpool:semana_santa" attribute="harmonise:season"/>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-fiestas-locales-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:schedule" condition="{ABIERTO_FIESTAS_LOCALES}">
+      <Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-fiestas-locales-alojamientos-hotelero-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property link="aodpool:fiestas_locales" attribute="harmonise:season"/>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#schedule-periodos-multiples-alojamientos-hotelero-{SIGNATURA}" attribute="harmonise:schedule" condition="{ABIERTO_PERIODOS_MULTIPLES}">
+      <Entity rdf:type="harmonise:Timeline" URI="http://opendata.aragon.es/def/ei2a#schedule-periodos-multiples-alojamientos-hotelero-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property link="aodpool:preiodos_multiples" attribute="harmonise:season"/>
+      </Entity>
+    </Property>
+  </Entity>
+</Mapping>

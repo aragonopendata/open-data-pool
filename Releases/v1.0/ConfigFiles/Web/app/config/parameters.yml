@@ -1,0 +1,12 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: servidorpgsql.servidores.local
+    database_port: 5432
+    database_name: NombreBBDD
+    database_user: usuarioBBDD
+    database_password: claveBBDD
+    mailer_transport: smtp
+    mailer_host: localhost
+    mailer_user: UsuarioSMTP
+    mailer_password: claveSMTP
+    secret: ThisTokenIsNotSoSecretChangeIt

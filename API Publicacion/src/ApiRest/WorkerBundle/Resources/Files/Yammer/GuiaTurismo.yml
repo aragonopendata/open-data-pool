@@ -1,0 +1,60 @@
+BodyClass: fichaComunidad fichaLugar
+PanelCentral:
+ #titulo del panel
+  Titulo: http://opendata.aragon.es/def/ei2a#fullName
+  #Texto: 
+  #Tipo: HTML
+  #Query: select lcase(?campo)  where { ?s <http://opendata.aragon.es/def/ei2a#OrganizationName> ?name. ?s <http://purl.org/dc/elements/1.1/identifier> ?identifier. filter (?s = <%s>) bind(concat(?name, '-id', ?identifier) as ?campo)}
+  #  Campo: uri
+  #  Html: <iframe width="620px" height="200px" src="http://www.aemet.es/es/eltiempo/prediccion/municipios/mostrarwidget/%s"></iframe>
+  CampoValores:
+    CampoValor1:
+      Tipo: Virtuoso
+      Oculto: False
+      Query: PREFIX ei2a:<http://opendata.aragon.es/def/ei2a#> PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>  PREFIX org:<http://www.w3.org/ns/org#> PREFIX foaf:<http://xmlns.com/foaf/0.1/> PREFIX vcard:<http://www.w3.org/2006/vcard/ns#> select ?nombrecompleto ?nombre ?apellidos ?telefono ?email ?sitioWeb where{<%s> <http://opendata.aragon.es/def/ei2a#fullName> ?nombrecompleto. <%s> <http://xmlns.com/foaf/0.1/firstName> ?nombre. <%s> <http://xmlns.com/foaf/0.1/familyName> ?apellidos. optional{<%s> <http://xmlns.com/foaf/0.1/phone> ?telefono. <%s> <http://xmlns.com/foaf/0.1/mbox> ?email. <%s> <http://xmlns.com/foaf/0.1/homepage> ?sitioWeb.}}
+      Campo: uri
+      Campos:
+        Campo1:
+          Nombre: Nombre 
+          Valor: nombre
+        Campo2:
+          Nombre: Apellidos
+          Valor: apellidos
+        Campo3:
+          Nombre: Teléfono
+          Valor: telefono
+        Campo4:
+          Nombre: Email
+          Valor: email
+          Url: mailto:%s
+          CampoUrl: email
+        Campo5:
+          Nombre: Sitio Web
+          Valor: sitioWeb
+          Url: http://%s
+          CampoUrl: sitioWeb          
+          
+    CampoValor2:
+      Tipo: Api
+      Oculto: False
+      Query: select ?source where  {<%s> <http://purl.org/dc/elements/1.1/source> ?source}
+      Campo: uri
+      Campos:
+        Campo1:
+          Nombre: Español
+          Valor: ESPANOL
+        Campo2:
+          Nombre: Inglés
+          Valor: INGLES
+        Campo3:
+          Nombre: Francés
+          Valor: FRANCES
+        Campo4:
+          Nombre: Alemán
+          Valor: ALEMAN
+        Campo4:
+          Nombre: Italiano
+          Valor: ITALIANO
+        Campo5:
+          Nombre: Otros idiomas
+          Valor: OTROS_IDIOMAS

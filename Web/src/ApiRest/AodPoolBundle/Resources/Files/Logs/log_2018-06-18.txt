@@ -1,0 +1,287 @@
+[2018-06-18 10:42:28.396081] [info] [AodPoolController:getRdfAction] Inicio
+[2018-06-18 10:42:28.396135] [info] [AodPoolController:getRdfAction] Creo un objeto entidad Rdf
+[2018-06-18 10:42:28.396241] [debug] [Acceso:Configura] Llamada a Función
+[2018-06-18 10:42:28.396281] [debug] [Acceso:Configura] Inicializo la clase: http://82.223.53.83:8890/sparql, http://opendata.aragon.es/graph/pool, 1
+[2018-06-18 10:42:28.396310] [debug] [Acceso:DameRdf] http://opendata.aragon.es/def/ei2a#transportista-ANGEL_SALES_ALTABAS
+[2018-06-18 10:42:28.396337] [debug] [Acceso:DameRdf] Url validada con exito: http://opendata.aragon.es/def/ei2a#transportista-ANGEL_SALES_ALTABAS
+[2018-06-18 10:42:28.396362] [debug] [Acceso:DameRdf] lanzo sparql: prefix dc: <http://purl.org/dc/elements/1.1/> select ?s ?p ?o from <http://opendata.aragon.es/graph/pool> where {<http://opendata.aragon.es/def/ei2a#transportista-ANGEL_SALES_ALTABAS> dc:source ?source. ?s ?p ?o. ?s dc:source  ?source}
+[2018-06-18 10:42:28.396387] [debug] [Acceso:LanzaConsulta] Inicio: url:http://82.223.53.83:8890/sparql , query:prefix dc: <http://purl.org/dc/elements/1.1/> select ?s ?p ?o from <http://opendata.aragon.es/graph/pool> where {<http://opendata.aragon.es/def/ei2a#transportista-ANGEL_SALES_ALTABAS> dc:source ?source. ?s ?p ?o. ?s dc:source  ?source}
+[2018-06-18 10:42:28.396423] [debug] [Acceso:LanzaConsulta] SPARQL>>>: prefix dc: <http://purl.org/dc/elements/1.1/> select ?s ?p ?o from <http://opendata.aragon.es/graph/pool> where {<http://opendata.aragon.es/def/ei2a#transportista-ANGEL_SALES_ALTABAS> dc:source ?source. ?s ?p ?o. ?s dc:source  ?source}
+[2018-06-18 10:42:28.461509] [debug] [Acceso:LanzaConsulta] Se ha realizado la consulta correctamente
+[2018-06-18 10:42:28.462083] [info] [Triples:__construct] Llamada a Función
+[2018-06-18 10:42:28.462214] [debug] [Triples:DameTriples] Entro en función
+[2018-06-18 10:42:28.462323] [debug] [Triples:DameTriples] Parámetro entrada correcto
+[2018-06-18 10:42:28.462423] [debug] [Triples:DameTriples] Recojo header: S:s, V:p, P:o 
+[2018-06-18 10:42:28.462507] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#transportista-ANGEL_SALES_ALTABAS","http://www.w3.org/1999/02/22-rdf-syntax-ns#type","http://www.w3.org/ns/org#Organization"
+[2018-06-18 10:42:28.462600] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#transportista-ANGEL_SALES_ALTABAS
+[2018-06-18 10:42:28.462681] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+[2018-06-18 10:42:28.462759] [debug] [Triples:DameTripe] Proceso Predicado: http://www.w3.org/ns/org#Organization
+[2018-06-18 10:42:28.462846] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#sedeTransportista-ANGEL_SALES_ALTABAS","http://www.w3.org/1999/02/22-rdf-syntax-ns#type","http://www.w3.org/ns/org#Site"
+[2018-06-18 10:42:28.462934] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#sedeTransportista-ANGEL_SALES_ALTABAS
+[2018-06-18 10:42:28.463012] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+[2018-06-18 10:42:28.463089] [debug] [Triples:DameTripe] Proceso Predicado: http://www.w3.org/ns/org#Site
+[2018-06-18 10:42:28.463174] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#vCardOperador-ANGEL_SALES_ALTABAS","http://www.w3.org/1999/02/22-rdf-syntax-ns#type","http://www.w3.org/2006/vcard/ns#VCard"
+[2018-06-18 10:42:28.463262] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#vCardOperador-ANGEL_SALES_ALTABAS
+[2018-06-18 10:42:28.463347] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+[2018-06-18 10:42:28.463423] [debug] [Triples:DameTripe] Proceso Predicado: http://www.w3.org/2006/vcard/ns#VCard
+[2018-06-18 10:42:28.463505] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#ardOperador-ANGEL_SALES_ALTABAS","http://www.w3.org/1999/02/22-rdf-syntax-ns#type","http://www.w3.org/2006/vcard/ns#ADR"
+[2018-06-18 10:42:28.463613] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#ardOperador-ANGEL_SALES_ALTABAS
+[2018-06-18 10:42:28.463694] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+[2018-06-18 10:42:28.463769] [debug] [Triples:DameTripe] Proceso Predicado: http://www.w3.org/2006/vcard/ns#ADR
+[2018-06-18 10:42:28.463851] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#transportista-ANGEL_SALES_ALTABAS","http://xmlns.com/foaf/0.1/homepage","http://www.taxi-asales.es/"
+[2018-06-18 10:42:28.463937] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#transportista-ANGEL_SALES_ALTABAS
+[2018-06-18 10:42:28.464014] [debug] [Triples:DameTripe] Proceso Verbo: http://xmlns.com/foaf/0.1/homepage
+[2018-06-18 10:42:28.464088] [debug] [Triples:DameTripe] Proceso Predicado: http://www.taxi-asales.es/
+[2018-06-18 10:42:28.464176] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#ardOperador-ANGEL_SALES_ALTABAS","http://www.w3.org/2006/vcard/ns#locality","SARIÑENA"
+[2018-06-18 10:42:28.464265] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#ardOperador-ANGEL_SALES_ALTABAS
+[2018-06-18 10:42:28.464342] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/2006/vcard/ns#locality
+[2018-06-18 10:42:28.464417] [debug] [Triples:DameTripe] Proceso Predicado: SARIÑENA
+[2018-06-18 10:42:28.464499] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#transportista-ANGEL_SALES_ALTABAS","http://www.w3.org/ns/org#hasSite","http://opendata.aragon.es/def/ei2a#sedeTransportista-ANGEL_SALES_ALTABAS"
+[2018-06-18 10:42:28.464586] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#transportista-ANGEL_SALES_ALTABAS
+[2018-06-18 10:42:28.464674] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/ns/org#hasSite
+[2018-06-18 10:42:28.464765] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/def/ei2a#sedeTransportista-ANGEL_SALES_ALTABAS
+[2018-06-18 10:42:28.464849] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#vCardOperador-ANGEL_SALES_ALTABAS","http://www.w3.org/2006/vcard/ns#hasAddress","http://opendata.aragon.es/def/ei2a#ardOperador-ANGEL_SALES_ALTABAS"
+[2018-06-18 10:42:28.464936] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#vCardOperador-ANGEL_SALES_ALTABAS
+[2018-06-18 10:42:28.465013] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/2006/vcard/ns#hasAddress
+[2018-06-18 10:42:28.465090] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/def/ei2a#ardOperador-ANGEL_SALES_ALTABAS
+[2018-06-18 10:42:28.465173] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#ardOperador-ANGEL_SALES_ALTABAS","http://www.w3.org/2006/vcard/ns#postal-code","22200"
+[2018-06-18 10:42:28.465259] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#ardOperador-ANGEL_SALES_ALTABAS
+[2018-06-18 10:42:28.465337] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/2006/vcard/ns#postal-code
+[2018-06-18 10:42:28.465419] [debug] [Triples:DameTripe] Proceso Predicado: 22200
+[2018-06-18 10:42:28.465502] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#ardOperador-ANGEL_SALES_ALTABAS","http://www.w3.org/2006/vcard/ns#region","HUESCA"
+[2018-06-18 10:42:28.465588] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#ardOperador-ANGEL_SALES_ALTABAS
+[2018-06-18 10:42:28.465665] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/2006/vcard/ns#region
+[2018-06-18 10:42:28.465742] [debug] [Triples:DameTripe] Proceso Predicado: HUESCA
+[2018-06-18 10:42:28.465842] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#ardOperador-ANGEL_SALES_ALTABAS","http://www.w3.org/2006/vcard/ns#street-address","CTRA. MONEGROS, Nº 35"
+[2018-06-18 10:42:28.465930] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#ardOperador-ANGEL_SALES_ALTABAS
+[2018-06-18 10:42:28.466020] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/2006/vcard/ns#street-address
+[2018-06-18 10:42:28.466098] [debug] [Triples:DameTripe] Proceso Predicado: CTRA. MONEGROS
+[2018-06-18 10:42:28.466175] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#sedeTransportista-ANGEL_SALES_ALTABAS","http://www.w3.org/ns/org#siteAddress","http://opendata.aragon.es/def/ei2a#vCardOperador-ANGEL_SALES_ALTABAS"
+[2018-06-18 10:42:28.466203] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#sedeTransportista-ANGEL_SALES_ALTABAS
+[2018-06-18 10:42:28.466228] [debug] [Triples:DameTripe] Proceso Verbo: http://www.w3.org/ns/org#siteAddress
+[2018-06-18 10:42:28.466252] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/def/ei2a#vCardOperador-ANGEL_SALES_ALTABAS
+[2018-06-18 10:42:28.466276] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#transportista-ANGEL_SALES_ALTABAS","http://purl.org/dc/elements/1.1/type","http://opendata.aragon.es/def/ei2a#transportista"
+[2018-06-18 10:42:28.466304] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#transportista-ANGEL_SALES_ALTABAS
+[2018-06-18 10:42:28.466327] [debug] [Triples:DameTripe] Proceso Verbo: http://purl.org/dc/elements/1.1/type
+[2018-06-18 10:42:28.466351] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/def/ei2a#transportista
+[2018-06-18 10:42:28.466376] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#transportista-ANGEL_SALES_ALTABAS","http://opendata.aragon.es/def/ei2a#CIF","18870211E"
+[2018-06-18 10:42:28.466402] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#transportista-ANGEL_SALES_ALTABAS
+[2018-06-18 10:42:28.466425] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#CIF
+[2018-06-18 10:42:28.466449] [debug] [Triples:DameTripe] Proceso Predicado: 18870211E
+[2018-06-18 10:42:28.466476] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#transportista-ANGEL_SALES_ALTABAS","http://opendata.aragon.es/def/ei2a#organizationType","http://opendata.aragon.es/def/ei2a#empresa"
+[2018-06-18 10:42:28.466504] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#transportista-ANGEL_SALES_ALTABAS
+[2018-06-18 10:42:28.466526] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#organizationType
+[2018-06-18 10:42:28.466551] [debug] [Triples:DameTripe] Proceso Predicado: http://opendata.aragon.es/def/ei2a#empresa
+[2018-06-18 10:42:28.466576] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#transportista-ANGEL_SALES_ALTABAS","http://purl.org/dc/elements/1.1/identifier","ANGEL SALES ALTABAS"
+[2018-06-18 10:42:28.466602] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#transportista-ANGEL_SALES_ALTABAS
+[2018-06-18 10:42:28.466625] [debug] [Triples:DameTripe] Proceso Verbo: http://purl.org/dc/elements/1.1/identifier
+[2018-06-18 10:42:28.466650] [debug] [Triples:DameTripe] Proceso Predicado: ANGEL SALES ALTABAS
+[2018-06-18 10:42:28.466675] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#transportista-ANGEL_SALES_ALTABAS","http://purl.org/dc/elements/1.1/source","https://opendata.aragon.es/GA_OD_Core/preview?view_id=139&filter_sql=EMPRESA='ANGEL SALES ALTABAS'&_pageSize=1&_page=1"
+[2018-06-18 10:42:28.466702] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#transportista-ANGEL_SALES_ALTABAS
+[2018-06-18 10:42:28.466727] [debug] [Triples:DameTripe] Proceso Verbo: http://purl.org/dc/elements/1.1/source
+[2018-06-18 10:42:28.466749] [debug] [Triples:DameTripe] Proceso Predicado: https://opendata.aragon.es/GA_OD_Core/preview?view_id=139&filter_sql=EMPRESA='ANGEL SALES ALTABAS'&_pageSize=1&_page=1
+[2018-06-18 10:42:28.466775] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#sedeTransportista-ANGEL_SALES_ALTABAS","http://purl.org/dc/elements/1.1/source","https://opendata.aragon.es/GA_OD_Core/preview?view_id=139&filter_sql=EMPRESA='ANGEL SALES ALTABAS'&_pageSize=1&_page=1"
+[2018-06-18 10:42:28.466806] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#sedeTransportista-ANGEL_SALES_ALTABAS
+[2018-06-18 10:42:28.466830] [debug] [Triples:DameTripe] Proceso Verbo: http://purl.org/dc/elements/1.1/source
+[2018-06-18 10:42:28.466855] [debug] [Triples:DameTripe] Proceso Predicado: https://opendata.aragon.es/GA_OD_Core/preview?view_id=139&filter_sql=EMPRESA='ANGEL SALES ALTABAS'&_pageSize=1&_page=1
+[2018-06-18 10:42:28.466880] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#vCardOperador-ANGEL_SALES_ALTABAS","http://purl.org/dc/elements/1.1/source","https://opendata.aragon.es/GA_OD_Core/preview?view_id=139&filter_sql=EMPRESA='ANGEL SALES ALTABAS'&_pageSize=1&_page=1"
+[2018-06-18 10:42:28.466906] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#vCardOperador-ANGEL_SALES_ALTABAS
+[2018-06-18 10:42:28.466929] [debug] [Triples:DameTripe] Proceso Verbo: http://purl.org/dc/elements/1.1/source
+[2018-06-18 10:42:28.466953] [debug] [Triples:DameTripe] Proceso Predicado: https://opendata.aragon.es/GA_OD_Core/preview?view_id=139&filter_sql=EMPRESA='ANGEL SALES ALTABAS'&_pageSize=1&_page=1
+[2018-06-18 10:42:28.466980] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#ardOperador-ANGEL_SALES_ALTABAS","http://purl.org/dc/elements/1.1/source","https://opendata.aragon.es/GA_OD_Core/preview?view_id=139&filter_sql=EMPRESA='ANGEL SALES ALTABAS'&_pageSize=1&_page=1"
+[2018-06-18 10:42:28.467008] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#ardOperador-ANGEL_SALES_ALTABAS
+[2018-06-18 10:42:28.467031] [debug] [Triples:DameTripe] Proceso Verbo: http://purl.org/dc/elements/1.1/source
+[2018-06-18 10:42:28.467055] [debug] [Triples:DameTripe] Proceso Predicado: https://opendata.aragon.es/GA_OD_Core/preview?view_id=139&filter_sql=EMPRESA='ANGEL SALES ALTABAS'&_pageSize=1&_page=1
+[2018-06-18 10:42:28.467080] [debug] [Triples:DameTriples] Proceso Linea: "http://opendata.aragon.es/def/ei2a#transportista-ANGEL_SALES_ALTABAS","http://opendata.aragon.es/def/ei2a#organizationName","ANGEL SALES ALTABAS"
+[2018-06-18 10:42:28.467106] [debug] [Triples:DameTripe] Proceso Sujeto: http://opendata.aragon.es/def/ei2a#transportista-ANGEL_SALES_ALTABAS
+[2018-06-18 10:42:28.467130] [debug] [Triples:DameTripe] Proceso Verbo: http://opendata.aragon.es/def/ei2a#organizationName
+[2018-06-18 10:42:28.467154] [debug] [Triples:DameTripe] Proceso Predicado: ANGEL SALES ALTABAS
+[2018-06-18 10:42:28.467205] [info] [AodPoolController:getRdfAction] Fin proceso rest
+[2018-06-18 13:24:50.403911] [debug] [AodPoolController:getConfiguracionWebsAction] llamada a Función
+[2018-06-18 13:25:02.109899] [debug] [AodPoolController:getConfiguracionWebsAction] llamada a Función
+[2018-06-18 13:26:05.447575] [debug] [AodPoolController:getConfiguracionWebsAction] llamada a Función
+[2018-06-18 13:26:15.590646] [debug] [AodPoolController:getConfiguracionWebsAction] llamada a Función
+[2018-06-18 13:27:34.844238] [debug] [AodPoolController:getConfiguracionWebsAction] llamada a Función
+[2018-06-18 13:41:48.464582] [debug] [AodPoolController:getConfiguracionWebsAction] llamada a Función
+[2018-06-18 13:42:02.089855] [info] [AodPoolController:getConfiguracionWebAction] llamada a Función
+[2018-06-18 13:42:33.162939] [info] [AodPoolController:getConfiguracionWebAction] llamada a Función
+[2018-06-18 13:43:24.840104] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 13:43:24.840159] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 13:43:24.840220] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 13:43:24.893557] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 13:43:40.430170] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 13:43:40.430255] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 13:43:40.430370] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 13:43:40.465454] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 14:22:17.578458] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 14:22:17.578510] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 14:22:17.578567] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 14:22:17.619287] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 14:28:48.515863] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 14:28:48.515929] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 14:28:48.515999] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 14:28:48.536159] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 14:42:12.449095] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 14:42:12.449158] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 14:42:12.449233] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 14:42:12.469240] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 14:43:40.070868] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 14:43:40.070923] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 14:43:40.071000] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 14:43:40.110845] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 14:55:01.704168] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 14:55:01.704225] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 14:55:01.704279] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 14:55:01.723489] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 14:55:22.416205] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 14:55:22.416287] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 14:55:22.416389] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 14:55:22.451266] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 14:56:47.486773] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 14:56:47.486829] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 14:56:47.486884] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 14:56:47.505618] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 14:57:05.527817] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 14:57:05.527869] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 14:57:05.527929] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 14:57:05.568568] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 14:57:15.005557] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 14:57:15.005630] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 14:57:15.005734] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 14:57:15.039901] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 14:59:32.060235] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 14:59:32.060309] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 14:59:32.060406] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 14:59:32.093646] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 15:01:22.545196] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 15:01:22.545248] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 15:01:22.545306] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 15:01:22.586711] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 15:01:33.352690] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 15:01:33.352775] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 15:01:33.352885] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 15:01:33.386383] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 15:03:07.135190] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 15:03:07.135272] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 15:03:07.135380] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 15:03:07.168931] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 15:04:13.815445] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 15:04:13.815529] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 15:04:13.815630] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 15:04:13.897615] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 15:04:27.363163] [debug] [AodPoolController:getConfiguracionWebsAction] llamada a Función
+[2018-06-18 15:04:46.481275] [info] [AodPoolController:getConfiguracionWebAction] llamada a Función
+[2018-06-18 15:06:12.382831] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 15:06:12.382899] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 15:06:12.382991] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 15:06:12.465193] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 15:07:39.400496] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 15:07:39.400582] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 15:07:39.400685] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 15:07:47.257433] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 15:08:53.794703] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 15:08:53.794784] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 15:08:53.794886] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 15:08:59.174935] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 15:10:26.280929] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 15:10:26.281007] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 15:10:26.281126] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 15:10:29.651364] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 15:10:55.195173] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 15:10:55.195244] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 15:10:55.195337] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 15:10:55.228786] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 15:11:41.831367] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 15:11:41.831438] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 15:11:41.831492] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 15:11:41.872766] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 15:11:53.598108] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 15:11:53.598252] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 15:11:53.598512] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 15:11:53.687519] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 15:13:47.238662] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 15:13:47.238713] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 15:13:47.238775] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 15:13:47.286279] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 15:13:56.639287] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 15:13:56.639362] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 15:13:56.639453] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 15:13:56.673038] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 15:16:48.986993] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 15:16:48.987056] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 15:16:48.987104] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 15:16:49.028606] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 15:16:57.910264] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 15:16:57.910367] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 15:16:57.910492] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 15:16:57.944730] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 15:17:13.372427] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 15:17:13.372503] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 15:17:13.372600] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 15:17:13.406368] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 15:19:43.573652] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 15:19:43.573725] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 15:19:43.573826] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 15:19:43.663129] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 15:21:31.247261] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 15:21:31.247314] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 15:21:31.247370] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 15:21:31.288387] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 15:21:42.389174] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 15:21:42.389252] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 15:21:42.389365] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 15:21:42.425031] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 15:23:06.581352] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 15:23:06.581418] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 15:23:06.581480] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 15:23:06.623121] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 15:23:18.082217] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 15:23:18.082300] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 15:23:18.082405] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 15:23:18.173207] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 15:25:37.958066] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 15:25:37.958170] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 15:25:37.958273] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 15:25:37.996342] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 15:27:39.481100] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 15:27:39.481158] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 15:27:39.481214] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 15:27:39.521692] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 15:27:51.943459] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 15:27:51.943536] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 15:27:51.943630] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 15:27:51.978427] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 15:29:06.734947] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 15:29:06.735006] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 15:29:06.735059] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 15:29:06.778440] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 15:29:07.909620] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 15:29:07.909672] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 15:29:07.909719] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 15:29:07.928445] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 15:29:17.238213] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 15:29:17.238300] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 15:29:17.238395] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 15:29:17.273332] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 15:30:18.608803] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 15:30:18.608881] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 15:30:18.608979] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 15:30:18.644377] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 15:32:49.606097] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 15:32:49.606172] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 15:32:49.606286] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 15:32:49.691867] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 15:35:22.270313] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 15:35:22.270371] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 15:35:22.270437] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 15:35:22.315068] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 15:35:36.367588] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 15:35:36.367660] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 15:35:36.367757] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 15:35:36.455753] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 15:36:29.859894] [info] [AodPoolController:postConfiguracionWebAction] llamada a Función
+[2018-06-18 15:36:29.859951] [debug] [AodPoolController:postConfiguracionWebAction] Creo un objeto rdf
+[2018-06-18 15:36:29.860008] [debug] [AodPoolController:postConfiguracionWebAction] Creo el formulario de validación
+[2018-06-18 15:36:29.904045] [debug] [AodPoolController:postConfiguracionWebAction] Recojo el archivo YML
+[2018-06-18 15:36:29.919653] [info] [AodPoolController:postConfiguracionWebAction] Archivo yml de configuracion rdfType guardado con éxito en Base de datos
+[2018-06-18 15:36:29.919713] [info] [AodPoolController:postConfiguracionWebAction] Fin proceso rest

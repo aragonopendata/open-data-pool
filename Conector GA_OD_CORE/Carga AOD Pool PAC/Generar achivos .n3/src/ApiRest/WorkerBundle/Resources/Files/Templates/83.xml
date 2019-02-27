@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:dc="http://purl.org/dc/elements/1.1/" id="83">
+  <Entity rdf:type="ei2a:CropVariety" URI="http://opendata.aragon.es/def/ei2a#codigo-variedad-herbacea-{CANO}-{CPRODU}-{CVARIE}">
+    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+    <Property field="{CANO}-{CPRODU}-{CVARIE}" attribute="dc:identifier" type="string"/>
+    <Property link="ei2a:codigo_variedad_herbacea" attribute="dc:type"/>
+    <Property field="{CANO}" attribute="dc:date" type="string"/>
+    <Property field="{CVARIE}" attribute="ei2a:cropVarietyIdentifier" type="string"/>
+    <Property field="{DVARIE}" attribute="ei2a:description" type="string"/>
+  </Entity>
+</Mapping>

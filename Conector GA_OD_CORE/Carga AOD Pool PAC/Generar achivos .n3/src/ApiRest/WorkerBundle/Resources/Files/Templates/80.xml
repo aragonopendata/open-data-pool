@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#" id="80">
+  <Entity rdf:type="ei2a:WoodySubparcel" URI="http://opendata.aragon.es/def/ei2a#cultivo-lenoso-{CCORRE}-{CCOSEC}-{CODIGO_MUN}-{CPOLIG}-{CPARCE}-{CSUBPA}">
+    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+    <Property field="{CCORRE}-{CCOSEC}-{CODIGO_MUN}-{CPOLIG}-{CPARCE}-{CSUBPA}" attribute="dc:identifier" type="string"/>
+    <Property field="{CCORRE}-{CCOSEC}-{CODIGO_MUN}-{CPOLIG}-{CPARCE}-{CSUBPA}" attribute="ei2a:idEnclosure" type="string"/>
+    <Property link="ei2a:cultivo_lenoso" attribute="dc:type"/>
+    <Property field="{CCOSEC}" attribute="dc:date" type="string"/>
+    <Property value="SIGPAC" attribute="ei2a:origin" type="string"/>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#poligono-{CPOLIG}" attribute="ei2a:polygon"/>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" attribute="wgs84_pos:location">
+    	<Entity rdf:type="ei2a:PACAidsRequest" URI="http://opendata.aragon.es/def/ei2a#solicitud-pac-{CCORRE}-{CCOSEC}-{CODIGO_MUN}">
+    		<Property fieldLink="http://opendata.aragon.es/def/ei2a#cultivo-lenoso-{CCORRE}-{CCOSEC}-{CODIGO_MUN}-{CPOLIG}-{CPARCE}-{CSUBPA}" attribute="ei2a:references"/>	
+    	</Entity>
+    </Property>
+    <Property field="{DNOMPA}" attribute="dc:title" type="string"/>
+    <Property value="woody" attribute="ei2a:use" type="string"/>
+    <Property field="{HSUSEM}" attribute="ei2a:surface" type="float"/>
+    <Property field="{CPARCE}-{CSUBPA}" attribute="ei2a:parcel" type="string"/>
+    <Property field="{CAGREGADO}" attribute="ei2a:aggregate" type="string"/>
+    <Property field="{CZONA}" attribute="ei2a:zone" type="string"/>
+    <Property field="{SECRE_STRING}" attribute="ei2a:dryOrIrrigated" type="string"/>
+    <Property field="{CPORCEN}" attribute="ei2a:pasturePercentage" type="integer"/>
+  </Entity>
+</Mapping>

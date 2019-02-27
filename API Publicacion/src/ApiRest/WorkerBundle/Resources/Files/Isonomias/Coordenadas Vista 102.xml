@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#" id="102">
+  <Entity rdf:type="ei2a:Line" URI="http://opendata.aragon.es/def/ei2a#sendero-{name}">
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#geom-sendero-{ID}" attribute="ei2a:positionList">
+		<Entity rdf:type="wgs84_pos:Point" URI="http://opendata.aragon.es/def/ei2a#geom-sendero-{ID}">
+			<Property field="{FUENTE}" attribute="dc:source" type="string"/>
+			<Property field="{LAT}" attribute="wgs84_pos:lat" type="string" />			
+			<Property field="{LONG}" attribute="wgs84_pos:long" type="string" />			
+			<Property field="{ALT}" attribute="wgs84_pos:alt" type="string" />			
+		</Entity>
+	</Property>
+  </Entity>
+</Mapping>

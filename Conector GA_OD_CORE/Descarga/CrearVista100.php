@@ -1,9 +1,9 @@
 <?php
-
     $vista = 100;
     define ("CLAVE_URI1", "ANYO");
     define ("CLAVE_URI2", "CODIGO_PROVINCIA");
     define ("CLAVE_URI3", "CLAVE_CALLE");
+    define ("HASH_CODE", "HASH_CODE");
     define ("VISTA_NECESITA", "11");										//El numero de la vista que necesita para completar sus datos
     define ("CLAVE_TIENE", "NOMBRE_MUNICIPIO");								//La clve que tiene para poder relacionarse
     define ("CLAVE_TIENE_DEPENDE", "DENOMINACION");
@@ -44,6 +44,9 @@
             
         }
         
+        array_push ($keys,HASH_CODE); //Le añadimos la clave que necesita y no la tiene el xml
+        fwrite ($archivoCSV, "\"".HASH_CODE."\";"); //y la añadidomos al csv
+        
         array_push ($keys,CLAVE_NECESITA); //Le añadimos la clave que necesita y no la tiene el xml
         fwrite ($archivoCSV, "\"".CLAVE_NECESITA."\";"); //y la añadidomos al csv
         
@@ -58,8 +61,10 @@
             $xml2 = simplexml_load_string($datosXml2);
             
             for ($z = 0; $z < ($xml2->count ()); $z++) {
+                $valorHash = "";
                 foreach ($keys as $key) {
                     $elemento = $xml2->item[$z]->$key;
+                    $valorHash = $valorHash.$elemento;
                     
                     if ($key == CLAVE_NECESITA){ //Si es el elemento del codigo de provincia que no esta en el xml se busca en el array creado antes y se inserta en el documento
                         $idTiene = $xml2->item[$z]->{CLAVE_TIENE}->__toString();
@@ -76,6 +81,10 @@
                     
                     if ($key == CLAVE_URL) {
                         $elemento = obtenerUrlVinculacionTresClaves($xml2, $z, $vista, CLAVE_URI1, CLAVE_URI2, CLAVE_URI3);
+                    }
+                    
+                    if ($key == HASH_CODE){
+                        $elemento = md5($valorHash);
                     }
                     
                     editarElemento($elemento);

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:harmonise="http://protege.stanford.edu/rdf/HTOv4002#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:org="http://www.w3.org/ns/org#" xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#" id="67">
+  <Entity rdf:type="harmonise:Gastro" URI="http://opendata.aragon.es/def/ei2a#cafeteria-restaurante-{SIGNATURA}">
+    <Property link="org:Organization" attribute="rdf:type"/>
+	<Property field="{FUENTE}" attribute="dc:source" type="string"/>
+    <Property field="{SIGNATURA}" attribute="dc:identifier" type="string"/>
+	<Property link="ei2a:cafeteria_restaurante" attribute="dc:type" />
+	 <Property field="{NOMBRE_ESTABLECIMIENTO}" attribute="ei2a:organizationName" type="string"/>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#name-cafeteria-restaurante-{SIGNATURA}" attribute="harmonise:name">
+      <Entity rdf:type="harmonise:MultiLanguageText" URI="http://opendata.aragon.es/def/ei2a#name-cafeteria-restaurante-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#laguageText-cafeteria-restaurante/{SIGNATURA}" attribute="harmonise:languageText">
+          <Entity rdf:type="harmonise:LanguageText" URI="http://opendata.aragon.es/def/ei2a#laguageText-cafeteria-restaurante-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property field="{NOMBRE_ESTABLECIMIENTO}" attribute="harmonise:text" type="string"/>
+          </Entity>
+        </Property>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#gastroType-cafeteria-restaurante-{SIGNATURA}" attribute="harmonise:gastroType">
+      <Entity rdf:type="harmonise:ListValue" URI="http://opendata.aragon.es/def/ei2a#gastroType-cafeteria-restaurante-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#refenced-value-cafeteria-restaurante-{SIGNATURA}" attribute="harmonise:refencedValue">
+          <Entity rdf:type="harmonise:ReferencedValue" URI="http://opendata.aragon.es/def/ei2a#refenced-value-cafeteria-restaurante-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property field="{TIPO_ESTABLECIMIENTO}" attribute="harmonise:domainValue" type="string"/>
+          </Entity>
+        </Property>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#legalIdentifier-cafeteria-restaurante-{SIGNATURA}" attribute="harmonise:legalIdentifier">
+      <Entity rdf:type="harmonise:LegalIdentifier" URI="http://opendata.aragon.es/def/ei2a#legalIdentifier-cafeteria-restaurante-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property field="{CIF_EMPRESA}" attribute="harmonise:identifierValue" type="string"/>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#award-cafeteria-restaurante-{SIGNATURA}" attribute="harmonise:award">
+      <Entity rdf:type="harmonise:Award" URI="http://opendata.aragon.es/def/ei2a#award-cafeteria-restaurante-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property field="{CATEGORIA}" attribute="harmonise:awardingBody" type="string"/>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#municipio-{CODIGO_MUN}" attribute="wgs84_pos:location"/>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#locate-cafeteria-restaurante-{SIGNATURA}" attribute="harmonise:location">
+      <Entity rdf:type="harmonise:Location" URI="http://opendata.aragon.es/def/ei2a#locate-cafeteria-restaurante-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#telecoms-cafeteria-restaurante-{SIGNATURA}" attribute="harmonise:telecoms">
+          <Entity rdf:type="harmonise:Telecoms" URI="http://opendata.aragon.es/def/ei2a#telecoms-cafeteria-restaurante-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property fieldLink="http://opendata.aragon.es/def/ei2a#telephone-cafeteria-restaurante-{SIGNATURA}" attribute="harmonise:telephone">
+              <Entity rdf:type="harmonise:TelecomNumber" URI="http://opendata.aragon.es/def/ei2a#telephone-cafeteria-restaurante-{SIGNATURA}">
+                <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                <Property field="{TELEFONO_ESTABLECIMIENTO}" attribute="harmonise:number" type="string"/>
+              </Entity>
+            </Property>
+            <Property field="{E_MAIL}" attribute="harmonise:email" type="string"/>
+            <Property fieldLink="http://opendata.aragon.es/def/ei2a#url-cafeteria-restaurante-{SIGNATURA}" attribute="harmonise:url">
+              <Entity rdf:type="harmonise:MultiLanguageText" URI="http://opendata.aragon.es/def/ei2a#url-cafeteria-restaurante-{SIGNATURA}">
+                <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                <Property fieldLink="http://opendata.aragon.es/def/ei2a#url-cafeteria-restaurante-languageText-{SIGNATURA}" attribute="harmonise:languageText">
+                  <Entity rdf:type="harmonise:LanguageText" URI="http://opendata.aragon.es/def/ei2a#url-cafeteria-restaurante-languageText-{SIGNATURA}">
+                    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                    <Property field="{DIRECCION_WEB}" attribute="harmonise:text" type="string"/>
+                  </Entity>
+                </Property>
+              </Entity>
+            </Property>
+            <Property fieldLink="http://opendata.aragon.es/def/ei2a#fax-cafeteria-restaurante-{SIGNATURA}" attribute="harmonise:fax">
+              <Entity rdf:type="harmonise:TelecomNumber" URI="http://opendata.aragon.es/def/ei2a#fax-cafeteria-restaurante-{SIGNATURA}">
+                <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                <Property field="{FAX_ESTABLECIMIENTO}" attribute="harmonise:number" type="string"/>
+              </Entity>
+            </Property>
+          </Entity>
+        </Property>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#address-cafeteria-restaurante-{SIGNATURA}" attribute="harmonise:address">
+          <Entity rdf:type="harmonise:Address" URI="http://opendata.aragon.es/def/ei2a#address-cafeteria-restaurante-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property fieldLink="http://opendata.aragon.es/def/ei2a#street-address-cafeteria-restaurante-{SIGNATURA}" attribute="harmonise:streetAddress">
+              <Entity rdf:type="harmonise:StreetAddress" URI="http://opendata.aragon.es/def/ei2a#street-address-cafeteria-restaurante-{SIGNATURA}">
+                <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                <Property field="{DIRECCION_ESTABLECIMIENTO}" attribute="harmonise:streetName" type="string"/>
+              </Entity>
+            </Property>
+            <Property fieldLink="http://opendata.aragon.es/def/ei2a#city-cafeteria-restaurante-{SIGNATURA}" attribute="harmonise:city">
+              <Entity rdf:type="harmonise:MultiLanguageText" URI="http://opendata.aragon.es/def/ei2a#city-cafeteria-restaurante-{SIGNATURA}">
+                <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                <Property fieldLink="http://opendata.aragon.es/def/ei2a#city-cafeteria-restaurante-languageText-{SIGNATURA}" attribute="harmonise:languageText">
+                  <Entity rdf:type="harmonise:LanguageText" URI="http://opendata.aragon.es/def/ei2a#city-cafeteria-restaurante-languageText-{SIGNATURA}">
+                    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                    <Property field="{LOCALIDAD_ESTABLECIMIENTO}" attribute="harmonise:text" type="string"/>
+                  </Entity>
+                </Property>
+              </Entity>
+            </Property>
+            <Property fieldLink="http://opendata.aragon.es/def/ei2a#region-cafeteria-restaurante-{SIGNATURA}" attribute="harmonise:region">
+              <Entity rdf:type="harmonise:MultiLanguageText" URI="http://opendata.aragon.es/def/ei2a#region-cafeteria-restaurante-{SIGNATURA}">
+                <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                <Property fieldLink="http://opendata.aragon.es/def/ei2a#region-cafeteria-restaurante-languageText-{SIGNATURA}" attribute="harmonise:languageText">
+                  <Entity rdf:type="harmonise:LanguageText" URI="http://opendata.aragon.es/def/ei2a#region-cafeteria-restaurante-languageText-{SIGNATURA}">
+                    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                    <Property field="{NOMBRE_COMARCA}" attribute="harmonise:text" type="string"/>
+                  </Entity>
+                </Property>
+              </Entity>
+            </Property>
+            <Property fieldLink="http://opendata.aragon.es/def/ei2a#province-cafeteria-restaurante-{SIGNATURA}" attribute="harmonise:province">
+              <Entity rdf:type="harmonise:MultiLanguageText" URI="http://opendata.aragon.es/def/ei2a#province-cafeteria-restaurante-{SIGNATURA}">
+                <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                <Property fieldLink="http://opendata.aragon.es/def/ei2a#province-cafeteria-restaurante-languageText-{SIGNATURA}" attribute="harmonise:languageText">
+                  <Entity rdf:type="harmonise:LanguageText" URI="http://opendata.aragon.es/def/ei2a#province-cafeteria-restaurante-languageText-{SIGNATURA}">
+                    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+                    <Property field="{PROVINCIA_ESTABLECIMIENTO}" attribute="harmonise:text" type="string"/>
+                  </Entity>
+                </Property>
+              </Entity>
+            </Property>
+            <Property field="{CODIGO_POSTAL_ESTABLECIMIENTO}" attribute="harmonise:postCode" type="string"/>
+            <Property field="{NACIONALIDAD}" attribute="harmonise:country" type="string"/>
+          </Entity>
+        </Property>
+      </Entity>
+    </Property>
+    <Property fieldLink="http://opendata.aragon.es/def/ei2a#profile-cafeteria-restaurante-{SIGNATURA}" attribute="harmonise:profile">
+      <Entity rdf:type="harmonise:Profile" URI="http://opendata.aragon.es/def/ei2a#profile-cafeteria-restaurante-{SIGNATURA}">
+        <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#places-cafeteria-restaurante-{SIGNATURA}" attribute="harmonise:profileField">
+          <Entity rdf:type="harmonise:ProfileField" URI="http://opendata.aragon.es/def/ei2a#places-cafeteria-restaurante-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property value="Número de plazas" attribute="harmonise:fieldName" type="string"/>
+            <Property field="{NUMERO_PLAZAS}" attribute="harmonise:fieldValue" type="string"/>
+          </Entity>
+        </Property>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#barra-cafeteria-restaurante-{SIGNATURA}" attribute="harmonise:profileField">
+          <Entity rdf:type="harmonise:ProfileField" URI="http://opendata.aragon.es/def/ei2a#barra-cafeteria-restaurante-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property value="Número de plazas barra" attribute="harmonise:fieldName" type="string"/>
+            <Property field="{PLAZAS_BARRA}" attribute="harmonise:fieldValue" type="string"/>
+          </Entity>
+        </Property>
+        <Property fieldLink="http://opendata.aragon.es/def/ei2a#mesa-cafeteria-restaurante-{SIGNATURA}" attribute="harmonise:profileField">
+          <Entity rdf:type="harmonise:ProfileField" URI="http://opendata.aragon.es/def/ei2a#mesa-cafeteria-restaurante-{SIGNATURA}">
+            <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+            <Property value="Número de plazas mesa" attribute="harmonise:fieldName" type="string"/>
+            <Property field="{PLAZAS_MESA}" attribute="harmonise:fieldValue" type="string"/>
+          </Entity>
+        </Property>
+      </Entity>
+    </Property>
+  </Entity>
+</Mapping>

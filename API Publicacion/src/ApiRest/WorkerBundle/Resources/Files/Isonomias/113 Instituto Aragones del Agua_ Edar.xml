@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:wisdom="http://www.semanticwater.com/WISDOM#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#" id="113">
+  <Entity rdf:type="wisdom:SewageFitting" URI="http://opendata.aragon.es/def/ei2a#edar-{CODEDAR}">
+    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+    <Property field="{CODEDAR}" attribute="dc:identifier" type="string"/>
+    <Property link="ei2a:edar" attribute="dc:type"/>
+    <Property field="{NOMBRE_EDA}" attribute="dc:title" type="string"/>
+    <Property field="{FECHA_SER}" attribute="dc:date" type="string"/>   
+  </Entity>
+</Mapping>
