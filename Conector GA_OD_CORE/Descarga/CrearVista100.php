@@ -1,5 +1,4 @@
 <?php
-
     $vista = 100;
     define ("CLAVE_URI1", "ANYO");
     define ("CLAVE_URI2", "CODIGO_PROVINCIA");
