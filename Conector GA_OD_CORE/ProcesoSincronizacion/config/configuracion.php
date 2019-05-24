@@ -15,4 +15,5 @@ $EmailResponsable='responsable@example.com'; // Email al que llegaran los errore
 $EmailOrigen='notificacionesaodp@example.com'; // Email usado para enviar las notificaciones, usar el configurado en Postfix.
 $VistasActualizar='2,4,2,'; // Indica el numero de las vistas que se van a actualizar ejemplo 3,4,7,91. Solo actualizara las vistas: 3,4,7,91, si se deja vacio ($VistasActualizar='') se actualizaran las correspondientes por fecha.
 $ficheroLog=$RutaTrabajo . '/Log/TPAOD_'.date("Ymd").'.log'; // Ubicacion del Log de la TP.
+$VistasExcluir='9999'; // Indica las vistas que se van a excluir indicando su numero de vista por ejemplo 3,4,7,9,1  hara que se no se compruebe el numero de triples que hay en virtuoso y el numero de filas del fichero CSV de las vistas 3,4,7,9 y 1 a la hora de actualizarse (Esto es para que no se compruebe que en el fichero vienen menos filas que sujetos hay en virtuoso.).
 ?>

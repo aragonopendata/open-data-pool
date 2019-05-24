@@ -1,6 +1,4 @@
 <?php
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
 
 /*
  * Esta funcion descarga el XML correspondiente a una vista, si la descarga es exitosa
@@ -44,11 +42,11 @@ function DescargarVistaAOD($idVista, $numPagina)
     }
     $xml = simplexml_load_string($datosXMLDescargadosCorrecto);
     libxml_clear_errors();
-	if(!is_object($xml) )
-	{
-	logErrores('TPAOD: Error al crear el objeto desde el xml de la página $numPagina de la vista $idVista probablemente el GA_OD_CORE API, esta respondiendo con XML incorrecto o incompleto.');
-	 return 'FIN';
-	}
+    if(!is_object($xml) )
+    {
+    logErrores('TPAOD: Error al crear el objeto desde el xml de la página $numPagina de la vista $idVista probablemente el GA_OD_CORE API, esta respondiendo con XML incorrecto o incompleto.');
+     return 'FIN';
+    }
     if ($xml->count() < 1 || strpos($datosXMLDescargados, "<ERROR>"))  {
         logErrores("TPAOD: Se ha terminado la descarga de la vista $idVista");
         return 'FIN';
@@ -60,8 +58,6 @@ function DescargarVistaAOD($idVista, $numPagina)
         logErrores("TPAOD: Se ha descargado exitosamente la pagina $numPagina de la vista $idVista");
         return $datosXMLDescargadosCorrecto;
     }
-    
-    
 }
 
 /*
@@ -116,6 +112,35 @@ function DescargarVistaCompleta($idVista)
     return FALSE;
 }
 
+function DescargarBOAJSON()
+{
+    global $RutaTrabajo;
+    $ch = curl_init(); // instanciamos curl e iniciamos un handler para trabajar.
+    // $url                        = "http://www.boa.aragon.es/cgi-bin/AODB/BRSCGI?CMD=VERLST&OUTPUTMODE=JSON&BASE=BOLE&DOCS=1-10000&SEC=OPENDATAELIJSON&SORT=-PUBL&SEPARADOR=&NUMB=&RANG=ley&OP1-C=NO&RANG=decreto&OP2-C=NO&RANG=organica&OP3-C=NO&RANG=correccion"; //Url del archivo json antiguo
+    $url                        = "http://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VERLST&OUTPUTMODE=JSON&BASE=BOLE&DOCS=1-1000&SEC=ELIJSON&SORT=-PUBL&SEPARADOR=&NUMB=&RANG=ley&OP1-C=NO&RANG=decreto&OP2-C=NO&RANG=organica&OP3-C=NO&RANG=correccion"; //Url del archivo json
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 0);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 400);
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_ENCODING, "gzip");
+    curl_setopt($ch, CURLOPT_ENCODING, 'UTF-8');
+
+    $datosJSONDescargados         = curl_exec($ch);
+    if (empty($datosJSONDescargados)) {
+        return FALSE;
+    } else {
+        // Comprobamos si existe la carpeta de descarga, si no la creamos.
+        CrearCarpeta($RutaTrabajo . "/VistasJson/VistaBOA");
+        $FicheroDestinoJSON = $RutaTrabajo . "/VistasJson/VistaBOA/vista_boa_eli.json";
+        file_put_contents($FicheroDestinoJSON, $datosJSONDescargados);
+         
+        logErrores("TPAOD: Se ha descargado exitosamente el fichero JSON del BOA-ELI");
+
+        return 'FIN';
+    }
+}
+
 function GenerarCSVDesdeXMLVista($idVista)
 {
     // Limpiamos la variable idVista, dejando solo numeros.
@@ -130,6 +155,92 @@ function GenerarCSVDesdeXMLVista($idVista)
     return;
 }
 
+function GenerarCSVDesdeBOAJSON()
+{
+        global $RutaTrabajo;
+        //Give our CSV file a name.
+        $FicheroDestinoCSV = $RutaTrabajo . "/VistasJson/VistaBOA/vista_boa_eli.csv";
+        $FicheroDestinoJSON = $RutaTrabajo . "/VistasJson/VistaBOA/vista_boa_eli.json";
+
+        $json = utf8_encode(file_get_contents($FicheroDestinoJSON));
+        $jsonDecoded = json_decode($json, true);
+         
+        //Give our CSV file a name.
+        $fp = fopen($FicheroDestinoCSV, 'w+');
+
+        // Add header
+        fputcsv($fp, array_keys($jsonDecoded[0]), ';', '"');
+        //Loop through the associative array.
+        foreach($jsonDecoded as $row){
+            //Write the row to the CSV file.
+            fputcsv($fp, $row, ';', '"');
+            // fwrite($fp, $row);
+        }
+         
+        //Finally, close the file pointer.
+        fclose($fp);
+
+        FormatearCSV($FicheroDestinoCSV);
+}
+
+function FormatearCSV($FicheroCSV)
+{
+    // $fcsv = file_get_contents($FicheroCSV);
+    // logErrores("CSV: " . $fcsv);
+    global $RutaTrabajo;
+    $separador = ";";
+    $FicheroDestinoCSV = $RutaTrabajo . "/VistasJson/VistaBOA/vista_boa_eli_v2.csv";
+    //Give our CSV file a name.
+    $fp = fopen($FicheroDestinoCSV, 'w+');
+
+    if (($fichero = fopen($FicheroCSV, "r+")) !== FALSE) {
+        while (($datos = fgetcsv($fichero, 0, ';')) !== FALSE) {
+            $row = "";
+            for ($i = 0; $i <= count($datos) - 1; $i++) {
+                // Reemplazar charset
+                $datos[$i] = ReemplazarCharset($datos[$i]);
+                // Remove preview double quote
+                $datos[$i] = EliminarComillas($datos[$i]);
+                // Enclouse fields with double quote
+                $datos[$i] = PonerComillas($datos[$i]);
+                // Concatenate csv columns
+                if ($i > 0) {
+                    // if is the first field
+                    $row = $row . $separador . $datos[$i];    
+                } else {
+                    // if is not the first field
+                    $row = $row . $datos[$i];
+                }
+            }
+            // Write back to CSV format
+            EscribirFilaEnCSV($fp, $row);
+        }
+    }
+    //Finally, close the file pointer.
+    fclose($fichero);
+    fclose($fp);
+}
+
+function ReemplazarCharset($campo)
+{
+    return str_replace('&quot;', "'", $campo);
+}
+
+function EliminarComillas($campo)
+{
+    return str_replace('"', '', $campo);
+}
+
+function PonerComillas($campo)
+{
+    return '"' . $campo . '"';
+}
+
+function EscribirFilaEnCSV($fichero, $fila)
+{
+    $fila = $fila . "\n";
+    fwrite($fichero, $fila);
+}
 
 /*
  * Esta funcion se encarga de actualizar la vista con el CSV.
@@ -141,13 +252,21 @@ function GenerarCSVDesdeXMLVista($idVista)
 function actualizarCsv($idVista, $nombreVista, $dcTypes, $URLApi)
 {
     $ficheroCSV = "./VistasCsv/Vista$idVista/vista_$idVista.csv";
-    if (!file_exists($ficheroCSV)) {
+    if ($nombreVista == 'boa_eli') {
+        logErrores("BOA2");
+        logErrores("idVista: " . $idVista);
+        logErrores("nombreVista: " . $nombreVista);
+        logErrores("dcTypes: " . $dcTypes);
+        logErrores("URLApi: " . $URLApi);
+        $ficheroCSV = "./VistasJson/VistaBOA/vista_boa_eli_v2.csv";
+    } elseif (!file_exists($ficheroCSV)) {
         $ficheroCSV = "./VistasCsv/Vista$idVista/Vista_$idVista.csv";
         if (!file_exists($ficheroCSV)) {
             logErrores("TPAOD: Error al leer el fichero $ficheroCSV");
             return FALSE;
         }
     }
+
     $ch       = curl_init(); //Se crea un curl
     $datosCSV = file_get_contents($ficheroCSV);
     $datosCSV = curl_escape($ch, $datosCSV);
@@ -158,7 +277,7 @@ function actualizarCsv($idVista, $nombreVista, $dcTypes, $URLApi)
     curl_setopt($ch, CURLOPT_TIMEOUT, 400);
     curl_setopt($ch, CURLOPT_URL, $URLApi);
     curl_setopt($ch, CURLOPT_POST, 1); //Se le dice que tiene que usar el protocolo POST
-    curl_setopt($ch, CURLOPT_POSTFIELDS, "idesquema=" . $nombreVista . "&csv=" . $datosCSV . "&dc_type=" . $dcTypes[$idVista]);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, "idesquema=" . $nombreVista . "&csv=" . $datosCSV . "&dc_type=" . $dcTypes[$idVista]);    
     
     $RespuestaHTTP = curl_exec($ch); //Se ejecuta la peticion
     
@@ -167,8 +286,8 @@ function actualizarCsv($idVista, $nombreVista, $dcTypes, $URLApi)
     
     logErrores("TPAOD: Se ha mandado la peticion de actualizacion del csv de la vista: $nombreVista Estado: $httpcode y respuesta: $RespuestaHTTP");
     
-    switch ($idVista) {
-    	
+    /*switch ($idVista) {
+        
         case 10:
             subirRelacion("57 Relaciones de Comarca", $nombreVista, 57, $URLApi);
             break;
@@ -189,7 +308,7 @@ function actualizarCsv($idVista, $nombreVista, $dcTypes, $URLApi)
             break;
         default:
             break;
-    }
+    }*/
 }
 
 /*
@@ -281,92 +400,120 @@ function ObtenerNumeroSujetosVirtuoso($idVista)
 {
     global $URLEndpointVirtuoso;
     global $dcTypes;
-    $dctypeParaConsulta = $dcTypes[$idVista]; // Obtenemos el dctype que corresponde a la vista.
-    $db                 = sparql_connect($URLEndpointVirtuoso); //Iniciamos conexion a virtuoso.
-    $FiltroSQL=str_replace ('ei2a:','http://opendata.aragon.es/def/ei2a#',$dctypeParaConsulta); // Creamos el dc:type correcto.
-    $ConsultaSPARQL          = 'select count(distinct(?s)) As ?total from <http://opendata.aragon.es/def/ei2a> where { ?s ?p ?o.  ?s dc:type  <' . $FiltroSQL . '>}'; // Preparamos la consulta SPARQL.
-    $resultadoConsultaSPARQL = sparql_query($ConsultaSPARQL); // Consultamos a virtuoso.
+    global $dcTypesBOA;
+
+    // Check if BOA
+    if ($idVista == 'boa_eli') {
+        $dctypeParaConsulta = $dcTypesBOA[0]; // Obtenemos el dctype que corresponde al BOA.
+        // $dctypeParaConsulta = $dcTypes[3];
+    } else {
+        $dctypeParaConsulta = $dcTypes[$idVista]; // Obtenemos el dctype que corresponde a la vista.
+    }
+    
+    $db                 = sparql_connect($URLEndpointVirtuoso);
+    sparql_ns("ei2a", "http://opendata.aragon.es/def/ei2a"); // Agregamos el prefijo ei2a. Para mas informacion consultar: https://opendata.aragon.es/def/ei2a/
+    $FiltroSQL=str_replace ('ei2a:','http://opendata.aragon.es/def/ei2a#',$dctypeParaConsulta);
+    $ConsultaSPARQL          = 'select count(distinct(?s)) As ?total from <http://opendata.aragon.es/def/ei2a> where { ?s ?p ?o.  ?s dc:type  <' . $FiltroSQL . '>}';
+    
+    $resultadoConsultaSPARQL = sparql_query($ConsultaSPARQL);
+    $ArrayResultado=sparql_fetch_array($resultadoConsultaSPARQL);
+    $ValorResultado=$ArrayResultado["total"];
+
     if (!$resultadoConsultaSPARQL) { //Controlamos errores de conexion, si no funciona virtuoso detenemos la carga.
         $errorSPARQL = sparql_errno() . ": " . sparql_error(); // Capturamos el error de virtuoso.
-        logErrores($errorSPARQL); // Lo guardamos en el log.
-        EnviarMail('Notificacion AOD Pool',"Tenemos un problema en virtuoso. \n $errorSPARQL \n ",NULL);
-        die("\n" . $errorSPARQL . "\n"); // Lo mostramos por pantalla y acabamos el programa.
+        logErrores($errorSPARQL);
+        die("\n" . $errorSPARQL . "\n");
     }
-    $ArrayResultado=sparql_fetch_array($resultadoConsultaSPARQL); //Obtenemos la columna fila del resultado como un array.
-    $ValorResultado=$ArrayResultado["total"]; // Nos quedamos con el valor total de la consulta.
     //Si no hay ningun error, obtenemos el numero de filas y lo devolvemos.
     return $ValorResultado;
 }
 
-function VerificarDatosVista($idVista) {
-logErrores("Verificamos los datos de la vista");
-$ficheroCSV = "./VistasCsv/Vista$idVista/vista_$idVista.csv";
-    if (!file_exists($ficheroCSV)) {
-        $ficheroCSV = "./VistasCsv/Vista$idVista/Vista_$idVista.csv";
+function VerificarDatosVista($idVista)
+{
+    logErrores("Verificamos los datos de la vista");
+    $ficheroCSV = "./VistasCsv/Vista$idVista/vista_$idVista.csv";
         if (!file_exists($ficheroCSV)) {
-            logErrores("TPAOD: Error al leer el fichero $ficheroCSV");
-            return FALSE;
+            $ficheroCSV = "./VistasCsv/Vista$idVista/Vista_$idVista.csv";
+            if (!file_exists($ficheroCSV)) {
+                logErrores("TPAOD: Error al leer el fichero $ficheroCSV");
+                return FALSE;
+            }
         }
+    $LineasTotalesFicheroCSV = count(file($ficheroCSV, FILE_SKIP_EMPTY_LINES));
+    $LineasTotalesVirtuoso=ObtenerNumeroSujetosVirtuoso($idVista);
+    // Nos aseguramos que la actualizacion contiene los mismos datos o mas.
+    logErrores("Verificamos la vista numero $idVista con $LineasTotalesFicheroCSV en el CSV y $LineasTotalesVirtuoso en virtuoso.");
+    if ($LineasTotalesFicheroCSV >= $LineasTotalesVirtuoso  ) {
+        return TRUE; 
+    } else {
+        logErrores("No se actualiza la vista porque contiene menos datos que virtuoso"); 
+        return FALSE;
     }
-$LineasTotalesFicheroCSV = count(file($ficheroCSV, FILE_SKIP_EMPTY_LINES));
-$LineasTotalesVirtuoso=ObtenerNumeroSujetosVirtuoso($idVista);
-// Nos aseguramos que la actualizacion contiene los mismos datos o mas.
-logErrores("Verificamos la vista numero $idVista con $LineasTotalesFicheroCSV en el CSV y $LineasTotalesVirtuoso en virtuoso.");
-if ($LineasTotalesFicheroCSV >= $LineasTotalesVirtuoso  ) {
-	return TRUE; 
-} else {
-logErrores("No se actualiza la vista porque contiene menos datos que virtuoso"); 
-return FALSE;
 }
 
-	
+function VerificarDatosBOA($idVista)
+{
+    logErrores("Verificamos los datos del BOA");
+    $ficheroCSV = "./VistasJson/VistaBOA/vista_boa_eli_v2.csv";
+    if (!file_exists($ficheroCSV)) {
+        logErrores("TPAOD: Error al leer el fichero " . $ficheroCSV);
+        return FALSE;
+    }
+    $LineasTotalesFicheroCSV = count(file($ficheroCSV, FILE_SKIP_EMPTY_LINES));
+    $LineasTotalesVirtuoso=ObtenerNumeroSujetosVirtuoso($idVista);
+
+    // Nos aseguramos que la actualizacion contiene los mismos datos o mas.
+    logErrores("Verificamos el fichero del BOA con " . $LineasTotalesFicheroCSV . " en el CSV y " . $LineasTotalesVirtuoso . " en virtuoso.");
+    if ($LineasTotalesFicheroCSV >= $LineasTotalesVirtuoso  ) {
+        return TRUE; 
+    } else {
+        logErrores("No se actualiza la vista porque contiene menos datos que virtuoso"); 
+        return FALSE;
+    }
 }
 
 function VerificarEspacioEnDisco() {
-logErrores("Verificamos el espacio en disco");
-global $RutaTrabajo;
-global $ProcentajeEspacioMinimoEnDisco;
-$EspacioLibreEnBytes=disk_free_space($RutaTrabajo);
-$EspacioTotalEnBytes=disk_total_space($RutaTrabajo);
-$EspacioUsadoEnBytes= $EspacioTotalEnBytes - $EspacioLibreEnBytes;
-$PorcentajeDeUsoDeDisco = sprintf('%.2f',($EspacioUsadoEnBytes / $EspacioTotalEnBytes) * 100);
-$PorcentajeEspacioLibre=round(100 - $PorcentajeDeUsoDeDisco);
-if ($PorcentajeEspacioLibre <= $ProcentajeEspacioMinimoEnDisco) {
-	logErrores('Espacio de disco insuficiente, se detiene el proceso de carga.');
-	EnviarMail('Notificacion AOD Pool','Espacio de disco insuficiente, se detiene el proceso de carga.',NULL);
-	die('Espacio de disco insuficiente, se detiene el proceso de carga.');
-}
+    logErrores("Verificamos el espacio en disco");
+    global $RutaTrabajo;
+    global $ProcentajeEspacioMinimoEnDisco;
+    $EspacioLibreEnBytes=disk_free_space($RutaTrabajo);
+    $EspacioTotalEnBytes=disk_total_space($RutaTrabajo);
+    $EspacioUsadoEnBytes= $EspacioTotalEnBytes - $EspacioLibreEnBytes;
+    $PorcentajeDeUsoDeDisco = sprintf('%.2f',($EspacioUsadoEnBytes / $EspacioTotalEnBytes) * 100);
+    $PorcentajeEspacioLibre=round(100 - $PorcentajeDeUsoDeDisco);
+    if ($PorcentajeEspacioLibre <= $ProcentajeEspacioMinimoEnDisco) {
+        logErrores('Espacio de disco insuficiente, se detiene el proceso de carga.');
+        die('Espacio de disco insuficiente, se detiene el proceso de carga.');
+    }
 }
 
 function EnviarMail($asunto='Notificacion AOD Pool',$mensaje,$RutaFicheroadjunto=NULL) {
-global $EmailResponsable;
-global $EmailOrigen; 
-global $ficheroLog;
-if (!file_exists($RutaFicheroadjunto)) {
-	$RutaFicheroadjunto=$ficheroLog;
+    global $EmailResponsable;
+    global $EmailOrigen; 
+
+    $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
+    try {
+        // Cabecera del Correo.
+        $mail->setFrom($EmailOrigen, 'AOD Pool');
+        $mail->addAddress($EmailResponsable, 'Responsable AOD Pool');     // Add a recipient
+
+        //Adjuntos  
+        if (file_exists($RutaFicheroadjunto)) {
+            $mail->addAttachment($RutaFicheroadjunto);         // Agregamos el adjunto.
+        }
+
+
+        //Content
+        $mail->isHTML(true);                                  // Set email format to HTML
+        $mail->Subject = $asunto;
+        $mail->Body    = 'This is the HTML message body <b>in bold!</b>'; //contenido del Email en HTML.
+        $mail->AltBody = 'This is the body in plain text for non-HTML mail clients'; //Contenido del email en Text Plano
+
+        $mail->send(); 
+        logErrores('Notificacion de correo enviada al email: '.$EmailResponsable);
+    } catch (Exception $e) {
+        logErrores('Error al enviar la notificacion de correo: '. $mail->ErrorInfo);
+    }
 }
-$mail = new PHPMailer(true);                              // Passing `true` enables exceptions
-try {
-	// Cabecera del Correo.
-    $mail->setFrom($EmailOrigen, 'AOD Pool');
-    $mail->addAddress($EmailResponsable, 'Responsable AOD Pool');     // Add a recipient
 
-    //Adjuntos  
-	if (file_exists($RutaFicheroadjunto)) {
-   		$mail->addAttachment($RutaFicheroadjunto);         // Agregamos el adjunto.
-	}
-
-
-    //Content
-    $mail->isHTML(true);                                  // Set email format to HTML
-    $mail->Subject = $asunto;
-    $mail->Body    = "<p>$mensaje</p>"; //contenido del Email en HTML.
-    $mail->AltBody = $mensaje; //Contenido del email en Text Plano
-
-    $mail->send(); 
-    logErrores('Notificacion de correo enviada al email: '.$EmailResponsable);
-} catch (Exception $e) {
-    logErrores('Error al enviar la notificacion de correo: '. $mail->ErrorInfo);
-}
-}
 ?>
