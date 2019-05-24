@@ -4,7 +4,7 @@ require_once './config/dcTypes.php'; // Incluimos los dcTypes que tiene cada vis
 require_once './config/dcTypesBOA.php'; // Incluimos los dcTypes que tiene cada vista.
 require_once './lib/pgsql.php'; // Contiene las funciones relacionadas con PostgreSQL
 require_once './lib/filesystem.php'; // Contiene las funciones relacionadas con el manejo de archivos.
-require_once './lib/aod_boa.php'; // Contiene funciones relacionadas con el Api de Aragon.
+require_once './lib/aod.php'; // Contiene funciones relacionadas con el Api de Aragon.
 require_once('./lib/sparqllib.php'); // Contiene las funciones para acceder al EndPoint de virtuoso.
 require_once('./lib/PHPMailer/src/PHPMailer.php'); // Contiene las funciones y metodos para enviar correos.
 require_once('./lib/PHPMailer/src/Exception.php'); // Contiene el control de excepciones para enviar correos.

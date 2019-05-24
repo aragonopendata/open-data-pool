@@ -286,29 +286,31 @@ function actualizarCsv($idVista, $nombreVista, $dcTypes, $URLApi)
     
     logErrores("TPAOD: Se ha mandado la peticion de actualizacion del csv de la vista: $nombreVista Estado: $httpcode y respuesta: $RespuestaHTTP");
     
-    /*switch ($idVista) {
-        
-        case 10:
-            subirRelacion("57 Relaciones de Comarca", $nombreVista, 57, $URLApi);
-            break;
-        case 20:
-            subirRelacion("58 Relaciones de Entidades Singulares", $nombreVista, 58, $URLApi);
-            break;
-        case 22:
-            subirRelacion("59 Relaciones de Fundaciones", $nombreVista, 59, $URLApi);
-            break;
-        case 24:
-            subirRelacion("60 Relaciones de Mancomunidades", $nombreVista, 60, $URLApi);
-            break;
-        case 35:
-            subirRelacion("61 Relaciones de Villas y Tierras", $nombreVista, 61, $URLApi);
-            break;
-        case 102:
-            subirArchivoAdicinal("Coordenadas Vista 102", $nombreVista, "../VistasCsv/Vista$idVista/coordenadas.csv", $URLApi);
-            break;
-        default:
-            break;
-    }*/
+    if ($nombreVista != 'boa_eli') {
+        switch ($idVista) {
+            
+            case 10:
+                subirRelacion("57 Relaciones de Comarca", $nombreVista, 57, $URLApi);
+                break;
+            case 20:
+                subirRelacion("58 Relaciones de Entidades Singulares", $nombreVista, 58, $URLApi);
+                break;
+            case 22:
+                subirRelacion("59 Relaciones de Fundaciones", $nombreVista, 59, $URLApi);
+                break;
+            case 24:
+                subirRelacion("60 Relaciones de Mancomunidades", $nombreVista, 60, $URLApi);
+                break;
+            case 35:
+                subirRelacion("61 Relaciones de Villas y Tierras", $nombreVista, 61, $URLApi);
+                break;
+            case 102:
+                subirArchivoAdicinal("Coordenadas Vista 102", $nombreVista, "../VistasCsv/Vista$idVista/coordenadas.csv", $URLApi);
+                break;
+            default:
+                break;
+        }
+    }
 }
 
 /*
