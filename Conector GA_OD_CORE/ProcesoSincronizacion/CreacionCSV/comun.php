@@ -40,7 +40,7 @@
     else {
         $log = fopen ("../Log/log".date("Ymd").".txt", "a+");
         fwrite ($log, date(DATE_W3C)." Se ha producido un error en la creacion del csv de la vista ". $GLOBALS["vista"]."\r\n");
-        echo "error";
+        echo "Error:".file_exists(RUTA_XML.CLAVES_XML)." comprueba el log ".RUTA_CSV.ARCHIVO_CSV." ".RUTA_XML.CLAVES_XML;
         fclose ($log);
     }
     
@@ -419,7 +419,11 @@
         $elemento = str_replace ("\"", "\"\"", $elemento); //cambiamos el caracter " por ""
         $elemento = trim ($elemento);
     }
-    
+
+    function isInteger($input){
+        return(ctype_digit(strval($input)));
+    }
+
     function escribirErroresPHP($errno, $errstr, $errfile, $errline) {
         $log = fopen ("../Log/log".date("Ymd").".txt", "a+");
         $error = "";
