@@ -150,7 +150,7 @@ $dcTypes[155] = "";
 $dcTypes[156] = "";
 $dcTypes[157] = "";
 $dcTypes[158] = "ei2a:periodo_legislatura";
-$dcTypes[159] = "ei2a:entidad";
+$dcTypes[159] = "ei2a:entidad_gobierno_aragon";
 $dcTypes[160] = "ei2a:cargo";
 $dcTypes[241] = "ei2a:inaga-terrenos-cinegeticos-y-no-cinegeticos-de-aragon";
 ?>
