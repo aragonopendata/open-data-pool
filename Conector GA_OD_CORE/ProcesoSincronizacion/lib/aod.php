@@ -30,7 +30,7 @@ function obtenerIdLegislaturaVista159()
     $array = json_decode(stripslashes($datosVista));
 
     $maxNumber = 0;
-    for ($i = 1; $i <= count($array); $i++) {
+    for ($i = 0; $i < count($array); $i++) {
         if ($array[$i][0] > $maxNumber) {
             $maxNumber = $array[$i][0];
         }
