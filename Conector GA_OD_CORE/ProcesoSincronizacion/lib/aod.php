@@ -62,6 +62,8 @@ function DescargarVistaAOD($idVista, $numPagina)
     if ($idVista == 159) {
         $idLegislatura = obtenerIdLegislaturaVista159();
         $url = "https://opendata.aragon.es/GA_OD_Core/download?view_id=$idVista&filter_sql=(ID_LEGISLATURA%3D$idLegislatura)%20AND%20(COD_SIU%3C%3E'null')%20AND%20(COD_SIU%3C%3E'%20')&formato=xml&_pageSize=1000&_page=$numPagina"; //Url del archivo xml
+    } elseif ($idVista == 72) {
+	$url = "https://opendata.aragon.es/GA_OD_Core/download?view_id=$idVista&formato=xml&_pageSize=101&_page=$numPagina"; //Url del archivo xml
     } else {
         $url = "https://opendata.aragon.es/GA_OD_Core/download?view_id=$idVista&formato=xml&_pageSize=1000&_page=$numPagina"; //Url del archivo xml
     }
