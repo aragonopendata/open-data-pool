@@ -30,7 +30,7 @@ if (empty($VistasActualizar)) {
             $ParametrosCondicionSQL = $ParametrosCondicionSQL . 'nombre like \'' . $ListaVistasActualizar . '%\' or ';
         }
     }
-    $ParametrosCondicionSQL      = substr_replace($ParametrosCondicionSQL, "", -3); // Eliminamos la ?ltima coma del string generado.
+    $ParametrosCondicionSQL      = substr_replace($ParametrosCondicionSQL, "", -3); // Eliminamos la última coma del string generado.
     $ConsultaSQLVistasActualizar = "SELECT distinct code,nombre,criterio,periodicidad,fecha,hora,estado,logs,archivos,active,created FROM public.cargavistas where " . $ParametrosCondicionSQL;
     
 }
