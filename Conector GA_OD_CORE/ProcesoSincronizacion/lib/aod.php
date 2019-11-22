@@ -63,7 +63,7 @@ function DescargarVistaAOD($idVista, $numPagina)
         $idLegislatura = obtenerIdLegislaturaVista159();
         $url = "https://opendata.aragon.es/GA_OD_Core/download?view_id=$idVista&filter_sql=(ID_LEGISLATURA%3D$idLegislatura)%20AND%20(COD_SIU%3C%3E'null')%20AND%20(COD_SIU%3C%3E'%20')&formato=xml&_pageSize=1000&_page=$numPagina"; //Url del archivo xml
     } elseif ($idVista == 72) {
-	$url = "https://opendata.aragon.es/GA_OD_Core/download?view_id=$idVista&formato=xml&_pageSize=101&_page=$numPagina"; //Url del archivo xml
+        $url = "https://opendata.aragon.es/GA_OD_Core/download?view_id=$idVista&formato=xml&_pageSize=101&_page=$numPagina"; //Url del archivo xml
     } else {
         $url = "https://opendata.aragon.es/GA_OD_Core/download?view_id=$idVista&formato=xml&_pageSize=1000&_page=$numPagina"; //Url del archivo xml
     }
@@ -161,8 +161,8 @@ function DescargarBOAJSON()
 {
     global $RutaTrabajo;
     $ch = curl_init(); // instanciamos curl e iniciamos un handler para trabajar.
-    // $url                        = "http://www.boa.aragon.es/cgi-bin/AODB/BRSCGI?CMD=VERLST&OUTPUTMODE=JSON&BASE=BOLE&DOCS=1-10000&SEC=OPENDATAELIJSON&SORT=-PUBL&SEPARADOR=&NUMB=&RANG=ley&OP1-C=NO&RANG=decreto&OP2-C=NO&RANG=organica&OP3-C=NO&RANG=correccion"; //Url del archivo json antiguo
-    $url                        = "http://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VERLST&OUTPUTMODE=JSON&BASE=BOLE&DOCS=1-1000&SEC=ELIJSON&SORT=-PUBL&SEPARADOR=&NUMB=&RANG=ley&OP1-C=NO&RANG=decreto&OP2-C=NO&RANG=organica&OP3-C=NO&RANG=correccion"; //Url del archivo json
+    $url = "http://www.boa.aragon.es/cgi-bin/AODB/BRSCGI?CMD=VERLST&OUTPUTMODE=JSON&BASE=BOLE&DOCS=1-10000&SEC=OPENDATAELIJSOND&SORT=-PUBL&SEPARADOR=&&SECC-C=generales&RANG=(ley+o+decreto)&OP1-C=NO&RANG=real&OP2-C=NO&RANG=correccion&OP3-C=NO&RANG=organica"; // Url del archivo json de leyes y decretos BOA
+
     curl_setopt($ch, CURLOPT_HEADER, 0);
     curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 0);
     curl_setopt($ch, CURLOPT_TIMEOUT, 400);
@@ -298,11 +298,6 @@ function actualizarCsv($idVista, $nombreVista, $dcTypes, $URLApi)
 {
     $ficheroCSV = "./VistasCsv/Vista$idVista/vista_$idVista.csv";
     if ($nombreVista == 'boa_eli') {
-        logErrores("BOA2");
-        logErrores("idVista: " . $idVista);
-        logErrores("nombreVista: " . $nombreVista);
-        logErrores("dcTypes: " . $dcTypes);
-        logErrores("URLApi: " . $URLApi);
         $ficheroCSV = "./VistasJson/VistaBOA/vista_boa_eli_v2.csv";
     } elseif (!file_exists($ficheroCSV)) {
         $ficheroCSV = "./VistasCsv/Vista$idVista/Vista_$idVista.csv";

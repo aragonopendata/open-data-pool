@@ -21,16 +21,16 @@ if (empty($VistasActualizar)) {
     // Inicializamos variables vacias para prevenir errores de codigo.
     $ListaVistasActualizar  = '';
     $ParametrosCondicionSQL = '';
-    // Recorremos el array y generamos un string para añadir a la funcion IN de SQL.
+    // Recorremos el array y generamos un string para aï¿½adir a la funcion IN de SQL.
     foreach ($ArrayVistasActualizar as $numArray => $ListaVistasActualizar) {
-        // Si la vista no es del BOA: nos aseguramos que el valor es numerico para evitar SQLi y preparamos la condición.
+        // Si la vista no es del BOA: nos aseguramos que el valor es numerico para evitar SQLi y preparamos la condiciï¿½n.
         if ($ListaVistasActualizar != 'boa_eli') {
             $ParametrosCondicionSQL = $ParametrosCondicionSQL . 'nombre like \'' . filter_var($ListaVistasActualizar, FILTER_SANITIZE_NUMBER_INT) . ' %\' or ';
         } else {
             $ParametrosCondicionSQL = $ParametrosCondicionSQL . 'nombre like \'' . $ListaVistasActualizar . '%\' or ';
         }
     }
-    $ParametrosCondicionSQL      = substr_replace($ParametrosCondicionSQL, "", -3); // Eliminamos la última coma del string generado.
+    $ParametrosCondicionSQL      = substr_replace($ParametrosCondicionSQL, "", -3); // Eliminamos la ï¿½ltima coma del string generado.
     $ConsultaSQLVistasActualizar = "SELECT distinct code,nombre,criterio,periodicidad,fecha,hora,estado,logs,archivos,active,created FROM public.cargavistas where " . $ParametrosCondicionSQL;
     
 }
@@ -61,7 +61,7 @@ while ($fila = pg_fetch_array($VistasActualizar, $Numfila, PGSQL_NUM)) {
             // Solo al terminar de descargar bien el fichero BOA en JSON procedemos con la conversion del CSV.
             GenerarCSVDesdeBOAJSON();
 
-            if (VerificarDatosBOA($nombreVista) or in_array("boa_eli", $ArrayVistasExcluir)) {
+            if (VerificarDatosBOA($nombreVista) or in_array($nombreVista, $ArrayVistasExcluir)) {
                 logErrores("Se va a proceder a actualizar");
                 VerificarEspacioEnDisco();
                 actualizarCSV(0, $nombreVista, $dcTypesBOA, $URLApi);
