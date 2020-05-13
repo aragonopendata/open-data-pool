@@ -16,11 +16,11 @@ class Main
                 $id = $idVista;
                 $carpeta = $entrada;
                 $work = new Worker($id, $carpeta, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-                $work->Procesa("E:/AODP API/web/publicacion", "E:/AODP API/app/publicacion");
+                $work->Procesa("/var/www/html/web/publicacion", "/var/www/html/app/publicacion");
             }
         }
     }
 }
 $main = new Main();
-$main->worker('78', 'E:/AODP API/web/publicacion/78API');
+$main->worker('78', '/data/AOD_Pool_PAC');
 ?>

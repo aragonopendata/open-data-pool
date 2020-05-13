@@ -45,7 +45,8 @@ class Csv
     {
         $data = array();
         if (! empty($this->carpeta)) {
-            $nombreFichero = $this->carpeta . "/datos.csv";
+            //$nombreFichero = $this->carpeta . "/view78.csv";
+            $nombreFichero = $this->carpeta;
             clearstatcache();
             if (file_exists($nombreFichero)) {
                 // $this->trazas->LineaDebug("DameCsv",$nombreFichero .": Fichero CSV encontrado");

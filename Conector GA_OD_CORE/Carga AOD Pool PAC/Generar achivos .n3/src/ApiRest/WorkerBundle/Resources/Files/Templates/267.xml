@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#" id="81">
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#" id="267">
   <Entity rdf:type="ei2a:Compound" URI="http://opendata.aragon.es/def/ei2a#codigo-catastral-{CCOSEC}-{CODIGO_MUN}-{CPOLIG}-{CPARCE}-{CSUBPA}">
     <Property field="{FUENTE}" attribute="dc:source" type="string"/>
     <Property field="{CCOSEC}-{CODIGO_MUN}-{CPOLIG}-{CPARCE}-{CSUBPA}" attribute="dc:identifier" type="string"/>

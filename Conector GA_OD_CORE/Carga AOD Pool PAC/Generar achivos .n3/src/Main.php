@@ -2,7 +2,7 @@
 namespace ApiRest\WorkerBundle\Controller;
 
 spl_autoload_register(function ($Worker) {
-    include $Worker . '.php';
+    include __DIR__ . '/' . str_replace('\\','/', $Worker) . '.php';
 });
 
 class Main
@@ -16,11 +16,11 @@ class Main
                 $id = $idVista;
                 $carpeta = $entrada;
                 $work = new Worker($id, $carpeta, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-                $work->Procesa("E:/AODP API/web/publicacion", "E:/AODP API/app/publicacion");
+                $work->Procesa("/data/AOD_Pool_PAC/API/web/publicacion", "/data/AOD_Pool_PAC/API/web/publicacion");
             }
         }
     }
 }
 $main = new Main();
-$main->worker('78', 'E:/AODP API/web/publicacion/78API');
+$main->worker('267', '/data/AOD_Pool_PAC/API/web/publicacion/267API');
 ?>

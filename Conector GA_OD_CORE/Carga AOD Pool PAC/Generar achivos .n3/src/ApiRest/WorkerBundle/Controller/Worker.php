@@ -137,9 +137,14 @@ class Worker
     // javi para el de borado por dc:type
     public function Procesa($webPath, $appPath)
     {
-        $pathNoporcesados = sprintf("%s/78API/%s", $webPath, $this->carpeta);
-        $pathPorcesados = sprintf("%s/Procesados/%s", $webPath, $this->carpeta);
-        $pathError = sprintf("%s/Error/%s", $webPath, $this->carpeta);
+        $pathNoporcesados = sprintf("%s/267API/%s", $webPath, $this->carpeta);
+        //$pathNoporcesados = sprintf("%scsvExtend/%s", $webPath, $this->carpeta);
+        $pathPorcesados = sprintf("%sProcesados/%s", $webPath, $this->carpeta);
+        $pathError = sprintf("%sError/%s", $webPath, $this->carpeta);
+
+        echo('pathNoprocesados: ' . $pathNoporcesados . "\n");
+        echo('pathPorcesados: ' .$pathPorcesados . "\n");
+        echo('pathError: ' .$pathError . "\n");
 
         // Si la carpeta no existe informa del error
         clearstatcache();
@@ -256,7 +261,8 @@ class Worker
     function GeneraTriples($pilaTriples, $registrosCSV, $pathNoporcesados)
     {
         // $this->trazas->LineaInfo("GeneraTriples","Inicio de generación de triples");
-        $nombreFichero = $pathNoporcesados . "/datos.n3";
+        //$nombreFichero = $pathNoporcesados . "/datos.n3";
+        $nombreFichero = "/data/AOD_Pool_PAC/API/web/publicacion/267API/datos.n3";
         // abro fichero para escribir las triples
         $myfile = fopen($nombreFichero, "w+");
         $cuenta = 0;

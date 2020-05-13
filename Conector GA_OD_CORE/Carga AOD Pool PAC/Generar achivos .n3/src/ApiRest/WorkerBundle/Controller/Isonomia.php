@@ -115,7 +115,8 @@ class Isonomia
     {
         $isonomia = "";
         // $directoryPath = str_replace("app","src/ApiRest/WorkerBundle/Resources/Files/Isonomias/",$this->appPath);
-        $directoryPath = "C:/Users/abernad/eclipse-workspace/AODP API/src//ApiRest/WorkerBundle/Resources/Files/Isonomias/";
+        // $directoryPath = "C:/Users/abernad/eclipse-workspace/AODP API/src//ApiRest/WorkerBundle/Resources/Files/Isonomias/";
+        $directoryPath = "/data/apps/ActualizarAOD/PAC/n3Generate/src/ApiRest/WorkerBundle/Resources/Files/Templates/";
         $nombreFichero = $directoryPath . $id . ".xml";
         if (file_exists($nombreFichero)) {
             $isonomia = file_get_contents($nombreFichero);

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:dc="http://purl.org/dc/elements/1.1/" id="86">
+  <Entity rdf:type="ei2a:Crop" URI="http://opendata.aragon.es/def/ei2a#clase-cultivo-{CCOSEC}-{CUSO}">
+    <Property field="{FUENTE}" attribute="dc:source" type="string"/>
+    <Property field="{CCOSEC}-{CUSO}" attribute="dc:identifier" type="string"/>
+    <Property link="ei2a:clase_cultivo" attribute="dc:type"/>
+    <Property field="{CCOSEC}" attribute="dc:date" type="string"/>
+    <Property field="{CUSO}" attribute="ei2a:use" type="string"/>
+    <Property field="{DUSO}" attribute="ei2a:description" type="string"/>
+  </Entity>
+</Mapping>
