@@ -157,11 +157,19 @@ function DescargarVistaCompleta($idVista)
     return false;
 }
 
-function DescargarBOAJSON()
+function DescargarBOAJSON($nombreVista)
 {
     global $RutaTrabajo;
     $ch = curl_init(); // instanciamos curl e iniciamos un handler para trabajar.
-    $url = "http://www.boa.aragon.es/cgi-bin/AODB/BRSCGI?CMD=VERLST&OUTPUTMODE=JSON&BASE=BOLE&DOCS=1-10000&SEC=OPENDATAELIJSOND&SORT=-PUBL&SEPARADOR=&&SECC-C=generales&RANG=(ley+o+decreto)&OP1-C=NO&RANG=real&OP2-C=NO&RANG=correccion&OP3-C=NO&RANG=organica"; // Url del archivo json de leyes y decretos BOA
+    if ($nombreVista == 'boa_eli') {
+        $url = "http://www.boa.aragon.es/cgi-bin/AODB/BRSCGI?CMD=VERLST&OUTPUTMODE=JSON&BASE=BOLE&DOCS=1-10000&SEC=OPENDATAELIJSONO&SORT=-PUBL&SEPARADOR=&SECC-C=generales&CODR-C=(3+o+19+o+21+o+102+o+143+o+17)"; // Url del archivo json de leyes y decretos BOA
+    } else if ($nombreVista == 'boa_eli_correcciones') {
+        $url = "http://www.boa.aragon.es/cgi-bin/AODB/BRSCGI?CMD=VERLST&OUTPUTMODE=JSON&BASE=BOLE&DOCS=1-10000&SEC=OPENDATAELIJSONOCORRE&SORT=-PUBL&SEPARADOR=&SECC-C=generales&CODR-C=(4+o+20+o+22+o+103+o+144+o+18)"; // Url del archivo json de leyes y decretos BOA
+    } else if ($nombreVista == 'boa_eli_ordenes') {
+        $url = "http://www.boa.aragon.es/cgi-bin/AODB/BRSCGI?CMD=VERLST&OUTPUTMODE=JSON&BASE=BOLE&DOCS=1-10000&SEC=OPENDATAELIJSONO&SORT=-PUBL&SEPARADOR=&SECC-C=generales&CODR-C=11&@FDIS-GE=20160101"; // Url del archivo json de leyes y decretos BOA
+    } else if ($nombreVista == 'boa_eli_ordenes_correcciones'){
+        $url = "http://www.boa.aragon.es/cgi-bin/AODB/BRSCGI?CMD=VERLST&OUTPUTMODE=JSON&BASE=BOLE&DOCS=1-10000&SEC=OPENDATAELIJSONOCORRE&SORT=-PUBL&SEPARADOR=&SECC-C=generales&CODR-C=12&@FDIS-GE=20160101"; // Url del archivo json de leyes y decretos BOA
+    }
 
     curl_setopt($ch, CURLOPT_HEADER, 0);
     curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 0);
@@ -208,8 +216,15 @@ function GenerarCSVDesdeBOAJSON()
         $FicheroDestinoJSON = $RutaTrabajo . "/VistasJson/VistaBOA/vista_boa_eli.json";
 
         $json = utf8_encode(file_get_contents($FicheroDestinoJSON));
+
+        // Este IF se hace para suprimir la "," de más que está generándose en el JSON del BOA
+        if ($json[strlen($json)-3] === ',') {
+            $json = substr($json, 0, -3);
+            $json = $json . "]";
+        }
+
         $jsonDecoded = json_decode($json, true);
-         
+        
         //Give our CSV file a name.
         $fp = fopen($FicheroDestinoCSV, 'w+');
 
@@ -297,7 +312,7 @@ function EscribirFilaEnCSV($fichero, $fila)
 function actualizarCsv($idVista, $nombreVista, $dcTypes, $URLApi)
 {
     $ficheroCSV = "./VistasCsv/Vista$idVista/vista_$idVista.csv";
-    if ($nombreVista == 'boa_eli') {
+    if ($nombreVista == 'boa_eli' or $nombreVista == 'boa_eli_correcciones' or $nombreVista == 'boa_eli_ordenes' or $nombreVista == 'boa_eli_ordenes_correcciones') {
         $ficheroCSV = "./VistasJson/VistaBOA/vista_boa_eli_v2.csv";
     } elseif (!file_exists($ficheroCSV)) {
         $ficheroCSV = "./VistasCsv/Vista$idVista/Vista_$idVista.csv";
@@ -326,7 +341,7 @@ function actualizarCsv($idVista, $nombreVista, $dcTypes, $URLApi)
 
     logErrores("TPAOD: Se ha mandado la peticion de actualizacion del csv de la vista: $nombreVista Estado: $httpcode y respuesta: $RespuestaHTTP");
 
-    if ($nombreVista != 'boa_eli') {
+    if ($nombreVista != 'boa_eli' and $nombreVista != 'boa_eli_correcciones' and $nombreVista != 'boa_eli_ordenes' and $nombreVista != 'boa_eli_ordenes_correcciones') {
         switch ($idVista) {
 
             case 10:
@@ -445,13 +460,12 @@ function ObtenerNumeroSujetosVirtuoso($idVista)
     global $dcTypesBOA;
 
     // Check if BOA
-    if ($idVista == 'boa_eli') {
+    if ($idVista == 'boa_eli' or $idVista == 'boa_eli_correcciones' or $idVista == 'boa_eli_ordenes' or $idVista == 'boa_eli_ordenes_correcciones') {
         $dctypeParaConsulta = $dcTypesBOA[0]; // Obtenemos el dctype que corresponde al BOA.
         // $dctypeParaConsulta = $dcTypes[3];
     } else {
         $dctypeParaConsulta = $dcTypes[$idVista]; // Obtenemos el dctype que corresponde a la vista.
     }
-
     $db = sparql_connect($URLEndpointVirtuoso);
     sparql_ns("ei2a", "http://opendata.aragon.es/def/ei2a"); // Agregamos el prefijo ei2a. Para mas informacion consultar: https://opendata.aragon.es/def/ei2a/
     $FiltroSQL = str_replace('ei2a:', 'http://opendata.aragon.es/def/ei2a#', $dctypeParaConsulta);
