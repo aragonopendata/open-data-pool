@@ -222,7 +222,9 @@
         <p class="titulo"> {{lista.Titulo}}</p>
         <ul>
             {% for enlace in lista.Enlaces %}
-                <li><a  title='{{enlace.Texto}}' href="{{enlace.Url}}" target="_blank"> {{enlace.Texto}} </a></li>
+                {% if 'datos/catalogo/dataset/datos-municipio' not in enlace.Url %}
+                    <li><a  title='{{enlace.Texto}}' href="{{enlace.Url}}" target="_blank"> {{enlace.Texto}} </a></li> 
+                {% endif %}
             {% endfor %}
         </ul>
     </div>
