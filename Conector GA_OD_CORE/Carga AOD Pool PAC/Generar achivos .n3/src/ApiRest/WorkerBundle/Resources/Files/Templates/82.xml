@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Mapping xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ei2a="http://opendata.aragon.es/def/ei2a#" xmlns:dc="http://purl.org/dc/elements/1.1/" id="82">
-  <Entity rdf:type="ei2a:Crop" URI="http://opendata.aragon.es/def/ei2a#codigo-cultivo-herbaceo-{CANO}-{CPRODU}">
+  <Entity rdf:type="ei2a:Crop" URI="http://opendata.aragon.es/def/ei2a#codigo-cultivo-herbaceo-{CCOSEC}-{CODIGO_PRODU}">
     <Property field="{FUENTE}" attribute="dc:source" type="string"/>
-    <Property field="{CANO}-{CPRODU}" attribute="dc:identifier" type="string"/>
+    <Property field="{CCOSEC}-{CODIGO_PRODU}" attribute="dc:identifier" type="string"/>
     <Property link="ei2a:arable" attribute="dc:type"/>
-    <Property field="{CANO}" attribute="dc:date" type="string"/>
-    <Property field="{CPRODU}" attribute="dc:cropIdentifier" type="integer"/>
+    <Property field="{CCOSEC}" attribute="dc:date" type="string"/>
+    <Property field="{CODIGO_PRODU}" attribute="dc:cropIdentifier" type="integer"/>
     <Property field="{DPRODU}" attribute="ei2a:description" type="string"/>
   </Entity>
 </Mapping>
