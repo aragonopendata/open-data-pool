@@ -166,9 +166,9 @@ function DescargarBOAJSON($nombreVista)
     } else if ($nombreVista == 'boa_eli_correcciones') {
         $url = "http://www.boa.aragon.es/cgi-bin/AODB/BRSCGI?CMD=VERLST&OUTPUTMODE=JSON&BASE=BOLE&DOCS=1-10000&SEC=OPENDATAELIJSONOCORRE&SORT=-PUBL&SEPARADOR=&SECC-C=generales&CODR-C=(4+o+20+o+22+o+103+o+144+o+18)"; // Url del archivo json de leyes y decretos BOA
     } else if ($nombreVista == 'boa_eli_ordenes') {
-        $url = "http://www.boa.aragon.es/cgi-bin/AODB/BRSCGI?CMD=VERLST&OUTPUTMODE=JSON&BASE=BOLE&DOCS=1-10000&SEC=OPENDATAELIJSONO&SORT=-PUBL&SEPARADOR=&SECC-C=generales&CODR-C=11&@FDIS-GE=20140101"; // Url del archivo json de leyes y decretos BOA
+        $url = "http://www.boa.aragon.es/cgi-bin/AODB/BRSCGI?CMD=VERLST&OUTPUTMODE=JSON&BASE=BOLE&DOCS=1-10000&SEC=OPENDATAELIJSONO&SORT=-PUBL&SEPARADOR=&SECC-C=generales&CODR-C=11&@FDIS-GE=20120101"; // Url del archivo json de leyes y decretos BOA
     } else if ($nombreVista == 'boa_eli_ordenes_correcciones'){
-        $url = "http://www.boa.aragon.es/cgi-bin/AODB/BRSCGI?CMD=VERLST&OUTPUTMODE=JSON&BASE=BOLE&DOCS=1-10000&SEC=OPENDATAELIJSONOCORRE&SORT=-PUBL&SEPARADOR=&SECC-C=generales&CODR-C=12&@FDIS-GE=20140101"; // Url del archivo json de leyes y decretos BOA
+        $url = "http://www.boa.aragon.es/cgi-bin/AODB/BRSCGI?CMD=VERLST&OUTPUTMODE=JSON&BASE=BOLE&DOCS=1-10000&SEC=OPENDATAELIJSONOCORRE&SORT=-PUBL&SEPARADOR=&SECC-C=generales&CODR-C=12&@FDIS-GE=20120101"; // Url del archivo json de leyes y decretos BOA
     }
 
     curl_setopt($ch, CURLOPT_HEADER, 0);
